@@ -1,0 +1,699 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>My Kcal - 무료 칼로리 계산기 | 기초대사량·TDEE·다이어트 식단 포털</title>
+<meta name="description" content="My Kcal 무료 웹 계산기로 기초대사량(BMR)과 하루 소비 칼로리(TDEE)를 정확히 계산하고, 한국 음식 칼로리 사전, 저칼로리 고단백 다이어트 레시피, 운동별 소모 칼로리까지 한 곳에서 확인하세요.">
+<meta name="keywords" content="칼로리 계산기, 기초대사량 계산기, TDEE 계산기, 다이어트 식단, 칼로리 사전, 저칼로리 레시피, 운동 칼로리 소모, 마이칼, My Kcal">
+<meta name="author" content="My Kcal">
+<link rel="canonical" href="https://my-kcal.app/">
+<meta property="og:type" content="website">
+<meta property="og:locale" content="ko_KR">
+<meta property="og:title" content="My Kcal - 무료 칼로리 계산기 & 다이어트 포털">
+<meta property="og:description" content="기초대사량, TDEE, 매크로 배분부터 한국 음식 칼로리 사전, 다이어트 레시피, 운동 칼로리 계산까지 무료로 이용하세요.">
+<meta property="og:image" content="logo.png">
+<meta property="og:url" content="https://my-kcal.app/">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" href="logo.png" type="image/png">
+<script src="https://cdn.tailwindcss.com"></script>
+<script>
+  tailwind.config = {
+    theme: {
+      extend: {
+        colors: {
+          brand: { DEFAULT: '#FF6B00', dark: '#FF5722', light: '#FFF1E6' },
+          cream: '#F7F6F3'
+        }
+      }
+    }
+  };
+</script>
+<style>
+  body { font-family: -apple-system, BlinkMacSystemFont, "Apple SD Gothic Neo", "Pretendard", "Malgun Gothic", sans-serif; }
+  .logo-img { mix-blend-mode: multiply; }
+  .tab-btn { position: relative; }
+  .tab-btn.active { color: #FF6B00; }
+  .tab-btn.active::after {
+    content: ""; position: absolute; left: 0; right: 0; bottom: -13px; height: 3px;
+    background: #FF6B00; border-radius: 999px;
+  }
+  .tab-panel { animation: fadeIn .35s ease; }
+  @keyframes fadeIn { from { opacity: 0; transform: translateY(6px); } to { opacity: 1; transform: translateY(0); } }
+  .faq-answer { max-height: 0; overflow: hidden; transition: max-height .3s ease; }
+  .faq-item.open .faq-answer { max-height: 500px; }
+  .faq-item.open .faq-icon { transform: rotate(45deg); }
+  .faq-icon { transition: transform .25s ease; }
+  ::-webkit-scrollbar { height: 6px; width: 6px; }
+  ::-webkit-scrollbar-thumb { background: #ddd; border-radius: 999px; }
+  .modal-overlay { backdrop-filter: blur(2px); }
+</style>
+</head>
+<body class="bg-cream text-gray-900 antialiased">
+
+<!-- ===== Header ===== -->
+<header class="sticky top-0 z-40 bg-cream/95 backdrop-blur border-b border-gray-200">
+  <div class="max-w-2xl mx-auto px-4 py-3 flex flex-col sm:flex-row sm:items-center gap-2 sm:gap-4">
+    <div class="flex items-center gap-2 shrink-0">
+      <img src="logo.png" alt="My Kcal 로고" class="logo-img h-8 w-auto">
+      <div class="leading-tight">
+        <div class="font-extrabold text-lg tracking-tight">My Kcal</div>
+        <div class="text-[10px] text-gray-400 hidden sm:block">Smart Calorie &amp; Water Tracker</div>
+      </div>
+    </div>
+
+    <nav id="main-tabs" class="grid grid-cols-4 text-center text-xs sm:text-sm font-semibold text-gray-500">
+      <button data-tab="calculator" class="tab-btn active py-3">계산기</button>
+      <button data-tab="fooddb" class="tab-btn py-3">칼로리 사전</button>
+      <button data-tab="recipes" class="tab-btn py-3">다이어트 레시피</button>
+      <button data-tab="exercise" class="tab-btn py-3">운동 칼로리</button>
+    </nav>
+  </div>
+</header>
+
+<!-- AdSense: 헤더 하단 -->
+<div class="max-w-2xl mx-auto px-4 mt-4">
+  <!-- Google AdSense 광고 슬롯 (헤더 하단, 반응형) -->
+  <div class="adsense-box w-full h-24 md:h-28 border-2 border-dashed border-gray-300 rounded-xl flex items-center justify-center text-gray-400 text-xs">
+    광고 영역 (Google AdSense)
+  </div>
+</div>
+
+<main class="max-w-2xl mx-auto px-4">
+
+  <!-- ===== Hero ===== -->
+  <section class="text-center py-10">
+    <h1 class="text-2xl md:text-4xl font-extrabold tracking-tight leading-snug">
+      오늘 얼마나 먹어도 될까?<br>My Kcal이 정확하게 알려드려요
+    </h1>
+    <p class="text-gray-500 mt-3 max-w-xl mx-auto text-sm md:text-base">
+      기초대사량, 일일 소비 칼로리, 매크로 영양소, 음식 칼로리, 운동 소모량까지 —
+      다이어트에 필요한 모든 계산을 한 곳에서 무료로 이용하세요.
+    </p>
+  </section>
+
+  <!-- ============================================================ -->
+  <!-- TAB 1. 계산기 -->
+  <!-- ============================================================ -->
+  <section id="tab-calculator" class="tab-panel">
+
+    <div class="bg-white border border-gray-200 rounded-2xl p-6 md:p-8 shadow-sm">
+      <div class="flex items-center justify-between mb-5">
+        <h2 class="font-bold text-lg">기초대사량 &amp; 일일 소비 칼로리 계산</h2>
+        <span class="text-xs bg-cream text-gray-500 px-3 py-1 rounded-full">무료 계산기</span>
+      </div>
+
+      <form id="calcForm" class="space-y-5">
+        <div class="flex gap-2">
+          <button type="button" data-gender="male" class="gender-btn flex-1 py-2.5 rounded-xl border font-semibold text-sm bg-gray-900 text-white border-gray-900">남성</button>
+          <button type="button" data-gender="female" class="gender-btn flex-1 py-2.5 rounded-xl border font-semibold text-sm bg-white text-gray-500 border-gray-200">여성</button>
+        </div>
+
+        <div class="grid grid-cols-3 gap-3">
+          <label class="block">
+            <span class="text-xs font-semibold text-gray-500">나이 (세)</span>
+            <input id="age" type="number" value="25" min="10" max="100" class="mt-1 w-full border border-gray-200 rounded-lg px-3 py-2 text-sm focus:outline-brand">
+          </label>
+          <label class="block">
+            <span class="text-xs font-semibold text-gray-500">키 (cm)</span>
+            <input id="height" type="number" value="170" min="100" max="250" class="mt-1 w-full border border-gray-200 rounded-lg px-3 py-2 text-sm focus:outline-brand">
+          </label>
+          <label class="block">
+            <span class="text-xs font-semibold text-gray-500">몸무게 (kg)</span>
+            <input id="weight" type="number" value="65" min="30" max="250" class="mt-1 w-full border border-gray-200 rounded-lg px-3 py-2 text-sm focus:outline-brand">
+          </label>
+        </div>
+
+        <label class="block">
+          <span class="text-xs font-semibold text-gray-500">활동량</span>
+          <select id="activity" class="mt-1 w-full border border-gray-200 rounded-lg px-3 py-2 text-sm bg-white">
+            <option value="1.2">거의 운동 안 함 (사무직, 좌식 생활)</option>
+            <option value="1.375">가벼운 활동 (주 1~3회 가벼운 운동)</option>
+            <option value="1.55" selected>보통 활동 (주 3~5회 운동)</option>
+            <option value="1.725">활발한 활동 (주 6~7회 운동)</option>
+            <option value="1.9">매우 활발함 (하루 2회 이상, 강도 높은 운동)</option>
+          </select>
+        </label>
+
+        <label class="block">
+          <span class="text-xs font-semibold text-gray-500">목표</span>
+          <select id="goal" class="mt-1 w-full border border-gray-200 rounded-lg px-3 py-2 text-sm bg-white">
+            <option value="-0.2">체중 감량</option>
+            <option value="0" selected>체중 유지</option>
+            <option value="0.2">체중 증량</option>
+          </select>
+        </label>
+
+        <button type="submit" class="w-full bg-gray-900 hover:bg-gray-700 text-white font-bold py-3.5 rounded-xl transition">계산하기</button>
+      </form>
+    </div>
+
+    <!-- 결과 -->
+    <div id="results" class="hidden mt-5 space-y-4">
+      <div class="bg-white border border-gray-200 rounded-2xl p-6 md:p-7">
+        <div class="flex items-center justify-between mb-2">
+          <h3 class="font-bold text-sm">목표 섭취 칼로리</h3>
+          <span class="text-xs bg-cream text-gray-500 px-3 py-1 rounded-full">오늘의 목표</span>
+        </div>
+        <div class="text-4xl md:text-5xl font-extrabold tracking-tight"><span id="goalValue">0</span> <small class="text-base font-medium text-gray-400">kcal</small></div>
+      </div>
+
+      <div class="grid grid-cols-1 sm:grid-cols-3 gap-4">
+        <div class="bg-white border border-gray-200 rounded-2xl p-5">
+          <div class="flex items-center justify-between mb-2">
+            <h3 class="font-bold text-sm">기초대사량 (BMR)</h3>
+          </div>
+          <div class="text-2xl font-extrabold"><span id="bmrValue">0</span> <small class="text-sm font-medium text-gray-400">kcal</small></div>
+        </div>
+        <div class="bg-white border border-gray-200 rounded-2xl p-5">
+          <div class="flex items-center justify-between mb-2">
+            <h3 class="font-bold text-sm">일일 소비 칼로리 (TDEE)</h3>
+          </div>
+          <div class="text-2xl font-extrabold"><span id="tdeeValue">0</span> <small class="text-sm font-medium text-gray-400">kcal</small></div>
+        </div>
+        <div class="bg-white border border-gray-200 rounded-2xl p-5">
+          <div class="flex items-center justify-between mb-2">
+            <h3 class="font-bold text-sm">권장 수분 섭취량</h3>
+          </div>
+          <div class="text-2xl font-extrabold text-blue-500"><span id="waterValue">0</span> <small class="text-sm font-medium text-gray-400">mL</small></div>
+        </div>
+      </div>
+
+      <!-- 매크로 -->
+      <div class="bg-white border border-gray-200 rounded-2xl p-6 md:p-7">
+        <h3 class="font-bold text-sm mb-4">탄수화물 · 단백질 · 지방 맞춤 배분</h3>
+        <div class="flex h-4 rounded-full overflow-hidden bg-gray-100">
+          <div id="carbBar" class="bg-amber-400" style="width:50%"></div>
+          <div id="proteinBar" class="bg-brand" style="width:30%"></div>
+          <div id="fatBar" class="bg-blue-400" style="width:20%"></div>
+        </div>
+        <div class="grid grid-cols-3 gap-3 mt-4 text-center text-sm">
+          <div>
+            <div class="w-2.5 h-2.5 rounded-full bg-amber-400 inline-block mr-1"></div>탄수화물
+            <div class="font-extrabold text-lg mt-1"><span id="carbG">0</span>g</div>
+          </div>
+          <div>
+            <div class="w-2.5 h-2.5 rounded-full bg-brand inline-block mr-1"></div>단백질
+            <div class="font-extrabold text-lg mt-1"><span id="proteinG">0</span>g</div>
+          </div>
+          <div>
+            <div class="w-2.5 h-2.5 rounded-full bg-blue-400 inline-block mr-1"></div>지방
+            <div class="font-extrabold text-lg mt-1"><span id="fatG">0</span>g</div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- AdSense: 계산 결과 하단 -->
+    <div class="mt-5">
+      <!-- Google AdSense 광고 슬롯 (계산 결과 하단, 반응형) -->
+      <div class="adsense-box w-full h-24 md:h-28 border-2 border-dashed border-gray-300 rounded-xl flex items-center justify-center text-gray-400 text-xs">
+        광고 영역 (Google AdSense)
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================================ -->
+  <!-- TAB 2. 칼로리 사전 -->
+  <!-- ============================================================ -->
+  <section id="tab-fooddb" class="tab-panel hidden">
+    <div class="bg-white border border-gray-200 rounded-2xl p-6 md:p-8">
+      <h2 class="font-bold text-lg mb-1">한국인 식단 칼로리 사전</h2>
+      <p class="text-gray-500 text-sm mb-4">자주 먹는 다이어트 &amp; 외식 음식 30종의 1회 제공량 기준 영양 정보입니다.</p>
+      <input id="foodSearch" type="text" placeholder="음식 이름으로 검색 (예: 닭가슴살, 고구마, 쌀밥)" class="w-full border border-gray-200 rounded-xl px-4 py-3 text-sm focus:outline-brand">
+    </div>
+
+    <div id="foodGrid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 mt-5"></div>
+    <p id="foodEmpty" class="hidden text-center text-gray-400 text-sm py-10">검색 결과가 없어요. 다른 키워드로 검색해보세요.</p>
+  </section>
+
+  <!-- ============================================================ -->
+  <!-- TAB 3. 다이어트 레시피 -->
+  <!-- ============================================================ -->
+  <section id="tab-recipes" class="tab-panel hidden">
+    <div class="mb-5">
+      <h2 class="font-bold text-lg">초간단 저칼로리 &middot; 고단백 다이어트 레시피</h2>
+      <p class="text-gray-500 text-sm mt-1">재료 준비부터 조리 순서까지, 15분 안에 완성하는 다이어트 식단입니다.</p>
+    </div>
+    <div id="recipeList" class="space-y-5"></div>
+  </section>
+
+  <!-- ============================================================ -->
+  <!-- TAB 4. 운동 칼로리 -->
+  <!-- ============================================================ -->
+  <section id="tab-exercise" class="tab-panel hidden">
+    <div class="bg-white border border-gray-200 rounded-2xl p-6 md:p-8 shadow-sm">
+      <h2 class="font-bold text-lg mb-1">운동 소모 칼로리 계산기</h2>
+      <p class="text-gray-500 text-sm mb-5">체중과 운동 시간을 입력하면 종목별 실제 소모 칼로리를 계산해드려요.</p>
+
+      <div class="grid grid-cols-1 sm:grid-cols-3 gap-3 mb-5">
+        <label class="block">
+          <span class="text-xs font-semibold text-gray-500">몸무게 (kg)</span>
+          <input id="exWeight" type="number" value="65" min="30" max="250" class="mt-1 w-full border border-gray-200 rounded-lg px-3 py-2 text-sm">
+        </label>
+        <label class="block">
+          <span class="text-xs font-semibold text-gray-500">운동 시간 (분)</span>
+          <input id="exDuration" type="number" value="30" min="1" max="300" class="mt-1 w-full border border-gray-200 rounded-lg px-3 py-2 text-sm">
+        </label>
+        <label class="block">
+          <span class="text-xs font-semibold text-gray-500">운동 종목</span>
+          <select id="exType" class="mt-1 w-full border border-gray-200 rounded-lg px-3 py-2 text-sm bg-white"></select>
+        </label>
+      </div>
+
+      <button id="exCalcBtn" class="w-full bg-gray-900 hover:bg-gray-700 text-white font-bold py-3.5 rounded-xl transition">소모 칼로리 계산하기</button>
+
+      <div id="exResult" class="hidden mt-5 bg-brand-light border border-brand/20 rounded-2xl p-6 text-center">
+        <p class="text-sm text-gray-600 mb-1"><span id="exResultLabel"></span> 기준</p>
+        <div class="text-4xl font-extrabold text-brand"><span id="exResultKcal">0</span> <small class="text-base font-medium text-gray-500">kcal 소모</small></div>
+      </div>
+    </div>
+
+    <div class="bg-white border border-gray-200 rounded-2xl p-6 md:p-8 mt-5">
+      <h3 class="font-bold text-sm mb-4">운동 종목별 1시간 기준 소모 칼로리 (체중 65kg 기준)</h3>
+      <div id="exTable" class="divide-y divide-gray-100 text-sm"></div>
+    </div>
+  </section>
+
+  <!-- ============================================================ -->
+  <!-- 가이드 아티클 -->
+  <!-- ============================================================ -->
+  <section class="mt-14">
+    <h2 class="text-xl font-extrabold mb-1">다이어트 &amp; 칼로리 전문 정보 칼럼</h2>
+    <p class="text-gray-500 text-sm mb-6">건강하고 지속 가능한 체중 관리를 위한 생리학 기반 가이드입니다.</p>
+
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-5">
+
+      <article class="bg-white border border-gray-200 rounded-2xl p-6 flex flex-col">
+        <h3 class="font-bold mb-3">BMR과 TDEE의 생리학적 차이, 올바른 칼로리 적자 설정법</h3>
+        <p class="text-sm text-gray-600 leading-relaxed flex-1">
+          기초대사량(BMR)은 아무 움직임 없이 누워만 있어도 쓰는 최소 에너지량이고, TDEE는 여기에 활동 칼로리를 더한 값입니다. 다이어트 기준은 BMR이 아니라 TDEE여야 하며, BMR 아래로 먹으면 근손실과 대사 저하가 뒤따를 수 있습니다.
+        </p>
+        <a href="articles/bmr-tdee.html" class="text-brand text-sm font-semibold mt-4 inline-block">전체 글 읽기 &rarr;</a>
+      </article>
+
+      <article class="bg-white border border-gray-200 rounded-2xl p-6 flex flex-col">
+        <h3 class="font-bold mb-3">체지방 1kg 감량에 필요한 7,700kcal, 요요 없이 빼는 속도</h3>
+        <p class="text-sm text-gray-600 leading-relaxed flex-1">
+          체지방 1kg은 약 7,700kcal에 해당합니다. 다만 감량 속도보다 중요한 건 지속 가능성이며, 주당 체중의 0.5~1% 정도가 요요 없이 안전한 감량 속도로 알려져 있습니다.
+        </p>
+        <a href="articles/calorie-deficit.html" class="text-brand text-sm font-semibold mt-4 inline-block">전체 글 읽기 &rarr;</a>
+      </article>
+
+      <article class="bg-white border border-gray-200 rounded-2xl p-6 flex flex-col">
+        <h3 class="font-bold mb-3">단순 칼로리 제한 vs 매크로(탄단지) 비율, 신진대사에 미치는 영향</h3>
+        <p class="text-sm text-gray-600 leading-relaxed flex-1">
+          같은 칼로리라도 탄단지 비율에 따라 몸의 반응은 달라집니다. 특히 단백질은 식이성 발열 효과가 높고 근육 손실을 막아주는 핵심 영양소로, 다이어트 중 섭취량을 꼭 챙겨야 합니다.
+        </p>
+        <a href="articles/macro-ratio.html" class="text-brand text-sm font-semibold mt-4 inline-block">전체 글 읽기 &rarr;</a>
+      </article>
+
+      <article class="bg-white border border-gray-200 rounded-2xl p-6 flex flex-col">
+        <h3 class="font-bold mb-3">매일 아침 체중이 오르내리는 이유: 글리코겐과 수분의 원리</h3>
+        <p class="text-sm text-gray-600 leading-relaxed flex-1">
+          하루 단위 체중 변동은 대부분 체지방이 아니라 글리코겐에 결합된 수분량 변화 때문입니다. 체중은 하루하루가 아니라 1~2주 단위 평균 추이로 확인하는 것이 정확합니다.
+        </p>
+        <a href="articles/glycogen-water.html" class="text-brand text-sm font-semibold mt-4 inline-block">전체 글 읽기 &rarr;</a>
+      </article>
+
+    </div>
+  </section>
+
+  <!-- ============================================================ -->
+  <!-- FAQ -->
+  <!-- ============================================================ -->
+  <section class="mt-14">
+    <h2 class="text-xl font-extrabold mb-5">자주 묻는 질문</h2>
+    <div id="faqList" class="space-y-3"></div>
+  </section>
+
+  <!-- AdSense: 본문 하단 -->
+  <div class="my-10">
+    <!-- Google AdSense 광고 슬롯 (본문 하단, 반응형) -->
+    <div class="adsense-box w-full h-24 md:h-28 border-2 border-dashed border-gray-300 rounded-xl flex items-center justify-center text-gray-400 text-xs">
+      광고 영역 (Google AdSense)
+    </div>
+  </div>
+
+</main>
+
+<!-- ===== Footer ===== -->
+<footer class="border-t border-gray-200 mt-6">
+  <div class="max-w-2xl mx-auto px-4 py-8 text-sm text-gray-500">
+    <div class="flex flex-wrap gap-x-6 gap-y-2 mb-4 font-medium">
+      <a href="privacy.html" class="hover:text-brand">개인정보처리방침</a>
+      <a href="terms.html" class="hover:text-brand">이용약관</a>
+      <a href="disclaimer.html" class="hover:text-brand">면책조항</a>
+      <a href="contact.html" class="hover:text-brand">문의하기</a>
+    </div>
+    <p class="text-xs text-gray-400">본 사이트의 모든 계산 결과는 일반적인 공식(Mifflin-St Jeor 등)에 근거한 참고용 추정치이며, 의학적 진단이나 처방을 대체하지 않습니다.</p>
+    <p class="text-xs text-gray-400 mt-1">&copy; 2026 My Kcal. All rights reserved.</p>
+  </div>
+</footer>
+
+<script>
+/* ============================================================
+   0. 로고 배경 제거 (흰 배경 -> 투명, 여백 자동 크롭 후 img로 교체할 필요 없이 mix-blend-mode로 처리했으나
+   배경색이 미묘하게 다를 수 있어 canvas 후처리를 병행)
+   ============================================================ */
+(function renderLogo() {
+  const imgEl = document.querySelector('.logo-img');
+  if (!imgEl) return;
+  const src = imgEl.getAttribute('src');
+  const img = new Image();
+  img.onload = () => {
+    const off = document.createElement('canvas');
+    off.width = img.width; off.height = img.height;
+    const octx = off.getContext('2d');
+    octx.drawImage(img, 0, 0);
+    const data = octx.getImageData(0, 0, off.width, off.height);
+    const d = data.data;
+    let minX = off.width, minY = off.height, maxX = 0, maxY = 0;
+    const floor = 200, ceil = 250;
+    for (let y = 0; y < off.height; y++) {
+      for (let x = 0; x < off.width; x++) {
+        const i = (y * off.width + x) * 4;
+        const whiteness = Math.min(d[i], d[i+1], d[i+2]);
+        if (whiteness <= floor) {
+          if (x < minX) minX = x; if (x > maxX) maxX = x;
+          if (y < minY) minY = y; if (y > maxY) maxY = y;
+        }
+        if (whiteness > floor) {
+          const fade = Math.min(1, (whiteness - floor) / (ceil - floor));
+          d[i+3] = Math.round(d[i+3] * (1 - fade));
+        }
+      }
+    }
+    octx.putImageData(data, 0, 0);
+    const pad = 12;
+    const cropX = Math.max(0, minX - pad);
+    const cropY = Math.max(0, minY - pad);
+    const cropW = Math.min(off.width, maxX + pad) - cropX;
+    const cropH = Math.min(off.height, maxY + pad) - cropY;
+    const canvas = document.createElement('canvas');
+    canvas.width = cropW; canvas.height = cropH;
+    canvas.className = imgEl.className.replace('logo-img', '') + ' logo-img h-8 w-auto';
+    canvas.getContext('2d').drawImage(off, cropX, cropY, cropW, cropH, 0, 0, cropW, cropH);
+    imgEl.replaceWith(canvas);
+  };
+  img.src = src;
+})();
+
+/* ============================================================
+   1. 탭 전환
+   ============================================================ */
+const tabButtons = document.querySelectorAll('[data-tab]');
+const tabPanels = {
+  calculator: document.getElementById('tab-calculator'),
+  fooddb: document.getElementById('tab-fooddb'),
+  recipes: document.getElementById('tab-recipes'),
+  exercise: document.getElementById('tab-exercise'),
+};
+tabButtons.forEach(btn => {
+  btn.addEventListener('click', () => {
+    tabButtons.forEach(b => b.classList.remove('active'));
+    btn.classList.add('active');
+    Object.values(tabPanels).forEach(p => p.classList.add('hidden'));
+    tabPanels[btn.dataset.tab].classList.remove('hidden');
+  });
+});
+
+/* ============================================================
+   2. 계산기
+   ============================================================ */
+let gender = 'male';
+document.querySelectorAll('.gender-btn').forEach(btn => {
+  btn.addEventListener('click', () => {
+    document.querySelectorAll('.gender-btn').forEach(b => {
+      b.classList.remove('bg-gray-900', 'text-white', 'border-gray-900');
+      b.classList.add('bg-white', 'text-gray-500', 'border-gray-200');
+    });
+    btn.classList.add('bg-gray-900', 'text-white', 'border-gray-900');
+    btn.classList.remove('bg-white', 'text-gray-500', 'border-gray-200');
+    gender = btn.dataset.gender;
+  });
+});
+
+const MACRO_RATIOS = {
+  '-0.2': { carb: 0.35, protein: 0.40, fat: 0.25 },
+  '0':    { carb: 0.50, protein: 0.30, fat: 0.20 },
+  '0.2':  { carb: 0.50, protein: 0.30, fat: 0.20 },
+};
+
+document.getElementById('calcForm').addEventListener('submit', (e) => {
+  e.preventDefault();
+  const age = Number(document.getElementById('age').value);
+  const height = Number(document.getElementById('height').value);
+  const weight = Number(document.getElementById('weight').value);
+  const activity = Number(document.getElementById('activity').value);
+  const goalKey = document.getElementById('goal').value;
+  const goalOffset = Number(goalKey);
+
+  let bmr = 10 * weight + 6.25 * height - 5 * age;
+  bmr += gender === 'male' ? 5 : -161;
+
+  const tdee = bmr * activity;
+  const goalCalories = Math.max(tdee * (1 + goalOffset), 0);
+  const water = weight * 33;
+
+  document.getElementById('bmrValue').textContent = Math.round(bmr).toLocaleString();
+  document.getElementById('tdeeValue').textContent = Math.round(tdee).toLocaleString();
+  document.getElementById('goalValue').textContent = Math.round(goalCalories).toLocaleString();
+  document.getElementById('waterValue').textContent = Math.round(water).toLocaleString();
+
+  const ratio = MACRO_RATIOS[goalKey] || MACRO_RATIOS['0'];
+  const carbG = Math.round((goalCalories * ratio.carb) / 4);
+  const proteinG = Math.round((goalCalories * ratio.protein) / 4);
+  const fatG = Math.round((goalCalories * ratio.fat) / 9);
+  document.getElementById('carbG').textContent = carbG;
+  document.getElementById('proteinG').textContent = proteinG;
+  document.getElementById('fatG').textContent = fatG;
+  document.getElementById('carbBar').style.width = (ratio.carb * 100) + '%';
+  document.getElementById('proteinBar').style.width = (ratio.protein * 100) + '%';
+  document.getElementById('fatBar').style.width = (ratio.fat * 100) + '%';
+
+  document.getElementById('results').classList.remove('hidden');
+  window.scrollBy({ top: 180, behavior: 'smooth' });
+});
+
+/* ============================================================
+   3. 칼로리 사전 (Food DB)
+   ============================================================ */
+const FOODS = [
+  { name: '닭가슴살', serving: '100g', kcal: 165, carb: 0, protein: 31, fat: 3.6, sugar: 0 },
+  { name: '고구마 (찐 것)', serving: '100g', kcal: 90, carb: 21, protein: 2, fat: 0.1, sugar: 6.5 },
+  { name: '현미밥', serving: '1공기 210g', kcal: 300, carb: 65, protein: 6, fat: 2.5, sugar: 0.5 },
+  { name: '흰쌀밥', serving: '1공기 210g', kcal: 310, carb: 68, protein: 5.6, fat: 0.5, sugar: 0.1 },
+  { name: '삶은 계란', serving: '1개 50g', kcal: 78, carb: 0.6, protein: 6.3, fat: 5.3, sugar: 0.6 },
+  { name: '두부', serving: '100g', kcal: 84, carb: 1.9, protein: 8.1, fat: 4.8, sugar: 0.7 },
+  { name: '그릭요거트', serving: '100g', kcal: 97, carb: 3.6, protein: 9, fat: 5, sugar: 3.2 },
+  { name: '바나나', serving: '1개 120g', kcal: 105, carb: 27, protein: 1.3, fat: 0.4, sugar: 14 },
+  { name: '사과', serving: '1개 200g', kcal: 104, carb: 27.6, protein: 0.5, fat: 0.3, sugar: 21 },
+  { name: '아보카도', serving: '1/2개 100g', kcal: 160, carb: 8.5, protein: 2, fat: 14.7, sugar: 0.7 },
+  { name: '계란 흰자', serving: '100g', kcal: 52, carb: 0.7, protein: 11, fat: 0.2, sugar: 0.7 },
+  { name: '오트밀', serving: '건조 40g', kcal: 150, carb: 27, protein: 5, fat: 3, sugar: 1 },
+  { name: '연어구이', serving: '100g', kcal: 208, carb: 0, protein: 20, fat: 13, sugar: 0 },
+  { name: '참치캔 (물)', serving: '100g', kcal: 116, carb: 0, protein: 25.5, fat: 0.8, sugar: 0 },
+  { name: '김밥', serving: '1줄 230g', kcal: 350, carb: 55, protein: 9, fat: 9, sugar: 4 },
+  { name: '삼겹살 구이', serving: '100g', kcal: 331, carb: 0, protein: 17.2, fat: 28.4, sugar: 0 },
+  { name: '치킨 (후라이드)', serving: '100g', kcal: 260, carb: 10, protein: 18, fat: 16, sugar: 0.5 },
+  { name: '라면', serving: '1봉지', kcal: 505, carb: 78, protein: 10, fat: 16, sugar: 5 },
+  { name: '짜장면', serving: '1인분', kcal: 700, carb: 110, protein: 18, fat: 20, sugar: 12 },
+  { name: '비빔밥', serving: '1인분', kcal: 550, carb: 90, protein: 18, fat: 14, sugar: 8 },
+  { name: '냉면', serving: '1인분', kcal: 480, carb: 90, protein: 15, fat: 6, sugar: 10 },
+  { name: '떡볶이', serving: '1인분 300g', kcal: 480, carb: 95, protein: 8, fat: 6, sugar: 20 },
+  { name: '삼각김밥', serving: '1개', kcal: 180, carb: 32, protein: 4, fat: 3.5, sugar: 1 },
+  { name: '두유 (무가당)', serving: '200ml', kcal: 80, carb: 4, protein: 7, fat: 4, sugar: 0.5 },
+  { name: '아메리카노', serving: '1잔', kcal: 10, carb: 1.4, protein: 0.3, fat: 0, sugar: 0 },
+  { name: '프로틴쉐이크', serving: '1스쿱', kcal: 120, carb: 3, protein: 24, fat: 1.5, sugar: 1 },
+  { name: '견과류 믹스', serving: '30g', kcal: 175, carb: 6, protein: 6, fat: 15, sugar: 1.5 },
+  { name: '방울토마토', serving: '10개 150g', kcal: 27, carb: 6, protein: 1.3, fat: 0.3, sugar: 4 },
+  { name: '브로콜리 (데침)', serving: '100g', kcal: 35, carb: 7, protein: 2.8, fat: 0.4, sugar: 1.7 },
+  { name: '찐 새우', serving: '100g', kcal: 99, carb: 0.2, protein: 24, fat: 0.3, sugar: 0 },
+];
+
+function renderFoods(list) {
+  const grid = document.getElementById('foodGrid');
+  const empty = document.getElementById('foodEmpty');
+  grid.innerHTML = list.map(f => `
+    <div class="bg-white border border-gray-200 rounded-2xl p-5">
+      <div class="flex items-start justify-between mb-3">
+        <div>
+          <div class="font-bold">${f.name}</div>
+          <div class="text-xs text-gray-400">1회 제공량 ${f.serving}</div>
+        </div>
+        <div class="text-right shrink-0">
+          <div class="text-xl font-extrabold text-brand">${f.kcal}</div>
+          <div class="text-[10px] text-gray-400">kcal</div>
+        </div>
+      </div>
+      <div class="grid grid-cols-4 gap-1 text-center text-xs border-t border-gray-100 pt-3">
+        <div><div class="text-gray-400">탄수화물</div><div class="font-semibold">${f.carb}g</div></div>
+        <div><div class="text-gray-400">단백질</div><div class="font-semibold">${f.protein}g</div></div>
+        <div><div class="text-gray-400">지방</div><div class="font-semibold">${f.fat}g</div></div>
+        <div><div class="text-gray-400">당류</div><div class="font-semibold">${f.sugar}g</div></div>
+      </div>
+    </div>
+  `).join('');
+  grid.classList.toggle('hidden', list.length === 0);
+  empty.classList.toggle('hidden', list.length !== 0);
+}
+renderFoods(FOODS);
+document.getElementById('foodSearch').addEventListener('input', (e) => {
+  const q = e.target.value.trim().toLowerCase();
+  renderFoods(FOODS.filter(f => f.name.toLowerCase().includes(q)));
+});
+
+/* ============================================================
+   4. 다이어트 레시피
+   ============================================================ */
+const RECIPES = [
+  {
+    title: '닭가슴살 그릭요거트 샐러드',
+    kcal: 320, carb: 18, protein: 42, fat: 9,
+    ingredients: ['닭가슴살 150g', '그릭요거트 100g', '방울토마토 8개', '오이 1/2개', '레몬즙 약간', '후추·소금 약간'],
+    steps: ['닭가슴살을 삶거나 에어프라이어에 굽고 한 입 크기로 찢는다.', '오이와 방울토마토를 먹기 좋게 썬다.', '그릭요거트에 레몬즙, 소금, 후추를 섞어 드레싱을 만든다.', '모든 재료를 그릇에 담고 드레싱을 뿌려 버무린다.'],
+  },
+  {
+    title: '두부 스크램블',
+    kcal: 260, carb: 8, protein: 24, fat: 14,
+    ingredients: ['두부 200g', '계란 1개', '양파 1/4개', '파프리카 1/4개', '올리브오일 1작은술', '소금·후추 약간'],
+    steps: ['두부는 물기를 제거하고 손으로 으깬다.', '팬에 올리브오일을 두르고 다진 양파, 파프리카를 볶는다.', '으깬 두부와 계란을 넣고 스크램블 하듯 볶는다.', '소금, 후추로 간을 맞춰 마무리한다.'],
+  },
+  {
+    title: '오트밀 프로틴 팬케이크',
+    kcal: 340, carb: 38, protein: 28, fat: 8,
+    ingredients: ['오트밀 40g', '계란 2개', '바나나 1/2개', '프로틴 파우더 1스쿱', '베이킹파우더 약간'],
+    steps: ['오트밀을 믹서에 곱게 갈아준다.', '계란, 으깬 바나나, 프로틴 파우더, 베이킹파우더를 함께 섞는다.', '반죽을 약불로 달군 팬에 얇게 부어 앞뒤로 굽는다.', '기호에 따라 그릭요거트나 과일을 곁들인다.'],
+  },
+  {
+    title: '연어 아스파라거스 구이',
+    kcal: 380, carb: 6, protein: 34, fat: 22,
+    ingredients: ['연어 150g', '아스파라거스 100g', '올리브오일 1작은술', '레몬 1/4개', '마늘 1쪽', '소금·후추 약간'],
+    steps: ['연어에 소금, 후추로 밑간을 한다.', '팬에 올리브오일과 다진 마늘을 볶다가 연어를 올려 굽는다.', '아스파라거스도 함께 구워 익힌다.', '접시에 담고 레몬즙을 뿌려 마무리한다.'],
+  },
+  {
+    title: '고구마 프로틴 볼',
+    kcal: 220, carb: 30, protein: 16, fat: 4,
+    ingredients: ['찐 고구마 150g', '프로틴 파우더 1스쿱', '땅콩버터 1작은술', '시나몬 파우더 약간'],
+    steps: ['찐 고구마를 곱게 으깬다.', '프로틴 파우더와 땅콩버터를 넣고 치대듯 섞는다.', '한 입 크기로 동그랗게 빚는다.', '냉장고에 30분 정도 넣어 식힌 뒤 먹는다.'],
+  },
+];
+
+document.getElementById('recipeList').innerHTML = RECIPES.map(r => `
+  <div class="bg-white border border-gray-200 rounded-2xl p-6 md:p-7">
+    <div class="flex flex-wrap items-center justify-between gap-2 mb-4">
+      <h3 class="font-bold text-lg">${r.title}</h3>
+      <span class="text-xs bg-cream text-gray-600 px-3 py-1 rounded-full font-semibold">총 ${r.kcal}kcal · 탄 ${r.carb}g · 단 ${r.protein}g · 지 ${r.fat}g</span>
+    </div>
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+      <div>
+        <h4 class="text-xs font-bold text-gray-400 mb-2">재료</h4>
+        <ul class="text-sm space-y-1 list-disc list-inside text-gray-700">
+          ${r.ingredients.map(i => `<li>${i}</li>`).join('')}
+        </ul>
+      </div>
+      <div>
+        <h4 class="text-xs font-bold text-gray-400 mb-2">조리 순서</h4>
+        <ol class="text-sm space-y-1.5 list-decimal list-inside text-gray-700">
+          ${r.steps.map(s => `<li>${s}</li>`).join('')}
+        </ol>
+      </div>
+    </div>
+  </div>
+`).join('');
+
+/* ============================================================
+   5. 운동 칼로리 계산기 (MET 기반)
+   kcal = MET * 3.5 * 체중(kg) / 200 * 시간(분)
+   ============================================================ */
+const EXERCISES = [
+  { name: '걷기 (보통 걸음)', met: 3.5 },
+  { name: '빠르게 걷기', met: 4.3 },
+  { name: '조깅', met: 7.0 },
+  { name: '달리기 (8km/h)', met: 8.3 },
+  { name: '자전거 (보통 속도)', met: 6.8 },
+  { name: '자전거 (빠른 속도)', met: 10.0 },
+  { name: '수영 (자유형, 보통)', met: 8.3 },
+  { name: '웨이트 트레이닝 (일반)', met: 5.0 },
+  { name: '웨이트 트레이닝 (고강도)', met: 6.0 },
+  { name: '요가', met: 2.5 },
+  { name: '필라테스', met: 3.0 },
+  { name: '줄넘기', met: 10.0 },
+  { name: '등산', met: 6.0 },
+  { name: '계단 오르기', met: 8.8 },
+  { name: 'HIIT (고강도 인터벌)', met: 8.0 },
+];
+
+const exSelect = document.getElementById('exType');
+exSelect.innerHTML = EXERCISES.map((ex, i) => `<option value="${i}">${ex.name}</option>`).join('');
+
+function calcKcal(met, weight, minutes) {
+  return Math.round((met * 3.5 * weight / 200) * minutes);
+}
+
+document.getElementById('exCalcBtn').addEventListener('click', () => {
+  const weight = Number(document.getElementById('exWeight').value);
+  const duration = Number(document.getElementById('exDuration').value);
+  const ex = EXERCISES[Number(exSelect.value)];
+  const kcal = calcKcal(ex.met, weight, duration);
+  document.getElementById('exResultLabel').textContent = `체중 ${weight}kg · ${ex.name} ${duration}분`;
+  document.getElementById('exResultKcal').textContent = kcal.toLocaleString();
+  document.getElementById('exResult').classList.remove('hidden');
+});
+
+document.getElementById('exTable').innerHTML = EXERCISES.map(ex => `
+  <div class="flex items-center justify-between py-2.5">
+    <span class="text-gray-700">${ex.name}</span>
+    <span class="font-bold">${calcKcal(ex.met, 65, 60).toLocaleString()} kcal</span>
+  </div>
+`).join('');
+
+/* ============================================================
+   6. FAQ 아코디언
+   ============================================================ */
+const FAQS = [
+  {
+    q: '다이어트 중 칼로리만 줄이면 무조건 살이 빠지나요?',
+    a: '기본 원리는 맞습니다. 섭취 칼로리가 소비 칼로리보다 적으면 체중은 감소합니다. 다만 무엇을 먹느냐에 따라 감량되는 것이 체지방인지 근육인지가 달라지고, 지나치게 적은 칼로리는 기초대사량 저하와 요요를 유발할 수 있어 단백질 섭취와 적정 수준의 칼로리 적자를 함께 고려해야 합니다.',
+  },
+  {
+    q: '기초대사량(BMR)보다 적게 먹으면 안 되나요?',
+    a: '장기간 BMR보다 적게 섭취하는 것은 권장하지 않습니다. 몸이 에너지 부족을 위기로 인식해 근손실, 호르몬 불균형, 기초대사량 저하를 유발할 수 있습니다. 목표 섭취 칼로리는 BMR이 아니라 활동량을 반영한 TDEE를 기준으로 15~20% 정도만 낮추는 것이 안전합니다.',
+  },
+  {
+    q: '며칠 만에 체중이 확 빠졌다가 다시 늘어나는 이유는 무엇인가요?',
+    a: '초반의 급격한 체중 감소는 대부분 체지방이 아니라 글리코겐과 함께 저장되어 있던 체내 수분이 빠져나간 결과입니다. 식사를 정상으로 되돌리면 글리코겐과 수분이 다시 채워지며 체중이 원래대로 돌아오는 것처럼 보일 수 있습니다. 진짜 체지방 변화는 2~4주 단위의 평균 추이로 확인하는 것이 정확합니다.',
+  },
+  {
+    q: '단백질은 하루에 얼마나 먹어야 하나요?',
+    a: '다이어트 중이라면 체중 1kg당 1.6~2.2g의 단백질 섭취가 근육 손실을 최소화하는 데 효과적이라고 알려져 있습니다. 예를 들어 체중 60kg이라면 하루 96~132g 정도가 적정 범위이며, 여러 끼니에 나누어 섭취하는 것이 흡수와 활용 측면에서 더 유리합니다.',
+  },
+  {
+    q: '다이어트에는 유산소와 근력운동 중 무엇이 더 효과적인가요?',
+    a: '둘 다 각자의 역할이 있습니다. 유산소 운동은 칼로리 소모량을 직접적으로 늘리는 데 효과적이고, 근력운동은 근육량을 유지·증가시켜 기초대사량을 지키는 데 핵심적인 역할을 합니다. 가능하다면 두 가지를 병행하고, 특히 다이어트 중에는 근력운동의 비중을 놓치지 않는 것이 요요 없는 체형 관리에 유리합니다.',
+  },
+];
+
+document.getElementById('faqList').innerHTML = FAQS.map((f, i) => `
+  <div class="faq-item bg-white border border-gray-200 rounded-2xl overflow-hidden">
+    <button class="faq-toggle w-full flex items-center justify-between text-left px-5 py-4 font-semibold text-sm" data-index="${i}">
+      <span>${f.q}</span>
+      <span class="faq-icon text-xl text-brand shrink-0 ml-3">+</span>
+    </button>
+    <div class="faq-answer px-5">
+      <p class="text-sm text-gray-600 leading-relaxed pb-4">${f.a}</p>
+    </div>
+  </div>
+`).join('');
+
+document.querySelectorAll('.faq-toggle').forEach(btn => {
+  btn.addEventListener('click', () => {
+    btn.closest('.faq-item').classList.toggle('open');
+  });
+});
+
+</script>
+</body>
+</html>

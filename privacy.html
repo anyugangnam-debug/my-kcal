@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>개인정보처리방침 | My Kcal</title>
+<meta name="description" content="My Kcal 서비스의 개인정보처리방침입니다.">
+<link rel="canonical" href="https://my-kcal.app/privacy.html">
+<link rel="icon" href="logo.png" type="image/png">
+<script src="https://cdn.tailwindcss.com"></script>
+<script>
+  tailwind.config = { theme: { extend: { colors: { brand: { DEFAULT: '#FF6B00', dark: '#FF5722', light: '#FFF1E6' }, cream: '#F7F6F3' } } } };
+</script>
+<style>
+  body { font-family: -apple-system, BlinkMacSystemFont, "Apple SD Gothic Neo", "Pretendard", "Malgun Gothic", sans-serif; }
+  .logo-img { mix-blend-mode: multiply; }
+</style>
+</head>
+<body class="bg-cream text-gray-900 antialiased">
+
+<header class="border-b border-gray-200">
+  <div class="max-w-2xl mx-auto px-4 py-4">
+    <a href="index.html" class="inline-flex items-center gap-2">
+      <img src="logo.png" alt="My Kcal 로고" class="logo-img h-8 w-auto">
+      <span class="font-extrabold text-lg tracking-tight">My Kcal</span>
+    </a>
+  </div>
+</header>
+
+<main class="max-w-2xl mx-auto px-4 py-10">
+  <a href="index.html" class="text-sm text-brand font-semibold">&larr; 홈으로</a>
+  <h1 class="text-2xl font-extrabold mt-4 mb-6">개인정보처리방침</h1>
+
+  <div class="text-sm text-gray-600 leading-relaxed space-y-4">
+    <p>My Kcal(이하 '서비스')는 이용자의 개인정보를 소중히 다루며, 관련 법령을 준수합니다. 본 방침은 서비스가 어떤 정보를 다루는지 안내합니다.</p>
+
+    <div>
+      <h2 class="font-bold text-gray-800 mb-1">1. 수집하는 정보</h2>
+      <p>본 웹 계산기는 별도의 회원가입 없이 이용 가능합니다. 계산기에 입력하는 나이·키·몸무게·활동량 등의 정보는 서버로 전송되지 않고 이용자의 브라우저 내에서만 계산에 사용되며, 별도로 저장되지 않습니다.</p>
+    </div>
+
+    <div>
+      <h2 class="font-bold text-gray-800 mb-1">2. 쿠키 및 광고</h2>
+      <p>서비스는 Google AdSense 등 제3자 광고 서비스를 통해 광고를 게재할 수 있으며, 이 과정에서 쿠키 및 유사 기술이 사용될 수 있습니다. 이용자는 브라우저 설정을 통해 쿠키 저장을 거부하거나 삭제할 수 있습니다. Google의 광고 쿠키 사용에 대한 자세한 내용은 Google 광고 정책 페이지에서 확인하실 수 있습니다.</p>
+    </div>
+
+    <div>
+      <h2 class="font-bold text-gray-800 mb-1">3. 정보의 보관 및 파기</h2>
+      <p>서비스는 이용자를 식별할 수 있는 개인정보를 별도의 서버나 데이터베이스에 저장하지 않습니다.</p>
+    </div>
+
+    <div>
+      <h2 class="font-bold text-gray-800 mb-1">4. 방침의 변경</h2>
+      <p>본 방침은 관련 법령 및 서비스 정책 변경에 따라 수정될 수 있으며, 변경 시 본 페이지를 통해 공지합니다.</p>
+    </div>
+
+    <div>
+      <h2 class="font-bold text-gray-800 mb-1">5. 문의</h2>
+      <p>개인정보 관련 문의는 <a href="contact.html" class="text-brand font-semibold">문의하기</a> 페이지를 통해 연락 주시기 바랍니다.</p>
+    </div>
+
+    <p class="text-xs text-gray-400 pt-2">시행일: 2026년 8월 17일</p>
+  </div>
+</main>
+
+<footer class="border-t border-gray-200 mt-10">
+  <div class="max-w-2xl mx-auto px-4 py-8 text-sm text-gray-500">
+    <div class="flex flex-wrap gap-x-6 gap-y-2 mb-4 font-medium">
+      <a href="privacy.html" class="hover:text-brand">개인정보처리방침</a>
+      <a href="terms.html" class="hover:text-brand">이용약관</a>
+      <a href="disclaimer.html" class="hover:text-brand">면책조항</a>
+      <a href="contact.html" class="hover:text-brand">문의하기</a>
+    </div>
+    <p class="text-xs text-gray-400">&copy; 2026 My Kcal. All rights reserved.</p>
+  </div>
+</footer>
+
+<script>
+(function renderLogo() {
+  const imgEl = document.querySelector('.logo-img');
+  if (!imgEl) return;
+  const src = imgEl.getAttribute('src');
+  const img = new Image();
+  img.onload = () => {
+    const off = document.createElement('canvas');
+    off.width = img.width; off.height = img.height;
+    const octx = off.getContext('2d');
+    octx.drawImage(img, 0, 0);
+    const data = octx.getImageData(0, 0, off.width, off.height);
+    const d = data.data;
+    let minX = off.width, minY = off.height, maxX = 0, maxY = 0;
+    const floor = 200, ceil = 250;
+    for (let y = 0; y < off.height; y++) {
+      for (let x = 0; x < off.width; x++) {
+        const i = (y * off.width + x) * 4;
+        const whiteness = Math.min(d[i], d[i+1], d[i+2]);
+        if (whiteness <= floor) {
+          if (x < minX) minX = x; if (x > maxX) maxX = x;
+          if (y < minY) minY = y; if (y > maxY) maxY = y;
+        }
+        if (whiteness > floor) {
+          const fade = Math.min(1, (whiteness - floor) / (ceil - floor));
+          d[i+3] = Math.round(d[i+3] * (1 - fade));
+        }
+      }
+    }
+    octx.putImageData(data, 0, 0);
+    const pad = 12;
+    const cropX = Math.max(0, minX - pad);
+    const cropY = Math.max(0, minY - pad);
+    const cropW = Math.min(off.width, maxX + pad) - cropX;
+    const cropH = Math.min(off.height, maxY + pad) - cropY;
+    const canvas = document.createElement('canvas');
+    canvas.width = cropW; canvas.height = cropH;
+    canvas.className = imgEl.className.replace('logo-img', '') + ' logo-img h-8 w-auto';
+    canvas.getContext('2d').drawImage(off, cropX, cropY, cropW, cropH, 0, 0, cropW, cropH);
+    imgEl.replaceWith(canvas);
+  };
+  img.src = src;
+})();
+</script>
+</body>
+</html>

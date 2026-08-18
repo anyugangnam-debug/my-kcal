@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>BMR과 TDEE의 차이, 올바른 칼로리 적자 설정법 | My Kcal</title>
+<meta name="description" content="기초대사량(BMR)과 일일 소비 칼로리(TDEE)의 생리학적 차이와, 요요 없이 건강하게 감량하기 위한 올바른 칼로리 적자 설정법을 알아봅니다.">
+<link rel="canonical" href="https://my-kcal.app/articles/bmr-tdee.html">
+<link rel="icon" href="../logo.png" type="image/png">
+<script src="https://cdn.tailwindcss.com"></script>
+<script>
+  tailwind.config = { theme: { extend: { colors: { brand: { DEFAULT: '#FF6B00', dark: '#FF5722', light: '#FFF1E6' }, cream: '#F7F6F3' } } } };
+</script>
+<style>
+  body { font-family: -apple-system, BlinkMacSystemFont, "Apple SD Gothic Neo", "Pretendard", "Malgun Gothic", sans-serif; }
+  .logo-img { mix-blend-mode: multiply; }
+</style>
+</head>
+<body class="bg-cream text-gray-900 antialiased">
+
+<header class="border-b border-gray-200">
+  <div class="max-w-2xl mx-auto px-4 py-4">
+    <a href="../index.html" class="inline-flex items-center gap-2">
+      <img src="../logo.png" alt="My Kcal 로고" class="logo-img h-8 w-auto">
+      <span class="font-extrabold text-lg tracking-tight">My Kcal</span>
+    </a>
+  </div>
+</header>
+
+<main class="max-w-2xl mx-auto px-4 py-10">
+  <a href="../index.html" class="text-sm text-brand font-semibold">&larr; 홈으로</a>
+  <p class="text-xs text-gray-400 mt-4">다이어트 &amp; 칼로리 전문 정보 칼럼</p>
+  <h1 class="text-2xl font-extrabold mt-1 mb-6">BMR과 TDEE의 생리학적 차이, 올바른 칼로리 적자 설정법</h1>
+
+  <article class="text-sm text-gray-600 leading-relaxed space-y-4">
+    <p>기초대사량(BMR, Basal Metabolic Rate)은 우리 몸이 아무런 움직임 없이 누워만 있어도 심장 박동, 체온 유지, 호흡, 세포 재생 같은 생명 유지 활동에 쓰는 최소한의 에너지량을 의미합니다. 반면 일일 총 소비 칼로리(TDEE, Total Daily Energy Expenditure)는 여기에 걷기, 집안일, 운동 같은 일상 활동 칼로리와 음식을 소화하는 데 쓰이는 식이성 발열 효과까지 모두 더한 값입니다. 즉 TDEE는 항상 BMR보다 크며, 다이어트를 계획할 때 기준으로 삼아야 하는 숫자는 BMR이 아니라 TDEE입니다.</p>
+    <p>많은 사람들이 다이어트를 시작하며 BMR 수치 아래로 섭취 칼로리를 낮추는 실수를 저지릅니다. 기초대사량보다 적게 먹으면 몸은 에너지 부족 상태를 위기 신호로 받아들여 근육 손실, 호르몬 불균형, 기초대사량 자체의 저하(적응성 열발생)를 유발할 수 있습니다. 결과적으로 체중은 줄어도 체지방보다 근육이 먼저 빠지고, 식사를 정상으로 되돌리면 오히려 이전보다 살이 더 쉽게 찌는 요요 현상으로 이어지기 쉽습니다.</p>
+    <p>건강하게 감량하려면 TDEE 대비 15~20% 정도의 완만한 칼로리 적자를 목표로 설정하는 것이 가장 안전합니다. 이는 주당 약 0.4~0.7kg 정도의 체지방 감량 속도에 해당하며, 근손실을 최소화하면서 신진대사 저하를 방지할 수 있는 범위로 알려져 있습니다. My Kcal 계산기의 '체중 감량' 옵션은 이러한 원리를 반영해 TDEE 대비 적정 비율로 목표 칼로리를 산출해드립니다.</p>
+  </article>
+
+  <div class="mt-8 bg-white border border-gray-200 rounded-2xl p-6 text-center">
+    <p class="text-sm text-gray-600 mb-3">내 BMR과 TDEE가 궁금하다면 지금 바로 계산해보세요.</p>
+    <a href="../index.html" class="inline-block bg-gray-900 text-white text-sm font-bold px-5 py-2.5 rounded-full hover:bg-gray-700 transition">계산기로 이동</a>
+  </div>
+</main>
+
+<footer class="border-t border-gray-200 mt-10">
+  <div class="max-w-2xl mx-auto px-4 py-8 text-sm text-gray-500">
+    <div class="flex flex-wrap gap-x-6 gap-y-2 mb-4 font-medium">
+      <a href="../privacy.html" class="hover:text-brand">개인정보처리방침</a>
+      <a href="../terms.html" class="hover:text-brand">이용약관</a>
+      <a href="../disclaimer.html" class="hover:text-brand">면책조항</a>
+      <a href="../contact.html" class="hover:text-brand">문의하기</a>
+    </div>
+    <p class="text-xs text-gray-400">&copy; 2026 My Kcal. All rights reserved.</p>
+  </div>
+</footer>
+
+<script>
+(function renderLogo() {
+  const imgEl = document.querySelector('.logo-img');
+  if (!imgEl) return;
+  const src = imgEl.getAttribute('src');
+  const img = new Image();
+  img.onload = () => {
+    const off = document.createElement('canvas');
+    off.width = img.width; off.height = img.height;
+    const octx = off.getContext('2d');
+    octx.drawImage(img, 0, 0);
+    const data = octx.getImageData(0, 0, off.width, off.height);
+    const d = data.data;
+    let minX = off.width, minY = off.height, maxX = 0, maxY = 0;
+    const floor = 200, ceil = 250;
+    for (let y = 0; y < off.height; y++) {
+      for (let x = 0; x < off.width; x++) {
+        const i = (y * off.width + x) * 4;
+        const whiteness = Math.min(d[i], d[i+1], d[i+2]);
+        if (whiteness <= floor) {
+          if (x < minX) minX = x; if (x > maxX) maxX = x;
+          if (y < minY) minY = y; if (y > maxY) maxY = y;
+        }
+        if (whiteness > floor) {
+          const fade = Math.min(1, (whiteness - floor) / (ceil - floor));
+          d[i+3] = Math.round(d[i+3] * (1 - fade));
+        }
+      }
+    }
+    octx.putImageData(data, 0, 0);
+    const pad = 12;
+    const cropX = Math.max(0, minX - pad);
+    const cropY = Math.max(0, minY - pad);
+    const cropW = Math.min(off.width, maxX + pad) - cropX;
+    const cropH = Math.min(off.height, maxY + pad) - cropY;
+    const canvas = document.createElement('canvas');
+    canvas.width = cropW; canvas.height = cropH;
+    canvas.className = imgEl.className.replace('logo-img', '') + ' logo-img h-8 w-auto';
+    canvas.getContext('2d').drawImage(off, cropX, cropY, cropW, cropH, 0, 0, cropW, cropH);
+    imgEl.replaceWith(canvas);
+  };
+  img.src = src;
+})();
+</script>
+</body>
+</html>

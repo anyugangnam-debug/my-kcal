@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>매일 아침 체중이 오르내리는 이유: 글리코겐과 수분의 원리 | My Kcal</title>
+<meta name="description" content="글리코겐 1g이 물 3g과 결합하는 원리로 살펴보는, 매일 체중이 변동하는 이유와 올바른 체중 측정 습관을 알아봅니다.">
+<link rel="canonical" href="https://my-kcal.app/articles/glycogen-water.html">
+<link rel="icon" href="../logo.png" type="image/png">
+<script src="https://cdn.tailwindcss.com"></script>
+<script>
+  tailwind.config = { theme: { extend: { colors: { brand: { DEFAULT: '#FF6B00', dark: '#FF5722', light: '#FFF1E6' }, cream: '#F7F6F3' } } } };
+</script>
+<style>
+  body { font-family: -apple-system, BlinkMacSystemFont, "Apple SD Gothic Neo", "Pretendard", "Malgun Gothic", sans-serif; }
+  .logo-img { mix-blend-mode: multiply; }
+</style>
+</head>
+<body class="bg-cream text-gray-900 antialiased">
+
+<header class="border-b border-gray-200">
+  <div class="max-w-2xl mx-auto px-4 py-4">
+    <a href="../index.html" class="inline-flex items-center gap-2">
+      <img src="../logo.png" alt="My Kcal 로고" class="logo-img h-8 w-auto">
+      <span class="font-extrabold text-lg tracking-tight">My Kcal</span>
+    </a>
+  </div>
+</header>
+
+<main class="max-w-2xl mx-auto px-4 py-10">
+  <a href="../index.html" class="text-sm text-brand font-semibold">&larr; 홈으로</a>
+  <p class="text-xs text-gray-400 mt-4">다이어트 &amp; 칼로리 전문 정보 칼럼</p>
+  <h1 class="text-2xl font-extrabold mt-1 mb-6">매일 아침 체중이 오르내리는 이유: 글리코겐과 수분의 원리</h1>
+
+  <article class="text-sm text-gray-600 leading-relaxed space-y-4">
+    <p>어제 분명 식단을 잘 지켰는데 오늘 아침 체중계 숫자가 오히려 늘어나 있는 경험, 다이어터라면 누구나 겪어봤을 것입니다. 이는 대부분 체지방의 변화가 아니라 체내 수분량의 변동 때문입니다. 우리 몸은 탄수화물을 섭취하면 이를 글리코겐 형태로 근육과 간에 저장하는데, 글리코겐 1g은 물 분자를 약 3g씩 붙잡아 함께 저장하는 성질이 있습니다. 따라서 탄수화물 섭취가 많았던 날 다음 날에는 체내 저장된 수분량이 늘어나 체중이 일시적으로 증가한 것처럼 보일 수 있습니다.</p>
+    <p>반대로 탄수화물 섭취를 크게 줄이면 저장된 글리코겐이 빠르게 소모되면서 결합되어 있던 수분도 함께 배출되어, 실제 체지방 감량 없이도 체중이 급격히 줄어드는 것처럼 보이는 현상이 나타납니다. 저탄수화물 다이어트 초반에 체중이 확 빠지는 이유가 바로 여기에 있습니다. 이 밖에도 나트륨 섭취량, 여성의 생리 주기, 수면의 질, 전날의 수분 섭취량과 배변 여부 등 다양한 요인이 하루 단위 체중 변동에 영향을 줍니다.</p>
+    <p>따라서 체중계 숫자는 하루하루가 아니라 최소 1~2주 단위의 평균 흐름으로 관찰하는 것이 훨씬 신뢰도 높은 지표입니다. 매일 같은 시간대(기상 직후, 공복 상태)에 측정하고, 그래프로 추이를 기록하면 일시적인 수분 변동에 흔들리지 않고 실제 체지방 변화를 정확히 파악할 수 있습니다.</p>
+  </article>
+
+  <div class="mt-8 bg-white border border-gray-200 rounded-2xl p-6 text-center">
+    <p class="text-sm text-gray-600 mb-3">내 하루 권장 수분 섭취량도 함께 확인해보세요.</p>
+    <a href="../index.html" class="inline-block bg-gray-900 text-white text-sm font-bold px-5 py-2.5 rounded-full hover:bg-gray-700 transition">계산기로 이동</a>
+  </div>
+</main>
+
+<footer class="border-t border-gray-200 mt-10">
+  <div class="max-w-2xl mx-auto px-4 py-8 text-sm text-gray-500">
+    <div class="flex flex-wrap gap-x-6 gap-y-2 mb-4 font-medium">
+      <a href="../privacy.html" class="hover:text-brand">개인정보처리방침</a>
+      <a href="../terms.html" class="hover:text-brand">이용약관</a>
+      <a href="../disclaimer.html" class="hover:text-brand">면책조항</a>
+      <a href="../contact.html" class="hover:text-brand">문의하기</a>
+    </div>
+    <p class="text-xs text-gray-400">&copy; 2026 My Kcal. All rights reserved.</p>
+  </div>
+</footer>
+
+<script>
+(function renderLogo() {
+  const imgEl = document.querySelector('.logo-img');
+  if (!imgEl) return;
+  const src = imgEl.getAttribute('src');
+  const img = new Image();
+  img.onload = () => {
+    const off = document.createElement('canvas');
+    off.width = img.width; off.height = img.height;
+    const octx = off.getContext('2d');
+    octx.drawImage(img, 0, 0);
+    const data = octx.getImageData(0, 0, off.width, off.height);
+    const d = data.data;
+    let minX = off.width, minY = off.height, maxX = 0, maxY = 0;
+    const floor = 200, ceil = 250;
+    for (let y = 0; y < off.height; y++) {
+      for (let x = 0; x < off.width; x++) {
+        const i = (y * off.width + x) * 4;
+        const whiteness = Math.min(d[i], d[i+1], d[i+2]);
+        if (whiteness <= floor) {
+          if (x < minX) minX = x; if (x > maxX) maxX = x;
+          if (y < minY) minY = y; if (y > maxY) maxY = y;
+        }
+        if (whiteness > floor) {
+          const fade = Math.min(1, (whiteness - floor) / (ceil - floor));
+          d[i+3] = Math.round(d[i+3] * (1 - fade));
+        }
+      }
+    }
+    octx.putImageData(data, 0, 0);
+    const pad = 12;
+    const cropX = Math.max(0, minX - pad);
+    const cropY = Math.max(0, minY - pad);
+    const cropW = Math.min(off.width, maxX + pad) - cropX;
+    const cropH = Math.min(off.height, maxY + pad) - cropY;
+    const canvas = document.createElement('canvas');
+    canvas.width = cropW; canvas.height = cropH;
+    canvas.className = imgEl.className.replace('logo-img', '') + ' logo-img h-8 w-auto';
+    canvas.getContext('2d').drawImage(off, cropX, cropY, cropW, cropH, 0, 0, cropW, cropH);
+    imgEl.replaceWith(canvas);
+  };
+  img.src = src;
+})();
+</script>
+</body>
+</html>

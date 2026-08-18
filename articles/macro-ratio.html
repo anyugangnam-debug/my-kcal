@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>단순 칼로리 제한 vs 매크로 비율, 신진대사에 미치는 영향 | My Kcal</title>
+<meta name="description" content="단순 칼로리 제한과 탄수화물·단백질·지방(매크로) 비율이 신진대사와 근손실에 미치는 영향을 알아봅니다.">
+<link rel="canonical" href="https://my-kcal.app/articles/macro-ratio.html">
+<link rel="icon" href="../logo.png" type="image/png">
+<script src="https://cdn.tailwindcss.com"></script>
+<script>
+  tailwind.config = { theme: { extend: { colors: { brand: { DEFAULT: '#FF6B00', dark: '#FF5722', light: '#FFF1E6' }, cream: '#F7F6F3' } } } };
+</script>
+<style>
+  body { font-family: -apple-system, BlinkMacSystemFont, "Apple SD Gothic Neo", "Pretendard", "Malgun Gothic", sans-serif; }
+  .logo-img { mix-blend-mode: multiply; }
+</style>
+</head>
+<body class="bg-cream text-gray-900 antialiased">
+
+<header class="border-b border-gray-200">
+  <div class="max-w-2xl mx-auto px-4 py-4">
+    <a href="../index.html" class="inline-flex items-center gap-2">
+      <img src="../logo.png" alt="My Kcal 로고" class="logo-img h-8 w-auto">
+      <span class="font-extrabold text-lg tracking-tight">My Kcal</span>
+    </a>
+  </div>
+</header>
+
+<main class="max-w-2xl mx-auto px-4 py-10">
+  <a href="../index.html" class="text-sm text-brand font-semibold">&larr; 홈으로</a>
+  <p class="text-xs text-gray-400 mt-4">다이어트 &amp; 칼로리 전문 정보 칼럼</p>
+  <h1 class="text-2xl font-extrabold mt-1 mb-6">단순 칼로리 제한 vs 매크로(탄단지) 비율, 신진대사에 미치는 영향</h1>
+
+  <article class="text-sm text-gray-600 leading-relaxed space-y-4">
+    <p>"결국 살은 칼로리 싸움이다"라는 말은 큰 틀에서는 맞지만, 같은 칼로리라도 탄수화물·단백질·지방의 비율에 따라 몸이 반응하는 방식은 크게 달라집니다. 특히 단백질은 소화·흡수 과정에서 소비되는 식이성 발열 효과(TEF)가 탄수화물이나 지방보다 훨씬 높아, 같은 칼로리를 섭취해도 실제로 몸에 남는 순 에너지가 더 적습니다. 또한 단백질은 근육 단백질 합성을 자극해 다이어트 중 근손실을 막고 기초대사량을 지켜주는 핵심 영양소입니다.</p>
+    <p>단순히 칼로리만 줄이고 단백질 섭취량을 신경 쓰지 않으면, 감량한 체중의 상당 부분이 근육에서 나올 수 있습니다. 근육량이 줄어들면 기초대사량도 함께 낮아지기 때문에, 시간이 지날수록 같은 양을 먹어도 살이 더 쉽게 찌는 체질로 바뀌는 악순환에 빠지기 쉽습니다. 일반적으로 다이어트 중에는 체중 1kg당 1.6~2.2g의 단백질을 섭취하는 것이 근육 보존에 효과적이라고 알려져 있습니다.</p>
+    <p>탄수화물과 지방 역시 무작정 줄이기보다 활동량과 호르몬 균형을 고려해 적정 비율을 유지하는 것이 중요합니다. 탄수화물을 지나치게 제한하면 운동 수행 능력과 집중력이 떨어지고, 지방을 과도하게 줄이면 호르몬 생성에 문제가 생길 수 있습니다. My Kcal의 매크로 배분 기능은 목표에 따라 균형 잡힌 탄단지 비율을 자동으로 계산해드립니다.</p>
+  </article>
+
+  <div class="mt-8 bg-white border border-gray-200 rounded-2xl p-6 text-center">
+    <p class="text-sm text-gray-600 mb-3">나에게 맞는 탄단지 비율을 지금 계산해보세요.</p>
+    <a href="../index.html" class="inline-block bg-gray-900 text-white text-sm font-bold px-5 py-2.5 rounded-full hover:bg-gray-700 transition">계산기로 이동</a>
+  </div>
+</main>
+
+<footer class="border-t border-gray-200 mt-10">
+  <div class="max-w-2xl mx-auto px-4 py-8 text-sm text-gray-500">
+    <div class="flex flex-wrap gap-x-6 gap-y-2 mb-4 font-medium">
+      <a href="../privacy.html" class="hover:text-brand">개인정보처리방침</a>
+      <a href="../terms.html" class="hover:text-brand">이용약관</a>
+      <a href="../disclaimer.html" class="hover:text-brand">면책조항</a>
+      <a href="../contact.html" class="hover:text-brand">문의하기</a>
+    </div>
+    <p class="text-xs text-gray-400">&copy; 2026 My Kcal. All rights reserved.</p>
+  </div>
+</footer>
+
+<script>
+(function renderLogo() {
+  const imgEl = document.querySelector('.logo-img');
+  if (!imgEl) return;
+  const src = imgEl.getAttribute('src');
+  const img = new Image();
+  img.onload = () => {
+    const off = document.createElement('canvas');
+    off.width = img.width; off.height = img.height;
+    const octx = off.getContext('2d');
+    octx.drawImage(img, 0, 0);
+    const data = octx.getImageData(0, 0, off.width, off.height);
+    const d = data.data;
+    let minX = off.width, minY = off.height, maxX = 0, maxY = 0;
+    const floor = 200, ceil = 250;
+    for (let y = 0; y < off.height; y++) {
+      for (let x = 0; x < off.width; x++) {
+        const i = (y * off.width + x) * 4;
+        const whiteness = Math.min(d[i], d[i+1], d[i+2]);
+        if (whiteness <= floor) {
+          if (x < minX) minX = x; if (x > maxX) maxX = x;
+          if (y < minY) minY = y; if (y > maxY) maxY = y;
+        }
+        if (whiteness > floor) {
+          const fade = Math.min(1, (whiteness - floor) / (ceil - floor));
+          d[i+3] = Math.round(d[i+3] * (1 - fade));
+        }
+      }
+    }
+    octx.putImageData(data, 0, 0);
+    const pad = 12;
+    const cropX = Math.max(0, minX - pad);
+    const cropY = Math.max(0, minY - pad);
+    const cropW = Math.min(off.width, maxX + pad) - cropX;
+    const cropH = Math.min(off.height, maxY + pad) - cropY;
+    const canvas = document.createElement('canvas');
+    canvas.width = cropW; canvas.height = cropH;
+    canvas.className = imgEl.className.replace('logo-img', '') + ' logo-img h-8 w-auto';
+    canvas.getContext('2d').drawImage(off, cropX, cropY, cropW, cropH, 0, 0, cropW, cropH);
+    imgEl.replaceWith(canvas);
+  };
+  img.src = src;
+})();
+</script>
+</body>
+</html>
