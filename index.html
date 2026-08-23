@@ -506,10 +506,12 @@ document.querySelectorAll('.gender-btn').forEach(btn => {
   });
 });
 
-const MACRO_RATIOS = {
-  '-0.2': { carb: 0.35, protein: 0.40, fat: 0.25 },
-  '0':    { carb: 0.50, protein: 0.30, fat: 0.20 },
-  '0.2':  { carb: 0.50, protein: 0.30, fat: 0.20 },
+// 단백질은 체중 1kg당 g으로, 지방은 총 칼로리 비율로 계산하고 탄수화물이 나머지를 채웁니다.
+// (단백질을 총 칼로리의 %로만 계산하면 목표 칼로리가 클수록 비현실적으로 커지는 문제가 있어 체중 기준으로 수정)
+const MACRO_PLAN = {
+  '-0.2': { proteinPerKg: 2.0, fatRatio: 0.25 },
+  '0':    { proteinPerKg: 1.6, fatRatio: 0.25 },
+  '0.2':  { proteinPerKg: 1.8, fatRatio: 0.20 },
 };
 
 document.getElementById('calcForm').addEventListener('submit', (e) => {
@@ -533,16 +535,25 @@ document.getElementById('calcForm').addEventListener('submit', (e) => {
   document.getElementById('goalValue').textContent = Math.round(goalCalories).toLocaleString();
   document.getElementById('waterValue').textContent = Math.round(water).toLocaleString();
 
-  const ratio = MACRO_RATIOS[goalKey] || MACRO_RATIOS['0'];
-  const carbG = Math.round((goalCalories * ratio.carb) / 4);
-  const proteinG = Math.round((goalCalories * ratio.protein) / 4);
-  const fatG = Math.round((goalCalories * ratio.fat) / 9);
+  const plan = MACRO_PLAN[goalKey] || MACRO_PLAN['0'];
+  const proteinG = Math.round(weight * plan.proteinPerKg);
+  const fatG = Math.round((goalCalories * plan.fatRatio) / 9);
+  const proteinKcal = proteinG * 4;
+  const fatKcal = fatG * 9;
+  const carbKcal = Math.max(goalCalories - proteinKcal - fatKcal, 0);
+  const carbG = Math.round(carbKcal / 4);
+
+  const totalKcal = proteinKcal + fatKcal + carbKcal;
+  const carbPct = totalKcal ? (carbKcal / totalKcal) * 100 : 0;
+  const proteinPct = totalKcal ? (proteinKcal / totalKcal) * 100 : 0;
+  const fatPct = totalKcal ? (fatKcal / totalKcal) * 100 : 0;
+
   document.getElementById('carbG').textContent = carbG;
   document.getElementById('proteinG').textContent = proteinG;
   document.getElementById('fatG').textContent = fatG;
-  document.getElementById('carbBar').style.width = (ratio.carb * 100) + '%';
-  document.getElementById('proteinBar').style.width = (ratio.protein * 100) + '%';
-  document.getElementById('fatBar').style.width = (ratio.fat * 100) + '%';
+  document.getElementById('carbBar').style.width = carbPct + '%';
+  document.getElementById('proteinBar').style.width = proteinPct + '%';
+  document.getElementById('fatBar').style.width = fatPct + '%';
 
   document.getElementById('results').classList.remove('hidden');
   window.scrollBy({ top: 180, behavior: 'smooth' });
