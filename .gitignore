@@ -1,0 +1,8 @@
+# 검토용 내부 문서 (공개 배포 제외) — 실제로는 상위 폴더로 이동했지만 재발 방지용
+review-notes/
+
+# 로컬 테스트 중 임시로 설치했던 Node 관련 파일 (재발 방지용)
+node_modules/
+package.json
+package-lock.json
+_test.js

@@ -35,7 +35,7 @@
       "name": "기초대사량(BMR)보다 적게 먹으면 안 되나요?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "장기간 BMR보다 적게 섭취하는 것은 권장하지 않습니다. 몸이 에너지 부족을 위기로 인식해 근손실, 호르몬 불균형, 기초대사량 저하를 유발할 수 있습니다. 목표 섭취 칼로리는 BMR이 아니라 활동량을 반영한 TDEE를 기준으로 15~20% 정도만 낮추는 것이 안전합니다."
+        "text": "장기간 BMR보다 적게 섭취하는 것은 권장하지 않습니다. 몸이 에너지 부족을 위기로 인식해 근손실, 호르몬 불균형, 기초대사량 저하를 유발할 수 있습니다. 목표 섭취 칼로리는 BMR이 아니라 활동량을 반영한 TDEE를 기준으로 15~20% 정도만 낮추는 것이 비교적 안전한 방법으로 알려져 있습니다."
       }
     },
     {
@@ -43,7 +43,7 @@
       "name": "며칠 만에 체중이 확 빠졌다가 다시 늘어나는 이유는 무엇인가요?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "초반의 급격한 체중 감소는 대부분 체지방이 아니라 글리코겐과 함께 저장되어 있던 체내 수분이 빠져나간 결과입니다. 식사를 정상으로 되돌리면 글리코겐과 수분이 다시 채워지며 체중이 원래대로 돌아오는 것처럼 보일 수 있습니다. 진짜 체지방 변화는 2~4주 단위의 평균 추이로 확인하는 것이 정확합니다."
+        "text": "초반의 급격한 체중 감소는 대부분 체지방이 아니라 글리코겐과 함께 저장되어 있던 체내 수분이 빠져나간 결과입니다. 식사를 정상으로 되돌리면 글리코겐과 수분이 다시 채워지며 체중이 원래대로 돌아오는 것처럼 보일 수 있습니다. 체지방 변화는 2~4주 단위의 평균 추이로 확인하는 것이 더 신뢰도 높은 방법으로 알려져 있습니다."
       }
     },
     {
@@ -94,6 +94,7 @@
 </script>
 <style>
   body { font-family: -apple-system, BlinkMacSystemFont, "Apple SD Gothic Neo", "Pretendard", "Malgun Gothic", sans-serif; }
+  h1, h2, h3 { word-break: keep-all; overflow-wrap: break-word; }
   .logo-img { mix-blend-mode: multiply; }
   .tab-btn { position: relative; }
   .tab-btn.active { color: #FF6B00; }
@@ -134,20 +135,12 @@
   </div>
 </header>
 
-<!-- AdSense: 헤더 하단 -->
-<div class="max-w-2xl mx-auto px-4 mt-4">
-  <!-- Google AdSense 광고 슬롯 (헤더 하단, 반응형) -->
-  <div class="adsense-box w-full h-24 md:h-28 border-2 border-dashed border-gray-300 rounded-xl flex items-center justify-center text-gray-400 text-xs">
-    광고 영역 (Google AdSense)
-  </div>
-</div>
-
 <main class="max-w-2xl mx-auto px-4">
 
   <!-- ===== Hero ===== -->
   <section class="text-center py-10">
     <h1 class="text-2xl md:text-4xl font-extrabold tracking-tight leading-snug">
-      오늘 얼마나 먹어도 될까?<br>My Kcal이 정확하게 알려드려요
+      오늘 얼마나 먹어도 될까?<br>My Kcal이 대략적으로 추정해드려요
     </h1>
     <p class="text-gray-500 mt-3 max-w-xl mx-auto text-sm md:text-base">
       <strong class="text-gray-700">일일 소모 칼로리 계산</strong>으로 나의 기초대사량과 하루 소모 칼로리를 확인하고,
@@ -166,7 +159,7 @@
         <span class="text-xs bg-cream text-gray-500 px-3 py-1 rounded-full">무료 계산기</span>
       </div>
 
-      <form id="calcForm" class="space-y-5">
+      <form id="calcForm" class="space-y-5" novalidate>
         <div class="flex gap-2">
           <button type="button" data-gender="male" class="gender-btn flex-1 py-2.5 rounded-xl border font-semibold text-sm bg-gray-900 text-white border-gray-900">남성</button>
           <button type="button" data-gender="female" class="gender-btn flex-1 py-2.5 rounded-xl border font-semibold text-sm bg-white text-gray-500 border-gray-200">여성</button>
@@ -179,11 +172,11 @@
           </label>
           <label class="block">
             <span class="text-xs font-semibold text-gray-500">키 (cm)</span>
-            <input id="height" type="number" value="170" min="100" max="250" class="mt-1 w-full border border-gray-200 rounded-lg px-3 py-2 text-sm focus:outline-brand">
+            <input id="height" type="number" value="170" min="100" max="250" step="0.1" class="mt-1 w-full border border-gray-200 rounded-lg px-3 py-2 text-sm focus:outline-brand">
           </label>
           <label class="block">
             <span class="text-xs font-semibold text-gray-500">몸무게 (kg)</span>
-            <input id="weight" type="number" value="65" min="30" max="250" class="mt-1 w-full border border-gray-200 rounded-lg px-3 py-2 text-sm focus:outline-brand">
+            <input id="weight" type="number" value="65" min="30" max="250" step="0.1" class="mt-1 w-full border border-gray-200 rounded-lg px-3 py-2 text-sm focus:outline-brand">
           </label>
         </div>
 
@@ -207,8 +200,22 @@
           </select>
         </label>
 
+        <p id="calcError" class="hidden text-sm text-red-600 font-medium bg-red-50 border border-red-200 rounded-lg px-3 py-2"></p>
+
         <button type="submit" class="w-full bg-gray-900 hover:bg-gray-700 text-white font-bold py-3.5 rounded-xl transition">계산하기</button>
       </form>
+    </div>
+
+    <!-- 18세 미만 안내 -->
+    <div id="ageNotice" class="hidden mt-5 bg-white border border-gray-200 rounded-2xl p-6 text-sm text-gray-600 leading-relaxed">
+      <h3 class="font-bold text-gray-800 mb-2">만 18세 미만은 이 계산기의 적용 대상이 아닙니다</h3>
+      <p>이 계산기는 성인의 체중 관리를 돕기 위한 일반적인 추정 도구이며, 성장기 청소년에게 적용되는 감량·증량 목표 칼로리 산출식이 아닙니다. 성장기에는 필요한 영양과 에너지 기준이 성인과 다르므로, 소아청소년과 전문의나 영양사와 상담하시길 권장합니다.</p>
+    </div>
+
+    <!-- 계산 불가 안내 -->
+    <div id="macroNotice" class="hidden mt-5 bg-white border border-gray-200 rounded-2xl p-6 text-sm text-gray-600 leading-relaxed">
+      <h3 class="font-bold text-gray-800 mb-2">입력하신 조건으로는 결과를 계산할 수 없습니다</h3>
+      <p id="macroNoticeText">입력하신 나이·키·몸무게·활동량 조합에서는 정상적인 목표 칼로리 또는 영양소 배분을 산출할 수 없습니다. 값을 다시 확인해주세요.</p>
     </div>
 
     <!-- 결과 -->
@@ -219,6 +226,7 @@
           <span class="text-xs bg-cream text-gray-500 px-3 py-1 rounded-full">오늘의 목표</span>
         </div>
         <div class="text-4xl md:text-5xl font-extrabold tracking-tight"><span id="goalValue">0</span> <small class="text-base font-medium text-gray-400">kcal</small></div>
+        <p class="text-xs text-gray-400 mt-2">일반적인 공식(Mifflin-St Jeor 등)에 근거한 참고용 추정치이며, 실제 필요량은 개인차가 있을 수 있습니다.</p>
       </div>
 
       <div class="grid grid-cols-1 sm:grid-cols-3 gap-4">
@@ -267,14 +275,6 @@
       </div>
 
     </div>
-
-    <!-- AdSense: 계산 결과 하단 -->
-    <div class="mt-5">
-      <!-- Google AdSense 광고 슬롯 (계산 결과 하단, 반응형) -->
-      <div class="adsense-box w-full h-24 md:h-28 border-2 border-dashed border-gray-300 rounded-xl flex items-center justify-center text-gray-400 text-xs">
-        광고 영역 (Google AdSense)
-      </div>
-    </div>
   </section>
 
   <!-- ============================================================ -->
@@ -283,7 +283,8 @@
   <section id="tab-fooddb" class="tab-panel hidden">
     <div class="bg-white border border-gray-200 rounded-2xl p-6 md:p-8">
       <h2 class="font-bold text-lg mb-1">한국인 식단 칼로리 사전</h2>
-      <p class="text-gray-500 text-sm mb-4">자주 먹는 다이어트 &amp; 외식 음식 30종의 1회 제공량 기준 영양 정보입니다.</p>
+      <p class="text-gray-500 text-sm mb-2">자주 먹는 다이어트 &amp; 외식 음식 30종의 1회 제공량 기준 대표적인 영양 정보입니다.</p>
+      <p class="text-gray-400 text-xs mb-4">브랜드·조리법·양념에 따라 실제 값은 차이가 있을 수 있는 일반적인 추정치입니다. 정확한 값은 <a href="https://various.foodsafetykorea.go.kr/nutrient/" target="_blank" rel="noopener" class="text-brand font-semibold">식품의약품안전처 식품영양성분 데이터베이스</a>에서 직접 확인하실 수 있습니다. 특히 "프로틴쉐이크"는 특정 제품이 아닌 예시 가정값이므로, 실제로는 구매하신 제품의 영양성분표를 우선 확인해주세요.</p>
       <input id="foodSearch" type="text" placeholder="음식 이름으로 검색 (예: 닭가슴살, 고구마, 쌀밥)" class="w-full border border-gray-200 rounded-xl px-4 py-3 text-sm focus:outline-brand">
     </div>
 
@@ -297,7 +298,8 @@
   <section id="tab-recipes" class="tab-panel hidden">
     <div class="mb-5">
       <h2 class="font-bold text-lg">초간단 저칼로리 &middot; 고단백 다이어트 레시피</h2>
-      <p class="text-gray-500 text-sm mt-1">재료 준비부터 조리 순서까지, 15분 안에 완성하는 다이어트 식단입니다.</p>
+      <p class="text-gray-500 text-sm mt-1">간단한 재료로 만드는 다이어트 식단입니다. 조리 시간은 대부분 15분 이내이며, 냉장 등 대기 시간이 필요한 레시피는 조리법에 별도로 표시했습니다.</p>
+      <p class="text-gray-400 text-xs mt-2">모든 레시피는 1인분 기준이며, 표시된 칼로리·영양성분은 조리 전 재료 중량(손질 후 가식부 기준)을 바탕으로 계산한 추정 합산치입니다(실측치가 아님). "약간·1스쿱·1작은술"처럼 중량이 불명확한 재료는 대표적인 중량으로 가정해 계산했으며, 프로틴 파우더는 특정 제품이 아닌 예시 가정값(30g·단백질 24g)을 사용했으므로 실제로는 사용 제품의 영양성분표를 확인해주세요.</p>
     </div>
     <div id="recipeList" class="space-y-5"></div>
   </section>
@@ -308,12 +310,12 @@
   <section id="tab-exercise" class="tab-panel hidden">
     <div class="bg-white border border-gray-200 rounded-2xl p-6 md:p-8 shadow-sm">
       <h2 class="font-bold text-lg mb-1">운동 소모 칼로리 계산기</h2>
-      <p class="text-gray-500 text-sm mb-5">체중과 운동 시간을 입력하면 종목별 실제 소모 칼로리를 계산해드려요.</p>
+      <p class="text-gray-500 text-sm mb-5">체중과 운동 시간을 입력하면 종목별 MET 계수 기반 추정 소모 칼로리를 계산해드려요.</p>
 
       <div class="grid grid-cols-1 sm:grid-cols-3 gap-3 mb-5">
         <label class="block">
           <span class="text-xs font-semibold text-gray-500">몸무게 (kg)</span>
-          <input id="exWeight" type="number" value="65" min="30" max="250" class="mt-1 w-full border border-gray-200 rounded-lg px-3 py-2 text-sm">
+          <input id="exWeight" type="number" value="65" min="30" max="250" step="0.1" class="mt-1 w-full border border-gray-200 rounded-lg px-3 py-2 text-sm">
         </label>
         <label class="block">
           <span class="text-xs font-semibold text-gray-500">운동 시간 (분)</span>
@@ -325,11 +327,14 @@
         </label>
       </div>
 
+      <p id="exError" class="hidden text-sm text-red-600 font-medium bg-red-50 border border-red-200 rounded-lg px-3 py-2 mb-3"></p>
+
       <button id="exCalcBtn" class="w-full bg-gray-900 hover:bg-gray-700 text-white font-bold py-3.5 rounded-xl transition">소모 칼로리 계산하기</button>
 
       <div id="exResult" class="hidden mt-5 bg-brand-light border border-brand/20 rounded-2xl p-6 text-center">
         <p class="text-sm text-gray-600 mb-1"><span id="exResultLabel"></span> 기준</p>
         <div class="text-4xl font-extrabold text-brand"><span id="exResultKcal">0</span> <small class="text-base font-medium text-gray-500">kcal 소모</small></div>
+        <p class="text-xs text-gray-400 mt-2">MET 계수 기반 참고용 추정치이며, 실제 소모량은 강도·체력 수준에 따라 달라질 수 있습니다.</p>
       </div>
     </div>
 
@@ -344,7 +349,8 @@
   <!-- ============================================================ -->
   <section class="mt-14">
     <h2 class="text-xl font-extrabold mb-1">다이어트 &amp; 칼로리 전문 정보 칼럼</h2>
-    <p class="text-gray-500 text-sm mb-6">건강하고 지속 가능한 체중 관리를 위한 생리학 기반 가이드입니다.</p>
+    <p class="text-gray-500 text-sm mb-1">건강하고 지속 가능한 체중 관리를 위한 일반 정보 가이드입니다.</p>
+    <p class="text-gray-400 text-xs mb-6">작성·편집: My Kcal · 최종 검토일: 2026-09-12 (의료 전문가 감수 없음, 일반 참고 정보)</p>
 
     <div class="grid grid-cols-1 md:grid-cols-2 gap-5">
 
@@ -359,7 +365,7 @@
       <article class="bg-white border border-gray-200 rounded-2xl p-6 flex flex-col">
         <h3 class="font-bold mb-3">체지방 1kg 감량에 필요한 7,700kcal, 요요 없이 빼는 속도</h3>
         <p class="text-sm text-gray-600 leading-relaxed flex-1">
-          체지방 1kg은 약 7,700kcal에 해당합니다. 다만 감량 속도보다 중요한 건 지속 가능성이며, 주당 체중의 0.5~1% 정도가 요요 없이 안전한 감량 속도로 알려져 있습니다.
+          체지방 1kg은 흔히 약 7,700kcal로 환산되지만 이는 단순화된 근사치입니다. 감량 속도보다 중요한 건 지속 가능성이며, 주당 체중의 0.5~1% 정도가 요요 위험을 줄이는 데 도움이 될 수 있다고 알려져 있습니다.
         </p>
         <a href="articles/calorie-deficit.html" class="text-brand text-sm font-semibold mt-4 inline-block">전체 글 읽기 &rarr;</a>
       </article>
@@ -375,7 +381,7 @@
       <article class="bg-white border border-gray-200 rounded-2xl p-6 flex flex-col">
         <h3 class="font-bold mb-3">매일 아침 체중이 오르내리는 이유: 글리코겐과 수분의 원리</h3>
         <p class="text-sm text-gray-600 leading-relaxed flex-1">
-          하루 단위 체중 변동은 대부분 체지방이 아니라 글리코겐에 결합된 수분량 변화 때문입니다. 체중은 하루하루가 아니라 1~2주 단위 평균 추이로 확인하는 것이 정확합니다.
+          하루 단위 체중 변동은 대부분 체지방이 아니라 글리코겐에 결합된 수분량 변화 때문입니다. 체중은 하루하루가 아니라 1~2주 단위 평균 추이로 확인하는 것이 더 신뢰도 높은 방법으로 알려져 있습니다.
         </p>
         <a href="articles/glycogen-water.html" class="text-brand text-sm font-semibold mt-4 inline-block">전체 글 읽기 &rarr;</a>
       </article>
@@ -399,13 +405,6 @@
     <div id="faqList" class="space-y-3"></div>
   </section>
 
-  <!-- AdSense: 본문 하단 -->
-  <div class="my-10">
-    <!-- Google AdSense 광고 슬롯 (본문 하단, 반응형) -->
-    <div class="adsense-box w-full h-24 md:h-28 border-2 border-dashed border-gray-300 rounded-xl flex items-center justify-center text-gray-400 text-xs">
-      광고 영역 (Google AdSense)
-    </div>
-  </div>
 
 </main>
 
@@ -514,11 +513,74 @@ const MACRO_PLAN = {
   '0.2':  { proteinPerKg: 1.8, fatRatio: 0.20 },
 };
 
+const CALC_LIMITS = {
+  age: { min: 10, max: 100 },
+  height: { min: 100, max: 250 },
+  weight: { min: 30, max: 250 },
+};
+const ADULT_AGE = 18;
+
+function resetCalcState() {
+  document.getElementById('calcError').classList.add('hidden');
+  document.getElementById('ageNotice').classList.add('hidden');
+  document.getElementById('macroNotice').classList.add('hidden');
+  document.getElementById('results').classList.add('hidden');
+}
+function showCalcError(msg) {
+  const el = document.getElementById('calcError');
+  el.textContent = msg;
+  el.classList.remove('hidden');
+}
+function showMacroNotice(msg) {
+  document.getElementById('macroNoticeText').textContent = msg;
+  document.getElementById('macroNotice').classList.remove('hidden');
+  window.scrollBy({ top: 180, behavior: 'smooth' });
+}
+
 document.getElementById('calcForm').addEventListener('submit', (e) => {
   e.preventDefault();
-  const age = Number(document.getElementById('age').value);
-  const height = Number(document.getElementById('height').value);
-  const weight = Number(document.getElementById('weight').value);
+  resetCalcState();
+
+  const ageRaw = document.getElementById('age').value.trim();
+  const heightRaw = document.getElementById('height').value.trim();
+  const weightRaw = document.getElementById('weight').value.trim();
+
+  if (ageRaw === '' || heightRaw === '' || weightRaw === '') {
+    showCalcError('나이, 키, 몸무게를 모두 입력해주세요.');
+    return;
+  }
+
+  const age = Number(ageRaw);
+  const height = Number(heightRaw);
+  const weight = Number(weightRaw);
+
+  if (!Number.isFinite(age) || !Number.isFinite(height) || !Number.isFinite(weight)) {
+    showCalcError('나이, 키, 몸무게에는 숫자만 입력해주세요.');
+    return;
+  }
+  if (!Number.isInteger(age)) {
+    showCalcError('나이는 정수(만 나이)로 입력해주세요.');
+    return;
+  }
+  if (age < CALC_LIMITS.age.min || age > CALC_LIMITS.age.max) {
+    showCalcError(`나이는 ${CALC_LIMITS.age.min}~${CALC_LIMITS.age.max}세 사이로 입력해주세요.`);
+    return;
+  }
+  if (height < CALC_LIMITS.height.min || height > CALC_LIMITS.height.max) {
+    showCalcError(`키는 ${CALC_LIMITS.height.min}~${CALC_LIMITS.height.max}cm 사이로 입력해주세요.`);
+    return;
+  }
+  if (weight < CALC_LIMITS.weight.min || weight > CALC_LIMITS.weight.max) {
+    showCalcError(`몸무게는 ${CALC_LIMITS.weight.min}~${CALC_LIMITS.weight.max}kg 사이로 입력해주세요.`);
+    return;
+  }
+
+  if (age < ADULT_AGE) {
+    document.getElementById('ageNotice').classList.remove('hidden');
+    window.scrollBy({ top: 180, behavior: 'smooth' });
+    return;
+  }
+
   const activity = Number(document.getElementById('activity').value);
   const goalKey = document.getElementById('goal').value;
   const goalOffset = Number(goalKey);
@@ -526,27 +588,43 @@ document.getElementById('calcForm').addEventListener('submit', (e) => {
   let bmr = 10 * weight + 6.25 * height - 5 * age;
   bmr += gender === 'male' ? 5 : -161;
 
-  const tdee = bmr * activity;
-  const goalCalories = Math.max(tdee * (1 + goalOffset), 0);
-  const water = weight * 33;
+  if (!Number.isFinite(bmr) || bmr <= 0) {
+    showMacroNotice('입력하신 나이·키·몸무게 조합에서는 기초대사량을 계산할 수 없습니다. 값을 다시 확인해주세요.');
+    return;
+  }
 
-  document.getElementById('bmrValue').textContent = Math.round(bmr).toLocaleString();
-  document.getElementById('tdeeValue').textContent = Math.round(tdee).toLocaleString();
-  document.getElementById('goalValue').textContent = Math.round(goalCalories).toLocaleString();
-  document.getElementById('waterValue').textContent = Math.round(water).toLocaleString();
+  const tdee = bmr * activity;
+  const goalCalories = tdee * (1 + goalOffset);
+
+  if (!Number.isFinite(goalCalories) || goalCalories <= 0) {
+    showMacroNotice('입력하신 조건에서는 목표 섭취 칼로리를 계산할 수 없습니다. 값을 다시 확인해주세요.');
+    return;
+  }
+
+  const water = weight * 33;
 
   const plan = MACRO_PLAN[goalKey] || MACRO_PLAN['0'];
   const proteinG = Math.round(weight * plan.proteinPerKg);
   const fatG = Math.round((goalCalories * plan.fatRatio) / 9);
   const proteinKcal = proteinG * 4;
   const fatKcal = fatG * 9;
-  const carbKcal = Math.max(goalCalories - proteinKcal - fatKcal, 0);
-  const carbG = Math.round(carbKcal / 4);
+  const carbKcal = goalCalories - proteinKcal - fatKcal;
 
+  if (carbKcal <= 0) {
+    showMacroNotice('목표 칼로리가 낮아 단백질·지방 기준을 채우면서 탄수화물을 배분할 수 없는 조합입니다. 목표를 "체중 유지"나 "체중 증량"으로 바꾸거나 몸무게·활동량 값을 다시 확인해주세요.');
+    return;
+  }
+
+  const carbG = Math.round(carbKcal / 4);
   const totalKcal = proteinKcal + fatKcal + carbKcal;
-  const carbPct = totalKcal ? (carbKcal / totalKcal) * 100 : 0;
-  const proteinPct = totalKcal ? (proteinKcal / totalKcal) * 100 : 0;
-  const fatPct = totalKcal ? (fatKcal / totalKcal) * 100 : 0;
+  const carbPct = (carbKcal / totalKcal) * 100;
+  const proteinPct = (proteinKcal / totalKcal) * 100;
+  const fatPct = (fatKcal / totalKcal) * 100;
+
+  document.getElementById('bmrValue').textContent = Math.round(bmr).toLocaleString();
+  document.getElementById('tdeeValue').textContent = Math.round(tdee).toLocaleString();
+  document.getElementById('goalValue').textContent = Math.round(goalCalories).toLocaleString();
+  document.getElementById('waterValue').textContent = Math.round(water).toLocaleString();
 
   document.getElementById('carbG').textContent = carbG;
   document.getElementById('proteinG').textContent = proteinG;
@@ -563,7 +641,7 @@ document.getElementById('calcForm').addEventListener('submit', (e) => {
    3. 칼로리 사전 (Food DB)
    ============================================================ */
 const FOODS = [
-  { name: '닭가슴살', serving: '100g', kcal: 165, carb: 0, protein: 31, fat: 3.6, sugar: 0 },
+  { name: '닭가슴살(삶거나 구운 것)', serving: '100g', kcal: 165, carb: 0, protein: 31, fat: 3.6, sugar: 0 },
   { name: '고구마 (찐 것)', serving: '100g', kcal: 90, carb: 21, protein: 2, fat: 0.1, sugar: 6.5 },
   { name: '현미밥', serving: '1공기 210g', kcal: 300, carb: 65, protein: 6, fat: 2.5, sugar: 0.5 },
   { name: '흰쌀밥', serving: '1공기 210g', kcal: 310, carb: 68, protein: 5.6, fat: 0.5, sugar: 0.1 },
@@ -578,7 +656,7 @@ const FOODS = [
   { name: '연어구이', serving: '100g', kcal: 208, carb: 0, protein: 20, fat: 13, sugar: 0 },
   { name: '참치캔 (물)', serving: '100g', kcal: 116, carb: 0, protein: 25.5, fat: 0.8, sugar: 0 },
   { name: '김밥', serving: '1줄 230g', kcal: 350, carb: 55, protein: 9, fat: 9, sugar: 4 },
-  { name: '삼겹살 구이', serving: '100g', kcal: 331, carb: 0, protein: 17.2, fat: 28.4, sugar: 0 },
+  { name: '삼겹살 구이', serving: '100g', kcal: 484, carb: 0, protein: 22.7, fat: 41.2, sugar: 0 },
   { name: '치킨 (후라이드)', serving: '100g', kcal: 260, carb: 10, protein: 18, fat: 16, sugar: 0.5 },
   { name: '라면', serving: '1봉지', kcal: 505, carb: 78, protein: 10, fat: 16, sugar: 5 },
   { name: '짜장면', serving: '1인분', kcal: 700, carb: 110, protein: 18, fat: 20, sugar: 12 },
@@ -588,7 +666,7 @@ const FOODS = [
   { name: '삼각김밥', serving: '1개', kcal: 180, carb: 32, protein: 4, fat: 3.5, sugar: 1 },
   { name: '두유 (무가당)', serving: '200ml', kcal: 80, carb: 4, protein: 7, fat: 4, sugar: 0.5 },
   { name: '아메리카노', serving: '1잔', kcal: 10, carb: 1.4, protein: 0.3, fat: 0, sugar: 0 },
-  { name: '프로틴쉐이크', serving: '1스쿱', kcal: 120, carb: 3, protein: 24, fat: 1.5, sugar: 1 },
+  { name: '프로틴쉐이크(예시, 분말 30g 가정·물에 혼합)', serving: '1스쿱(약 30g 가정)', kcal: 120, carb: 3, protein: 24, fat: 1.5, sugar: 1 },
   { name: '견과류 믹스', serving: '30g', kcal: 175, carb: 6, protein: 6, fat: 15, sugar: 1.5 },
   { name: '방울토마토', serving: '10개 150g', kcal: 27, carb: 6, protein: 1.3, fat: 0.3, sugar: 4 },
   { name: '브로콜리 (데침)', serving: '100g', kcal: 35, carb: 7, protein: 2.8, fat: 0.4, sugar: 1.7 },
@@ -630,36 +708,42 @@ document.getElementById('foodSearch').addEventListener('input', (e) => {
 /* ============================================================
    4. 다이어트 레시피
    ============================================================ */
+// 영양성분은 재료 중량 × 개별 식재료 표준 영양값을 합산해 재계산한 추정치입니다.
+// "약간/1스쿱/1작은술" 등은 계산을 위해 아래 중량으로 가정했습니다:
+// 오이 1/2개=100g, 양파 1/4개=40g, 파프리카 1/4개=40g, 올리브오일 1작은술=5g,
+// 레몬즙 약간=5g, 레몬 1/4개=30g, 마늘 1쪽=3g, 땅콩버터 1작은술=8g,
+// 프로틴 파우더 1스쿱=30g·단백질 24g(특정 제품 검증값이 아닌 예시 가정, 실제 제품 라벨과 다를 수 있음), 계란 1개=50g.
+// 후추·소금·시나몬·베이킹파우더는 열량 미미로 0 처리. 아래 각 레시피의 합계는 재료별 값을 더한 뒤 마지막에 반올림한 값입니다.
 const RECIPES = [
   {
     title: '닭가슴살 그릭요거트 샐러드',
-    kcal: 320, carb: 18, protein: 42, fat: 9,
-    ingredients: ['닭가슴살 150g', '그릭요거트 100g', '방울토마토 8개', '오이 1/2개', '레몬즙 약간', '후추·소금 약간'],
+    kcal: 380, carb: 12, protein: 57, fat: 11,
+    ingredients: ['닭가슴살 150g(조리 후 가식부 기준)', '그릭요거트 100g', '방울토마토 8개(120g)', '오이 1/2개(100g)', '레몬즙 약간(5g)', '후추·소금 약간'],
     steps: ['닭가슴살을 삶거나 에어프라이어에 굽고 한 입 크기로 찢는다.', '오이와 방울토마토를 먹기 좋게 썬다.', '그릭요거트에 레몬즙, 소금, 후추를 섞어 드레싱을 만든다.', '모든 재료를 그릇에 담고 드레싱을 뿌려 버무린다.'],
   },
   {
     title: '두부 스크램블',
-    kcal: 260, carb: 8, protein: 24, fat: 14,
-    ingredients: ['두부 200g', '계란 1개', '양파 1/4개', '파프리카 1/4개', '올리브오일 1작은술', '소금·후추 약간'],
+    kcal: 319, carb: 11, protein: 23, fat: 20,
+    ingredients: ['두부 200g', '계란 1개(50g)', '양파 1/4개(40g)', '파프리카 1/4개(40g)', '올리브오일 1작은술(5g)', '소금·후추 약간'],
     steps: ['두부는 물기를 제거하고 손으로 으깬다.', '팬에 올리브오일을 두르고 다진 양파, 파프리카를 볶는다.', '으깬 두부와 계란을 넣고 스크램블 하듯 볶는다.', '소금, 후추로 간을 맞춰 마무리한다.'],
   },
   {
     title: '오트밀 프로틴 팬케이크',
-    kcal: 340, carb: 38, protein: 28, fat: 8,
-    ingredients: ['오트밀 40g', '계란 2개', '바나나 1/2개', '프로틴 파우더 1스쿱', '베이킹파우더 약간'],
+    kcal: 479, carb: 45, protein: 42, fat: 15,
+    ingredients: ['오트밀 40g', '계란 2개(100g)', '바나나 1/2개(60g)', '프로틴 파우더 1스쿱(30g)', '베이킹파우더 약간'],
     steps: ['오트밀을 믹서에 곱게 갈아준다.', '계란, 으깬 바나나, 프로틴 파우더, 베이킹파우더를 함께 섞는다.', '반죽을 약불로 달군 팬에 얇게 부어 앞뒤로 굽는다.', '기호에 따라 그릭요거트나 과일을 곁들인다.'],
   },
   {
     title: '연어 아스파라거스 구이',
-    kcal: 380, carb: 6, protein: 34, fat: 22,
-    ingredients: ['연어 150g', '아스파라거스 100g', '올리브오일 1작은술', '레몬 1/4개', '마늘 1쪽', '소금·후추 약간'],
+    kcal: 389, carb: 8, protein: 33, fat: 25,
+    ingredients: ['연어 150g(조리 후 가식부 기준)', '아스파라거스 100g', '올리브오일 1작은술(5g)', '레몬 1/4개(30g)', '마늘 1쪽(3g)', '소금·후추 약간'],
     steps: ['연어에 소금, 후추로 밑간을 한다.', '팬에 올리브오일과 다진 마늘을 볶다가 연어를 올려 굽는다.', '아스파라거스도 함께 구워 익힌다.', '접시에 담고 레몬즙을 뿌려 마무리한다.'],
   },
   {
     title: '고구마 프로틴 볼',
-    kcal: 220, carb: 30, protein: 16, fat: 4,
-    ingredients: ['찐 고구마 150g', '프로틴 파우더 1스쿱', '땅콩버터 1작은술', '시나몬 파우더 약간'],
-    steps: ['찐 고구마를 곱게 으깬다.', '프로틴 파우더와 땅콩버터를 넣고 치대듯 섞는다.', '한 입 크기로 동그랗게 빚는다.', '냉장고에 30분 정도 넣어 식힌 뒤 먹는다.'],
+    kcal: 302, carb: 36, protein: 29, fat: 6,
+    ingredients: ['찐 고구마 150g', '프로틴 파우더 1스쿱(30g)', '땅콩버터 1작은술(8g)', '시나몬 파우더 약간'],
+    steps: ['찐 고구마를 곱게 으깬다.', '프로틴 파우더와 땅콩버터를 넣고 치대듯 섞는다.', '한 입 크기로 동그랗게 빚는다.', '냉장고에 30분 정도 넣어 굳힌 뒤 먹는다.'],
   },
 ];
 
@@ -715,9 +799,44 @@ function calcKcal(met, weight, minutes) {
   return Math.round((met * 3.5 * weight / 200) * minutes);
 }
 
+const EX_LIMITS = {
+  weight: { min: 30, max: 250 },
+  duration: { min: 1, max: 300 },
+};
+
 document.getElementById('exCalcBtn').addEventListener('click', () => {
-  const weight = Number(document.getElementById('exWeight').value);
-  const duration = Number(document.getElementById('exDuration').value);
+  const exErrorEl = document.getElementById('exError');
+  exErrorEl.classList.add('hidden');
+  document.getElementById('exResult').classList.add('hidden');
+
+  const weightRaw = document.getElementById('exWeight').value.trim();
+  const durationRaw = document.getElementById('exDuration').value.trim();
+
+  if (weightRaw === '' || durationRaw === '') {
+    exErrorEl.textContent = '몸무게와 운동 시간을 모두 입력해주세요.';
+    exErrorEl.classList.remove('hidden');
+    return;
+  }
+
+  const weight = Number(weightRaw);
+  const duration = Number(durationRaw);
+
+  if (!Number.isFinite(weight) || !Number.isFinite(duration)) {
+    exErrorEl.textContent = '몸무게와 운동 시간에는 숫자만 입력해주세요.';
+    exErrorEl.classList.remove('hidden');
+    return;
+  }
+  if (weight < EX_LIMITS.weight.min || weight > EX_LIMITS.weight.max) {
+    exErrorEl.textContent = `몸무게는 ${EX_LIMITS.weight.min}~${EX_LIMITS.weight.max}kg 사이로 입력해주세요.`;
+    exErrorEl.classList.remove('hidden');
+    return;
+  }
+  if (duration < EX_LIMITS.duration.min || duration > EX_LIMITS.duration.max) {
+    exErrorEl.textContent = `운동 시간은 ${EX_LIMITS.duration.min}~${EX_LIMITS.duration.max}분 사이로 입력해주세요.`;
+    exErrorEl.classList.remove('hidden');
+    return;
+  }
+
   const ex = EXERCISES[Number(exSelect.value)];
   const kcal = calcKcal(ex.met, weight, duration);
   document.getElementById('exResultLabel').textContent = `체중 ${weight}kg · ${ex.name} ${duration}분`;
@@ -742,11 +861,11 @@ const FAQS = [
   },
   {
     q: '기초대사량(BMR)보다 적게 먹으면 안 되나요?',
-    a: '장기간 BMR보다 적게 섭취하는 것은 권장하지 않습니다. 몸이 에너지 부족을 위기로 인식해 근손실, 호르몬 불균형, 기초대사량 저하를 유발할 수 있습니다. 목표 섭취 칼로리는 BMR이 아니라 활동량을 반영한 TDEE를 기준으로 15~20% 정도만 낮추는 것이 안전합니다.',
+    a: '장기간 BMR보다 적게 섭취하는 것은 권장하지 않습니다. 몸이 에너지 부족을 위기로 인식해 근손실, 호르몬 불균형, 기초대사량 저하를 유발할 수 있습니다. 목표 섭취 칼로리는 BMR이 아니라 활동량을 반영한 TDEE를 기준으로 15~20% 정도만 낮추는 것이 비교적 안전한 방법으로 알려져 있습니다.',
   },
   {
     q: '며칠 만에 체중이 확 빠졌다가 다시 늘어나는 이유는 무엇인가요?',
-    a: '초반의 급격한 체중 감소는 대부분 체지방이 아니라 글리코겐과 함께 저장되어 있던 체내 수분이 빠져나간 결과입니다. 식사를 정상으로 되돌리면 글리코겐과 수분이 다시 채워지며 체중이 원래대로 돌아오는 것처럼 보일 수 있습니다. 진짜 체지방 변화는 2~4주 단위의 평균 추이로 확인하는 것이 정확합니다.',
+    a: '초반의 급격한 체중 감소는 대부분 체지방이 아니라 글리코겐과 함께 저장되어 있던 체내 수분이 빠져나간 결과입니다. 식사를 정상으로 되돌리면 글리코겐과 수분이 다시 채워지며 체중이 원래대로 돌아오는 것처럼 보일 수 있습니다. 체지방 변화는 2~4주 단위의 평균 추이로 확인하는 것이 더 신뢰도 높은 방법으로 알려져 있습니다.',
   },
   {
     q: '단백질은 하루에 얼마나 먹어야 하나요?',
