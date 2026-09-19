@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>운동 소모 칼로리, MET 지수로 계산하는 원리와 오차 요인 | My Kcal</title>
+<meta name="description" content="운동 소모 칼로리 계산에 쓰이는 MET(대사당량) 지수의 정의와 계산 공식, 그리고 실제 소모량과 차이가 나는 이유를 알아봅니다.">
+<link rel="canonical" href="https://my-kcal.com/articles/exercise-met.html">
+<link rel="icon" href="../favicon-32.png" sizes="32x32" type="image/png">
+<link rel="icon" href="../favicon-192.png" sizes="192x192" type="image/png">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": "운동 소모 칼로리, MET 지수로 계산하는 원리와 오차 요인",
+  "description": "운동 소모 칼로리 계산에 쓰이는 MET(대사당량) 지수의 정의와 계산 공식, 그리고 실제 소모량과 차이가 나는 이유를 알아봅니다.",
+  "author": { "@type": "Organization", "name": "My Kcal" },
+  "publisher": { "@type": "Organization", "name": "My Kcal", "logo": { "@type": "ImageObject", "url": "https://my-kcal.com/logo.png" } },
+  "mainEntityOfPage": "https://my-kcal.com/articles/exercise-met.html",
+  "datePublished": "2026-09-19",
+  "dateModified": "2026-09-19"
+}
+</script>
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8338690631070562"
+     crossorigin="anonymous"></script>
+<script src="https://cdn.tailwindcss.com"></script>
+<script>
+  tailwind.config = { theme: { extend: { colors: { brand: { DEFAULT: '#FF6B00', dark: '#FF5722', light: '#FFF1E6' }, cream: '#F7F6F3' } } } };
+</script>
+<style>
+  body { font-family: -apple-system, BlinkMacSystemFont, "Apple SD Gothic Neo", "Pretendard", "Malgun Gothic", sans-serif; }
+  h1 { word-break: keep-all; overflow-wrap: break-word; }
+  .logo-img { mix-blend-mode: multiply; }
+</style>
+</head>
+<body class="bg-cream text-gray-900 antialiased">
+
+<header class="border-b border-gray-200">
+  <div class="max-w-2xl mx-auto px-4 py-4">
+    <a href="../index.html" class="inline-flex items-center gap-2">
+      <img src="../logo.png" alt="My Kcal 로고" class="logo-img h-8 w-auto">
+      <span class="font-extrabold text-lg tracking-tight">My Kcal</span>
+    </a>
+  </div>
+</header>
+
+<main class="max-w-2xl mx-auto px-4 py-10">
+  <a href="../index.html" class="text-sm text-brand font-semibold">&larr; 홈으로</a>
+  <p class="text-xs text-gray-400 mt-4">다이어트 &amp; 칼로리 전문 정보 칼럼</p>
+  <h1 class="text-2xl font-extrabold mt-1 mb-3">운동 소모 칼로리, MET 지수로 계산하는 원리와 오차 요인</h1>
+  <p class="text-xs text-gray-400 mb-6">작성·편집: My Kcal · 최초 게시: 2026-09-19 · 최종 검토: 2026-09-19 (의료 전문가 감수 없음, 일반 참고 정보)</p>
+
+  <article class="text-sm text-gray-600 leading-relaxed space-y-4">
+    <p>My Kcal의 운동 칼로리 계산기는 걷기, 조깅, 웨이트 트레이닝 등 운동 종류를 선택하면 몸무게와 운동 시간만으로 소모 칼로리를 추정해줍니다. 이때 각 운동의 강도를 나타내는 지표가 <strong>MET(Metabolic Equivalent of Task, 대사당량)</strong>입니다. MET는 안정 시(가만히 앉아 있을 때) 소비하는 산소량인 체중 1kg당 분당 3.5mL을 기준값 1로 놓고, 특정 활동이 그 몇 배의 에너지를 쓰는지를 나타내는 지수입니다. 예를 들어 조깅의 MET가 7.0이라면, 가만히 있을 때보다 7배의 에너지를 쓴다는 의미입니다.</p>
+
+    <div>
+      <h2 class="font-bold text-gray-800 mb-2">계산 공식과 유도 과정</h2>
+      <p>My Kcal 계산기가 사용하는 공식은 다음과 같습니다.</p>
+      <pre class="bg-gray-900 text-gray-100 rounded-xl p-4 text-xs overflow-x-auto mt-3">소모 칼로리(kcal) = MET × 3.5 × 체중(kg) / 200 × 운동 시간(분)</pre>
+      <p class="mt-2">이 공식은 MET의 정의(체중 1kg당 분당 산소 소비량 3.5mL를 기준값 1로 함)에서 출발합니다. MET에 3.5를 곱하고 체중(kg)을 곱하면 분당 총 산소 소비량(mL/분)이 나오고, 이를 1,000으로 나누어 리터(L) 단위로 바꾼 뒤 산소 1L당 약 5kcal의 에너지가 발생한다는 생리학적 근사치를 곱하면 분당 소모 칼로리가 됩니다. 이 두 상수(÷1,000, ×5)를 하나로 합치면 ÷200이 되어, 최종적으로 위와 같은 단순화된 공식이 만들어집니다.</p>
+    </div>
+
+    <div>
+      <h2 class="font-bold text-gray-800 mb-2">계산 과정 예시</h2>
+      <p>몸무게 65kg인 사람이 조깅(MET 7.0)을 30분 했다고 가정하면, 계산기는 다음 순서로 계산합니다.</p>
+      <pre class="bg-gray-900 text-gray-100 rounded-xl p-4 text-xs overflow-x-auto mt-3">7.0 × 3.5 × 65 / 200 × 30
+= 24.5 × 65 / 200 × 30
+= 1,592.5 / 200 × 30
+= 7.9625 × 30 ≈ 239kcal (반올림)</pre>
+      <p class="mt-2">같은 조건에서 운동 종류만 걷기(MET 3.5)로 바꾸면 약 119kcal, 줄넘기(MET 10.0)로 바꾸면 약 341kcal로 계산되어, 같은 시간을 움직여도 강도에 따라 소모 칼로리 차이가 크다는 것을 확인할 수 있습니다.</p>
+    </div>
+
+    <div>
+      <h2 class="font-bold text-gray-800 mb-2">실제 소모량과 차이가 나는 이유</h2>
+      <ul class="list-disc list-inside space-y-1.5">
+        <li><b class="text-gray-800">표준 MET는 평균값</b> — MET 표는 다양한 연구에서 측정한 평균적인 성인을 기준으로 만들어졌습니다. 개인의 체력 수준, 운동 경력, 실제 강도(속도·경사·무게)에 따라 실제 소모량은 이보다 높거나 낮을 수 있습니다.</li>
+        <li><b class="text-gray-800">나이·성별·체성분 미반영</b> — 이 계산기는 체중만 반영하며, 표준 MET 자체는 나이·키·성별·근육량에 따른 보정을 포함하지 않습니다.</li>
+        <li><b class="text-gray-800">웨어러블 기기 값과의 차이</b> — 스마트워치가 표시하는 칼로리는 심박수 기반 추정치로, MET 기반 계산과는 다른 방식이라 서로 값이 다를 수 있습니다. 어느 한쪽이 반드시 더 정확하다고 단정하기 어렵습니다.</li>
+        <li><b class="text-gray-800">운동 강도를 실제보다 높게 선택</b> — 예를 들어 가볍게 걷었는데 "빠르게 걷기"를 선택하면 실제보다 소모 칼로리가 과대추정됩니다.</li>
+      </ul>
+    </div>
+
+    <div class="bg-gray-50 border border-gray-200 rounded-xl p-4 mt-2">
+      <h2 class="font-bold text-gray-800 text-sm mb-1">한계 및 참고사항</h2>
+      <p>MET 값의 학술적 근거인 Compendium of Physical Activities는 "표준 MET 값은 개인의 나이·키·성별·체질량 차이를 보정한 값이 아니므로, 이를 그대로 개인의 에너지 소비량 계산에 사용할 때는 혼동하지 말아야 한다"고 명시하고 있습니다. 즉 이 계산기의 결과는 평균적인 추정치이며, 특정 개인의 실측값을 대체하지 않습니다.</p>
+      <p class="mt-2 text-xs">참고자료: Ainsworth BE, et al. "A brief history of the Compendium of Physical Activities." <em>J Sport Health Sci.</em> 2024. <a href="https://pmc.ncbi.nlm.nih.gov/articles/PMC10818106/" target="_blank" rel="noopener" class="text-brand">원문 보기(PMC, 무료 공개)</a><br>공식 데이터베이스: <a href="https://pacompendium.com/" target="_blank" rel="noopener" class="text-brand">Compendium of Physical Activities</a></p>
+    </div>
+  </article>
+
+  <div class="mt-8 pt-6 border-t border-gray-200">
+    <h2 class="text-xs font-bold text-gray-400 mb-2">관련 글</h2>
+    <ul class="text-sm space-y-1.5">
+      <li><a href="bmr-tdee.html" class="text-brand font-semibold">BMR과 TDEE의 생리학적 차이, 올바른 칼로리 적자 설정법 &rarr;</a></li>
+      <li><a href="calorie-deficit.html" class="text-brand font-semibold">체지방 1kg 감량에 필요한 7,700kcal, 요요 없이 빼는 속도 &rarr;</a></li>
+    </ul>
+  </div>
+
+  <div class="mt-6 bg-white border border-gray-200 rounded-2xl p-6 text-center">
+    <p class="text-sm text-gray-600 mb-3">내 운동 소모 칼로리를 지금 계산해보세요.</p>
+    <a href="../index.html" class="inline-block bg-gray-900 text-white text-sm font-bold px-5 py-2.5 rounded-full hover:bg-gray-700 transition">운동 칼로리 계산기로 이동</a>
+  </div>
+</main>
+
+<footer class="border-t border-gray-200 mt-10">
+  <div class="max-w-2xl mx-auto px-4 py-8 text-sm text-gray-500">
+    <div class="flex flex-wrap gap-x-6 gap-y-2 mb-4 font-medium">
+      <a href="../index.html#about" class="hover:text-brand">사이트 소개</a>
+      <a href="../privacy.html" class="hover:text-brand">개인정보처리방침</a>
+      <a href="../terms.html" class="hover:text-brand">이용약관</a>
+      <a href="../disclaimer.html" class="hover:text-brand">면책조항</a>
+      <a href="../contact.html" class="hover:text-brand">문의하기</a>
+    </div>
+    <p class="text-xs text-gray-400">&copy; 2026 My Kcal. All rights reserved.</p>
+  </div>
+</footer>
+
+<script>
+(function renderLogo() {
+  const imgEl = document.querySelector('.logo-img');
+  if (!imgEl) return;
+  const src = imgEl.getAttribute('src');
+  const img = new Image();
+  img.onload = () => {
+    const off = document.createElement('canvas');
+    off.width = img.width; off.height = img.height;
+    const octx = off.getContext('2d');
+    octx.drawImage(img, 0, 0);
+    const data = octx.getImageData(0, 0, off.width, off.height);
+    const d = data.data;
+    let minX = off.width, minY = off.height, maxX = 0, maxY = 0;
+    const floor = 200, ceil = 250;
+    for (let y = 0; y < off.height; y++) {
+      for (let x = 0; x < off.width; x++) {
+        const i = (y * off.width + x) * 4;
+        const whiteness = Math.min(d[i], d[i+1], d[i+2]);
+        if (whiteness <= floor) {
+          if (x < minX) minX = x; if (x > maxX) maxX = x;
+          if (y < minY) minY = y; if (y > maxY) maxY = y;
+        }
+        if (whiteness > floor) {
+          const fade = Math.min(1, (whiteness - floor) / (ceil - floor));
+          d[i+3] = Math.round(d[i+3] * (1 - fade));
+        }
+      }
+    }
+    octx.putImageData(data, 0, 0);
+    const pad = 12;
+    const cropX = Math.max(0, minX - pad);
+    const cropY = Math.max(0, minY - pad);
+    const cropW = Math.min(off.width, maxX + pad) - cropX;
+    const cropH = Math.min(off.height, maxY + pad) - cropY;
+    const canvas = document.createElement('canvas');
+    canvas.width = cropW; canvas.height = cropH;
+    canvas.className = imgEl.className.replace('logo-img', '') + ' logo-img h-8 w-auto';
+    canvas.getContext('2d').drawImage(off, cropX, cropY, cropW, cropH, 0, 0, cropW, cropH);
+    imgEl.replaceWith(canvas);
+  };
+  img.src = src;
+})();
+</script>
+</body>
+</html>
