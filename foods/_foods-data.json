@@ -1,0 +1,2362 @@
+[
+  {
+    "slug": "chicken-breast",
+    "name": "닭가슴살(삶거나 구운 것)",
+    "serving": "100g",
+    "kcal": 165,
+    "carb": 0,
+    "protein": 31,
+    "fat": 3.6,
+    "sugar": 0
+  },
+  {
+    "slug": "sweet-potato",
+    "name": "고구마 (찐 것)",
+    "serving": "100g",
+    "kcal": 90,
+    "carb": 21,
+    "protein": 2,
+    "fat": 0.1,
+    "sugar": 6.5
+  },
+  {
+    "slug": "brown-rice",
+    "name": "현미밥",
+    "serving": "1공기 210g",
+    "kcal": 300,
+    "carb": 65,
+    "protein": 6,
+    "fat": 2.5,
+    "sugar": 0.5
+  },
+  {
+    "slug": "white-rice",
+    "name": "흰쌀밥",
+    "serving": "1공기 210g",
+    "kcal": 310,
+    "carb": 68,
+    "protein": 5.6,
+    "fat": 0.5,
+    "sugar": 0.1
+  },
+  {
+    "slug": "boiled-egg",
+    "name": "삶은 계란",
+    "serving": "1개 50g",
+    "kcal": 78,
+    "carb": 0.6,
+    "protein": 6.3,
+    "fat": 5.3,
+    "sugar": 0.6
+  },
+  {
+    "slug": "tofu",
+    "name": "두부",
+    "serving": "100g",
+    "kcal": 84,
+    "carb": 1.9,
+    "protein": 8.1,
+    "fat": 4.8,
+    "sugar": 0.7
+  },
+  {
+    "slug": "greek-yogurt",
+    "name": "그릭요거트",
+    "serving": "100g",
+    "kcal": 97,
+    "carb": 3.6,
+    "protein": 9,
+    "fat": 5,
+    "sugar": 3.2
+  },
+  {
+    "slug": "banana",
+    "name": "바나나",
+    "serving": "1개 120g",
+    "kcal": 105,
+    "carb": 27,
+    "protein": 1.3,
+    "fat": 0.4,
+    "sugar": 14
+  },
+  {
+    "slug": "apple",
+    "name": "사과",
+    "serving": "1개 200g",
+    "kcal": 104,
+    "carb": 27.6,
+    "protein": 0.5,
+    "fat": 0.3,
+    "sugar": 21
+  },
+  {
+    "slug": "avocado",
+    "name": "아보카도",
+    "serving": "1/2개 100g",
+    "kcal": 160,
+    "carb": 8.5,
+    "protein": 2,
+    "fat": 14.7,
+    "sugar": 0.7
+  },
+  {
+    "slug": "egg-white",
+    "name": "계란 흰자",
+    "serving": "100g",
+    "kcal": 52,
+    "carb": 0.7,
+    "protein": 11,
+    "fat": 0.2,
+    "sugar": 0.7
+  },
+  {
+    "slug": "oatmeal",
+    "name": "오트밀",
+    "serving": "건조 40g",
+    "kcal": 150,
+    "carb": 27,
+    "protein": 5,
+    "fat": 3,
+    "sugar": 1
+  },
+  {
+    "slug": "grilled-salmon",
+    "name": "연어구이",
+    "serving": "100g",
+    "kcal": 208,
+    "carb": 0,
+    "protein": 20,
+    "fat": 13,
+    "sugar": 0
+  },
+  {
+    "slug": "tuna-can",
+    "name": "참치캔 (물)",
+    "serving": "100g",
+    "kcal": 116,
+    "carb": 0,
+    "protein": 25.5,
+    "fat": 0.8,
+    "sugar": 0
+  },
+  {
+    "slug": "gimbap",
+    "name": "김밥",
+    "serving": "1줄 230g",
+    "kcal": 350,
+    "carb": 55,
+    "protein": 9,
+    "fat": 9,
+    "sugar": 4
+  },
+  {
+    "slug": "pork-belly",
+    "name": "삼겹살 구이",
+    "serving": "100g",
+    "kcal": 484,
+    "carb": 0,
+    "protein": 22.7,
+    "fat": 41.2,
+    "sugar": 0
+  },
+  {
+    "slug": "fried-chicken",
+    "name": "치킨 (후라이드)",
+    "serving": "100g",
+    "kcal": 260,
+    "carb": 10,
+    "protein": 18,
+    "fat": 16,
+    "sugar": 0.5
+  },
+  {
+    "slug": "ramen",
+    "name": "라면",
+    "serving": "1봉지",
+    "kcal": 505,
+    "carb": 78,
+    "protein": 10,
+    "fat": 16,
+    "sugar": 5
+  },
+  {
+    "slug": "jjajangmyeon",
+    "name": "짜장면",
+    "serving": "1인분",
+    "kcal": 700,
+    "carb": 110,
+    "protein": 18,
+    "fat": 20,
+    "sugar": 12
+  },
+  {
+    "slug": "bibimbap",
+    "name": "비빔밥",
+    "serving": "1인분",
+    "kcal": 550,
+    "carb": 90,
+    "protein": 18,
+    "fat": 14,
+    "sugar": 8
+  },
+  {
+    "slug": "naengmyeon",
+    "name": "냉면",
+    "serving": "1인분",
+    "kcal": 480,
+    "carb": 90,
+    "protein": 15,
+    "fat": 6,
+    "sugar": 10
+  },
+  {
+    "slug": "tteokbokki",
+    "name": "떡볶이",
+    "serving": "1인분 300g",
+    "kcal": 480,
+    "carb": 95,
+    "protein": 8,
+    "fat": 6,
+    "sugar": 20
+  },
+  {
+    "slug": "samgak-gimbap",
+    "name": "삼각김밥",
+    "serving": "1개",
+    "kcal": 180,
+    "carb": 32,
+    "protein": 4,
+    "fat": 3.5,
+    "sugar": 1
+  },
+  {
+    "slug": "soy-milk",
+    "name": "두유 (무가당)",
+    "serving": "200ml",
+    "kcal": 80,
+    "carb": 4,
+    "protein": 7,
+    "fat": 4,
+    "sugar": 0.5
+  },
+  {
+    "slug": "americano",
+    "name": "아메리카노",
+    "serving": "1잔",
+    "kcal": 10,
+    "carb": 1.4,
+    "protein": 0.3,
+    "fat": 0,
+    "sugar": 0
+  },
+  {
+    "slug": "protein-shake",
+    "name": "프로틴쉐이크(예시, 분말 30g 가정·물에 혼합)",
+    "serving": "1스쿱(약 30g 가정)",
+    "kcal": 120,
+    "carb": 3,
+    "protein": 24,
+    "fat": 1.5,
+    "sugar": 1
+  },
+  {
+    "slug": "mixed-nuts",
+    "name": "견과류 믹스",
+    "serving": "30g",
+    "kcal": 175,
+    "carb": 6,
+    "protein": 6,
+    "fat": 15,
+    "sugar": 1.5
+  },
+  {
+    "slug": "cherry-tomato",
+    "name": "방울토마토",
+    "serving": "10개 150g",
+    "kcal": 27,
+    "carb": 6,
+    "protein": 1.3,
+    "fat": 0.3,
+    "sugar": 4
+  },
+  {
+    "slug": "broccoli",
+    "name": "브로콜리 (데침)",
+    "serving": "100g",
+    "kcal": 35,
+    "carb": 7,
+    "protein": 2.8,
+    "fat": 0.4,
+    "sugar": 1.7
+  },
+  {
+    "slug": "steamed-shrimp",
+    "name": "찐 새우",
+    "serving": "100g",
+    "kcal": 99,
+    "carb": 0.2,
+    "protein": 24,
+    "fat": 0.3,
+    "sugar": 0
+  },
+  {
+    "slug": "barley-rice",
+    "name": "보리밥",
+    "serving": "1공기 210g",
+    "kcal": 318,
+    "carb": 70,
+    "protein": 6,
+    "fat": 1.5,
+    "sugar": 0.5
+  },
+  {
+    "slug": "multigrain-rice",
+    "name": "잡곡밥",
+    "serving": "1공기 210g",
+    "kcal": 310,
+    "carb": 66,
+    "protein": 7,
+    "fat": 2,
+    "sugar": 1
+  },
+  {
+    "slug": "white-bread",
+    "name": "식빵",
+    "serving": "1쪽 35g",
+    "kcal": 94,
+    "carb": 17,
+    "protein": 3,
+    "fat": 1.5,
+    "sugar": 2
+  },
+  {
+    "slug": "whole-wheat-bread",
+    "name": "통밀식빵",
+    "serving": "1쪽 35g",
+    "kcal": 86,
+    "carb": 15,
+    "protein": 3.5,
+    "fat": 1.3,
+    "sugar": 1.5
+  },
+  {
+    "slug": "croissant",
+    "name": "크루아상",
+    "serving": "1개 60g",
+    "kcal": 236,
+    "carb": 27,
+    "protein": 5,
+    "fat": 12,
+    "sugar": 5
+  },
+  {
+    "slug": "bagel",
+    "name": "베이글",
+    "serving": "1개 100g",
+    "kcal": 278,
+    "carb": 55,
+    "protein": 10,
+    "fat": 2,
+    "sugar": 6
+  },
+  {
+    "slug": "spaghetti",
+    "name": "스파게티 (삶은 면)",
+    "serving": "100g",
+    "kcal": 129,
+    "carb": 25,
+    "protein": 5,
+    "fat": 1,
+    "sugar": 0.5
+  },
+  {
+    "slug": "boiled-potato",
+    "name": "감자 (찐 것)",
+    "serving": "100g",
+    "kcal": 77,
+    "carb": 17,
+    "protein": 2,
+    "fat": 0.1,
+    "sugar": 1
+  },
+  {
+    "slug": "corn",
+    "name": "옥수수 (삶은 것)",
+    "serving": "1개 150g",
+    "kcal": 159,
+    "carb": 31,
+    "protein": 4.5,
+    "fat": 1.9,
+    "sugar": 6
+  },
+  {
+    "slug": "sweet-pumpkin",
+    "name": "단호박 (찐 것)",
+    "serving": "100g",
+    "kcal": 48,
+    "carb": 10,
+    "protein": 1.5,
+    "fat": 0.2,
+    "sugar": 3
+  },
+  {
+    "slug": "beef-sirloin",
+    "name": "소고기 등심 (구운 것)",
+    "serving": "100g",
+    "kcal": 266,
+    "carb": 0,
+    "protein": 26,
+    "fat": 18,
+    "sugar": 0
+  },
+  {
+    "slug": "pork-neck",
+    "name": "돼지고기 목살 (구운 것)",
+    "serving": "100g",
+    "kcal": 294,
+    "carb": 0,
+    "protein": 24,
+    "fat": 22,
+    "sugar": 0
+  },
+  {
+    "slug": "duck-meat",
+    "name": "오리고기 (구운 것)",
+    "serving": "100g",
+    "kcal": 328,
+    "carb": 0,
+    "protein": 19,
+    "fat": 28,
+    "sugar": 0
+  },
+  {
+    "slug": "beef-tenderloin",
+    "name": "소고기 안심 (구운 것)",
+    "serving": "100g",
+    "kcal": 189,
+    "carb": 0,
+    "protein": 27,
+    "fat": 9,
+    "sugar": 0
+  },
+  {
+    "slug": "seasoned-chicken",
+    "name": "양념치킨",
+    "serving": "100g",
+    "kcal": 259,
+    "carb": 14,
+    "protein": 17,
+    "fat": 15,
+    "sugar": 8
+  },
+  {
+    "slug": "chicken-thigh",
+    "name": "닭다리살 (구운 것)",
+    "serving": "100g",
+    "kcal": 195,
+    "carb": 0,
+    "protein": 24,
+    "fat": 11,
+    "sugar": 0
+  },
+  {
+    "slug": "sausage",
+    "name": "소시지 (비엔나)",
+    "serving": "100g",
+    "kcal": 293,
+    "carb": 4,
+    "protein": 13,
+    "fat": 25,
+    "sugar": 2
+  },
+  {
+    "slug": "bacon",
+    "name": "베이컨 (구운 것)",
+    "serving": "100g",
+    "kcal": 374,
+    "carb": 1,
+    "protein": 25,
+    "fat": 30,
+    "sugar": 0.5
+  },
+  {
+    "slug": "spam",
+    "name": "스팸 (구운 것)",
+    "serving": "100g",
+    "kcal": 338,
+    "carb": 3,
+    "protein": 14,
+    "fat": 30,
+    "sugar": 1
+  },
+  {
+    "slug": "mandu",
+    "name": "만두 (찐 것)",
+    "serving": "5개 150g",
+    "kcal": 258,
+    "carb": 30,
+    "protein": 12,
+    "fat": 10,
+    "sugar": 2
+  },
+  {
+    "slug": "grilled-mackerel",
+    "name": "고등어구이",
+    "serving": "100g",
+    "kcal": 214,
+    "carb": 0,
+    "protein": 22,
+    "fat": 14,
+    "sugar": 0
+  },
+  {
+    "slug": "boiled-squid",
+    "name": "오징어 (데친 것)",
+    "serving": "100g",
+    "kcal": 89,
+    "carb": 2,
+    "protein": 18,
+    "fat": 1,
+    "sugar": 0
+  },
+  {
+    "slug": "crab-stick",
+    "name": "게맛살",
+    "serving": "100g",
+    "kcal": 97,
+    "carb": 10,
+    "protein": 12,
+    "fat": 1,
+    "sugar": 3
+  },
+  {
+    "slug": "oyster",
+    "name": "굴",
+    "serving": "100g",
+    "kcal": 70,
+    "carb": 4,
+    "protein": 9,
+    "fat": 2,
+    "sugar": 0.5
+  },
+  {
+    "slug": "grilled-croaker",
+    "name": "조기구이",
+    "serving": "100g",
+    "kcal": 143,
+    "carb": 0,
+    "protein": 20,
+    "fat": 7,
+    "sugar": 0
+  },
+  {
+    "slug": "stir-fried-anchovy",
+    "name": "멸치볶음",
+    "serving": "30g",
+    "kcal": 83,
+    "carb": 5,
+    "protein": 9,
+    "fat": 3,
+    "sugar": 3
+  },
+  {
+    "slug": "whole-milk",
+    "name": "우유 (일반)",
+    "serving": "200ml",
+    "kcal": 125,
+    "carb": 9,
+    "protein": 6.6,
+    "fat": 7,
+    "sugar": 9
+  },
+  {
+    "slug": "low-fat-milk",
+    "name": "저지방우유",
+    "serving": "200ml",
+    "kcal": 86,
+    "carb": 10,
+    "protein": 7,
+    "fat": 2,
+    "sugar": 10
+  },
+  {
+    "slug": "cheddar-cheese",
+    "name": "체다치즈",
+    "serving": "1장 20g",
+    "kcal": 78,
+    "carb": 0.4,
+    "protein": 4.5,
+    "fat": 6.5,
+    "sugar": 0.4
+  },
+  {
+    "slug": "mozzarella-cheese",
+    "name": "모짜렐라치즈",
+    "serving": "30g",
+    "kcal": 86,
+    "carb": 1,
+    "protein": 7,
+    "fat": 6,
+    "sugar": 0.5
+  },
+  {
+    "slug": "caffe-latte",
+    "name": "카페라떼",
+    "serving": "1잔 250ml",
+    "kcal": 101,
+    "carb": 9,
+    "protein": 5,
+    "fat": 5,
+    "sugar": 9
+  },
+  {
+    "slug": "vanilla-ice-cream",
+    "name": "아이스크림 (바닐라)",
+    "serving": "100g",
+    "kcal": 211,
+    "carb": 24,
+    "protein": 4,
+    "fat": 11,
+    "sugar": 21
+  },
+  {
+    "slug": "cabbage",
+    "name": "양배추 (생)",
+    "serving": "100g",
+    "kcal": 30,
+    "carb": 6,
+    "protein": 1.3,
+    "fat": 0.1,
+    "sugar": 3.2
+  },
+  {
+    "slug": "spinach",
+    "name": "시금치 (데침)",
+    "serving": "100g",
+    "kcal": 32,
+    "carb": 4,
+    "protein": 3,
+    "fat": 0.4,
+    "sugar": 0.5
+  },
+  {
+    "slug": "eggplant",
+    "name": "가지 (구운 것)",
+    "serving": "100g",
+    "kcal": 30,
+    "carb": 6,
+    "protein": 1,
+    "fat": 0.2,
+    "sugar": 3
+  },
+  {
+    "slug": "carrot",
+    "name": "당근 (생)",
+    "serving": "100g",
+    "kcal": 45,
+    "carb": 10,
+    "protein": 0.9,
+    "fat": 0.2,
+    "sugar": 5
+  },
+  {
+    "slug": "bean-sprouts",
+    "name": "콩나물 (데침)",
+    "serving": "100g",
+    "kcal": 35,
+    "carb": 4,
+    "protein": 3.5,
+    "fat": 0.5,
+    "sugar": 1
+  },
+  {
+    "slug": "bell-pepper",
+    "name": "파프리카 (생)",
+    "serving": "1개 150g",
+    "kcal": 47,
+    "carb": 9,
+    "protein": 1.8,
+    "fat": 0.4,
+    "sugar": 6
+  },
+  {
+    "slug": "strawberry",
+    "name": "딸기",
+    "serving": "10개 150g",
+    "kcal": 54,
+    "carb": 11,
+    "protein": 1.4,
+    "fat": 0.5,
+    "sugar": 8
+  },
+  {
+    "slug": "grape",
+    "name": "포도",
+    "serving": "100g",
+    "kcal": 77,
+    "carb": 18,
+    "protein": 0.6,
+    "fat": 0.3,
+    "sugar": 16
+  },
+  {
+    "slug": "watermelon",
+    "name": "수박",
+    "serving": "200g",
+    "kcal": 72,
+    "carb": 16,
+    "protein": 1.2,
+    "fat": 0.3,
+    "sugar": 14
+  },
+  {
+    "slug": "kiwi",
+    "name": "키위",
+    "serving": "1개 80g",
+    "kcal": 51,
+    "carb": 11,
+    "protein": 0.9,
+    "fat": 0.4,
+    "sugar": 9
+  },
+  {
+    "slug": "orange",
+    "name": "오렌지",
+    "serving": "1개 150g",
+    "kcal": 80,
+    "carb": 18,
+    "protein": 1.5,
+    "fat": 0.2,
+    "sugar": 14
+  },
+  {
+    "slug": "pear",
+    "name": "배",
+    "serving": "1개 250g",
+    "kcal": 118,
+    "carb": 28,
+    "protein": 0.8,
+    "fat": 0.3,
+    "sugar": 19
+  },
+  {
+    "slug": "blueberry",
+    "name": "블루베리",
+    "serving": "100g",
+    "kcal": 62,
+    "carb": 14,
+    "protein": 0.7,
+    "fat": 0.3,
+    "sugar": 10
+  },
+  {
+    "slug": "pineapple",
+    "name": "파인애플",
+    "serving": "100g",
+    "kcal": 55,
+    "carb": 13,
+    "protein": 0.5,
+    "fat": 0.1,
+    "sugar": 10
+  },
+  {
+    "slug": "almond",
+    "name": "아몬드",
+    "serving": "20g",
+    "kcal": 122,
+    "carb": 4,
+    "protein": 4,
+    "fat": 10,
+    "sugar": 1
+  },
+  {
+    "slug": "walnut",
+    "name": "호두",
+    "serving": "20g",
+    "kcal": 141,
+    "carb": 3,
+    "protein": 3,
+    "fat": 13,
+    "sugar": 0.5
+  },
+  {
+    "slug": "black-beans",
+    "name": "검은콩 (삶은 것)",
+    "serving": "100g",
+    "kcal": 202,
+    "carb": 20,
+    "protein": 17,
+    "fat": 6,
+    "sugar": 2
+  },
+  {
+    "slug": "lentils",
+    "name": "렌틸콩 (삶은 것)",
+    "serving": "100g",
+    "kcal": 120,
+    "carb": 20,
+    "protein": 9,
+    "fat": 0.4,
+    "sugar": 2
+  },
+  {
+    "slug": "chickpeas",
+    "name": "병아리콩 (삶은 것)",
+    "serving": "100g",
+    "kcal": 171,
+    "carb": 27,
+    "protein": 9,
+    "fat": 3,
+    "sugar": 3
+  },
+  {
+    "slug": "peanuts",
+    "name": "땅콩",
+    "serving": "20g",
+    "kcal": 117,
+    "carb": 4,
+    "protein": 5,
+    "fat": 9,
+    "sugar": 1
+  },
+  {
+    "slug": "hot-chocolate",
+    "name": "핫초코",
+    "serving": "1잔 250ml",
+    "kcal": 182,
+    "carb": 28,
+    "protein": 4,
+    "fat": 6,
+    "sugar": 22
+  },
+  {
+    "slug": "granola-bar",
+    "name": "그래놀라바",
+    "serving": "1개 35g",
+    "kcal": 129,
+    "carb": 18,
+    "protein": 3,
+    "fat": 5,
+    "sugar": 9
+  },
+  {
+    "slug": "sundae",
+    "name": "순대",
+    "serving": "1인분 200g",
+    "kcal": 262,
+    "carb": 20,
+    "protein": 14,
+    "fat": 14,
+    "sugar": 2
+  },
+  {
+    "slug": "janchi-guksu",
+    "name": "잔치국수",
+    "serving": "1인분",
+    "kcal": 364,
+    "carb": 70,
+    "protein": 12,
+    "fat": 4,
+    "sugar": 3
+  },
+  {
+    "slug": "kalguksu",
+    "name": "칼국수",
+    "serving": "1인분",
+    "kcal": 410,
+    "carb": 75,
+    "protein": 14,
+    "fat": 6,
+    "sugar": 3
+  },
+  {
+    "slug": "kimchi-jjigae",
+    "name": "김치찌개",
+    "serving": "1인분",
+    "kcal": 282,
+    "carb": 14,
+    "protein": 16,
+    "fat": 18,
+    "sugar": 4
+  },
+  {
+    "slug": "doenjang-jjigae",
+    "name": "된장찌개",
+    "serving": "1인분",
+    "kcal": 194,
+    "carb": 12,
+    "protein": 14,
+    "fat": 10,
+    "sugar": 3
+  },
+  {
+    "slug": "galbitang",
+    "name": "갈비탕",
+    "serving": "1인분",
+    "kcal": 320,
+    "carb": 10,
+    "protein": 25,
+    "fat": 20,
+    "sugar": 2
+  },
+  {
+    "slug": "japchae",
+    "name": "잡채",
+    "serving": "1인분 150g",
+    "kcal": 250,
+    "carb": 35,
+    "protein": 5,
+    "fat": 10,
+    "sugar": 8
+  },
+  {
+    "slug": "sundubu-jjigae",
+    "name": "순두부찌개",
+    "serving": "1인분",
+    "kcal": 222,
+    "carb": 10,
+    "protein": 14,
+    "fat": 14,
+    "sugar": 2
+  },
+  {
+    "slug": "pepperoni-pizza",
+    "name": "피자 (페퍼로니 1조각)",
+    "serving": "1조각 100g",
+    "kcal": 259,
+    "carb": 28,
+    "protein": 12,
+    "fat": 11,
+    "sugar": 3
+  },
+  {
+    "slug": "hamburger",
+    "name": "햄버거 (일반)",
+    "serving": "1개 200g",
+    "kcal": 410,
+    "carb": 35,
+    "protein": 18,
+    "fat": 22,
+    "sugar": 6
+  },
+  {
+    "slug": "french-fries",
+    "name": "감자튀김",
+    "serving": "100g",
+    "kcal": 289,
+    "carb": 35,
+    "protein": 3.5,
+    "fat": 15,
+    "sugar": 0.5
+  },
+  {
+    "slug": "corn-dog",
+    "name": "핫도그",
+    "serving": "1개 120g",
+    "kcal": 287,
+    "carb": 28,
+    "protein": 10,
+    "fat": 15,
+    "sugar": 6
+  },
+  {
+    "slug": "brown-rice-cake",
+    "name": "현미떡",
+    "serving": "100g",
+    "kcal": 225,
+    "carb": 50,
+    "protein": 4,
+    "fat": 1,
+    "sugar": 5
+  },
+  {
+    "slug": "barley-bread",
+    "name": "보리빵",
+    "serving": "1개 70g",
+    "kcal": 182,
+    "carb": 36,
+    "protein": 5,
+    "fat": 2,
+    "sugar": 8
+  },
+  {
+    "slug": "whole-wheat-pasta",
+    "name": "통밀파스타 (삶은 면)",
+    "serving": "100g",
+    "kcal": 125,
+    "carb": 24,
+    "protein": 5,
+    "fat": 1,
+    "sugar": 0.5
+  },
+  {
+    "slug": "crackers",
+    "name": "크래커",
+    "serving": "5개 30g",
+    "kcal": 133,
+    "carb": 20,
+    "protein": 2,
+    "fat": 5,
+    "sugar": 1
+  },
+  {
+    "slug": "corn-flakes",
+    "name": "콘플레이크 (시리얼)",
+    "serving": "40g",
+    "kcal": 153,
+    "carb": 34,
+    "protein": 3,
+    "fat": 0.5,
+    "sugar": 8
+  },
+  {
+    "slug": "granola",
+    "name": "그래놀라",
+    "serving": "40g",
+    "kcal": 174,
+    "carb": 26,
+    "protein": 4,
+    "fat": 6,
+    "sugar": 8
+  },
+  {
+    "slug": "rice-cake-stick",
+    "name": "가래떡",
+    "serving": "100g",
+    "kcal": 221,
+    "carb": 50,
+    "protein": 4,
+    "fat": 0.5,
+    "sugar": 1
+  },
+  {
+    "slug": "dinner-roll",
+    "name": "모닝빵",
+    "serving": "1개 40g",
+    "kcal": 119,
+    "carb": 20,
+    "protein": 4,
+    "fat": 2.5,
+    "sugar": 3
+  },
+  {
+    "slug": "donut",
+    "name": "도넛",
+    "serving": "1개 60g",
+    "kcal": 240,
+    "carb": 30,
+    "protein": 3,
+    "fat": 12,
+    "sugar": 14
+  },
+  {
+    "slug": "waffle",
+    "name": "와플",
+    "serving": "1개 100g",
+    "kcal": 291,
+    "carb": 33,
+    "protein": 6,
+    "fat": 15,
+    "sugar": 8
+  },
+  {
+    "slug": "grilled-chicken-wing",
+    "name": "닭날개구이",
+    "serving": "100g",
+    "kcal": 197,
+    "carb": 0,
+    "protein": 20,
+    "fat": 13,
+    "sugar": 0
+  },
+  {
+    "slug": "chicken-tenderloin",
+    "name": "닭안심 (구운 것)",
+    "serving": "100g",
+    "kcal": 126,
+    "carb": 0,
+    "protein": 28,
+    "fat": 1.6,
+    "sugar": 0
+  },
+  {
+    "slug": "smoked-duck",
+    "name": "훈제오리",
+    "serving": "100g",
+    "kcal": 256,
+    "carb": 1,
+    "protein": 18,
+    "fat": 20,
+    "sugar": 0.5
+  },
+  {
+    "slug": "beef-galbi",
+    "name": "소고기 갈비 (구운 것)",
+    "serving": "100g",
+    "kcal": 313,
+    "carb": 2,
+    "protein": 20,
+    "fat": 25,
+    "sugar": 1
+  },
+  {
+    "slug": "bulgogi",
+    "name": "소불고기",
+    "serving": "1인분 150g",
+    "kcal": 328,
+    "carb": 12,
+    "protein": 25,
+    "fat": 20,
+    "sugar": 8
+  },
+  {
+    "slug": "pork-bulgogi",
+    "name": "돼지불고기 (제육볶음 전 단계)",
+    "serving": "1인분 150g",
+    "kcal": 352,
+    "carb": 10,
+    "protein": 24,
+    "fat": 24,
+    "sugar": 6
+  },
+  {
+    "slug": "pork-suyuk",
+    "name": "삼겹살 수육",
+    "serving": "100g",
+    "kcal": 330,
+    "carb": 0,
+    "protein": 24,
+    "fat": 26,
+    "sugar": 0
+  },
+  {
+    "slug": "pork-galbi",
+    "name": "돼지갈비 (양념구이)",
+    "serving": "100g",
+    "kcal": 296,
+    "carb": 10,
+    "protein": 19,
+    "fat": 20,
+    "sugar": 6
+  },
+  {
+    "slug": "lamb-chop",
+    "name": "양고기 (구운 것)",
+    "serving": "100g",
+    "kcal": 289,
+    "carb": 0,
+    "protein": 25,
+    "fat": 21,
+    "sugar": 0
+  },
+  {
+    "slug": "meatball",
+    "name": "미트볼",
+    "serving": "5개 100g",
+    "kcal": 227,
+    "carb": 8,
+    "protein": 15,
+    "fat": 15,
+    "sugar": 2
+  },
+  {
+    "slug": "beef-jerky",
+    "name": "육포",
+    "serving": "30g",
+    "kcal": 98,
+    "carb": 6,
+    "protein": 15,
+    "fat": 1.5,
+    "sugar": 4
+  },
+  {
+    "slug": "smoked-chicken-breast",
+    "name": "닭가슴살 훈제",
+    "serving": "100g",
+    "kcal": 138,
+    "carb": 2,
+    "protein": 27,
+    "fat": 2.4,
+    "sugar": 1
+  },
+  {
+    "slug": "salmon-sashimi",
+    "name": "연어회",
+    "serving": "100g",
+    "kcal": 170,
+    "carb": 0,
+    "protein": 20,
+    "fat": 10,
+    "sugar": 0
+  },
+  {
+    "slug": "tuna-sashimi",
+    "name": "참치회",
+    "serving": "100g",
+    "kcal": 142,
+    "carb": 0,
+    "protein": 23,
+    "fat": 5.6,
+    "sugar": 0
+  },
+  {
+    "slug": "fried-shrimp",
+    "name": "새우튀김",
+    "serving": "5개 120g",
+    "kcal": 271,
+    "carb": 20,
+    "protein": 14,
+    "fat": 15,
+    "sugar": 1
+  },
+  {
+    "slug": "boiled-octopus",
+    "name": "문어숙회",
+    "serving": "100g",
+    "kcal": 77,
+    "carb": 2,
+    "protein": 15,
+    "fat": 1,
+    "sugar": 0
+  },
+  {
+    "slug": "stir-fried-octopus",
+    "name": "낙지볶음",
+    "serving": "1인분 200g",
+    "kcal": 294,
+    "carb": 18,
+    "protein": 24,
+    "fat": 14,
+    "sugar": 6
+  },
+  {
+    "slug": "abalone",
+    "name": "전복 (찜)",
+    "serving": "100g",
+    "kcal": 99,
+    "carb": 6,
+    "protein": 17,
+    "fat": 0.8,
+    "sugar": 0
+  },
+  {
+    "slug": "mussel",
+    "name": "홍합 (찜)",
+    "serving": "100g",
+    "kcal": 82,
+    "carb": 4,
+    "protein": 12,
+    "fat": 2,
+    "sugar": 0.5
+  },
+  {
+    "slug": "grilled-atka-mackerel",
+    "name": "임연수구이",
+    "serving": "100g",
+    "kcal": 198,
+    "carb": 0,
+    "protein": 18,
+    "fat": 14,
+    "sugar": 0
+  },
+  {
+    "slug": "grilled-hairtail",
+    "name": "갈치구이",
+    "serving": "100g",
+    "kcal": 184,
+    "carb": 0,
+    "protein": 19,
+    "fat": 12,
+    "sugar": 0
+  },
+  {
+    "slug": "salmon-sushi",
+    "name": "연어초밥",
+    "serving": "2개 60g",
+    "kcal": 97,
+    "carb": 14,
+    "protein": 4.5,
+    "fat": 2.5,
+    "sugar": 1
+  },
+  {
+    "slug": "skim-milk",
+    "name": "무지방우유",
+    "serving": "200ml",
+    "kcal": 70,
+    "carb": 10,
+    "protein": 7,
+    "fat": 0.2,
+    "sugar": 10
+  },
+  {
+    "slug": "sweet-soy-milk",
+    "name": "두유 (가당)",
+    "serving": "200ml",
+    "kcal": 141,
+    "carb": 18,
+    "protein": 6,
+    "fat": 5,
+    "sugar": 12
+  },
+  {
+    "slug": "condensed-milk",
+    "name": "연유",
+    "serving": "1큰술 20g",
+    "kcal": 66,
+    "carb": 11,
+    "protein": 1.6,
+    "fat": 1.7,
+    "sugar": 11
+  },
+  {
+    "slug": "whipped-cream",
+    "name": "생크림",
+    "serving": "30g",
+    "kcal": 105,
+    "carb": 1,
+    "protein": 0.6,
+    "fat": 11,
+    "sugar": 1
+  },
+  {
+    "slug": "butter",
+    "name": "버터",
+    "serving": "1큰술 14g",
+    "kcal": 101,
+    "carb": 0,
+    "protein": 0.1,
+    "fat": 11.2,
+    "sugar": 0
+  },
+  {
+    "slug": "cream-cheese",
+    "name": "크림치즈",
+    "serving": "30g",
+    "kcal": 102,
+    "carb": 2,
+    "protein": 2,
+    "fat": 9.5,
+    "sugar": 2
+  },
+  {
+    "slug": "cottage-cheese",
+    "name": "코티지치즈",
+    "serving": "100g",
+    "kcal": 95,
+    "carb": 3,
+    "protein": 11,
+    "fat": 4.3,
+    "sugar": 3
+  },
+  {
+    "slug": "sweetened-yogurt",
+    "name": "요거트 (가당)",
+    "serving": "100g",
+    "kcal": 109,
+    "carb": 17,
+    "protein": 3.5,
+    "fat": 3,
+    "sugar": 14
+  },
+  {
+    "slug": "lettuce",
+    "name": "상추",
+    "serving": "10장 100g",
+    "kcal": 19,
+    "carb": 2.9,
+    "protein": 1.4,
+    "fat": 0.2,
+    "sugar": 1
+  },
+  {
+    "slug": "perilla-leaf",
+    "name": "깻잎",
+    "serving": "10장 20g",
+    "kcal": 9,
+    "carb": 1.2,
+    "protein": 0.7,
+    "fat": 0.1,
+    "sugar": 0.2
+  },
+  {
+    "slug": "cucumber-muchim",
+    "name": "오이무침",
+    "serving": "100g",
+    "kcal": 41,
+    "carb": 8,
+    "protein": 1,
+    "fat": 0.6,
+    "sugar": 5
+  },
+  {
+    "slug": "radish-muchim",
+    "name": "무생채",
+    "serving": "100g",
+    "kcal": 45,
+    "carb": 9,
+    "protein": 1,
+    "fat": 0.6,
+    "sugar": 5
+  },
+  {
+    "slug": "water-dropwort",
+    "name": "미나리 (생)",
+    "serving": "100g",
+    "kcal": 23,
+    "carb": 3.5,
+    "protein": 1.8,
+    "fat": 0.2,
+    "sugar": 1
+  },
+  {
+    "slug": "chives",
+    "name": "부추 (생)",
+    "serving": "100g",
+    "kcal": 31,
+    "carb": 4.5,
+    "protein": 2.5,
+    "fat": 0.3,
+    "sugar": 1
+  },
+  {
+    "slug": "zucchini",
+    "name": "애호박 (볶음)",
+    "serving": "100g",
+    "kcal": 47,
+    "carb": 5,
+    "protein": 1.5,
+    "fat": 2.3,
+    "sugar": 3
+  },
+  {
+    "slug": "oyster-mushroom",
+    "name": "느타리버섯 (볶음)",
+    "serving": "100g",
+    "kcal": 35,
+    "carb": 4,
+    "protein": 2,
+    "fat": 1.2,
+    "sugar": 1
+  },
+  {
+    "slug": "shiitake-mushroom",
+    "name": "표고버섯 (구이)",
+    "serving": "100g",
+    "kcal": 37,
+    "carb": 6,
+    "protein": 2,
+    "fat": 0.5,
+    "sugar": 2
+  },
+  {
+    "slug": "garlic-scape",
+    "name": "마늘종 (볶음)",
+    "serving": "100g",
+    "kcal": 89,
+    "carb": 10,
+    "protein": 2,
+    "fat": 4.5,
+    "sugar": 3
+  },
+  {
+    "slug": "bracken",
+    "name": "고사리나물",
+    "serving": "100g",
+    "kcal": 64,
+    "carb": 5,
+    "protein": 2,
+    "fat": 4,
+    "sugar": 1
+  },
+  {
+    "slug": "balloon-flower-root",
+    "name": "도라지무침",
+    "serving": "100g",
+    "kcal": 74,
+    "carb": 12,
+    "protein": 2,
+    "fat": 2,
+    "sugar": 4
+  },
+  {
+    "slug": "young-radish-kimchi",
+    "name": "열무김치",
+    "serving": "100g",
+    "kcal": 29,
+    "carb": 5,
+    "protein": 1.5,
+    "fat": 0.3,
+    "sugar": 2
+  },
+  {
+    "slug": "napa-cabbage-kimchi",
+    "name": "배추김치",
+    "serving": "100g",
+    "kcal": 35,
+    "carb": 5.5,
+    "protein": 2,
+    "fat": 0.5,
+    "sugar": 2
+  },
+  {
+    "slug": "grapefruit",
+    "name": "자몽",
+    "serving": "1/2개 150g",
+    "kcal": 58,
+    "carb": 13,
+    "protein": 1,
+    "fat": 0.2,
+    "sugar": 11
+  },
+  {
+    "slug": "mango",
+    "name": "망고",
+    "serving": "100g",
+    "kcal": 67,
+    "carb": 15,
+    "protein": 0.8,
+    "fat": 0.4,
+    "sugar": 14
+  },
+  {
+    "slug": "cherry",
+    "name": "체리",
+    "serving": "15개 100g",
+    "kcal": 70,
+    "carb": 16,
+    "protein": 1,
+    "fat": 0.2,
+    "sugar": 13
+  },
+  {
+    "slug": "peach",
+    "name": "복숭아",
+    "serving": "1개 200g",
+    "kcal": 85,
+    "carb": 19,
+    "protein": 1.4,
+    "fat": 0.4,
+    "sugar": 16
+  },
+  {
+    "slug": "persimmon",
+    "name": "감",
+    "serving": "1개 200g",
+    "kcal": 136,
+    "carb": 32,
+    "protein": 1,
+    "fat": 0.4,
+    "sugar": 26
+  },
+  {
+    "slug": "pomegranate",
+    "name": "석류",
+    "serving": "100g",
+    "kcal": 94,
+    "carb": 19,
+    "protein": 1.7,
+    "fat": 1.2,
+    "sugar": 14
+  },
+  {
+    "slug": "melon",
+    "name": "멜론",
+    "serving": "200g",
+    "kcal": 74,
+    "carb": 16,
+    "protein": 1.6,
+    "fat": 0.4,
+    "sugar": 14
+  },
+  {
+    "slug": "fig",
+    "name": "무화과",
+    "serving": "2개 100g",
+    "kcal": 82,
+    "carb": 19,
+    "protein": 0.8,
+    "fat": 0.3,
+    "sugar": 16
+  },
+  {
+    "slug": "raisins",
+    "name": "건포도",
+    "serving": "20g",
+    "kcal": 63,
+    "carb": 15,
+    "protein": 0.6,
+    "fat": 0.1,
+    "sugar": 12
+  },
+  {
+    "slug": "jujube",
+    "name": "대추 (건조)",
+    "serving": "20g",
+    "kcal": 61,
+    "carb": 14,
+    "protein": 0.7,
+    "fat": 0.2,
+    "sugar": 11
+  },
+  {
+    "slug": "cashew",
+    "name": "캐슈넛",
+    "serving": "20g",
+    "kcal": 121,
+    "carb": 6,
+    "protein": 4,
+    "fat": 9,
+    "sugar": 1
+  },
+  {
+    "slug": "pistachio",
+    "name": "피스타치오",
+    "serving": "20g",
+    "kcal": 122,
+    "carb": 5,
+    "protein": 4,
+    "fat": 9.5,
+    "sugar": 1
+  },
+  {
+    "slug": "sunflower-seeds",
+    "name": "해바라기씨",
+    "serving": "20g",
+    "kcal": 118,
+    "carb": 4,
+    "protein": 4,
+    "fat": 9.5,
+    "sugar": 0.5
+  },
+  {
+    "slug": "sundubu",
+    "name": "순두부 (조리 전)",
+    "serving": "100g",
+    "kcal": 47,
+    "carb": 2,
+    "protein": 4,
+    "fat": 2.5,
+    "sugar": 0.5
+  },
+  {
+    "slug": "natto",
+    "name": "낫토",
+    "serving": "1팩 50g",
+    "kcal": 101,
+    "carb": 6,
+    "protein": 8,
+    "fat": 5,
+    "sugar": 1
+  },
+  {
+    "slug": "green-peas",
+    "name": "완두콩 (삶은 것)",
+    "serving": "100g",
+    "kcal": 80,
+    "carb": 14,
+    "protein": 5,
+    "fat": 0.4,
+    "sugar": 4
+  },
+  {
+    "slug": "rabokki",
+    "name": "라볶이",
+    "serving": "1인분",
+    "kcal": 538,
+    "carb": 100,
+    "protein": 12,
+    "fat": 10,
+    "sugar": 18
+  },
+  {
+    "slug": "jjolmyeon",
+    "name": "쫄면",
+    "serving": "1인분",
+    "kcal": 454,
+    "carb": 90,
+    "protein": 10,
+    "fat": 6,
+    "sugar": 15
+  },
+  {
+    "slug": "budae-jjigae",
+    "name": "부대찌개",
+    "serving": "1인분",
+    "kcal": 402,
+    "carb": 22,
+    "protein": 20,
+    "fat": 26,
+    "sugar": 5
+  },
+  {
+    "slug": "yukgaejang",
+    "name": "육개장",
+    "serving": "1인분",
+    "kcal": 314,
+    "carb": 12,
+    "protein": 26,
+    "fat": 18,
+    "sugar": 3
+  },
+  {
+    "slug": "samgyetang",
+    "name": "삼계탕",
+    "serving": "1인분",
+    "kcal": 454,
+    "carb": 15,
+    "protein": 40,
+    "fat": 26,
+    "sugar": 1
+  },
+  {
+    "slug": "gomtang",
+    "name": "곰탕",
+    "serving": "1인분",
+    "kcal": 285,
+    "carb": 5,
+    "protein": 28,
+    "fat": 17,
+    "sugar": 1
+  },
+  {
+    "slug": "seolleongtang",
+    "name": "설렁탕",
+    "serving": "1인분",
+    "kcal": 302,
+    "carb": 8,
+    "protein": 27,
+    "fat": 18,
+    "sugar": 1
+  },
+  {
+    "slug": "jeyuk-bokkeum",
+    "name": "제육볶음",
+    "serving": "1인분",
+    "kcal": 410,
+    "carb": 18,
+    "protein": 26,
+    "fat": 26,
+    "sugar": 8
+  },
+  {
+    "slug": "dak-galbi",
+    "name": "닭갈비",
+    "serving": "1인분",
+    "kcal": 430,
+    "carb": 30,
+    "protein": 28,
+    "fat": 22,
+    "sugar": 10
+  },
+  {
+    "slug": "gamja-tang",
+    "name": "감자탕",
+    "serving": "1인분",
+    "kcal": 416,
+    "carb": 20,
+    "protein": 30,
+    "fat": 24,
+    "sugar": 3
+  },
+  {
+    "slug": "chueotang",
+    "name": "추어탕",
+    "serving": "1인분",
+    "kcal": 254,
+    "carb": 10,
+    "protein": 22,
+    "fat": 14,
+    "sugar": 2
+  },
+  {
+    "slug": "bossam",
+    "name": "보쌈",
+    "serving": "1인분 200g",
+    "kcal": 475,
+    "carb": 6,
+    "protein": 34,
+    "fat": 35,
+    "sugar": 2
+  },
+  {
+    "slug": "jokbal",
+    "name": "족발",
+    "serving": "1인분 200g",
+    "kcal": 448,
+    "carb": 4,
+    "protein": 36,
+    "fat": 32,
+    "sugar": 2
+  },
+  {
+    "slug": "kongnamul-gukbap",
+    "name": "콩나물국밥",
+    "serving": "1인분",
+    "kcal": 376,
+    "carb": 60,
+    "protein": 16,
+    "fat": 8,
+    "sugar": 3
+  },
+  {
+    "slug": "sundaeguk",
+    "name": "순댓국",
+    "serving": "1인분",
+    "kcal": 444,
+    "carb": 20,
+    "protein": 28,
+    "fat": 28,
+    "sugar": 3
+  },
+  {
+    "slug": "eomuk-tang",
+    "name": "어묵탕",
+    "serving": "1인분",
+    "kcal": 174,
+    "carb": 18,
+    "protein": 12,
+    "fat": 6,
+    "sugar": 4
+  },
+  {
+    "slug": "cheeseburger",
+    "name": "치즈버거",
+    "serving": "1개 220g",
+    "kcal": 466,
+    "carb": 36,
+    "protein": 22,
+    "fat": 26,
+    "sugar": 7
+  },
+  {
+    "slug": "bulgogi-burger",
+    "name": "불고기버거",
+    "serving": "1개 220g",
+    "kcal": 432,
+    "carb": 45,
+    "protein": 18,
+    "fat": 20,
+    "sugar": 10
+  },
+  {
+    "slug": "shrimp-burger",
+    "name": "새우버거",
+    "serving": "1개 200g",
+    "kcal": 404,
+    "carb": 42,
+    "protein": 14,
+    "fat": 20,
+    "sugar": 6
+  },
+  {
+    "slug": "chicken-nuggets",
+    "name": "치킨너겟",
+    "serving": "6개 100g",
+    "kcal": 256,
+    "carb": 15,
+    "protein": 13,
+    "fat": 16,
+    "sugar": 1
+  },
+  {
+    "slug": "onion-rings",
+    "name": "어니언링",
+    "serving": "100g",
+    "kcal": 280,
+    "carb": 30,
+    "protein": 4,
+    "fat": 16,
+    "sugar": 3
+  },
+  {
+    "slug": "hot-wings",
+    "name": "핫윙",
+    "serving": "5개 150g",
+    "kcal": 387,
+    "carb": 12,
+    "protein": 24,
+    "fat": 27,
+    "sugar": 3
+  },
+  {
+    "slug": "steak",
+    "name": "스테이크 (등심)",
+    "serving": "200g",
+    "kcal": 472,
+    "carb": 0,
+    "protein": 46,
+    "fat": 32,
+    "sugar": 0
+  },
+  {
+    "slug": "risotto",
+    "name": "리조또",
+    "serving": "1인분 300g",
+    "kcal": 514,
+    "carb": 65,
+    "protein": 14,
+    "fat": 22,
+    "sugar": 3
+  },
+  {
+    "slug": "lasagna",
+    "name": "라자냐",
+    "serving": "1인분 300g",
+    "kcal": 562,
+    "carb": 45,
+    "protein": 28,
+    "fat": 30,
+    "sugar": 8
+  },
+  {
+    "slug": "curry-rice",
+    "name": "카레라이스",
+    "serving": "1인분",
+    "kcal": 602,
+    "carb": 95,
+    "protein": 15,
+    "fat": 18,
+    "sugar": 8
+  },
+  {
+    "slug": "omurice",
+    "name": "오므라이스",
+    "serving": "1인분",
+    "kcal": 572,
+    "carb": 80,
+    "protein": 18,
+    "fat": 20,
+    "sugar": 6
+  },
+  {
+    "slug": "tonkatsu",
+    "name": "돈까스",
+    "serving": "1인분 200g",
+    "kcal": 560,
+    "carb": 40,
+    "protein": 28,
+    "fat": 32,
+    "sugar": 4
+  },
+  {
+    "slug": "gyudon",
+    "name": "규동 (소고기덮밥)",
+    "serving": "1인분",
+    "kcal": 610,
+    "carb": 90,
+    "protein": 22,
+    "fat": 18,
+    "sugar": 8
+  },
+  {
+    "slug": "cola",
+    "name": "콜라",
+    "serving": "1캔 250ml",
+    "kcal": 108,
+    "carb": 27,
+    "protein": 0,
+    "fat": 0,
+    "sugar": 27
+  },
+  {
+    "slug": "cider",
+    "name": "사이다",
+    "serving": "1캔 250ml",
+    "kcal": 96,
+    "carb": 24,
+    "protein": 0,
+    "fat": 0,
+    "sugar": 24
+  },
+  {
+    "slug": "orange-juice",
+    "name": "오렌지주스",
+    "serving": "200ml",
+    "kcal": 94,
+    "carb": 22,
+    "protein": 1,
+    "fat": 0.2,
+    "sugar": 20
+  },
+  {
+    "slug": "sikhye",
+    "name": "식혜",
+    "serving": "1캔 240ml",
+    "kcal": 118,
+    "carb": 29,
+    "protein": 0.5,
+    "fat": 0,
+    "sugar": 22
+  },
+  {
+    "slug": "sujeonggwa",
+    "name": "수정과",
+    "serving": "1잔 200ml",
+    "kcal": 101,
+    "carb": 25,
+    "protein": 0.2,
+    "fat": 0,
+    "sugar": 21
+  },
+  {
+    "slug": "milk-tea",
+    "name": "밀크티",
+    "serving": "1잔 350ml",
+    "kcal": 206,
+    "carb": 34,
+    "protein": 4,
+    "fat": 6,
+    "sugar": 28
+  },
+  {
+    "slug": "matcha-latte",
+    "name": "녹차라떼",
+    "serving": "1잔 350ml",
+    "kcal": 216,
+    "carb": 30,
+    "protein": 6,
+    "fat": 8,
+    "sugar": 26
+  },
+  {
+    "slug": "chocolate-cake",
+    "name": "초코케이크",
+    "serving": "1조각 100g",
+    "kcal": 371,
+    "carb": 45,
+    "protein": 5,
+    "fat": 19,
+    "sugar": 32
+  },
+  {
+    "slug": "cheesecake",
+    "name": "치즈케이크",
+    "serving": "1조각 100g",
+    "kcal": 343,
+    "carb": 28,
+    "protein": 6,
+    "fat": 23,
+    "sugar": 22
+  },
+  {
+    "slug": "macaron",
+    "name": "마카롱",
+    "serving": "1개 25g",
+    "kcal": 98,
+    "carb": 14,
+    "protein": 1.5,
+    "fat": 4,
+    "sugar": 12
+  },
+  {
+    "slug": "gummy-jelly",
+    "name": "젤리",
+    "serving": "30g",
+    "kcal": 100,
+    "carb": 24,
+    "protein": 1,
+    "fat": 0,
+    "sugar": 18
+  },
+  {
+    "slug": "potato-chips",
+    "name": "감자칩",
+    "serving": "30g",
+    "kcal": 163,
+    "carb": 15,
+    "protein": 2,
+    "fat": 10.5,
+    "sugar": 1
+  },
+  {
+    "slug": "chocolate-bar",
+    "name": "초콜릿바",
+    "serving": "1개 45g",
+    "kcal": 237,
+    "carb": 27,
+    "protein": 3,
+    "fat": 13,
+    "sugar": 24
+  },
+  {
+    "slug": "beer",
+    "name": "맥주",
+    "serving": "500ml",
+    "kcal": 195,
+    "carb": 15,
+    "protein": 2,
+    "fat": 0,
+    "sugar": 0
+  },
+  {
+    "slug": "soju",
+    "name": "소주",
+    "serving": "1잔 50ml",
+    "kcal": 70,
+    "carb": 2,
+    "protein": 0,
+    "fat": 0,
+    "sugar": 0
+  },
+  {
+    "slug": "makgeolli",
+    "name": "막걸리",
+    "serving": "200ml",
+    "kcal": 150,
+    "carb": 13,
+    "protein": 2,
+    "fat": 0.5,
+    "sugar": 4
+  },
+  {
+    "slug": "wine",
+    "name": "와인",
+    "serving": "1잔 150ml",
+    "kcal": 125,
+    "carb": 4,
+    "protein": 0.1,
+    "fat": 0,
+    "sugar": 1
+  },
+  {
+    "slug": "highball",
+    "name": "하이볼",
+    "serving": "1잔 250ml",
+    "kcal": 110,
+    "carb": 8,
+    "protein": 0,
+    "fat": 0,
+    "sugar": 8
+  },
+  {
+    "slug": "sparkling-water",
+    "name": "탄산수 (무가당)",
+    "serving": "500ml",
+    "kcal": 0,
+    "carb": 0,
+    "protein": 0,
+    "fat": 0,
+    "sugar": 0
+  },
+  {
+    "slug": "cup-noodle",
+    "name": "컵라면",
+    "serving": "1개",
+    "kcal": 398,
+    "carb": 60,
+    "protein": 8,
+    "fat": 14,
+    "sugar": 4
+  },
+  {
+    "slug": "convenience-lunchbox",
+    "name": "편의점 도시락 (일반)",
+    "serving": "1개",
+    "kcal": 646,
+    "carb": 90,
+    "protein": 22,
+    "fat": 22,
+    "sugar": 8
+  },
+  {
+    "slug": "frozen-mandu",
+    "name": "냉동만두 (조리 후)",
+    "serving": "5개 150g",
+    "kcal": 271,
+    "carb": 32,
+    "protein": 11,
+    "fat": 11,
+    "sugar": 2
+  },
+  {
+    "slug": "steamed-egg",
+    "name": "계란찜",
+    "serving": "1인분 150g",
+    "kcal": 128,
+    "carb": 2,
+    "protein": 12,
+    "fat": 8,
+    "sugar": 1
+  },
+  {
+    "slug": "misugaru",
+    "name": "미숫가루",
+    "serving": "30g",
+    "kcal": 110,
+    "carb": 20,
+    "protein": 4,
+    "fat": 1.5,
+    "sugar": 3
+  },
+  {
+    "slug": "protein-bar",
+    "name": "프로틴바",
+    "serving": "1개 45g",
+    "kcal": 178,
+    "carb": 16,
+    "protein": 15,
+    "fat": 6,
+    "sugar": 5
+  },
+  {
+    "slug": "nut-bar",
+    "name": "견과바",
+    "serving": "1개 25g",
+    "kcal": 112,
+    "carb": 12,
+    "protein": 2.5,
+    "fat": 6,
+    "sugar": 6
+  },
+  {
+    "slug": "konjac-jelly",
+    "name": "곤약젤리",
+    "serving": "1개 20g",
+    "kcal": 6,
+    "carb": 1.5,
+    "protein": 0,
+    "fat": 0,
+    "sugar": 1
+  },
+  {
+    "slug": "diet-shake-bar",
+    "name": "다이어트 쉐이크바",
+    "serving": "1개 40g",
+    "kcal": 141,
+    "carb": 12,
+    "protein": 12,
+    "fat": 5,
+    "sugar": 6
+  },
+  {
+    "slug": "chicken-breast-sausage",
+    "name": "닭가슴살 소세지",
+    "serving": "1개 50g",
+    "kcal": 61,
+    "carb": 2,
+    "protein": 11,
+    "fat": 1,
+    "sugar": 1
+  },
+  {
+    "slug": "greek-yogurt-drink",
+    "name": "그릭요거트 드링크",
+    "serving": "1병 150ml",
+    "kcal": 106,
+    "carb": 14,
+    "protein": 8,
+    "fat": 2,
+    "sugar": 12
+  },
+  {
+    "slug": "low-sugar-yogurt",
+    "name": "저당요거트",
+    "serving": "100g",
+    "kcal": 58,
+    "carb": 6,
+    "protein": 5,
+    "fat": 1.5,
+    "sugar": 3
+  },
+  {
+    "slug": "almond-breeze",
+    "name": "아몬드브리즈 (무가당)",
+    "serving": "190ml",
+    "kcal": 31,
+    "carb": 1,
+    "protein": 1,
+    "fat": 2.5,
+    "sugar": 0
+  },
+  {
+    "slug": "castella",
+    "name": "카스테라",
+    "serving": "1조각 60g",
+    "kcal": 190,
+    "carb": 30,
+    "protein": 4,
+    "fat": 6,
+    "sugar": 18
+  },
+  {
+    "slug": "roll-cake",
+    "name": "롤케이크",
+    "serving": "1조각 80g",
+    "kcal": 216,
+    "carb": 32,
+    "protein": 4,
+    "fat": 8,
+    "sugar": 20
+  },
+  {
+    "slug": "hotbar",
+    "name": "핫바",
+    "serving": "1개 90g",
+    "kcal": 160,
+    "carb": 14,
+    "protein": 8,
+    "fat": 8,
+    "sugar": 3
+  },
+  {
+    "slug": "egg-roll",
+    "name": "계란말이",
+    "serving": "100g",
+    "kcal": 150,
+    "carb": 3,
+    "protein": 12,
+    "fat": 10,
+    "sugar": 1
+  },
+  {
+    "slug": "potato-salad",
+    "name": "감자샐러드",
+    "serving": "100g",
+    "kcal": 140,
+    "carb": 15,
+    "protein": 2,
+    "fat": 8,
+    "sugar": 4
+  },
+  {
+    "slug": "korean-melon",
+    "name": "참외",
+    "serving": "1개 200g",
+    "kcal": 68,
+    "carb": 15,
+    "protein": 1.6,
+    "fat": 0.2,
+    "sugar": 13
+  },
+  {
+    "slug": "plum",
+    "name": "자두",
+    "serving": "2개 120g",
+    "kcal": 62,
+    "carb": 14,
+    "protein": 0.8,
+    "fat": 0.3,
+    "sugar": 11
+  },
+  {
+    "slug": "maesil-tea",
+    "name": "매실차",
+    "serving": "1잔 200ml",
+    "kcal": 60,
+    "carb": 15,
+    "protein": 0,
+    "fat": 0,
+    "sugar": 14
+  },
+  {
+    "slug": "yubu-chobap",
+    "name": "유부초밥",
+    "serving": "5개 200g",
+    "kcal": 326,
+    "carb": 60,
+    "protein": 8,
+    "fat": 6,
+    "sugar": 10
+  }
+]

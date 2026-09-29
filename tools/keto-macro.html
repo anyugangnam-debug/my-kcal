@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>키토 매크로 계산기 - 저탄고지 탄단지 비율 | My Kcal</title>
+<meta name="description" content="목표 칼로리를 입력하면 키토제닉(저탄고지) 식단에서 흔히 쓰이는 비율로 탄수화물·단백질·지방 그램 수를 계산해드립니다.">
+<link rel="canonical" href="https://my-kcal.com/tools/keto-macro.html">
+<link rel="icon" href="../favicon-32.png" sizes="32x32" type="image/png">
+<link rel="icon" href="../favicon-192.png" sizes="192x192" type="image/png">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebApplication",
+  "name": "키토(저탄고지) 매크로 계산기 - My Kcal",
+  "applicationCategory": "HealthApplication",
+  "operatingSystem": "Web",
+  "url": "https://my-kcal.com/tools/keto-macro.html",
+  "offers": { "@type": "Offer", "price": "0", "priceCurrency": "KRW" }
+}
+</script>
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8338690631070562"
+     crossorigin="anonymous"></script>
+<script src="https://cdn.tailwindcss.com"></script>
+<script>
+  tailwind.config = { theme: { extend: { colors: { brand: { DEFAULT: '#FF6B00', dark: '#FF5722', light: '#FFF1E6' }, cream: '#F7F6F3' } } } };
+</script>
+<style>
+  body { font-family: -apple-system, BlinkMacSystemFont, "Apple SD Gothic Neo", "Pretendard", "Malgun Gothic", sans-serif; }
+  h1 { word-break: keep-all; overflow-wrap: break-word; }
+  .logo-img { mix-blend-mode: multiply; }
+</style>
+</head>
+<body class="bg-cream text-gray-900 antialiased">
+
+<header class="border-b border-gray-200">
+  <div class="max-w-2xl mx-auto px-4 py-4">
+    <a href="../index.html" class="inline-flex items-center gap-2">
+      <img src="../logo.png" alt="My Kcal 로고" class="logo-img h-8 w-auto">
+      <span class="font-extrabold text-lg tracking-tight">My Kcal</span>
+    </a>
+  </div>
+</header>
+
+<main class="max-w-2xl mx-auto px-4 py-10">
+  <a href="../index.html" class="text-sm text-brand font-semibold">&larr; 홈으로</a>
+  <p class="text-xs text-gray-400 mt-4">건강 계산기</p>
+  <h1 class="text-2xl font-extrabold mt-1 mb-3">키토(저탄고지) 매크로 계산기</h1>
+  <p class="text-sm text-gray-500 mb-6">목표 칼로리를 입력하면, 저탄고지(키토제닉) 식단에서 일반적으로 통용되는 지방 위주 비율로 매크로를 배분합니다. My Kcal 기본 계산기의 매크로 배분과는 전제가 다른 별도의 계산 방식입니다.</p>
+
+  <div class="bg-white border border-gray-200 rounded-2xl p-6 md:p-8 shadow-sm">
+    <form id="ketoForm" class="space-y-5" novalidate>
+      <label class="block">
+        <span class="text-xs font-semibold text-gray-500">목표 칼로리 (kcal)</span>
+        <input id="ketoCal" type="number" value="1800" min="800" max="5000" step="10" class="mt-1 w-full border border-gray-200 rounded-lg px-3 py-2 text-sm focus:outline-brand">
+      </label>
+      <label class="block">
+        <span class="text-xs font-semibold text-gray-500">비율 구성</span>
+        <select id="ketoRatio" class="mt-1 w-full border border-gray-200 rounded-lg px-3 py-2 text-sm bg-white">
+          <option value="standard" selected>표준형 (지방 75% · 단백질 20% · 탄수 5%)</option>
+          <option value="highProtein">고단백형 (지방 60% · 단백질 35% · 탄수 5%)</option>
+        </select>
+      </label>
+      <p id="ketoError" class="hidden text-sm text-red-600 font-medium bg-red-50 border border-red-200 rounded-lg px-3 py-2"></p>
+      <button type="submit" class="w-full bg-gray-900 hover:bg-gray-700 text-white font-bold py-3.5 rounded-xl transition">계산하기</button>
+    </form>
+    <div id="ketoResult" class="hidden mt-6">
+      <div class="flex h-4 rounded-full overflow-hidden bg-gray-100">
+        <div id="ketoFatBar" class="bg-blue-400" style="width:75%"></div>
+        <div id="ketoProteinBar" class="bg-brand" style="width:20%"></div>
+        <div id="ketoCarbBar" class="bg-amber-400" style="width:5%"></div>
+      </div>
+      <div class="grid grid-cols-3 gap-3 mt-4 text-center text-sm">
+        <div><div class="w-2.5 h-2.5 rounded-full bg-blue-400 inline-block mr-1"></div>지방<div class="font-extrabold text-lg mt-1"><span id="ketoFatG">0</span>g</div></div>
+        <div><div class="w-2.5 h-2.5 rounded-full bg-brand inline-block mr-1"></div>단백질<div class="font-extrabold text-lg mt-1"><span id="ketoProteinG">0</span>g</div></div>
+        <div><div class="w-2.5 h-2.5 rounded-full bg-amber-400 inline-block mr-1"></div>탄수화물<div class="font-extrabold text-lg mt-1"><span id="ketoCarbG">0</span>g</div></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="mt-8 text-sm text-gray-600 leading-relaxed space-y-4">
+    <div>
+      <h2 class="font-bold text-gray-800 mb-2">계산 방식</h2>
+      <pre class="bg-gray-900 text-gray-100 rounded-xl p-4 text-xs overflow-x-auto">지방(g) = 목표 칼로리 × 지방 비율 ÷ 9
+단백질(g) = 목표 칼로리 × 단백질 비율 ÷ 4
+탄수화물(g) = 목표 칼로리 × 탄수 비율 ÷ 4</pre>
+      <p class="mt-2">예를 들어 목표 칼로리 1,800kcal·표준형(지방 75%/단백질 20%/탄수 5%)이라면, 지방 1,800×0.75÷9=150g, 단백질 1,800×0.20÷4=90g, 탄수화물 1,800×0.05÷4≈23g으로 계산됩니다.</p>
+    </div>
+    <div>
+      <h2 class="font-bold text-gray-800 mb-2">기본 매크로 계산기와 무엇이 다른가</h2>
+      <p>My Kcal의 <a href="../index.html" class="text-brand font-semibold">기본 계산기</a>는 체중 1kg당 단백질량을 먼저 정하고 지방 비율(20~25%)과 탄수화물을 배분하는 균형식 방식입니다. 반면 이 계산기는 저탄고지 식단에서 흔히 쓰이는, 지방 비중을 절대적으로 높이고 탄수화물을 극히 제한하는 별도의 비율 체계입니다. 두 방식 중 어느 쪽이 본인에게 맞는지는 식단 목표와 개인 상황에 따라 다를 수 있습니다.</p>
+    </div>
+    <div class="bg-gray-50 border border-gray-200 rounded-xl p-4 mt-2">
+      <h2 class="font-bold text-gray-800 text-sm mb-1">한계 및 참고사항</h2>
+      <p class="text-xs">위 비율(75/20/5, 60/35/5)은 저탄고지 식단 관련 자료에서 일반적으로 통용되는 예시 범위이며, 특정 임상 연구가 개인별 최적 비율로 확립한 수치는 아닙니다. 신장질환 등 기저질환이 있는 경우 고단백·고지방 식단이 적합하지 않을 수 있으니 시작 전 전문가와 상담하시길 권장합니다.</p>
+    </div>
+
+  </div>
+
+  <div class="mt-8 pt-6 border-t border-gray-200">
+    <h2 class="text-xs font-bold text-gray-400 mb-2">관련 도구 및 글</h2>
+    <ul class="text-sm space-y-1.5">
+      <li><a href="../articles/macro-ratio.html" class="text-brand font-semibold">단순 칼로리 제한 vs 매크로 비율, 신진대사에 미치는 영향 &rarr;</a></li>
+      <li><a href="../index.html" class="text-brand font-semibold">My Kcal 기본 매크로 계산기 &rarr;</a></li>
+      <li><a href="goal-weight-eta.html" class="text-brand font-semibold">목표 체중 도달 기간 계산기 &rarr;</a></li>
+    </ul>
+  </div>
+
+  <div class="mt-6 bg-white border border-gray-200 rounded-2xl p-6 text-center">
+    <p class="text-sm text-gray-600 mb-3">기본 계산기의 균형 매크로 방식도 비교해보세요.</p>
+    <a href="../index.html" class="inline-block bg-gray-900 text-white text-sm font-bold px-5 py-2.5 rounded-full hover:bg-gray-700 transition">기본 계산기로 이동</a>
+  </div>
+</main>
+
+<footer class="border-t border-gray-200 mt-10">
+  <div class="max-w-2xl mx-auto px-4 py-8 text-sm text-gray-500">
+    <div class="flex flex-wrap gap-x-6 gap-y-2 mb-4 font-medium">
+      <a href="../index.html#about" class="hover:text-brand">사이트 소개</a>
+      <a href="../privacy.html" class="hover:text-brand">개인정보처리방침</a>
+      <a href="../terms.html" class="hover:text-brand">이용약관</a>
+      <a href="../disclaimer.html" class="hover:text-brand">면책조항</a>
+      <a href="../contact.html" class="hover:text-brand">문의하기</a>
+    </div>
+    <p class="text-xs text-gray-400">&copy; 2026 My Kcal. All rights reserved.</p>
+  </div>
+</footer>
+
+<script>
+(function renderLogo() {
+  const imgEl = document.querySelector('.logo-img');
+  if (!imgEl) return;
+  const src = imgEl.getAttribute('src');
+  const img = new Image();
+  img.onload = () => {
+    const off = document.createElement('canvas');
+    off.width = img.width; off.height = img.height;
+    const octx = off.getContext('2d');
+    octx.drawImage(img, 0, 0);
+    const data = octx.getImageData(0, 0, off.width, off.height);
+    const d = data.data;
+    let minX = off.width, minY = off.height, maxX = 0, maxY = 0;
+    const floor = 200, ceil = 250;
+    for (let y = 0; y < off.height; y++) {
+      for (let x = 0; x < off.width; x++) {
+        const i = (y * off.width + x) * 4;
+        const whiteness = Math.min(d[i], d[i+1], d[i+2]);
+        if (whiteness <= floor) {
+          if (x < minX) minX = x; if (x > maxX) maxX = x;
+          if (y < minY) minY = y; if (y > maxY) maxY = y;
+        }
+        if (whiteness > floor) {
+          const fade = Math.min(1, (whiteness - floor) / (ceil - floor));
+          d[i+3] = Math.round(d[i+3] * (1 - fade));
+        }
+      }
+    }
+    octx.putImageData(data, 0, 0);
+    const pad = 12;
+    const cropX = Math.max(0, minX - pad);
+    const cropY = Math.max(0, minY - pad);
+    const cropW = Math.min(off.width, maxX + pad) - cropX;
+    const cropH = Math.min(off.height, maxY + pad) - cropY;
+    const canvas = document.createElement('canvas');
+    canvas.width = cropW; canvas.height = cropH;
+    canvas.className = imgEl.className.replace('logo-img', '') + ' logo-img h-8 w-auto';
+    canvas.getContext('2d').drawImage(off, cropX, cropY, cropW, cropH, 0, 0, cropW, cropH);
+    imgEl.replaceWith(canvas);
+  };
+  img.src = src;
+})();
+
+(function ketoCalculator() {
+  const LIMITS = { cal: { min: 800, max: 5000 } };
+  const RATIOS = {
+    standard: { fat: 0.75, protein: 0.20, carb: 0.05 },
+    highProtein: { fat: 0.60, protein: 0.35, carb: 0.05 },
+  };
+
+  function showError(msg) {
+    const el = document.getElementById('ketoError');
+    el.textContent = msg;
+    el.classList.remove('hidden');
+  }
+
+  document.getElementById('ketoForm').addEventListener('submit', (e) => {
+    e.preventDefault();
+    document.getElementById('ketoError').classList.add('hidden');
+    document.getElementById('ketoResult').classList.add('hidden');
+
+    const calRaw = document.getElementById('ketoCal').value.trim();
+    if (calRaw === '') { showError('목표 칼로리를 입력해주세요.'); return; }
+    const cal = Number(calRaw);
+    if (!Number.isFinite(cal)) { showError('숫자만 입력해주세요.'); return; }
+    if (cal < LIMITS.cal.min || cal > LIMITS.cal.max) { showError(`목표 칼로리는 ${LIMITS.cal.min}~${LIMITS.cal.max}kcal 사이로 입력해주세요.`); return; }
+
+    const ratio = RATIOS[document.getElementById('ketoRatio').value];
+    const fatG = Math.round((cal * ratio.fat) / 9);
+    const proteinG = Math.round((cal * ratio.protein) / 4);
+    const carbG = Math.round((cal * ratio.carb) / 4);
+
+    document.getElementById('ketoFatG').textContent = fatG;
+    document.getElementById('ketoProteinG').textContent = proteinG;
+    document.getElementById('ketoCarbG').textContent = carbG;
+    document.getElementById('ketoFatBar').style.width = (ratio.fat * 100) + '%';
+    document.getElementById('ketoProteinBar').style.width = (ratio.protein * 100) + '%';
+    document.getElementById('ketoCarbBar').style.width = (ratio.carb * 100) + '%';
+    document.getElementById('ketoResult').classList.remove('hidden');
+  });
+})();
+</script>
+</body>
+</html>

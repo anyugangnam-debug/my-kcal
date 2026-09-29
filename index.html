@@ -130,11 +130,11 @@
       </div>
     </div>
 
-    <nav id="main-tabs" class="grid grid-cols-4 text-center text-xs sm:text-sm font-semibold text-gray-500">
-      <button data-tab="calculator" class="tab-btn active py-3">계산기</button>
-      <button data-tab="fooddb" class="tab-btn py-3">칼로리 사전</button>
-      <button data-tab="recipes" class="tab-btn py-3">다이어트 레시피</button>
-      <button data-tab="exercise" class="tab-btn py-3">운동 칼로리</button>
+    <nav id="main-tabs" class="grid grid-cols-4 gap-1.5 sm:gap-3 text-center text-xs sm:text-sm font-semibold text-gray-500">
+      <button data-tab="calculator" class="tab-btn active py-3 px-1">계산기</button>
+      <button data-tab="fooddb" class="tab-btn py-3 px-1">칼로리 사전</button>
+      <button data-tab="recipes" class="tab-btn py-3 px-1">음식 레시피</button>
+      <button data-tab="exercise" class="tab-btn py-3 px-1">운동 칼로리</button>
     </nav>
   </div>
 </header>
@@ -304,25 +304,33 @@
   <section id="tab-fooddb" class="tab-panel hidden">
     <div class="bg-white border border-gray-200 rounded-2xl p-6 md:p-8">
       <h2 class="font-bold text-lg mb-1">한국인 식단 칼로리 사전</h2>
-      <p class="text-gray-500 text-sm mb-2">자주 먹는 다이어트 &amp; 외식 음식 30종의 1회 제공량 기준 대표적인 영양 정보입니다.</p>
-      <p class="text-gray-400 text-xs mb-4">브랜드·조리법·양념에 따라 실제 값은 차이가 있을 수 있는 일반적인 추정치입니다. 정확한 값은 <a href="https://various.foodsafetykorea.go.kr/nutrient/" target="_blank" rel="noopener" class="text-brand font-semibold">식품의약품안전처 식품영양성분 데이터베이스</a>에서 직접 확인하실 수 있습니다. 특히 "프로틴쉐이크"는 특정 제품이 아닌 예시 가정값이므로, 실제로는 구매하신 제품의 영양성분표를 우선 확인해주세요. 아래 값은 모두 100g 기준이며, 실제 포장 제품의 "1회 제공량" 표시와 헷갈리기 쉬운 이유는 <a href="articles/nutrition-label.html" class="text-brand font-semibold">이 글</a>에서 확인해보세요.</p>
+      <p class="text-gray-500 text-sm mb-2">자주 먹는 다이어트 &amp; 외식 음식 236종의 1회 제공량 기준 대표적인 영양 정보입니다.</p>
+      <p class="text-gray-400 text-xs mb-4">브랜드·조리법·양념에 따라 실제 값은 차이가 있을 수 있는 일반적인 추정치입니다. 정확한 값은 <a href="https://various.foodsafetykorea.go.kr/nutrient/" target="_blank" rel="noopener" class="text-brand font-semibold">식품의약품안전처 식품영양성분 데이터베이스</a>에서 직접 확인하실 수 있습니다. 특히 "프로틴쉐이크"는 특정 제품이 아닌 예시 가정값이므로, 실제로는 구매하신 제품의 영양성분표를 우선 확인해주세요. 아래 값은 각 카드에 표시된 제공량 기준이며, 실제 포장 제품의 "1회 제공량" 표시와 헷갈리기 쉬운 이유는 <a href="articles/nutrition-label.html" class="text-brand font-semibold">이 글</a>에서 확인해보세요.</p>
       <input id="foodSearch" type="text" placeholder="음식 이름으로 검색 (예: 닭가슴살, 고구마, 쌀밥)" class="w-full border border-gray-200 rounded-xl px-4 py-3 text-sm focus:outline-brand">
     </div>
 
     <div id="foodGrid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 mt-5"></div>
     <p id="foodEmpty" class="hidden text-center text-gray-400 text-sm py-10">검색 결과가 없어요. 다른 키워드로 검색해보세요.</p>
+    <nav id="foodPagination" class="hidden flex flex-wrap items-center justify-center gap-1.5 mt-6" aria-label="칼로리 사전 페이지"></nav>
   </section>
 
   <!-- ============================================================ -->
-  <!-- TAB 3. 다이어트 레시피 -->
+  <!-- TAB 3. 음식 레시피 -->
   <!-- ============================================================ -->
   <section id="tab-recipes" class="tab-panel hidden">
     <div class="mb-5">
-      <h2 class="font-bold text-lg">초간단 저칼로리 &middot; 고단백 다이어트 레시피</h2>
-      <p class="text-gray-500 text-sm mt-1">간단한 재료로 만드는 다이어트 식단입니다. 조리 시간은 대부분 15분 이내이며, 냉장 등 대기 시간이 필요한 레시피는 조리법에 별도로 표시했습니다.</p>
-      <p class="text-gray-400 text-xs mt-2">모든 레시피는 1인분 기준이며, 표시된 칼로리·영양성분은 재료별 표기 기준의 중량을 바탕으로 계산한 추정 합산치입니다(실측치가 아님). 재료명에 "(조리 후 가식부 기준)"이라고 별도 표시된 경우는 조리·손질을 마친 뒤 실제로 먹는 부분의 중량이며, 별도 표시가 없는 재료는 조리 전 손질 후 중량입니다. "약간·1스쿱·1작은술"처럼 중량이 불명확한 재료는 대표적인 중량으로 가정해 계산했으며, 프로틴 파우더는 특정 제품이 아닌 예시 가정값(30g·단백질 24g)을 사용했으므로 실제로는 사용 제품의 영양성분표를 확인해주세요.</p>
+      <h2 class="font-bold text-lg">음식 레시피</h2>
+      <p class="text-gray-500 text-sm mt-1">목표에 맞춰 다이어트 레시피와 벌크업 레시피 중 골라보세요. 각 레시피에는 조리시간과 인분이 함께 표시됩니다.</p>
+      <p class="text-gray-400 text-xs mt-2">표시된 칼로리·영양성분은 재료별 표기 기준의 중량을 바탕으로 계산한 추정 합산치입니다(실측치가 아님). 재료명에 "(조리 후 가식부 기준)"이라고 별도 표시된 경우는 조리·손질을 마친 뒤 실제로 먹는 부분의 중량이며, 별도 표시가 없는 재료는 조리 전 손질 후 중량입니다. "약간·1스쿱·1작은술"처럼 중량이 불명확한 재료는 대표적인 중량으로 가정해 계산했으며, 프로틴 파우더는 특정 제품이 아닌 예시 가정값(30g·단백질 24g)을 사용했으므로 실제로는 사용 제품의 영양성분표를 확인해주세요.</p>
     </div>
-    <div id="recipeList" class="space-y-5"></div>
+
+    <div class="flex gap-2 mb-5">
+      <button type="button" data-category="diet" class="recipe-category-btn flex-1 py-2.5 rounded-xl border font-semibold text-sm bg-gray-900 text-white border-gray-900">다이어트 레시피</button>
+      <button type="button" data-category="bulk" class="recipe-category-btn flex-1 py-2.5 rounded-xl border font-semibold text-sm bg-white text-gray-500 border-gray-200">벌크업 레시피</button>
+    </div>
+
+    <div id="recipeList" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4"></div>
+    <nav id="recipePagination" class="hidden flex flex-wrap items-center justify-center gap-1.5 mt-6" aria-label="레시피 페이지"></nav>
   </section>
 
   <!-- ============================================================ -->
@@ -360,8 +368,28 @@
     </div>
 
     <div class="bg-white border border-gray-200 rounded-2xl p-6 md:p-8 mt-5">
-      <h3 class="font-bold text-sm mb-4">운동 종목별 1시간 기준 소모 칼로리 (체중 65kg 기준)</h3>
-      <div id="exTable" class="divide-y divide-gray-100 text-sm"></div>
+      <h3 class="font-bold text-sm mb-4">활동 및 운동 찾기</h3>
+      <input id="exSearch" type="text" placeholder="운동 이름으로 검색" class="w-full border border-gray-200 rounded-lg px-3 py-2 text-sm mb-4">
+      <div class="flex flex-wrap gap-x-4 gap-y-2 text-sm text-gray-600 mb-5">
+        <label class="inline-flex items-center gap-1.5"><input type="radio" name="exIntensity" value="light" class="accent-brand">가벼움</label>
+        <label class="inline-flex items-center gap-1.5"><input type="radio" name="exIntensity" value="moderate" class="accent-brand">보통</label>
+        <label class="inline-flex items-center gap-1.5"><input type="radio" name="exIntensity" value="vigorous" class="accent-brand">격렬함</label>
+        <label class="inline-flex items-center gap-1.5"><input type="radio" name="exIntensity" value="all" checked class="accent-brand">전체</label>
+      </div>
+
+      <div id="exFeatured" class="bg-cream border border-gray-200 rounded-2xl p-5 mb-6">
+        <div class="flex items-center gap-4">
+          <div id="exFeaturedIcon" class="text-4xl w-16 h-16 flex items-center justify-center bg-white rounded-xl border border-gray-200 shrink-0">🚶</div>
+          <div>
+            <div id="exFeaturedName" class="font-bold text-lg"></div>
+            <div class="text-xs text-gray-400">예상 소비 칼로리 (70kg 기준)</div>
+          </div>
+        </div>
+        <div id="exFeaturedTable" class="grid grid-cols-2 sm:grid-cols-4 gap-3 mt-4 text-sm"></div>
+      </div>
+
+      <h3 class="font-bold text-sm mb-3">운동 유형별 에너지 소비량 <span class="text-xs text-gray-400 font-normal">(70kg 기준, 1시간)</span></h3>
+      <div id="exGroupedTable" class="grid grid-cols-1 sm:grid-cols-3 gap-6 text-sm"></div>
     </div>
   </section>
 
@@ -407,38 +435,29 @@
         <a href="articles/glycogen-water.html" class="text-brand text-sm font-semibold mt-4 inline-block">전체 글 읽기 &rarr;</a>
       </article>
 
-      <article class="bg-white border border-gray-200 rounded-2xl p-6 flex flex-col">
-        <h3 class="font-bold mb-3">벌크업 칼로리 계산법 - 몸무게별 권장 섭취량과 매크로 비율</h3>
-        <p class="text-sm text-gray-600 leading-relaxed flex-1">
-          벌크업 칼로리 계산 공식(유지 칼로리 ×1.10~1.20)부터 클린벌크·더티벌크 차이, 몸무게별 권장 섭취량 표, 벌크업 매크로 비율까지 한 번에 정리했습니다.
-        </p>
-        <a href="articles/bulk-calorie.html" class="text-brand text-sm font-semibold mt-4 inline-block">전체 글 읽기 &rarr;</a>
-      </article>
+    </div>
 
-      <article class="bg-white border border-gray-200 rounded-2xl p-6 flex flex-col">
-        <h3 class="font-bold mb-3">식품 영양성분표, 1회 제공량과 100g 기준 헷갈리지 않게 읽는 법</h3>
-        <p class="text-sm text-gray-600 leading-relaxed flex-1">
-          "1회 제공량 30g당 150kcal"만 보고 봉지 전체를 다 먹으면 실제로는 그 몇 배를 섭취한 것일 수 있습니다. 1회 제공량과 100g 기준 표시의 차이를 예시로 정리했습니다.
-        </p>
-        <a href="articles/nutrition-label.html" class="text-brand text-sm font-semibold mt-4 inline-block">전체 글 읽기 &rarr;</a>
-      </article>
+    <div class="flex justify-center mt-6">
+      <a href="articles/all.html" class="inline-flex items-center gap-1.5 bg-white border border-gray-200 hover:border-brand text-gray-700 text-sm font-bold px-6 py-3 rounded-full transition">
+        전체 칼럼 더보기 <span aria-hidden="true">&darr;</span>
+      </a>
+    </div>
+  </section>
 
-      <article class="bg-white border border-gray-200 rounded-2xl p-6 flex flex-col">
-        <h3 class="font-bold mb-3">목표 칼로리와 실제 섭취량을 비교하는 기록법</h3>
-        <p class="text-sm text-gray-600 leading-relaxed flex-1">
-          목표 칼로리를 계산했어도 실제 섭취량을 기록하지 않으면 계획이 지켜지는지 알 수 없습니다. 무엇을 기록하고 어떻게 평균으로 비교해야 하는지 예시로 알아봅니다.
-        </p>
-        <a href="articles/tracking-log.html" class="text-brand text-sm font-semibold mt-4 inline-block">전체 글 읽기 &rarr;</a>
-      </article>
-
-      <article class="bg-white border border-gray-200 rounded-2xl p-6 flex flex-col">
-        <h3 class="font-bold mb-3">운동 소모 칼로리, MET 지수로 계산하는 원리와 오차 요인</h3>
-        <p class="text-sm text-gray-600 leading-relaxed flex-1">
-          운동 칼로리 계산기가 사용하는 MET 지수의 정의와 계산 공식을 실제 예시로 설명하고, 표준 MET 값이 실제 개인 소모량과 다를 수 있는 이유를 알아봅니다.
-        </p>
-        <a href="articles/exercise-met.html" class="text-brand text-sm font-semibold mt-4 inline-block">전체 글 읽기 &rarr;</a>
-      </article>
-
+  <!-- ============================================================ -->
+  <!-- 관련 건강 계산기 -->
+  <!-- ============================================================ -->
+  <section class="mt-14">
+    <h2 class="text-xl font-extrabold mb-5">다른 건강 계산기</h2>
+    <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+      <a href="tools/bmi.html" class="block bg-white border border-gray-200 rounded-2xl p-6 hover:border-brand transition">
+        <h3 class="font-bold mb-1">BMI 계산기</h3>
+        <p class="text-sm text-gray-500">키와 몸무게로 체질량지수와 대한비만학회 기준 비만도 단계를 확인하세요.</p>
+      </a>
+      <a href="tools/ideal-weight.html" class="block bg-white border border-gray-200 rounded-2xl p-6 hover:border-brand transition">
+        <h3 class="font-bold mb-1">표준체중 계산기</h3>
+        <p class="text-sm text-gray-500">키와 성별로 표준체중을 계산하고 현재 몸무게와 비교해보세요.</p>
+      </a>
     </div>
   </section>
 
@@ -496,6 +515,218 @@
 </footer>
 
 <script>
+/* ============================================================
+   0-0. 음식/레시피 카테고리 아이콘
+   실물 사진이 아닌, 음식 종류를 나타내는 커스텀 라인 아이콘입니다.
+   ============================================================ */
+// 음식별로 더 구체적인 색이 들어간 일러스트 아이콘 (viewBox 0 0 24 24). 실물 사진이 아닌 자체 제작 일러스트입니다.
+const ICONS = {
+  chickenBreast: '<path d="M4 9c0-3 2-5 5-5 2 0 3 1 3 3v11a2 2 0 01-4 0v-3H6a2 2 0 01-2-2z" fill="#F3C6B0" stroke="#C98A6B"/>',
+  chickenLeg: '<path d="M9 3c3 0 5 2 5 5 0 2.2-1.3 3.9-3.1 4.6L7 17a2 2 0 11-2.8-2.8l4.8-3.9C7.3 9.6 6 7.9 6 5.7 6 3.8 7 3 9 3z" fill="#D98A5C" stroke="#A85E36"/><circle cx="5" cy="19" r="1.6" fill="#fff" stroke="#A85E36"/>',
+  friedChicken: '<path d="M9 3c3 0 5 2 5 5 0 2.2-1.3 3.9-3.1 4.6L7 17a2 2 0 11-2.8-2.8l4.8-3.9C7.3 9.6 6 7.9 6 5.7 6 3.8 7 3 9 3z" fill="#E8B04B" stroke="#B8802A"/><circle cx="10" cy="5" r=".6" fill="#B8802A" stroke="none"/><circle cx="12" cy="8" r=".6" fill="#B8802A" stroke="none"/><circle cx="8" cy="8" r=".6" fill="#B8802A" stroke="none"/>',
+  beef: '<rect x="3" y="7" width="18" height="10" rx="4" fill="#B5493A" stroke="#8A3327"/><path d="M7 9l2 2M7 13l2 2M12 9l2 2M12 13l2 2M17 9l2 2M17 13l2 2" stroke="#F0C9C2"/>',
+  pork: '<rect x="3" y="7" width="18" height="10" rx="4" fill="#EFAFA3" stroke="#C97D6E"/><path d="M7 9l2 2M7 13l2 2M12 9l2 2M12 13l2 2M17 9l2 2M17 13l2 2" stroke="#fff"/>',
+  bacon: '<path d="M3 6c4 3 4-2 8 1s4-2 8 1v3c-4-3-4 2-8-1s-4 2-8-1zm0 6c4 3 4-2 8 1s4-2 8 1v3c-4-3-4 2-8-1s-4 2-8-1z" fill="#D9776B" stroke="#A8493C"/>',
+  sausage: '<rect x="4" y="9" width="16" height="6" rx="3" fill="#C25B4A" stroke="#8A3327"/><path d="M4 12h16" stroke="#8A3327" stroke-dasharray=".2 2.5"/>',
+  duck: '<rect x="3" y="7" width="18" height="10" rx="4" fill="#8B4A3A" stroke="#5E2E22"/><path d="M7 9l2 2M12 9l2 2M17 9l2 2" stroke="#D9A98F"/>',
+  meatball: '<circle cx="8" cy="14" r="4" fill="#8A4B3A" stroke="#5E2E22"/><circle cx="15" cy="11" r="4" fill="#8A4B3A" stroke="#5E2E22"/><circle cx="16" cy="17" r="3" fill="#8A4B3A" stroke="#5E2E22"/>',
+  salmon: '<path d="M2 12c4-5 12-7 18-3-1 2-1 4 0 6-6 4-14 2-18-3z" fill="#F4A896" stroke="#D97862"/><path d="M6 9c2 2 2 4 0 6M10 8c2 2 2 6 0 8" stroke="#D97862"/>',
+  whiteFish: '<path d="M2 12c4-5 12-7 18-3-1 2-1 4 0 6-6 4-14 2-18-3z" fill="#C5CCD6" stroke="#8E97A3"/><circle cx="6.5" cy="10.5" r=".7" fill="#3A3F47" stroke="none"/>',
+  tuna: '<path d="M2 12c4-5 12-7 18-3-1 2-1 4 0 6-6 4-14 2-18-3z" fill="#7A2E2E" stroke="#4E1C1C"/><circle cx="6.5" cy="10.5" r=".7" fill="#fff" stroke="none"/>',
+  shrimp: '<path d="M6 5c9 0 13 6 13 11 0 2.2-1.3 4-3.3 4" fill="none" stroke="#F2A65A" stroke-width="3"/><circle cx="5.5" cy="5" r="1" fill="#8A4B24" stroke="none"/>',
+  squid: '<ellipse cx="12" cy="9" rx="5" ry="6" fill="#D9B8D9" stroke="#A87BA8"/><path d="M8 15c-1 2-1 4 0 5M11 15c0 2 0 4 .5 5M14 15c1 2 1 4 0 5M17 15c1.5 1.5 1.5 3.5 1 5" stroke="#A87BA8"/>',
+  shellfish: '<path d="M12 4c5 0 8 4 8 9 0 3-1 6-8 7-7-1-8-4-8-7 0-5 3-9 8-9z" fill="#B08968" stroke="#7A5A3E"/><path d="M12 6v13M12 6c-2 2-2 4-3.5 5M12 6c2 2 2 4 3.5 5" stroke="#7A5A3E"/>',
+  egg: '<ellipse cx="12" cy="14" rx="8" ry="5.5" fill="#FBF6E9" stroke="#D8CBA0"/><circle cx="12" cy="14" r="3" fill="#FBC02D" stroke="#C99A1C"/>',
+  eggRoll: '<rect x="4" y="8" width="16" height="8" rx="3" fill="#FBC02D" stroke="#C99A1C"/><path d="M8 8v8M12 8v8M16 8v8" stroke="#F5E1A0"/>',
+  tofu: '<rect x="5" y="6" width="14" height="14" rx="2" fill="#F7F2E3" stroke="#D8CBA0"/><path d="M5 11h14M11 6v14" stroke="#D8CBA0"/>',
+  beans: '<circle cx="8" cy="15" r="3.2" fill="#8D6E4A" stroke="#5E4A2F"/><circle cx="13" cy="11" r="3.2" fill="#8D6E4A" stroke="#5E4A2F"/><circle cx="17" cy="16" r="2.6" fill="#8D6E4A" stroke="#5E4A2F"/>',
+  whiteRice: '<path d="M3 12a9 8 0 0018 0z" fill="#F7F2E3" stroke="#D8CBA0"/><path d="M3 12h18" stroke="#D8CBA0"/><circle cx="9" cy="9" r=".7" fill="#fff" stroke="#D8CBA0"/><circle cx="12" cy="7.5" r=".7" fill="#fff" stroke="#D8CBA0"/><circle cx="15" cy="9" r=".7" fill="#fff" stroke="#D8CBA0"/>',
+  brownRice: '<path d="M3 12a9 8 0 0018 0z" fill="#E4C98A" stroke="#B89552"/><path d="M3 12h18" stroke="#B89552"/><circle cx="9" cy="9" r=".7" fill="#C9A15D" stroke="none"/><circle cx="12" cy="7.5" r=".7" fill="#C9A15D" stroke="none"/><circle cx="15" cy="9" r=".7" fill="#C9A15D" stroke="none"/>',
+  riceCake: '<rect x="4" y="9" width="4" height="11" rx="2" fill="#F7F2E3" stroke="#D8CBA0"/><rect x="10" y="9" width="4" height="11" rx="2" fill="#F7F2E3" stroke="#D8CBA0"/><rect x="16" y="9" width="4" height="11" rx="2" fill="#F7F2E3" stroke="#D8CBA0"/>',
+  gimbap: '<circle cx="12" cy="12" r="9" fill="#2C2C2C"/><circle cx="12" cy="12" r="6.5" fill="#F7F2E3"/><circle cx="9" cy="11" r="1.3" fill="#E8A24A" stroke="none"/><circle cx="14" cy="10" r="1" fill="#E53935" stroke="none"/><circle cx="12" cy="14" r="1" fill="#7CB342" stroke="none"/>',
+  onigiri: '<path d="M12 3L21 19H3z" fill="#F7F2E3" stroke="#D8CBA0"/><rect x="8" y="13" width="8" height="6" fill="#2C2C2C"/>',
+  potato: '<ellipse cx="12" cy="13" rx="8" ry="6" fill="#D9C9A3" stroke="#B39D6C"/><circle cx="9" cy="11" r=".6" fill="#B39D6C" stroke="none"/><circle cx="15" cy="14" r=".6" fill="#B39D6C" stroke="none"/>',
+  sweetPotato: '<path d="M5 16c-1-5 2-11 8-12 5-1 8 2 7 6-1 5-6 9-11 8-2-.5-3.5-1-4-2z" fill="#8B4A3A" stroke="#5E2E22"/>',
+  pumpkin: '<path d="M12 4v2" stroke="#8D6E4A"/><ellipse cx="12" cy="14" rx="8" ry="6.5" fill="#F2A65A" stroke="#C97B2A"/><path d="M8 8.5c1 2 1 9 0 11M12 8c.6 2 .6 9.4 0 11.4M16 8.5c-1 2-1 9 0 11" stroke="#C97B2A"/>',
+  broccoli: '<circle cx="9" cy="9" r="4" fill="#558B2F" stroke="#3B6321"/><circle cx="14" cy="8" r="4" fill="#558B2F" stroke="#3B6321"/><circle cx="12" cy="12" r="4" fill="#558B2F" stroke="#3B6321"/><rect x="10" y="13" width="4" height="7" rx="1" fill="#8D6E4A" stroke="#5E4A2F"/>',
+  mushroom: '<path d="M4 11a8 6 0 0116 0z" fill="#C9A15D" stroke="#977A45"/><rect x="10" y="11" width="4" height="9" rx="1" fill="#F7F2E3" stroke="#D8CBA0"/>',
+  pepperVeg: '<path d="M11 3c-2 0-2 3-1 3-4 0-6 3-6 7 0 5 4 8 8 8s8-3 8-8c0-4-2-7-6-7 1 0 1-3-1-3z" fill="#E53935" stroke="#B71C1C"/>',
+  leafyGreen: '<path d="M12 3c6 3 8 10 0 18-8-8-6-15 0-18z" fill="#7CB342" stroke="#558B2F"/><path d="M12 6v13" stroke="#558B2F"/>',
+  onion: '<path d="M12 4c4 3 6 8 6 12a6 6 0 01-12 0c0-4 2-9 6-12z" fill="#E8D9E8" stroke="#B89BB8"/><path d="M12 4v16" stroke="#B89BB8"/>',
+  garlic: '<path d="M12 4c3 2 4 6 3 10a3 3 0 01-6 0c-1-4 0-8 3-10z" fill="#F5F0E1" stroke="#D8CBA0"/><path d="M12 4v11" stroke="#D8CBA0"/>',
+  corn: '<rect x="9" y="3" width="6" height="17" rx="3" fill="#FDD835" stroke="#C9A61C"/><path d="M9 6h6M9 9h6M9 12h6M9 15h6" stroke="#C9A61C"/><path d="M8 3c0-1 2-2 4-2s4 1 4 2" fill="none" stroke="#558B2F"/>',
+  beanSprout: '<path d="M6 20c0-6 0-10 2-14M6 6a2 2 0 100-4 2 2 0 000 4z" fill="#F7F2E3" stroke="#B39D6C"/><path d="M12 20c0-7 0-11 1.5-15M13.5 5a2 2 0 100-4 2 2 0 000 4z" fill="#F7F2E3" stroke="#B39D6C"/><path d="M18 20c0-6 0-10-1-14M17 6a2 2 0 100-4 2 2 0 000 4z" fill="#F7F2E3" stroke="#B39D6C"/>',
+  kimchi: '<rect x="7" y="4" width="8" height="4" rx="1" fill="#8D6E4A" stroke="#5E4A2F"/><path d="M7 8h10v11a2 2 0 01-2 2H9a2 2 0 01-2-2z" fill="#F5F0E1" stroke="#B39D6C"/><path d="M7 12h10M7 16h10" stroke="#D84315" stroke-width="2"/>',
+  tomato: '<circle cx="12" cy="14" r="7" fill="#E53935" stroke="#B71C1C"/><path d="M9 8c1-2 4-2 6-1M12 8V5" stroke="#558B2F"/>',
+  apple: '<circle cx="12" cy="14" r="7" fill="#E53935" stroke="#B71C1C"/><path d="M12 7V4M12 4c1.5-1.5 3-1 3-1" stroke="#8D6E4A"/><path d="M9 6c1-1 2-1 3 0" stroke="#558B2F"/>',
+  orange: '<circle cx="12" cy="13" r="8" fill="#FB8C00" stroke="#C9670A"/><path d="M12 5v2" stroke="#558B2F"/>',
+  peach: '<path d="M12 6c4 0 7 3 7 8a7 7 0 01-14 0c0-5 3-8 7-8z" fill="#F4956B" stroke="#C9673F"/><path d="M12 6v13" stroke="#C9673F"/><path d="M12 5c1-2 3-2 3-2" stroke="#558B2F"/>',
+  watermelon: '<path d="M3 13a9 9 0 0018 0z" fill="#4CAF50" stroke="#2E6B30"/><path d="M4.5 13a7.5 7.5 0 0015 0z" fill="#F7F2E3"/><path d="M6 13a6 6 0 0012 0z" fill="#E53935"/><circle cx="10" cy="15.5" r=".5" fill="#2C2C2C" stroke="none"/><circle cx="14" cy="15.5" r=".5" fill="#2C2C2C" stroke="none"/><circle cx="12" cy="17" r=".5" fill="#2C2C2C" stroke="none"/>',
+  melon: '<circle cx="12" cy="13" r="8" fill="#C5E1A5" stroke="#8CAE5E"/><path d="M12 5v2M6 8c1 1 1 2 0 3M18 8c-1 1-1 2 0 3" stroke="#8CAE5E"/>',
+  avocado: '<path d="M12 4c4 0 7 4 7 9a7 7 0 01-14 0c0-5 3-9 7-9z" fill="#7CB342" stroke="#4E7A22"/><circle cx="12" cy="14" r="3" fill="#8D6E4A" stroke="#5E4A2F"/>',
+  banana: '<path d="M6 19c9 2 13-4 13-11-6 0-13 3-13 11z" fill="#FDD835" stroke="#C9A61C"/><path d="M6 19c-1 0-2-.5-2-1.5" stroke="#8D6E4A"/>',
+  grape: '<circle cx="9" cy="11" r="2.6" fill="#8E44AD" stroke="#5E2C73"/><circle cx="14" cy="11" r="2.6" fill="#8E44AD" stroke="#5E2C73"/><circle cx="6.5" cy="15.5" r="2.6" fill="#8E44AD" stroke="#5E2C73"/><circle cx="11.5" cy="16" r="2.6" fill="#8E44AD" stroke="#5E2C73"/><circle cx="16" cy="15.5" r="2.6" fill="#8E44AD" stroke="#5E2C73"/><path d="M11 8V3" stroke="#558B2F"/>',
+  berry: '<circle cx="9" cy="10" r="3.2" fill="#5B8DEF" stroke="#3A5FA8"/><circle cx="15" cy="10" r="3.2" fill="#5B8DEF" stroke="#3A5FA8"/><circle cx="9" cy="16" r="3.2" fill="#5B8DEF" stroke="#3A5FA8"/><circle cx="15" cy="16" r="3.2" fill="#5B8DEF" stroke="#3A5FA8"/>',
+  strawberry: '<path d="M12 6c5 0 7 5 6 10s-4 6-6 6-5-1-6-6 1-10 6-10z" fill="#E53935" stroke="#B71C1C"/><path d="M9 12l.6 2M12 11l.6 3M15 12l.6 2" stroke="#FBE9E7"/><path d="M8 6c1-2 3-2 4-1 1-1 3-1 4 1" fill="none" stroke="#558B2F"/>',
+  kiwi: '<circle cx="12" cy="13" r="8" fill="#8BC34A" stroke="#5E8A2E"/><circle cx="12" cy="13" r="4.5" fill="#F5F0D8"/><circle cx="9" cy="11" r=".5" fill="#2C2C2C" stroke="none"/><circle cx="12" cy="9.5" r=".5" fill="#2C2C2C" stroke="none"/><circle cx="15" cy="11" r=".5" fill="#2C2C2C" stroke="none"/><circle cx="10" cy="16" r=".5" fill="#2C2C2C" stroke="none"/><circle cx="14" cy="16" r=".5" fill="#2C2C2C" stroke="none"/>',
+  pineapple: '<ellipse cx="12" cy="15" rx="6" ry="7" fill="#FDD835" stroke="#C9A61C"/><path d="M8 9l3-1M12 9V8M16 9l-3-1" stroke="#C9A61C"/><path d="M12 8c-2-3-1-6-1-6M12 8c2-3 1-6 1-6M12 8c0-3 0-6 0-6" stroke="#558B2F"/>',
+  fig: '<path d="M12 5c5 1 6 6 5 11s-4 5-5 5-4 0-5-5 0-10 5-11z" fill="#7B4B94" stroke="#523263"/><circle cx="12" cy="14" r="2" fill="#F2A6C4" stroke="none"/>',
+  milk: '<path d="M9 3h6v4l2 3v9a2 2 0 01-2 2H9a2 2 0 01-2-2v-9l2-3z" fill="#F5F9FF" stroke="#B9D6EE"/><path d="M7.5 13h9" stroke="#5B8DEF"/>',
+  cheese: '<path d="M3 17l9-12 9 12z" fill="#FDD835" stroke="#C9A61C"/><circle cx="11" cy="14" r=".7" fill="#C9A61C" stroke="none"/><circle cx="15" cy="15.5" r=".5" fill="#C9A61C" stroke="none"/>',
+  yogurt: '<path d="M8 4h8l-1 15a2 2 0 01-2 2h-2a2 2 0 01-2-2z" fill="#F7F2E3" stroke="#D8CBA0"/><path d="M8 9h8" stroke="#D8CBA0"/>',
+  iceCream: '<path d="M8 11l4 9 4-9z" fill="#F2A6C4" stroke="#C96A93"/><circle cx="12" cy="8" r="5" fill="#FBF6E9" stroke="#D8CBA0"/>',
+  clearSoup: '<path d="M3 12a9 8 0 0018 0z" fill="#EDE4D3" stroke="#C9B98A"/><path d="M3 12h18" stroke="#C9B98A"/><path d="M9 6c-1-1-1-2 0-3M15 6c-1-1-1-2 0-3" stroke="#B39D6C" stroke-dasharray="1 1.5"/>',
+  redStew: '<rect x="4" y="10" width="16" height="9" rx="2" fill="#D84315" stroke="#8F2A0C"/><path d="M2 13h2M20 13h2" stroke="#8F2A0C"/><ellipse cx="12" cy="10" rx="8" ry="2" fill="#EFAFA0" stroke="#8F2A0C"/>',
+  brownStew: '<rect x="4" y="10" width="16" height="9" rx="2" fill="#8D6E4A" stroke="#5E4A2F"/><path d="M2 13h2M20 13h2" stroke="#5E4A2F"/><ellipse cx="12" cy="10" rx="8" ry="2" fill="#D8CBA0" stroke="#5E4A2F"/>',
+  wholeChickenSoup: '<path d="M3 13a9 7 0 0018 0z" fill="#F7F2E3" stroke="#D8CBA0"/><path d="M3 13h18" stroke="#D8CBA0"/><circle cx="12" cy="9" r="4" fill="#F3C6B0" stroke="#C98A6B"/>',
+  gukbap: '<path d="M3 12a9 8 0 0018 0z" fill="#F7F2E3" stroke="#D8CBA0"/><path d="M3 12h18" stroke="#D8CBA0"/><circle cx="9" cy="9" r=".6" fill="#fff" stroke="none"/><circle cx="14" cy="8.5" r=".6" fill="#D84315" stroke="none"/>',
+  ramen: '<path d="M3 12a9 8 0 0018 0z" fill="#D84315" stroke="#8F2A0C"/><path d="M3 12h18" stroke="#8F2A0C"/><path d="M7 8c1-1 1-2 0-3M12 8c1-1 1-2 0-3M17 8c1-1 1-2 0-3" stroke="#FDD835"/>',
+  coldNoodle: '<path d="M3 12a9 8 0 0018 0z" fill="#DCEFFA" stroke="#9FCBE3"/><path d="M3 12h18" stroke="#9FCBE3"/><path d="M7 8c1-1 1-2 0-3M12 8c1-1 1-2 0-3M17 8c1-1 1-2 0-3" stroke="#fff"/>',
+  pasta: '<circle cx="12" cy="13" r="8" fill="#FDD835" stroke="#C9A61C"/><path d="M6 13c3-3 6 3 9 0s3-6 3-6M6 16c3-3 6 3 9 0" stroke="#C9A61C" fill="none"/>',
+  jjajangmyeon: '<path d="M3 12a9 8 0 0018 0z" fill="#4E3524" stroke="#2C1E14"/><path d="M3 12h18" stroke="#2C1E14"/><path d="M7 8c1-1 1-2 0-3M12 8c1-1 1-2 0-3M17 8c1-1 1-2 0-3" stroke="#8D6E4A"/>',
+  slicedBread: '<path d="M4 20V12c0-5 4-8 8-8s8 3 8 8v8z" fill="#E8B04B" stroke="#B8802A"/>',
+  croissant: '<path d="M4 16c2-8 8-12 16-10-2 2-3 4-2 6-3 0-5 1-6 3-2-1-4-1-5 0-1-1-2 0-3 1z" fill="#D9A054" stroke="#A8762E"/>',
+  donut: '<circle cx="12" cy="12" r="9" fill="#F2A6C4" stroke="#C96A93"/><circle cx="12" cy="12" r="3.5" fill="#FFF9F2"/><circle cx="9" cy="8" r=".5" fill="#5B8DEF" stroke="none"/><circle cx="15" cy="7" r=".5" fill="#7CB342" stroke="none"/><circle cx="17" cy="10" r=".5" fill="#FDD835" stroke="none"/>',
+  bagel: '<circle cx="12" cy="12" r="9" fill="#D9A054" stroke="#A8762E"/><circle cx="12" cy="12" r="3.5" fill="#FFF9F2"/>',
+  cakeSlice: '<path d="M4 20L12 5l8 15z" fill="#F5D5E0" stroke="#C97C9A"/><path d="M4 20L12 5l8 15" fill="none"/><path d="M7 20l5-9 5 9" fill="#E8B04B" stroke="#B8802A"/><circle cx="12" cy="4" r="1.3" fill="#E53935" stroke="none"/>',
+  oatBowl: '<path d="M3 13a9 7.5 0 0018 0z" fill="#E4D9BE" stroke="#B39D6C"/><path d="M3 13h18" stroke="#B39D6C"/><circle cx="8" cy="9" r=".9" fill="#C9A15D" stroke="none"/><circle cx="12" cy="7.5" r=".9" fill="#C9A15D" stroke="none"/><circle cx="16" cy="9" r=".9" fill="#C9A15D" stroke="none"/>',
+  friedFood: '<path d="M4 18c0-6 3-11 8-11s8 5 8 11z" fill="#E8B04B" stroke="#B8802A"/><circle cx="17" cy="6" r=".8" fill="#B8802A" stroke="none"/><circle cx="19" cy="9" r=".6" fill="#B8802A" stroke="none"/>',
+  panDish: '<path d="M3 13a9 4 0 0018 0z" fill="#78716C" stroke="#44403C"/><path d="M21 13h2" stroke="#44403C"/><circle cx="9" cy="11.5" r="1" fill="#7CB342" stroke="none"/><circle cx="13" cy="12" r="1" fill="#E53935" stroke="none"/><circle cx="16" cy="11" r="1" fill="#FDD835" stroke="none"/>',
+  cookie: '<circle cx="12" cy="12" r="9" fill="#D9A054" stroke="#A8762E"/><circle cx="9" cy="9" r=".8" fill="#4E3524" stroke="none"/><circle cx="14" cy="8" r=".8" fill="#4E3524" stroke="none"/><circle cx="16" cy="13" r=".8" fill="#4E3524" stroke="none"/><circle cx="10" cy="15" r=".8" fill="#4E3524" stroke="none"/><circle cx="14" cy="16" r=".8" fill="#4E3524" stroke="none"/>',
+  jelly: '<path d="M6 8c0-3 2-5 6-5s6 2 6 5v6c0 3-2 7-6 7s-6-4-6-7z" fill="#F2A6C4" stroke="#C96A93"/>',
+  chips: '<path d="M12 3c5 4 7 9 5 16-5-2-9-2-14 0 0-8 4-13 9-16z" fill="#FDD835" stroke="#C9A61C"/>',
+  chocolateBar: '<rect x="3" y="8" width="18" height="8" rx="1" fill="#4E3524" stroke="#2C1E14"/><path d="M8 8v8M13 8v8M18 8v8M3 12h18" stroke="#2C1E14"/>',
+  coffee: '<path d="M4 8h13v6a5 5 0 01-5 5H9a5 5 0 01-5-5z" fill="#6F4E37" stroke="#4A3323"/><path d="M17 9h1a3 3 0 010 6h-1" fill="none" stroke="#4A3323"/><path d="M8 3c-1 1-1 2 0 3M12 3c-1 1-1 2 0 3" stroke="#B9D6EE"/>',
+  soda: '<rect x="7" y="3" width="10" height="18" rx="2" fill="#E53935" stroke="#B71C1C"/><ellipse cx="12" cy="3" rx="5" ry="1.2" fill="#C9C9C9" stroke="#8A8A8A"/>',
+  juice: '<path d="M7 4h10l-1 16a2 2 0 01-2 2h-4a2 2 0 01-2-2z" fill="#FB8C00" stroke="#C9670A"/><path d="M7.5 10h9" stroke="#FFD9A0"/>',
+  tea: '<path d="M7 4h10l-1 16a2 2 0 01-2 2h-4a2 2 0 01-2-2z" fill="#C9A15D" stroke="#977A45"/>',
+  alcohol: '<path d="M6 4h12l-2 14a2 2 0 01-2 2h-4a2 2 0 01-2-2z" fill="#F0C24A" stroke="#C9A020"/><ellipse cx="12" cy="4" rx="6" ry="1.3" fill="#FFF9E5" stroke="#C9A020"/>',
+  nuts: '<ellipse cx="9" cy="12" rx="4" ry="6" transform="rotate(-15 9 12)" fill="#B08968" stroke="#7A5A3E"/><ellipse cx="16" cy="13" rx="3.5" ry="5.2" transform="rotate(15 16 13)" fill="#C9A15D" stroke="#977A45"/>',
+  supplement: '<path d="M9 3h6v3l2 2v11a2 2 0 01-2 2H9a2 2 0 01-2-2V8l2-2z" fill="#FFF" stroke="#D8CBA0"/><rect x="8" y="13" width="8" height="4" fill="#FF6B00"/>',
+  default: '<circle cx="12" cy="12" r="9" fill="#F0EAD6" stroke="#B39D6C"/><path d="M8 9v6M8 9c-1.2 0-2 .8-2 2s.8 2 2 2M16 9v6M16 9c1.2 0 2 .8 2 2s-.8 2-2 2" stroke="#5E4A2F"/>',
+};
+
+// 키워드 -> 카테고리 (순서 중요: 구체적인 것부터 검사)
+const ICON_RULES = [
+  [/닭가슴살|닭안심/, 'chickenBreast'],
+  [/닭날개|닭다리살/, 'chickenLeg'],
+  [/후라이드|양념치킨|치킨너겟|너겟|핫윙/, 'friedChicken'],
+  [/소고기|갈비\(|소불고기|스테이크|육포|규동|양고기/, 'beef'],
+  [/닭갈비/, 'chickenLeg'],
+  [/돼지고기|삼겹살|목살|돼지불고기|돼지갈비|보쌈|족발|제육볶음/, 'pork'],
+  [/베이컨/, 'bacon'],
+  [/소시지|스팸|핫도그|순대|핫바/, 'sausage'],
+  [/오리고기|훈제오리/, 'duck'],
+  [/미트볼/, 'meatball'],
+  [/연어/, 'salmon'],
+  [/고등어|갈치|조기|임연수/, 'whiteFish'],
+  [/참치/, 'tuna'],
+  [/새우/, 'shrimp'],
+  [/오징어|문어|낙지/, 'squid'],
+  [/게맛살|굴|홍합|전복/, 'shellfish'],
+  [/계란말이/, 'eggRoll'],
+  [/계란|에그|달걀/, 'egg'],
+  [/두부|순두부/, 'tofu'],
+  [/낫토|검은콩|렌틸콩|병아리콩|완두콩|콩\)/, 'beans'],
+  [/현미떡|가래떡|떡$/, 'riceCake'],
+  [/김밥/, 'gimbap'],
+  [/삼각김밥|주먹밥|유부초밥/, 'onigiri'],
+  [/현미밥/, 'brownRice'],
+  [/흰쌀밥|보리밥|잡곡밥/, 'whiteRice'],
+  [/떡볶이/, 'riceCake'],
+  [/감자/, 'potato'],
+  [/고구마/, 'sweetPotato'],
+  [/단호박/, 'pumpkin'],
+  [/브로콜리/, 'broccoli'],
+  [/버섯/, 'mushroom'],
+  [/파프리카|가지 \(|고추/, 'pepperVeg'],
+  [/상추|깻잎|시금치|양배추|부추|미나리|잎채소|오이|애호박/, 'leafyGreen'],
+  [/양파/, 'onion'],
+  [/마늘/, 'garlic'],
+  [/옥수수/, 'corn'],
+  [/콩나물/, 'beanSprout'],
+  [/김치|절임|장아찌|열무|배추김치/, 'kimchi'],
+  [/도라지|무생채|고사리|당근/, 'leafyGreen'],
+  [/방울토마토/, 'tomato'],
+  [/사과/, 'apple'],
+  [/오렌지주스/, 'juice'],
+  [/오렌지|자몽/, 'orange'],
+  [/복숭아|망고|참외|체리|자두|감$|석류/, 'peach'],
+  [/수박/, 'watermelon'],
+  [/멜론/, 'melon'],
+  [/아보카도/, 'avocado'],
+  [/바나나/, 'banana'],
+  [/포도/, 'grape'],
+  [/블루베리/, 'berry'],
+  [/딸기/, 'strawberry'],
+  [/키위/, 'kiwi'],
+  [/파인애플/, 'pineapple'],
+  [/무화과|대추|건포도/, 'fig'],
+  [/배$/, 'peach'],
+  [/우유|두유|연유|아몬드브리즈/, 'milk'],
+  [/치즈/, 'cheese'],
+  [/요거트/, 'yogurt'],
+  [/생크림|버터/, 'cheese'],
+  [/아이스크림/, 'iceCream'],
+  [/식빵|모닝빵|빵/, 'slicedBread'],
+  [/크루아상/, 'croissant'],
+  [/베이글/, 'bagel'],
+  [/도넛/, 'donut'],
+  [/와플|카스테라|롤케이크|초코케이크|치즈케이크/, 'cakeSlice'],
+  [/오트밀|미숫가루|시리얼|콘플레이크|그래놀라/, 'oatBowl'],
+  [/삼계탕/, 'wholeChickenSoup'],
+  [/콩나물국밥|순댓국|어묵탕/, 'gukbap'],
+  [/갈비탕|곰탕|설렁탕|추어탕|육개장/, 'clearSoup'],
+  [/김치찌개|부대찌개|감자탕/, 'redStew'],
+  [/된장찌개|순두부찌개/, 'brownStew'],
+  [/라면|컵라면/, 'ramen'],
+  [/냉면/, 'coldNoodle'],
+  [/스파게티|통밀파스타|파스타|라자냐|리조또/, 'pasta'],
+  [/짜장면/, 'jjajangmyeon'],
+  [/잔치국수|칼국수|쫄면|라볶이|잡채/, 'ramen'],
+  [/피자|햄버거|치즈버거|불고기버거|새우버거/, 'slicedBread'],
+  [/돈까스|새우튀김|어니언링|튀김/, 'friedFood'],
+  [/만두/, 'friedFood'],
+  [/카레라이스|오므라이스|비빔밥|편의점 도시락|덮밥/, 'panDish'],
+  [/마카롱|젤리|곤약젤리/, 'jelly'],
+  [/쿠키|그래놀라바|견과바|프로틴바/, 'cookie'],
+  [/과자|크래커|칩|나쵸/, 'chips'],
+  [/초콜릿바/, 'chocolateBar'],
+  [/커피|아메리카노|라떼|핫초코|밀크티/, 'coffee'],
+  [/콜라|사이다|탄산수/, 'soda'],
+  [/식혜|수정과|매실차/, 'tea'],
+  [/맥주|소주|막걸리|와인|하이볼/, 'alcohol'],
+  [/아몬드|호두|캐슈넛|피스타치오|해바라기씨|땅콩|견과류 믹스/, 'nuts'],
+  [/프로틴쉐이크|프로틴 파우더|다이어트 쉐이크바|그릭요거트 드링크|저당요거트|닭가슴살 소세지/, 'supplement'],
+  [/멸치볶음/, 'shrimp'],
+];
+
+function categorizeIcon(name) {
+  for (const [re, cat] of ICON_RULES) {
+    if (re.test(name)) return cat;
+  }
+  return 'default';
+}
+// 이름을 해시해 0~359도의 고유한 색조 회전값을 만듭니다.
+// 같은 카테고리(예: 과일)라도 음식마다 색이 달라 보이도록 하기 위한 처리입니다.
+function nameHue(name) {
+  let h = 0;
+  for (let i = 0; i < name.length; i++) h = (h * 31 + name.charCodeAt(i)) % 360;
+  return h;
+}
+function nameBrightness(name) {
+  let h = 7;
+  for (let i = 0; i < name.length; i++) h = (h * 17 + name.charCodeAt(i)) % 25;
+  return 0.9 + h / 100; // 0.90 ~ 1.14
+}
+
+function iconHtml(name, sizeClass) {
+  const cat = categorizeIcon(name);
+  const hue = nameHue(name);
+  const bright = nameBrightness(name).toFixed(2);
+  return `<svg viewBox="0 0 24 24" class="${sizeClass}" style="filter:hue-rotate(${hue}deg) brightness(${bright})">${ICONS[cat]}</svg>`;
+}
+
 /* ============================================================
    0. 로고 배경 제거 (흰 배경 -> 투명, 여백 자동 크롭 후 img로 교체할 필요 없이 mix-blend-mode로 처리했으나
    배경색이 미묘하게 다를 수 있어 canvas 후처리를 병행)
@@ -714,64 +945,320 @@ document.getElementById('calcForm').addEventListener('submit', (e) => {
    3. 칼로리 사전 (Food DB)
    ============================================================ */
 const FOODS = [
-  { name: '닭가슴살(삶거나 구운 것)', serving: '100g', kcal: 165, carb: 0, protein: 31, fat: 3.6, sugar: 0 },
-  { name: '고구마 (찐 것)', serving: '100g', kcal: 90, carb: 21, protein: 2, fat: 0.1, sugar: 6.5 },
-  { name: '현미밥', serving: '1공기 210g', kcal: 300, carb: 65, protein: 6, fat: 2.5, sugar: 0.5 },
-  { name: '흰쌀밥', serving: '1공기 210g', kcal: 310, carb: 68, protein: 5.6, fat: 0.5, sugar: 0.1 },
-  { name: '삶은 계란', serving: '1개 50g', kcal: 78, carb: 0.6, protein: 6.3, fat: 5.3, sugar: 0.6 },
-  { name: '두부', serving: '100g', kcal: 84, carb: 1.9, protein: 8.1, fat: 4.8, sugar: 0.7 },
-  { name: '그릭요거트', serving: '100g', kcal: 97, carb: 3.6, protein: 9, fat: 5, sugar: 3.2 },
-  { name: '바나나', serving: '1개 120g', kcal: 105, carb: 27, protein: 1.3, fat: 0.4, sugar: 14 },
-  { name: '사과', serving: '1개 200g', kcal: 104, carb: 27.6, protein: 0.5, fat: 0.3, sugar: 21 },
-  { name: '아보카도', serving: '1/2개 100g', kcal: 160, carb: 8.5, protein: 2, fat: 14.7, sugar: 0.7 },
-  { name: '계란 흰자', serving: '100g', kcal: 52, carb: 0.7, protein: 11, fat: 0.2, sugar: 0.7 },
-  { name: '오트밀', serving: '건조 40g', kcal: 150, carb: 27, protein: 5, fat: 3, sugar: 1 },
-  { name: '연어구이', serving: '100g', kcal: 208, carb: 0, protein: 20, fat: 13, sugar: 0 },
-  { name: '참치캔 (물)', serving: '100g', kcal: 116, carb: 0, protein: 25.5, fat: 0.8, sugar: 0 },
-  { name: '김밥', serving: '1줄 230g', kcal: 350, carb: 55, protein: 9, fat: 9, sugar: 4 },
-  { name: '삼겹살 구이', serving: '100g', kcal: 484, carb: 0, protein: 22.7, fat: 41.2, sugar: 0 },
-  { name: '치킨 (후라이드)', serving: '100g', kcal: 260, carb: 10, protein: 18, fat: 16, sugar: 0.5 },
-  { name: '라면', serving: '1봉지', kcal: 505, carb: 78, protein: 10, fat: 16, sugar: 5 },
-  { name: '짜장면', serving: '1인분', kcal: 700, carb: 110, protein: 18, fat: 20, sugar: 12 },
-  { name: '비빔밥', serving: '1인분', kcal: 550, carb: 90, protein: 18, fat: 14, sugar: 8 },
-  { name: '냉면', serving: '1인분', kcal: 480, carb: 90, protein: 15, fat: 6, sugar: 10 },
-  { name: '떡볶이', serving: '1인분 300g', kcal: 480, carb: 95, protein: 8, fat: 6, sugar: 20 },
-  { name: '삼각김밥', serving: '1개', kcal: 180, carb: 32, protein: 4, fat: 3.5, sugar: 1 },
-  { name: '두유 (무가당)', serving: '200ml', kcal: 80, carb: 4, protein: 7, fat: 4, sugar: 0.5 },
-  { name: '아메리카노', serving: '1잔', kcal: 10, carb: 1.4, protein: 0.3, fat: 0, sugar: 0 },
-  { name: '프로틴쉐이크(예시, 분말 30g 가정·물에 혼합)', serving: '1스쿱(약 30g 가정)', kcal: 120, carb: 3, protein: 24, fat: 1.5, sugar: 1 },
-  { name: '견과류 믹스', serving: '30g', kcal: 175, carb: 6, protein: 6, fat: 15, sugar: 1.5 },
-  { name: '방울토마토', serving: '10개 150g', kcal: 27, carb: 6, protein: 1.3, fat: 0.3, sugar: 4 },
-  { name: '브로콜리 (데침)', serving: '100g', kcal: 35, carb: 7, protein: 2.8, fat: 0.4, sugar: 1.7 },
-  { name: '찐 새우', serving: '100g', kcal: 99, carb: 0.2, protein: 24, fat: 0.3, sugar: 0 },
+  { slug: 'chicken-breast', name: '닭가슴살(삶거나 구운 것)', serving: '100g', kcal: 165, carb: 0, protein: 31, fat: 3.6, sugar: 0 },
+  { slug: 'sweet-potato', name: '고구마 (찐 것)', serving: '100g', kcal: 90, carb: 21, protein: 2, fat: 0.1, sugar: 6.5 },
+  { slug: 'brown-rice', name: '현미밥', serving: '1공기 210g', kcal: 300, carb: 65, protein: 6, fat: 2.5, sugar: 0.5 },
+  { slug: 'white-rice', name: '흰쌀밥', serving: '1공기 210g', kcal: 310, carb: 68, protein: 5.6, fat: 0.5, sugar: 0.1 },
+  { slug: 'boiled-egg', name: '삶은 계란', serving: '1개 50g', kcal: 78, carb: 0.6, protein: 6.3, fat: 5.3, sugar: 0.6 },
+  { slug: 'tofu', name: '두부', serving: '100g', kcal: 84, carb: 1.9, protein: 8.1, fat: 4.8, sugar: 0.7 },
+  { slug: 'greek-yogurt', name: '그릭요거트', serving: '100g', kcal: 97, carb: 3.6, protein: 9, fat: 5, sugar: 3.2 },
+  { slug: 'banana', name: '바나나', serving: '1개 120g', kcal: 105, carb: 27, protein: 1.3, fat: 0.4, sugar: 14 },
+  { slug: 'apple', name: '사과', serving: '1개 200g', kcal: 104, carb: 27.6, protein: 0.5, fat: 0.3, sugar: 21 },
+  { slug: 'avocado', name: '아보카도', serving: '1/2개 100g', kcal: 160, carb: 8.5, protein: 2, fat: 14.7, sugar: 0.7 },
+  { slug: 'egg-white', name: '계란 흰자', serving: '100g', kcal: 52, carb: 0.7, protein: 11, fat: 0.2, sugar: 0.7 },
+  { slug: 'oatmeal', name: '오트밀', serving: '건조 40g', kcal: 150, carb: 27, protein: 5, fat: 3, sugar: 1 },
+  { slug: 'grilled-salmon', name: '연어구이', serving: '100g', kcal: 208, carb: 0, protein: 20, fat: 13, sugar: 0 },
+  { slug: 'tuna-can', name: '참치캔 (물)', serving: '100g', kcal: 116, carb: 0, protein: 25.5, fat: 0.8, sugar: 0 },
+  { slug: 'gimbap', name: '김밥', serving: '1줄 230g', kcal: 350, carb: 55, protein: 9, fat: 9, sugar: 4 },
+  { slug: 'pork-belly', name: '삼겹살 구이', serving: '100g', kcal: 484, carb: 0, protein: 22.7, fat: 41.2, sugar: 0 },
+  { slug: 'fried-chicken', name: '치킨 (후라이드)', serving: '100g', kcal: 260, carb: 10, protein: 18, fat: 16, sugar: 0.5 },
+  { slug: 'ramen', name: '라면', serving: '1봉지', kcal: 505, carb: 78, protein: 10, fat: 16, sugar: 5 },
+  { slug: 'jjajangmyeon', name: '짜장면', serving: '1인분', kcal: 700, carb: 110, protein: 18, fat: 20, sugar: 12 },
+  { slug: 'bibimbap', name: '비빔밥', serving: '1인분', kcal: 550, carb: 90, protein: 18, fat: 14, sugar: 8 },
+  { slug: 'naengmyeon', name: '냉면', serving: '1인분', kcal: 480, carb: 90, protein: 15, fat: 6, sugar: 10 },
+  { slug: 'tteokbokki', name: '떡볶이', serving: '1인분 300g', kcal: 480, carb: 95, protein: 8, fat: 6, sugar: 20 },
+  { slug: 'samgak-gimbap', name: '삼각김밥', serving: '1개', kcal: 180, carb: 32, protein: 4, fat: 3.5, sugar: 1 },
+  { slug: 'soy-milk', name: '두유 (무가당)', serving: '200ml', kcal: 80, carb: 4, protein: 7, fat: 4, sugar: 0.5 },
+  { slug: 'americano', name: '아메리카노', serving: '1잔', kcal: 10, carb: 1.4, protein: 0.3, fat: 0, sugar: 0 },
+  { slug: 'protein-shake', name: '프로틴쉐이크(예시, 분말 30g 가정·물에 혼합)', serving: '1스쿱(약 30g 가정)', kcal: 120, carb: 3, protein: 24, fat: 1.5, sugar: 1 },
+  { slug: 'mixed-nuts', name: '견과류 믹스', serving: '30g', kcal: 175, carb: 6, protein: 6, fat: 15, sugar: 1.5 },
+  { slug: 'cherry-tomato', name: '방울토마토', serving: '10개 150g', kcal: 27, carb: 6, protein: 1.3, fat: 0.3, sugar: 4 },
+  { slug: 'broccoli', name: '브로콜리 (데침)', serving: '100g', kcal: 35, carb: 7, protein: 2.8, fat: 0.4, sugar: 1.7 },
+  { slug: 'steamed-shrimp', name: '찐 새우', serving: '100g', kcal: 99, carb: 0.2, protein: 24, fat: 0.3, sugar: 0 },
+  { slug: 'barley-rice', name: '보리밥', serving: '1공기 210g', kcal: 318, carb: 70, protein: 6, fat: 1.5, sugar: 0.5 },
+  { slug: 'multigrain-rice', name: '잡곡밥', serving: '1공기 210g', kcal: 310, carb: 66, protein: 7, fat: 2, sugar: 1 },
+  { slug: 'white-bread', name: '식빵', serving: '1쪽 35g', kcal: 94, carb: 17, protein: 3, fat: 1.5, sugar: 2 },
+  { slug: 'whole-wheat-bread', name: '통밀식빵', serving: '1쪽 35g', kcal: 86, carb: 15, protein: 3.5, fat: 1.3, sugar: 1.5 },
+  { slug: 'croissant', name: '크루아상', serving: '1개 60g', kcal: 236, carb: 27, protein: 5, fat: 12, sugar: 5 },
+  { slug: 'bagel', name: '베이글', serving: '1개 100g', kcal: 278, carb: 55, protein: 10, fat: 2, sugar: 6 },
+  { slug: 'spaghetti', name: '스파게티 (삶은 면)', serving: '100g', kcal: 129, carb: 25, protein: 5, fat: 1, sugar: 0.5 },
+  { slug: 'boiled-potato', name: '감자 (찐 것)', serving: '100g', kcal: 77, carb: 17, protein: 2, fat: 0.1, sugar: 1 },
+  { slug: 'corn', name: '옥수수 (삶은 것)', serving: '1개 150g', kcal: 159, carb: 31, protein: 4.5, fat: 1.9, sugar: 6 },
+  { slug: 'sweet-pumpkin', name: '단호박 (찐 것)', serving: '100g', kcal: 48, carb: 10, protein: 1.5, fat: 0.2, sugar: 3 },
+  { slug: 'beef-sirloin', name: '소고기 등심 (구운 것)', serving: '100g', kcal: 266, carb: 0, protein: 26, fat: 18, sugar: 0 },
+  { slug: 'pork-neck', name: '돼지고기 목살 (구운 것)', serving: '100g', kcal: 294, carb: 0, protein: 24, fat: 22, sugar: 0 },
+  { slug: 'duck-meat', name: '오리고기 (구운 것)', serving: '100g', kcal: 328, carb: 0, protein: 19, fat: 28, sugar: 0 },
+  { slug: 'beef-tenderloin', name: '소고기 안심 (구운 것)', serving: '100g', kcal: 189, carb: 0, protein: 27, fat: 9, sugar: 0 },
+  { slug: 'seasoned-chicken', name: '양념치킨', serving: '100g', kcal: 259, carb: 14, protein: 17, fat: 15, sugar: 8 },
+  { slug: 'chicken-thigh', name: '닭다리살 (구운 것)', serving: '100g', kcal: 195, carb: 0, protein: 24, fat: 11, sugar: 0 },
+  { slug: 'sausage', name: '소시지 (비엔나)', serving: '100g', kcal: 293, carb: 4, protein: 13, fat: 25, sugar: 2 },
+  { slug: 'bacon', name: '베이컨 (구운 것)', serving: '100g', kcal: 374, carb: 1, protein: 25, fat: 30, sugar: 0.5 },
+  { slug: 'spam', name: '스팸 (구운 것)', serving: '100g', kcal: 338, carb: 3, protein: 14, fat: 30, sugar: 1 },
+  { slug: 'mandu', name: '만두 (찐 것)', serving: '5개 150g', kcal: 258, carb: 30, protein: 12, fat: 10, sugar: 2 },
+  { slug: 'grilled-mackerel', name: '고등어구이', serving: '100g', kcal: 214, carb: 0, protein: 22, fat: 14, sugar: 0 },
+  { slug: 'boiled-squid', name: '오징어 (데친 것)', serving: '100g', kcal: 89, carb: 2, protein: 18, fat: 1, sugar: 0 },
+  { slug: 'crab-stick', name: '게맛살', serving: '100g', kcal: 97, carb: 10, protein: 12, fat: 1, sugar: 3 },
+  { slug: 'oyster', name: '굴', serving: '100g', kcal: 70, carb: 4, protein: 9, fat: 2, sugar: 0.5 },
+  { slug: 'grilled-croaker', name: '조기구이', serving: '100g', kcal: 143, carb: 0, protein: 20, fat: 7, sugar: 0 },
+  { slug: 'stir-fried-anchovy', name: '멸치볶음', serving: '30g', kcal: 83, carb: 5, protein: 9, fat: 3, sugar: 3 },
+  { slug: 'whole-milk', name: '우유 (일반)', serving: '200ml', kcal: 125, carb: 9, protein: 6.6, fat: 7, sugar: 9 },
+  { slug: 'low-fat-milk', name: '저지방우유', serving: '200ml', kcal: 86, carb: 10, protein: 7, fat: 2, sugar: 10 },
+  { slug: 'cheddar-cheese', name: '체다치즈', serving: '1장 20g', kcal: 78, carb: 0.4, protein: 4.5, fat: 6.5, sugar: 0.4 },
+  { slug: 'mozzarella-cheese', name: '모짜렐라치즈', serving: '30g', kcal: 86, carb: 1, protein: 7, fat: 6, sugar: 0.5 },
+  { slug: 'caffe-latte', name: '카페라떼', serving: '1잔 250ml', kcal: 101, carb: 9, protein: 5, fat: 5, sugar: 9 },
+  { slug: 'vanilla-ice-cream', name: '아이스크림 (바닐라)', serving: '100g', kcal: 211, carb: 24, protein: 4, fat: 11, sugar: 21 },
+  { slug: 'cabbage', name: '양배추 (생)', serving: '100g', kcal: 30, carb: 6, protein: 1.3, fat: 0.1, sugar: 3.2 },
+  { slug: 'spinach', name: '시금치 (데침)', serving: '100g', kcal: 32, carb: 4, protein: 3, fat: 0.4, sugar: 0.5 },
+  { slug: 'eggplant', name: '가지 (구운 것)', serving: '100g', kcal: 30, carb: 6, protein: 1, fat: 0.2, sugar: 3 },
+  { slug: 'carrot', name: '당근 (생)', serving: '100g', kcal: 45, carb: 10, protein: 0.9, fat: 0.2, sugar: 5 },
+  { slug: 'bean-sprouts', name: '콩나물 (데침)', serving: '100g', kcal: 35, carb: 4, protein: 3.5, fat: 0.5, sugar: 1 },
+  { slug: 'bell-pepper', name: '파프리카 (생)', serving: '1개 150g', kcal: 47, carb: 9, protein: 1.8, fat: 0.4, sugar: 6 },
+  { slug: 'strawberry', name: '딸기', serving: '10개 150g', kcal: 54, carb: 11, protein: 1.4, fat: 0.5, sugar: 8 },
+  { slug: 'grape', name: '포도', serving: '100g', kcal: 77, carb: 18, protein: 0.6, fat: 0.3, sugar: 16 },
+  { slug: 'watermelon', name: '수박', serving: '200g', kcal: 72, carb: 16, protein: 1.2, fat: 0.3, sugar: 14 },
+  { slug: 'kiwi', name: '키위', serving: '1개 80g', kcal: 51, carb: 11, protein: 0.9, fat: 0.4, sugar: 9 },
+  { slug: 'orange', name: '오렌지', serving: '1개 150g', kcal: 80, carb: 18, protein: 1.5, fat: 0.2, sugar: 14 },
+  { slug: 'pear', name: '배', serving: '1개 250g', kcal: 118, carb: 28, protein: 0.8, fat: 0.3, sugar: 19 },
+  { slug: 'blueberry', name: '블루베리', serving: '100g', kcal: 62, carb: 14, protein: 0.7, fat: 0.3, sugar: 10 },
+  { slug: 'pineapple', name: '파인애플', serving: '100g', kcal: 55, carb: 13, protein: 0.5, fat: 0.1, sugar: 10 },
+  { slug: 'almond', name: '아몬드', serving: '20g', kcal: 122, carb: 4, protein: 4, fat: 10, sugar: 1 },
+  { slug: 'walnut', name: '호두', serving: '20g', kcal: 141, carb: 3, protein: 3, fat: 13, sugar: 0.5 },
+  { slug: 'black-beans', name: '검은콩 (삶은 것)', serving: '100g', kcal: 202, carb: 20, protein: 17, fat: 6, sugar: 2 },
+  { slug: 'lentils', name: '렌틸콩 (삶은 것)', serving: '100g', kcal: 120, carb: 20, protein: 9, fat: 0.4, sugar: 2 },
+  { slug: 'chickpeas', name: '병아리콩 (삶은 것)', serving: '100g', kcal: 171, carb: 27, protein: 9, fat: 3, sugar: 3 },
+  { slug: 'peanuts', name: '땅콩', serving: '20g', kcal: 117, carb: 4, protein: 5, fat: 9, sugar: 1 },
+  { slug: 'hot-chocolate', name: '핫초코', serving: '1잔 250ml', kcal: 182, carb: 28, protein: 4, fat: 6, sugar: 22 },
+  { slug: 'granola-bar', name: '그래놀라바', serving: '1개 35g', kcal: 129, carb: 18, protein: 3, fat: 5, sugar: 9 },
+  { slug: 'sundae', name: '순대', serving: '1인분 200g', kcal: 262, carb: 20, protein: 14, fat: 14, sugar: 2 },
+  { slug: 'janchi-guksu', name: '잔치국수', serving: '1인분', kcal: 364, carb: 70, protein: 12, fat: 4, sugar: 3 },
+  { slug: 'kalguksu', name: '칼국수', serving: '1인분', kcal: 410, carb: 75, protein: 14, fat: 6, sugar: 3 },
+  { slug: 'kimchi-jjigae', name: '김치찌개', serving: '1인분', kcal: 282, carb: 14, protein: 16, fat: 18, sugar: 4 },
+  { slug: 'doenjang-jjigae', name: '된장찌개', serving: '1인분', kcal: 194, carb: 12, protein: 14, fat: 10, sugar: 3 },
+  { slug: 'galbitang', name: '갈비탕', serving: '1인분', kcal: 320, carb: 10, protein: 25, fat: 20, sugar: 2 },
+  { slug: 'japchae', name: '잡채', serving: '1인분 150g', kcal: 250, carb: 35, protein: 5, fat: 10, sugar: 8 },
+  { slug: 'sundubu-jjigae', name: '순두부찌개', serving: '1인분', kcal: 222, carb: 10, protein: 14, fat: 14, sugar: 2 },
+  { slug: 'pepperoni-pizza', name: '피자 (페퍼로니 1조각)', serving: '1조각 100g', kcal: 259, carb: 28, protein: 12, fat: 11, sugar: 3 },
+  { slug: 'hamburger', name: '햄버거 (일반)', serving: '1개 200g', kcal: 410, carb: 35, protein: 18, fat: 22, sugar: 6 },
+  { slug: 'french-fries', name: '감자튀김', serving: '100g', kcal: 289, carb: 35, protein: 3.5, fat: 15, sugar: 0.5 },
+  { slug: 'corn-dog', name: '핫도그', serving: '1개 120g', kcal: 287, carb: 28, protein: 10, fat: 15, sugar: 6 },
+  { slug: 'brown-rice-cake', name: '현미떡', serving: '100g', kcal: 225, carb: 50, protein: 4, fat: 1, sugar: 5 },
+  { slug: 'barley-bread', name: '보리빵', serving: '1개 70g', kcal: 182, carb: 36, protein: 5, fat: 2, sugar: 8 },
+  { slug: 'whole-wheat-pasta', name: '통밀파스타 (삶은 면)', serving: '100g', kcal: 125, carb: 24, protein: 5, fat: 1, sugar: 0.5 },
+  { slug: 'crackers', name: '크래커', serving: '5개 30g', kcal: 133, carb: 20, protein: 2, fat: 5, sugar: 1 },
+  { slug: 'corn-flakes', name: '콘플레이크 (시리얼)', serving: '40g', kcal: 153, carb: 34, protein: 3, fat: 0.5, sugar: 8 },
+  { slug: 'granola', name: '그래놀라', serving: '40g', kcal: 174, carb: 26, protein: 4, fat: 6, sugar: 8 },
+  { slug: 'rice-cake-stick', name: '가래떡', serving: '100g', kcal: 221, carb: 50, protein: 4, fat: 0.5, sugar: 1 },
+  { slug: 'dinner-roll', name: '모닝빵', serving: '1개 40g', kcal: 119, carb: 20, protein: 4, fat: 2.5, sugar: 3 },
+  { slug: 'donut', name: '도넛', serving: '1개 60g', kcal: 240, carb: 30, protein: 3, fat: 12, sugar: 14 },
+  { slug: 'waffle', name: '와플', serving: '1개 100g', kcal: 291, carb: 33, protein: 6, fat: 15, sugar: 8 },
+  { slug: 'grilled-chicken-wing', name: '닭날개구이', serving: '100g', kcal: 197, carb: 0, protein: 20, fat: 13, sugar: 0 },
+  { slug: 'chicken-tenderloin', name: '닭안심 (구운 것)', serving: '100g', kcal: 126, carb: 0, protein: 28, fat: 1.6, sugar: 0 },
+  { slug: 'smoked-duck', name: '훈제오리', serving: '100g', kcal: 256, carb: 1, protein: 18, fat: 20, sugar: 0.5 },
+  { slug: 'beef-galbi', name: '소고기 갈비 (구운 것)', serving: '100g', kcal: 313, carb: 2, protein: 20, fat: 25, sugar: 1 },
+  { slug: 'bulgogi', name: '소불고기', serving: '1인분 150g', kcal: 328, carb: 12, protein: 25, fat: 20, sugar: 8 },
+  { slug: 'pork-bulgogi', name: '돼지불고기 (제육볶음 전 단계)', serving: '1인분 150g', kcal: 352, carb: 10, protein: 24, fat: 24, sugar: 6 },
+  { slug: 'pork-suyuk', name: '삼겹살 수육', serving: '100g', kcal: 330, carb: 0, protein: 24, fat: 26, sugar: 0 },
+  { slug: 'pork-galbi', name: '돼지갈비 (양념구이)', serving: '100g', kcal: 296, carb: 10, protein: 19, fat: 20, sugar: 6 },
+  { slug: 'lamb-chop', name: '양고기 (구운 것)', serving: '100g', kcal: 289, carb: 0, protein: 25, fat: 21, sugar: 0 },
+  { slug: 'meatball', name: '미트볼', serving: '5개 100g', kcal: 227, carb: 8, protein: 15, fat: 15, sugar: 2 },
+  { slug: 'beef-jerky', name: '육포', serving: '30g', kcal: 98, carb: 6, protein: 15, fat: 1.5, sugar: 4 },
+  { slug: 'smoked-chicken-breast', name: '닭가슴살 훈제', serving: '100g', kcal: 138, carb: 2, protein: 27, fat: 2.4, sugar: 1 },
+  { slug: 'salmon-sashimi', name: '연어회', serving: '100g', kcal: 170, carb: 0, protein: 20, fat: 10, sugar: 0 },
+  { slug: 'tuna-sashimi', name: '참치회', serving: '100g', kcal: 142, carb: 0, protein: 23, fat: 5.6, sugar: 0 },
+  { slug: 'fried-shrimp', name: '새우튀김', serving: '5개 120g', kcal: 271, carb: 20, protein: 14, fat: 15, sugar: 1 },
+  { slug: 'boiled-octopus', name: '문어숙회', serving: '100g', kcal: 77, carb: 2, protein: 15, fat: 1, sugar: 0 },
+  { slug: 'stir-fried-octopus', name: '낙지볶음', serving: '1인분 200g', kcal: 294, carb: 18, protein: 24, fat: 14, sugar: 6 },
+  { slug: 'abalone', name: '전복 (찜)', serving: '100g', kcal: 99, carb: 6, protein: 17, fat: 0.8, sugar: 0 },
+  { slug: 'mussel', name: '홍합 (찜)', serving: '100g', kcal: 82, carb: 4, protein: 12, fat: 2, sugar: 0.5 },
+  { slug: 'grilled-atka-mackerel', name: '임연수구이', serving: '100g', kcal: 198, carb: 0, protein: 18, fat: 14, sugar: 0 },
+  { slug: 'grilled-hairtail', name: '갈치구이', serving: '100g', kcal: 184, carb: 0, protein: 19, fat: 12, sugar: 0 },
+  { slug: 'salmon-sushi', name: '연어초밥', serving: '2개 60g', kcal: 97, carb: 14, protein: 4.5, fat: 2.5, sugar: 1 },
+  { slug: 'skim-milk', name: '무지방우유', serving: '200ml', kcal: 70, carb: 10, protein: 7, fat: 0.2, sugar: 10 },
+  { slug: 'sweet-soy-milk', name: '두유 (가당)', serving: '200ml', kcal: 141, carb: 18, protein: 6, fat: 5, sugar: 12 },
+  { slug: 'condensed-milk', name: '연유', serving: '1큰술 20g', kcal: 66, carb: 11, protein: 1.6, fat: 1.7, sugar: 11 },
+  { slug: 'whipped-cream', name: '생크림', serving: '30g', kcal: 105, carb: 1, protein: 0.6, fat: 11, sugar: 1 },
+  { slug: 'butter', name: '버터', serving: '1큰술 14g', kcal: 101, carb: 0, protein: 0.1, fat: 11.2, sugar: 0 },
+  { slug: 'cream-cheese', name: '크림치즈', serving: '30g', kcal: 102, carb: 2, protein: 2, fat: 9.5, sugar: 2 },
+  { slug: 'cottage-cheese', name: '코티지치즈', serving: '100g', kcal: 95, carb: 3, protein: 11, fat: 4.3, sugar: 3 },
+  { slug: 'sweetened-yogurt', name: '요거트 (가당)', serving: '100g', kcal: 109, carb: 17, protein: 3.5, fat: 3, sugar: 14 },
+  { slug: 'lettuce', name: '상추', serving: '10장 100g', kcal: 19, carb: 2.9, protein: 1.4, fat: 0.2, sugar: 1 },
+  { slug: 'perilla-leaf', name: '깻잎', serving: '10장 20g', kcal: 9, carb: 1.2, protein: 0.7, fat: 0.1, sugar: 0.2 },
+  { slug: 'cucumber-muchim', name: '오이무침', serving: '100g', kcal: 41, carb: 8, protein: 1, fat: 0.6, sugar: 5 },
+  { slug: 'radish-muchim', name: '무생채', serving: '100g', kcal: 45, carb: 9, protein: 1, fat: 0.6, sugar: 5 },
+  { slug: 'water-dropwort', name: '미나리 (생)', serving: '100g', kcal: 23, carb: 3.5, protein: 1.8, fat: 0.2, sugar: 1 },
+  { slug: 'chives', name: '부추 (생)', serving: '100g', kcal: 31, carb: 4.5, protein: 2.5, fat: 0.3, sugar: 1 },
+  { slug: 'zucchini', name: '애호박 (볶음)', serving: '100g', kcal: 47, carb: 5, protein: 1.5, fat: 2.3, sugar: 3 },
+  { slug: 'oyster-mushroom', name: '느타리버섯 (볶음)', serving: '100g', kcal: 35, carb: 4, protein: 2, fat: 1.2, sugar: 1 },
+  { slug: 'shiitake-mushroom', name: '표고버섯 (구이)', serving: '100g', kcal: 37, carb: 6, protein: 2, fat: 0.5, sugar: 2 },
+  { slug: 'garlic-scape', name: '마늘종 (볶음)', serving: '100g', kcal: 89, carb: 10, protein: 2, fat: 4.5, sugar: 3 },
+  { slug: 'bracken', name: '고사리나물', serving: '100g', kcal: 64, carb: 5, protein: 2, fat: 4, sugar: 1 },
+  { slug: 'balloon-flower-root', name: '도라지무침', serving: '100g', kcal: 74, carb: 12, protein: 2, fat: 2, sugar: 4 },
+  { slug: 'young-radish-kimchi', name: '열무김치', serving: '100g', kcal: 29, carb: 5, protein: 1.5, fat: 0.3, sugar: 2 },
+  { slug: 'napa-cabbage-kimchi', name: '배추김치', serving: '100g', kcal: 35, carb: 5.5, protein: 2, fat: 0.5, sugar: 2 },
+  { slug: 'grapefruit', name: '자몽', serving: '1/2개 150g', kcal: 58, carb: 13, protein: 1, fat: 0.2, sugar: 11 },
+  { slug: 'mango', name: '망고', serving: '100g', kcal: 67, carb: 15, protein: 0.8, fat: 0.4, sugar: 14 },
+  { slug: 'cherry', name: '체리', serving: '15개 100g', kcal: 70, carb: 16, protein: 1, fat: 0.2, sugar: 13 },
+  { slug: 'peach', name: '복숭아', serving: '1개 200g', kcal: 85, carb: 19, protein: 1.4, fat: 0.4, sugar: 16 },
+  { slug: 'persimmon', name: '감', serving: '1개 200g', kcal: 136, carb: 32, protein: 1, fat: 0.4, sugar: 26 },
+  { slug: 'pomegranate', name: '석류', serving: '100g', kcal: 94, carb: 19, protein: 1.7, fat: 1.2, sugar: 14 },
+  { slug: 'melon', name: '멜론', serving: '200g', kcal: 74, carb: 16, protein: 1.6, fat: 0.4, sugar: 14 },
+  { slug: 'fig', name: '무화과', serving: '2개 100g', kcal: 82, carb: 19, protein: 0.8, fat: 0.3, sugar: 16 },
+  { slug: 'raisins', name: '건포도', serving: '20g', kcal: 63, carb: 15, protein: 0.6, fat: 0.1, sugar: 12 },
+  { slug: 'jujube', name: '대추 (건조)', serving: '20g', kcal: 61, carb: 14, protein: 0.7, fat: 0.2, sugar: 11 },
+  { slug: 'cashew', name: '캐슈넛', serving: '20g', kcal: 121, carb: 6, protein: 4, fat: 9, sugar: 1 },
+  { slug: 'pistachio', name: '피스타치오', serving: '20g', kcal: 122, carb: 5, protein: 4, fat: 9.5, sugar: 1 },
+  { slug: 'sunflower-seeds', name: '해바라기씨', serving: '20g', kcal: 118, carb: 4, protein: 4, fat: 9.5, sugar: 0.5 },
+  { slug: 'sundubu', name: '순두부 (조리 전)', serving: '100g', kcal: 47, carb: 2, protein: 4, fat: 2.5, sugar: 0.5 },
+  { slug: 'natto', name: '낫토', serving: '1팩 50g', kcal: 101, carb: 6, protein: 8, fat: 5, sugar: 1 },
+  { slug: 'green-peas', name: '완두콩 (삶은 것)', serving: '100g', kcal: 80, carb: 14, protein: 5, fat: 0.4, sugar: 4 },
+  { slug: 'rabokki', name: '라볶이', serving: '1인분', kcal: 538, carb: 100, protein: 12, fat: 10, sugar: 18 },
+  { slug: 'jjolmyeon', name: '쫄면', serving: '1인분', kcal: 454, carb: 90, protein: 10, fat: 6, sugar: 15 },
+  { slug: 'budae-jjigae', name: '부대찌개', serving: '1인분', kcal: 402, carb: 22, protein: 20, fat: 26, sugar: 5 },
+  { slug: 'yukgaejang', name: '육개장', serving: '1인분', kcal: 314, carb: 12, protein: 26, fat: 18, sugar: 3 },
+  { slug: 'samgyetang', name: '삼계탕', serving: '1인분', kcal: 454, carb: 15, protein: 40, fat: 26, sugar: 1 },
+  { slug: 'gomtang', name: '곰탕', serving: '1인분', kcal: 285, carb: 5, protein: 28, fat: 17, sugar: 1 },
+  { slug: 'seolleongtang', name: '설렁탕', serving: '1인분', kcal: 302, carb: 8, protein: 27, fat: 18, sugar: 1 },
+  { slug: 'jeyuk-bokkeum', name: '제육볶음', serving: '1인분', kcal: 410, carb: 18, protein: 26, fat: 26, sugar: 8 },
+  { slug: 'dak-galbi', name: '닭갈비', serving: '1인분', kcal: 430, carb: 30, protein: 28, fat: 22, sugar: 10 },
+  { slug: 'gamja-tang', name: '감자탕', serving: '1인분', kcal: 416, carb: 20, protein: 30, fat: 24, sugar: 3 },
+  { slug: 'chueotang', name: '추어탕', serving: '1인분', kcal: 254, carb: 10, protein: 22, fat: 14, sugar: 2 },
+  { slug: 'bossam', name: '보쌈', serving: '1인분 200g', kcal: 475, carb: 6, protein: 34, fat: 35, sugar: 2 },
+  { slug: 'jokbal', name: '족발', serving: '1인분 200g', kcal: 448, carb: 4, protein: 36, fat: 32, sugar: 2 },
+  { slug: 'kongnamul-gukbap', name: '콩나물국밥', serving: '1인분', kcal: 376, carb: 60, protein: 16, fat: 8, sugar: 3 },
+  { slug: 'sundaeguk', name: '순댓국', serving: '1인분', kcal: 444, carb: 20, protein: 28, fat: 28, sugar: 3 },
+  { slug: 'eomuk-tang', name: '어묵탕', serving: '1인분', kcal: 174, carb: 18, protein: 12, fat: 6, sugar: 4 },
+  { slug: 'cheeseburger', name: '치즈버거', serving: '1개 220g', kcal: 466, carb: 36, protein: 22, fat: 26, sugar: 7 },
+  { slug: 'bulgogi-burger', name: '불고기버거', serving: '1개 220g', kcal: 432, carb: 45, protein: 18, fat: 20, sugar: 10 },
+  { slug: 'shrimp-burger', name: '새우버거', serving: '1개 200g', kcal: 404, carb: 42, protein: 14, fat: 20, sugar: 6 },
+  { slug: 'chicken-nuggets', name: '치킨너겟', serving: '6개 100g', kcal: 256, carb: 15, protein: 13, fat: 16, sugar: 1 },
+  { slug: 'onion-rings', name: '어니언링', serving: '100g', kcal: 280, carb: 30, protein: 4, fat: 16, sugar: 3 },
+  { slug: 'hot-wings', name: '핫윙', serving: '5개 150g', kcal: 387, carb: 12, protein: 24, fat: 27, sugar: 3 },
+  { slug: 'steak', name: '스테이크 (등심)', serving: '200g', kcal: 472, carb: 0, protein: 46, fat: 32, sugar: 0 },
+  { slug: 'risotto', name: '리조또', serving: '1인분 300g', kcal: 514, carb: 65, protein: 14, fat: 22, sugar: 3 },
+  { slug: 'lasagna', name: '라자냐', serving: '1인분 300g', kcal: 562, carb: 45, protein: 28, fat: 30, sugar: 8 },
+  { slug: 'curry-rice', name: '카레라이스', serving: '1인분', kcal: 602, carb: 95, protein: 15, fat: 18, sugar: 8 },
+  { slug: 'omurice', name: '오므라이스', serving: '1인분', kcal: 572, carb: 80, protein: 18, fat: 20, sugar: 6 },
+  { slug: 'tonkatsu', name: '돈까스', serving: '1인분 200g', kcal: 560, carb: 40, protein: 28, fat: 32, sugar: 4 },
+  { slug: 'gyudon', name: '규동 (소고기덮밥)', serving: '1인분', kcal: 610, carb: 90, protein: 22, fat: 18, sugar: 8 },
+  { slug: 'cola', name: '콜라', serving: '1캔 250ml', kcal: 108, carb: 27, protein: 0, fat: 0, sugar: 27 },
+  { slug: 'cider', name: '사이다', serving: '1캔 250ml', kcal: 96, carb: 24, protein: 0, fat: 0, sugar: 24 },
+  { slug: 'orange-juice', name: '오렌지주스', serving: '200ml', kcal: 94, carb: 22, protein: 1, fat: 0.2, sugar: 20 },
+  { slug: 'sikhye', name: '식혜', serving: '1캔 240ml', kcal: 118, carb: 29, protein: 0.5, fat: 0, sugar: 22 },
+  { slug: 'sujeonggwa', name: '수정과', serving: '1잔 200ml', kcal: 101, carb: 25, protein: 0.2, fat: 0, sugar: 21 },
+  { slug: 'milk-tea', name: '밀크티', serving: '1잔 350ml', kcal: 206, carb: 34, protein: 4, fat: 6, sugar: 28 },
+  { slug: 'matcha-latte', name: '녹차라떼', serving: '1잔 350ml', kcal: 216, carb: 30, protein: 6, fat: 8, sugar: 26 },
+  { slug: 'chocolate-cake', name: '초코케이크', serving: '1조각 100g', kcal: 371, carb: 45, protein: 5, fat: 19, sugar: 32 },
+  { slug: 'cheesecake', name: '치즈케이크', serving: '1조각 100g', kcal: 343, carb: 28, protein: 6, fat: 23, sugar: 22 },
+  { slug: 'macaron', name: '마카롱', serving: '1개 25g', kcal: 98, carb: 14, protein: 1.5, fat: 4, sugar: 12 },
+  { slug: 'gummy-jelly', name: '젤리', serving: '30g', kcal: 100, carb: 24, protein: 1, fat: 0, sugar: 18 },
+  { slug: 'potato-chips', name: '감자칩', serving: '30g', kcal: 163, carb: 15, protein: 2, fat: 10.5, sugar: 1 },
+  { slug: 'chocolate-bar', name: '초콜릿바', serving: '1개 45g', kcal: 237, carb: 27, protein: 3, fat: 13, sugar: 24 },
+  { slug: 'beer', name: '맥주', serving: '500ml', kcal: 195, carb: 15, protein: 2, fat: 0, sugar: 0 },
+  { slug: 'soju', name: '소주', serving: '1잔 50ml', kcal: 70, carb: 2, protein: 0, fat: 0, sugar: 0 },
+  { slug: 'makgeolli', name: '막걸리', serving: '200ml', kcal: 150, carb: 13, protein: 2, fat: 0.5, sugar: 4 },
+  { slug: 'wine', name: '와인', serving: '1잔 150ml', kcal: 125, carb: 4, protein: 0.1, fat: 0, sugar: 1 },
+  { slug: 'highball', name: '하이볼', serving: '1잔 250ml', kcal: 110, carb: 8, protein: 0, fat: 0, sugar: 8 },
+  { slug: 'sparkling-water', name: '탄산수 (무가당)', serving: '500ml', kcal: 0, carb: 0, protein: 0, fat: 0, sugar: 0 },
+  { slug: 'cup-noodle', name: '컵라면', serving: '1개', kcal: 398, carb: 60, protein: 8, fat: 14, sugar: 4 },
+  { slug: 'convenience-lunchbox', name: '편의점 도시락 (일반)', serving: '1개', kcal: 646, carb: 90, protein: 22, fat: 22, sugar: 8 },
+  { slug: 'frozen-mandu', name: '냉동만두 (조리 후)', serving: '5개 150g', kcal: 271, carb: 32, protein: 11, fat: 11, sugar: 2 },
+  { slug: 'steamed-egg', name: '계란찜', serving: '1인분 150g', kcal: 128, carb: 2, protein: 12, fat: 8, sugar: 1 },
+  { slug: 'misugaru', name: '미숫가루', serving: '30g', kcal: 110, carb: 20, protein: 4, fat: 1.5, sugar: 3 },
+  { slug: 'protein-bar', name: '프로틴바', serving: '1개 45g', kcal: 178, carb: 16, protein: 15, fat: 6, sugar: 5 },
+  { slug: 'nut-bar', name: '견과바', serving: '1개 25g', kcal: 112, carb: 12, protein: 2.5, fat: 6, sugar: 6 },
+  { slug: 'konjac-jelly', name: '곤약젤리', serving: '1개 20g', kcal: 6, carb: 1.5, protein: 0, fat: 0, sugar: 1 },
+  { slug: 'diet-shake-bar', name: '다이어트 쉐이크바', serving: '1개 40g', kcal: 141, carb: 12, protein: 12, fat: 5, sugar: 6 },
+  { slug: 'chicken-breast-sausage', name: '닭가슴살 소세지', serving: '1개 50g', kcal: 61, carb: 2, protein: 11, fat: 1, sugar: 1 },
+  { slug: 'greek-yogurt-drink', name: '그릭요거트 드링크', serving: '1병 150ml', kcal: 106, carb: 14, protein: 8, fat: 2, sugar: 12 },
+  { slug: 'low-sugar-yogurt', name: '저당요거트', serving: '100g', kcal: 58, carb: 6, protein: 5, fat: 1.5, sugar: 3 },
+  { slug: 'almond-breeze', name: '아몬드브리즈 (무가당)', serving: '190ml', kcal: 31, carb: 1, protein: 1, fat: 2.5, sugar: 0 },
+  { slug: 'castella', name: '카스테라', serving: '1조각 60g', kcal: 190, carb: 30, protein: 4, fat: 6, sugar: 18 },
+  { slug: 'roll-cake', name: '롤케이크', serving: '1조각 80g', kcal: 216, carb: 32, protein: 4, fat: 8, sugar: 20 },
+  { slug: 'hotbar', name: '핫바', serving: '1개 90g', kcal: 160, carb: 14, protein: 8, fat: 8, sugar: 3 },
+  { slug: 'egg-roll', name: '계란말이', serving: '100g', kcal: 150, carb: 3, protein: 12, fat: 10, sugar: 1 },
+  { slug: 'potato-salad', name: '감자샐러드', serving: '100g', kcal: 140, carb: 15, protein: 2, fat: 8, sugar: 4 },
+  { slug: 'korean-melon', name: '참외', serving: '1개 200g', kcal: 68, carb: 15, protein: 1.6, fat: 0.2, sugar: 13 },
+  { slug: 'plum', name: '자두', serving: '2개 120g', kcal: 62, carb: 14, protein: 0.8, fat: 0.3, sugar: 11 },
+  { slug: 'maesil-tea', name: '매실차', serving: '1잔 200ml', kcal: 60, carb: 15, protein: 0, fat: 0, sugar: 14 },
+  { slug: 'yubu-chobap', name: '유부초밥', serving: '5개 200g', kcal: 326, carb: 60, protein: 8, fat: 6, sugar: 10 },
 ];
 
-function renderFoods(list) {
+const FOOD_PAGE_SIZE = 20;
+let foodFilteredList = FOODS;
+let foodCurrentPage = 1;
+
+function renderFoodGrid(list) {
   const grid = document.getElementById('foodGrid');
-  const empty = document.getElementById('foodEmpty');
   grid.innerHTML = list.map(f => `
     <div class="bg-white border border-gray-200 rounded-2xl p-5">
       <div class="flex items-start justify-between mb-3">
-        <div>
-          <div class="font-bold">${f.name}</div>
-          <div class="text-xs text-gray-400">1회 제공량 ${f.serving}</div>
+        <div class="flex items-start gap-3 min-w-0">
+          <div class="w-12 h-12 rounded-xl bg-cream flex items-center justify-center shrink-0">${iconHtml(f.name, 'w-9 h-9')}</div>
+          <div class="min-w-0 pt-0.5">
+            <div class="font-bold truncate">${f.name}</div>
+            <div class="text-xs text-gray-400">1회 제공량 ${f.serving}</div>
+          </div>
         </div>
         <div class="text-right shrink-0">
           <div class="text-xl font-extrabold text-brand">${f.kcal}</div>
           <div class="text-[10px] text-gray-400">kcal</div>
         </div>
       </div>
-      <div class="grid grid-cols-4 gap-1 text-center text-xs border-t border-gray-100 pt-3">
-        <div><div class="text-gray-400">탄수화물</div><div class="font-semibold">${f.carb}g</div></div>
-        <div><div class="text-gray-400">단백질</div><div class="font-semibold">${f.protein}g</div></div>
-        <div><div class="text-gray-400">지방</div><div class="font-semibold">${f.fat}g</div></div>
-        <div><div class="text-gray-400">당류</div><div class="font-semibold">${f.sugar}g</div></div>
+      <div class="grid grid-cols-2 gap-x-2 gap-y-2 text-center text-[11px] border-t border-gray-100 pt-3">
+        <div class="flex items-center justify-between px-1"><span class="text-gray-400 whitespace-nowrap">탄수화물</span><span class="font-semibold">${f.carb}g</span></div>
+        <div class="flex items-center justify-between px-1"><span class="text-gray-400 whitespace-nowrap">단백질</span><span class="font-semibold">${f.protein}g</span></div>
+        <div class="flex items-center justify-between px-1"><span class="text-gray-400 whitespace-nowrap">지방</span><span class="font-semibold">${f.fat}g</span></div>
+        <div class="flex items-center justify-between px-1"><span class="text-gray-400 whitespace-nowrap">당류</span><span class="font-semibold">${f.sugar}g</span></div>
       </div>
+      <a href="foods/${f.slug}.html" class="block text-center text-xs text-brand font-semibold mt-3 pt-3 border-t border-gray-100">자세히 보기 &rarr;</a>
     </div>
   `).join('');
-  grid.classList.toggle('hidden', list.length === 0);
-  empty.classList.toggle('hidden', list.length !== 0);
 }
+
+function renderFoodPagination(totalItems) {
+  const nav = document.getElementById('foodPagination');
+  const totalPages = Math.ceil(totalItems / FOOD_PAGE_SIZE);
+  if (totalPages <= 1) {
+    nav.classList.add('hidden');
+    nav.innerHTML = '';
+    return;
+  }
+  nav.innerHTML = Array.from({ length: totalPages }, (_, i) => i + 1).map(p => `
+    <button type="button" data-page="${p}" class="food-page-btn w-9 h-9 rounded-full text-sm font-semibold transition ${p === foodCurrentPage ? 'bg-gray-900 text-white' : 'bg-white text-gray-600 border border-gray-200 hover:border-brand'}">${p}</button>
+  `).join('');
+  nav.classList.remove('hidden');
+}
+
+function renderFoodPage() {
+  const grid = document.getElementById('foodGrid');
+  const empty = document.getElementById('foodEmpty');
+  const totalPages = Math.max(1, Math.ceil(foodFilteredList.length / FOOD_PAGE_SIZE));
+  if (foodCurrentPage > totalPages) foodCurrentPage = totalPages;
+  if (foodCurrentPage < 1) foodCurrentPage = 1;
+
+  const start = (foodCurrentPage - 1) * FOOD_PAGE_SIZE;
+  const pageItems = foodFilteredList.slice(start, start + FOOD_PAGE_SIZE);
+
+  renderFoodGrid(pageItems);
+  grid.classList.toggle('hidden', foodFilteredList.length === 0);
+  empty.classList.toggle('hidden', foodFilteredList.length !== 0);
+  renderFoodPagination(foodFilteredList.length);
+}
+
+function renderFoods(list) {
+  foodFilteredList = list;
+  foodCurrentPage = 1;
+  renderFoodPage();
+}
+
+document.getElementById('foodPagination').addEventListener('click', (e) => {
+  const btn = e.target.closest('.food-page-btn');
+  if (!btn) return;
+  foodCurrentPage = Number(btn.dataset.page);
+  renderFoodPage();
+  document.getElementById('foodGrid').scrollIntoView({ behavior: 'smooth', block: 'start' });
+});
+
 renderFoods(FOODS);
 document.getElementById('foodSearch').addEventListener('input', (e) => {
   const q = e.target.value.trim().toLowerCase();
@@ -789,80 +1276,1805 @@ document.getElementById('foodSearch').addEventListener('input', (e) => {
 // 후추·소금·시나몬·베이킹파우더는 열량 미미로 0 처리. 아래 각 레시피의 합계는 재료별 값을 더한 뒤 마지막에 반올림한 값입니다.
 const RECIPES = [
   {
-    title: '닭가슴살 그릭요거트 샐러드',
+    slug: "chicken-greek-yogurt-salad", title: "닭가슴살 그릭요거트 샐러드", category: "diet",
+    cookTime: "15분", servings: "1인분",
     kcal: 380, carb: 12, protein: 57, fat: 11,
-    ingredients: ['닭가슴살 150g(조리 후 가식부 기준)', '그릭요거트 100g', '방울토마토 8개(120g)', '오이 1/2개(100g)', '레몬즙 약간(5g)', '후추·소금 약간'],
-    steps: ['닭가슴살을 삶거나 에어프라이어에 굽고 한 입 크기로 찢는다.', '오이와 방울토마토를 먹기 좋게 썬다.', '그릭요거트에 레몬즙, 소금, 후추를 섞어 드레싱을 만든다.', '모든 재료를 그릇에 담고 드레싱을 뿌려 버무린다.'],
+    ingredients: ["닭가슴살 150g(조리 후 가식부 기준)", "그릭요거트 100g", "방울토마토 8개(120g)", "오이 1/2개(100g)", "레몬즙 약간(5g)", "후추·소금 약간"],
+    steps: ["닭가슴살을 삶거나 에어프라이어에 굽고 한 입 크기로 찢는다.", "오이와 방울토마토를 먹기 좋게 썬다.", "그릭요거트에 레몬즙, 소금, 후추를 섞어 드레싱을 만든다.", "모든 재료를 그릇에 담고 드레싱을 뿌려 버무린다."],
   },
   {
-    title: '두부 스크램블',
+    slug: "tofu-scramble", title: "두부 스크램블", category: "diet",
+    cookTime: "10분", servings: "1인분",
     kcal: 319, carb: 11, protein: 23, fat: 20,
-    ingredients: ['두부 200g', '계란 1개(50g)', '양파 1/4개(40g)', '파프리카 1/4개(40g)', '올리브오일 1작은술(5g)', '소금·후추 약간'],
-    steps: ['두부는 물기를 제거하고 손으로 으깬다.', '팬에 올리브오일을 두르고 다진 양파, 파프리카를 볶는다.', '으깬 두부와 계란을 넣고 스크램블 하듯 볶는다.', '소금, 후추로 간을 맞춰 마무리한다.'],
+    ingredients: ["두부 200g", "계란 1개(50g)", "양파 1/4개(40g)", "파프리카 1/4개(40g)", "올리브오일 1작은술(5g)", "소금·후추 약간"],
+    steps: ["두부는 물기를 제거하고 손으로 으깬다.", "팬에 올리브오일을 두르고 다진 양파, 파프리카를 볶는다.", "으깬 두부와 계란을 넣고 스크램블 하듯 볶는다.", "소금, 후추로 간을 맞춰 마무리한다."],
   },
   {
-    title: '오트밀 프로틴 팬케이크',
+    slug: "oatmeal-protein-pancake", title: "오트밀 프로틴 팬케이크", category: "diet",
+    cookTime: "15분", servings: "1인분",
     kcal: 479, carb: 45, protein: 42, fat: 15,
-    ingredients: ['오트밀 40g', '계란 2개(100g)', '바나나 1/2개(60g)', '프로틴 파우더 1스쿱(30g)', '베이킹파우더 약간'],
-    steps: ['오트밀을 믹서에 곱게 갈아준다.', '계란, 으깬 바나나, 프로틴 파우더, 베이킹파우더를 함께 섞는다.', '반죽을 약불로 달군 팬에 얇게 부어 앞뒤로 굽는다.', '기호에 따라 그릭요거트나 과일을 곁들인다.'],
+    ingredients: ["오트밀 40g", "계란 2개(100g)", "바나나 1/2개(60g)", "프로틴 파우더 1스쿱(30g)", "베이킹파우더 약간"],
+    steps: ["오트밀을 믹서에 곱게 갈아준다.", "계란, 으깬 바나나, 프로틴 파우더, 베이킹파우더를 함께 섞는다.", "반죽을 약불로 달군 팬에 얇게 부어 앞뒤로 굽는다.", "기호에 따라 그릭요거트나 과일을 곁들인다."],
   },
   {
-    title: '연어 아스파라거스 구이',
+    slug: "salmon-asparagus-grill", title: "연어 아스파라거스 구이", category: "diet",
+    cookTime: "15분", servings: "1인분",
     kcal: 389, carb: 8, protein: 33, fat: 25,
-    ingredients: ['연어 150g(조리 후 가식부 기준)', '아스파라거스 100g', '올리브오일 1작은술(5g)', '레몬 1/4개(30g)', '마늘 1쪽(3g)', '소금·후추 약간'],
-    steps: ['연어에 소금, 후추로 밑간을 한다.', '팬에 올리브오일과 다진 마늘을 볶다가 연어를 올려 굽는다.', '아스파라거스도 함께 구워 익힌다.', '접시에 담고 레몬즙을 뿌려 마무리한다.'],
+    ingredients: ["연어 150g(조리 후 가식부 기준)", "아스파라거스 100g", "올리브오일 1작은술(5g)", "레몬 1/4개(30g)", "마늘 1쪽(3g)", "소금·후추 약간"],
+    steps: ["연어에 소금, 후추로 밑간을 한다.", "팬에 올리브오일과 다진 마늘을 볶다가 연어를 올려 굽는다.", "아스파라거스도 함께 구워 익힌다.", "접시에 담고 레몬즙을 뿌려 마무리한다."],
   },
   {
-    title: '고구마 프로틴 볼',
+    slug: "sweet-potato-protein-ball", title: "고구마 프로틴 볼", category: "diet",
+    cookTime: "10분(+냉장 30분)", servings: "1인분",
     kcal: 302, carb: 36, protein: 29, fat: 6,
-    ingredients: ['찐 고구마 150g', '프로틴 파우더 1스쿱(30g)', '땅콩버터 1작은술(8g)', '시나몬 파우더 약간'],
-    steps: ['찐 고구마를 곱게 으깬다.', '프로틴 파우더와 땅콩버터를 넣고 치대듯 섞는다.', '한 입 크기로 동그랗게 빚는다.', '냉장고에 30분 정도 넣어 굳힌 뒤 먹는다.'],
+    ingredients: ["찐 고구마 150g", "프로틴 파우더 1스쿱(30g)", "땅콩버터 1작은술(8g)", "시나몬 파우더 약간"],
+    steps: ["찐 고구마를 곱게 으깬다.", "프로틴 파우더와 땅콩버터를 넣고 치대듯 섞는다.", "한 입 크기로 동그랗게 빚는다.", "냉장고에 30분 정도 넣어 굳힌 뒤 먹는다."],
+  },
+  {
+    slug: "chicken-fried-rice-diet", title: "닭가슴살 현미 볶음밥", category: "diet",
+    cookTime: "15분", servings: "1인분",
+    kcal: 450, carb: 55, protein: 35, fat: 10,
+    ingredients: ["현미밥 150g", "닭가슴살 100g(조리 후 가식부 기준)", "계란 1개(50g)", "양파 1/4개(40g)", "당근 30g", "간장 1작은술"],
+    steps: ["닭가슴살을 잘게 썰어 팬에 먼저 볶는다.", "다진 양파, 당근을 넣고 함께 볶는다.", "현미밥과 간장을 넣고 골고루 볶는다.", "계란을 풀어 넣고 스크램블 하듯 마무리한다."],
+  },
+  {
+    slug: "tofu-kimchi-stir-fry", title: "두부 김치볶음", category: "diet",
+    cookTime: "12분", servings: "1인분",
+    kcal: 220, carb: 10, protein: 18, fat: 12,
+    ingredients: ["두부 200g", "신김치 100g", "돼지고기 안심 50g", "참기름 1작은술(5g)", "대파 약간"],
+    steps: ["두부는 도톰하게 썰어 팬에 노릇하게 굽는다.", "다른 팬에 돼지고기와 김치를 볶는다.", "구운 두부와 볶은 김치를 함께 담는다.", "참기름과 대파를 올려 마무리한다."],
+  },
+  {
+    slug: "shrimp-avocado-salad", title: "새우 아보카도 샐러드", category: "diet",
+    cookTime: "15분", servings: "1인분",
+    kcal: 322, carb: 14, protein: 26, fat: 18,
+    ingredients: ["찐 새우 120g", "아보카도 1/2개(100g)", "방울토마토 6개(90g)", "레몬즙 약간(5g)", "올리브오일 1작은술(5g)"],
+    steps: ["새우는 미리 찐 뒤 식혀둔다.", "아보카도와 방울토마토를 한입 크기로 썬다.", "모든 재료를 그릇에 담는다.", "레몬즙과 올리브오일을 뿌려 버무린다."],
+  },
+  {
+    slug: "overnight-oats-yogurt", title: "그릭요거트 오버나이트 오트", category: "diet",
+    cookTime: "5분(+냉장 하룻밤)", servings: "1인분",
+    kcal: 312, carb: 40, protein: 20, fat: 8,
+    ingredients: ["오트밀 40g", "그릭요거트 100g", "우유 100ml", "블루베리 30g", "꿀 약간(5g)"],
+    steps: ["오트밀, 그릭요거트, 우유를 병에 넣고 섞는다.", "냉장고에 넣어 하룻밤 불린다.", "다음날 블루베리를 올린다.", "기호에 따라 꿀을 약간 뿌린다."],
+  },
+  {
+    slug: "tuna-salad-diet", title: "참치 샐러드", category: "diet",
+    cookTime: "10분", servings: "1인분",
+    kcal: 241, carb: 12, protein: 28, fat: 9,
+    ingredients: ["참치캔(물) 100g", "양상추 80g", "오이 1/2개(100g)", "방울토마토 6개(90g)", "발사믹 소스 1작은술(5g)"],
+    steps: ["참치캔의 기름/물을 완전히 뺀다.", "양상추, 오이, 방울토마토를 손질해 썬다.", "모든 재료를 그릇에 담고 참치를 올린다.", "발사믹 소스를 뿌려 마무리한다."],
+  },
+  {
+    slug: "chicken-paprika-stir-fry", title: "저탄수 닭가슴살 파프리카 볶음", category: "diet",
+    cookTime: "15분", servings: "1인분",
+    kcal: 290, carb: 12, protein: 38, fat: 10,
+    ingredients: ["닭가슴살 150g(조리 후 가식부 기준)", "파프리카 1개(150g)", "양파 1/4개(40g)", "올리브오일 1작은술(5g)", "소금·후추 약간"],
+    steps: ["닭가슴살을 한입 크기로 썬다.", "팬에 올리브오일을 두르고 닭가슴살을 먼저 굽는다.", "파프리카와 양파를 넣고 함께 볶는다.", "소금, 후추로 간을 맞춘다."],
+  },
+  {
+    slug: "soft-tofu-egg-steam", title: "연두부 계란찜", category: "diet",
+    cookTime: "12분", servings: "1인분",
+    kcal: 195, carb: 6, protein: 18, fat: 11,
+    ingredients: ["연두부 150g", "계란 2개(100g)", "다진 파 약간", "소금 약간", "물 50ml"],
+    steps: ["연두부를 으깨고 계란을 풀어 섞는다.", "물과 소금을 넣고 골고루 섞는다.", "찜기나 전자레인지에 5~7분 익힌다.", "다진 파를 올려 마무리한다."],
+  },
+  {
+    slug: "broccoli-shrimp-stir-fry", title: "브로콜리 새우 볶음", category: "diet",
+    cookTime: "15분", servings: "1인분",
+    kcal: 208, carb: 10, protein: 24, fat: 8,
+    ingredients: ["브로콜리 150g", "찐 새우 120g", "마늘 1쪽(3g)", "올리브오일 1작은술(5g)", "소금·후추 약간"],
+    steps: ["브로콜리를 먹기 좋은 크기로 잘라 데친다.", "팬에 올리브오일과 다진 마늘을 볶는다.", "새우와 데친 브로콜리를 넣고 함께 볶는다.", "소금, 후추로 간을 맞춘다."],
+  },
+  {
+    slug: "lean-beef-veggie-stir-fry", title: "소고기 야채볶음 (저지방 부위)", category: "diet",
+    cookTime: "18분", servings: "1인분",
+    kcal: 302, carb: 14, protein: 30, fat: 14,
+    ingredients: ["소고기 안심 120g", "애호박 80g", "당근 40g", "양파 1/4개(40g)", "간장 1작은술(5g)"],
+    steps: ["소고기 안심을 얇게 썬다.", "야채를 한입 크기로 썬다.", "팬에 소고기를 먼저 볶다가 야채를 넣는다.", "간장으로 간을 맞춰 마무리한다."],
+  },
+  {
+    slug: "chickpea-salad-diet", title: "병아리콩 샐러드", category: "diet",
+    cookTime: "10분", servings: "1인분",
+    kcal: 240, carb: 30, protein: 12, fat: 8,
+    ingredients: ["병아리콩(삶은 것) 100g", "오이 1/2개(100g)", "방울토마토 6개(90g)", "올리브오일 1작은술(5g)", "레몬즙 약간(5g)"],
+    steps: ["병아리콩을 물기 없이 준비한다.", "오이와 방울토마토를 썬다.", "모든 재료를 그릇에 담는다.", "올리브오일과 레몬즙을 뿌려 버무린다."],
+  },
+  {
+    slug: "smoked-duck-salad", title: "훈제오리 샐러드", category: "diet",
+    cookTime: "10분", servings: "1인분",
+    kcal: 274, carb: 8, protein: 20, fat: 18,
+    ingredients: ["훈제오리 100g", "양상추 80g", "적양파 20g", "발사믹 소스 1작은술(5g)"],
+    steps: ["훈제오리를 팬에 살짝 데운다.", "양상추와 적양파를 손질해 썬다.", "그릇에 야채를 담고 오리고기를 올린다.", "발사믹 소스를 뿌려 마무리한다."],
+  },
+  {
+    slug: "lentil-soup", title: "렌틸콩 스프", category: "diet",
+    cookTime: "25분", servings: "1인분",
+    kcal: 224, carb: 32, protein: 15, fat: 4,
+    ingredients: ["렌틸콩(삶은 것) 120g", "양파 1/4개(40g)", "당근 40g", "채수 250ml", "소금·후추 약간"],
+    steps: ["양파와 당근을 잘게 썬다.", "냄비에 야채를 볶다가 채수를 넣는다.", "렌틸콩을 넣고 10분간 끓인다.", "소금, 후추로 간을 맞춘다."],
+  },
+  {
+    slug: "sweet-pumpkin-yogurt-bowl", title: "단호박 그릭요거트볼", category: "diet",
+    cookTime: "15분", servings: "1인분",
+    kcal: 230, carb: 30, protein: 14, fat: 6,
+    ingredients: ["단호박(찐 것) 100g", "그릭요거트 100g", "아몬드 10g", "시나몬 파우더 약간"],
+    steps: ["단호박을 쪄서 식힌다.", "그릇에 그릭요거트를 담고 단호박을 올린다.", "아몬드를 잘게 부숴 뿌린다.", "시나몬 파우더로 마무리한다."],
+  },
+  {
+    slug: "chicken-tortilla-wrap", title: "닭가슴살 또띠아 랩", category: "diet",
+    cookTime: "12분", servings: "1인분",
+    kcal: 330, carb: 28, protein: 32, fat: 10,
+    ingredients: ["통밀 또띠아 1장(50g)", "닭가슴살 100g(조리 후 가식부 기준)", "양상추 40g", "그릭요거트 소스 30g"],
+    steps: ["닭가슴살을 결대로 찢는다.", "또띠아 위에 양상추를 깐다.", "닭가슴살과 그릭요거트 소스를 올린다.", "돌돌 말아 반으로 썬다."],
+  },
+  {
+    slug: "sundubu-egg-soup", title: "순두부 계란국", category: "diet",
+    cookTime: "15분", servings: "1인분",
+    kcal: 168, carb: 8, protein: 16, fat: 8,
+    ingredients: ["순두부 150g", "계란 1개(50g)", "다진 마늘 약간", "국간장 1작은술(5g)", "물 300ml"],
+    steps: ["물을 끓이다 다진 마늘을 넣는다.", "순두부를 큼직하게 잘라 넣는다.", "계란을 풀어 넣고 젓지 않고 익힌다.", "국간장으로 간을 맞춘다."],
+  },
+  {
+    slug: "beef-rice-bowl-bulk", title: "소고기 덮밥 벌크업", category: "bulk",
+    cookTime: "20분", servings: "1인분",
+    kcal: 700, carb: 95, protein: 35, fat: 20,
+    ingredients: ["흰쌀밥 300g", "소고기 불고기용 150g", "양파 1/2개(80g)", "간장 양념 소스 30g", "대파 약간"],
+    steps: ["소고기를 양념 소스에 재운다.", "팬에 양파와 소고기를 볶는다.", "밥 위에 볶은 소고기를 듬뿍 올린다.", "대파를 고명으로 올려 마무리한다."],
+  },
+  {
+    slug: "chicken-pasta-bulk", title: "닭가슴살 파스타", category: "bulk",
+    cookTime: "20분", servings: "1인분",
+    kcal: 650, carb: 80, protein: 42, fat: 18,
+    ingredients: ["스파게티면(삶은 것) 200g", "닭가슴살 150g(조리 후 가식부 기준)", "올리브오일 1큰술(15g)", "마늘 2쪽(6g)", "파마산치즈 10g"],
+    steps: ["닭가슴살을 구워 결대로 썬다.", "팬에 올리브오일과 마늘을 볶는다.", "삶은 면과 닭가슴살을 넣고 함께 볶는다.", "파마산치즈를 뿌려 마무리한다."],
+  },
+  {
+    slug: "peanut-banana-protein-smoothie", title: "땅콩버터 바나나 프로틴 스무디", category: "bulk",
+    cookTime: "5분", servings: "1인분",
+    kcal: 516, carb: 55, protein: 38, fat: 16,
+    ingredients: ["바나나 1개(120g)", "프로틴 파우더 1스쿱(30g)", "땅콩버터 1큰술(16g)", "우유 250ml", "얼음 약간"],
+    steps: ["모든 재료를 믹서에 넣는다.", "얼음을 넣고 곱게 간다.", "컵에 담아 바로 마신다."],
+  },
+  {
+    slug: "sweet-potato-beef-bowl", title: "고구마 소고기 볼", category: "bulk",
+    cookTime: "25분", servings: "1인분",
+    kcal: 543, carb: 70, protein: 32, fat: 15,
+    ingredients: ["고구마(찐 것) 250g", "소고기 안심 120g", "브로콜리 80g", "올리브오일 1작은술(5g)", "소금·후추 약간"],
+    steps: ["고구마를 쪄서 큼직하게 썬다.", "소고기를 굽고 브로콜리를 데친다.", "그릇에 세 가지 재료를 함께 담는다.", "올리브오일과 소금, 후추로 간을 맞춘다."],
+  },
+  {
+    slug: "tuna-rice-ball-bulk", title: "참치 주먹밥 대량", category: "bulk",
+    cookTime: "15분", servings: "2인분",
+    kcal: 606, carb: 90, protein: 30, fat: 14,
+    ingredients: ["흰쌀밥 400g", "참치캔(기름 포함) 150g", "마요네즈 1큰술(15g)", "김가루 약간", "소금 약간"],
+    steps: ["참치와 마요네즈를 섞어 속재료를 만든다.", "밥에 소금으로 간을 한다.", "밥 안에 참치 속을 넣고 주먹밥을 빚는다.", "겉에 김가루를 묻혀 마무리한다."],
+  },
+  {
+    slug: "chicken-thigh-fried-rice-bulk", title: "닭다리살 볶음밥", category: "bulk",
+    cookTime: "18분", servings: "1인분",
+    kcal: 690, carb: 85, protein: 38, fat: 22,
+    ingredients: ["흰쌀밥 300g", "닭다리살 150g(조리 후 가식부 기준)", "계란 2개(100g)", "당근 40g", "간장 1큰술(15g)"],
+    steps: ["닭다리살을 한입 크기로 썰어 굽는다.", "당근을 잘게 썰어 함께 볶는다.", "밥을 넣고 간장으로 간을 맞춰 볶는다.", "계란을 풀어 넣고 마무리한다."],
+  },
+  {
+    slug: "protein-oatmeal-bulk", title: "프로틴 오트밀 대용량", category: "bulk",
+    cookTime: "10분", servings: "1인분",
+    kcal: 586, carb: 75, protein: 40, fat: 14,
+    ingredients: ["오트밀 80g", "우유 300ml", "프로틴 파우더 1스쿱(30g)", "바나나 1개(120g)", "꿀 약간(10g)"],
+    steps: ["냄비에 오트밀과 우유를 넣고 끓인다.", "약불에서 저으며 걸쭉해질 때까지 익힌다.", "불을 끄고 프로틴 파우더를 섞는다.", "썬 바나나와 꿀을 올려 마무리한다."],
+  },
+  {
+    slug: "beef-noodle-stir-fry-bulk", title: "소고기 야채 볶음면", category: "bulk",
+    cookTime: "20분", servings: "1인분",
+    kcal: 668, carb: 88, protein: 34, fat: 20,
+    ingredients: ["우동면(삶은 것) 250g", "소고기 불고기용 120g", "양배추 100g", "당근 40g", "굴소스 1큰술(15g)"],
+    steps: ["소고기를 먼저 볶는다.", "양배추와 당근을 넣고 함께 볶는다.", "삶은 우동면을 넣는다.", "굴소스로 간을 맞춰 마무리한다."],
+  },
+  {
+    slug: "salmon-avocado-bowl-bulk", title: "연어 아보카도 덮밥", category: "bulk",
+    cookTime: "15분", servings: "1인분",
+    kcal: 662, carb: 75, protein: 32, fat: 26,
+    ingredients: ["흰쌀밥 250g", "연어(구운 것) 120g", "아보카도 1/2개(100g)", "간장 소스 1작은술(5g)", "깨 약간"],
+    steps: ["연어를 구워 한입 크기로 썬다.", "아보카도를 슬라이스한다.", "밥 위에 연어와 아보카도를 올린다.", "간장 소스와 깨를 뿌려 마무리한다."],
+  },
+  {
+    slug: "five-egg-scramble-toast", title: "계란 5개 스크램블 토스트", category: "bulk",
+    cookTime: "12분", servings: "1인분",
+    kcal: 576, carb: 45, protein: 36, fat: 28,
+    ingredients: ["계란 5개(250g)", "식빵 2쪽(70g)", "버터 1작은술(5g)", "소금·후추 약간"],
+    steps: ["계란을 풀어 소금, 후추로 간한다.", "버터를 두른 팬에 약불로 스크램블한다.", "식빵을 구워 접시에 담는다.", "스크램블 에그를 곁들인다."],
+  },
+  {
+    slug: "chicken-risotto-bulk", title: "닭가슴살 리조또", category: "bulk",
+    cookTime: "25분", servings: "1인분",
+    kcal: 626, carb: 80, protein: 36, fat: 18,
+    ingredients: ["쌀 150g", "닭가슴살 100g(조리 후 가식부 기준)", "우유 200ml", "파마산치즈 20g", "양파 1/4개(40g)"],
+    steps: ["쌀을 씻어 물기를 뺀다.", "팬에 양파와 닭가슴살을 볶는다.", "쌀과 우유를 넣고 저으며 끓인다.", "파마산치즈를 넣어 마무리한다."],
+  },
+  {
+    slug: "beef-bulgogi-rice-bowl-bulk", title: "소불고기 덮밥", category: "bulk",
+    cookTime: "20분", servings: "1인분",
+    kcal: 678, carb: 90, protein: 30, fat: 22,
+    ingredients: ["흰쌀밥 300g", "소불고기 150g", "당근 40g", "양파 1/4개(40g)", "달걀노른자 1개"],
+    steps: ["소불고기를 양념과 함께 볶는다.", "당근과 양파를 넣고 함께 익힌다.", "밥 위에 소불고기를 올린다.", "달걀노른자를 얹어 마무리한다."],
+  },
+  {
+    slug: "tofu-steak-plate-bulk", title: "두부 스테이크 플레이트", category: "bulk",
+    cookTime: "18분", servings: "1인분",
+    kcal: 556, carb: 60, protein: 34, fat: 20,
+    ingredients: ["두부 300g", "현미밥 200g", "간장 소스 1큰술(15g)", "식용유 1작은술(5g)", "대파 약간"],
+    steps: ["두부를 도톰하게 썰어 밑간한다.", "팬에 노릇하게 굽는다.", "간장 소스를 뿌려 조린다.", "현미밥과 함께 담고 대파를 올린다."],
+  },
+  {
+    slug: "granola-parfait-bulk", title: "그릭요거트 그래놀라 파르페 (대용량)", category: "bulk",
+    cookTime: "5분", servings: "1인분",
+    kcal: 534, carb: 65, protein: 28, fat: 18,
+    ingredients: ["그릭요거트 200g", "그래놀라 60g", "바나나 1개(120g)", "꿀 약간(10g)"],
+    steps: ["컵에 그릭요거트를 절반 담는다.", "그래놀라와 썬 바나나를 한 층 올린다.", "나머지 그릭요거트를 마저 담는다.", "꿀을 뿌려 마무리한다."],
+  },
+  {
+    slug: "chicken-curry-rice-bulk", title: "닭가슴살 카레라이스", category: "bulk",
+    cookTime: "25분", servings: "1인분",
+    kcal: 660, carb: 95, protein: 34, fat: 16,
+    ingredients: ["흰쌀밥 300g", "닭가슴살 120g(조리 후 가식부 기준)", "카레가루 30g", "감자 80g", "당근 40g"],
+    steps: ["닭가슴살, 감자, 당근을 한입 크기로 썬다.", "팬에 재료를 볶다가 물을 넣고 끓인다.", "카레가루를 풀어 걸쭉해질 때까지 끓인다.", "밥 위에 카레를 부어 마무리한다."],
+  },
+  {
+    slug: "chicken-breast-brown-rice-stirfry-diet", title: "닭가슴살 현미밥 볶음", category: "diet",
+    cookTime: "15분", servings: "1인분",
+    kcal: 477, carb: 43, protein: 51, fat: 11.2,
+    ingredients: ["닭가슴살 150g(조리 후 가식부 기준)", "현미밥 120g", "브로콜리·파프리카 등 채소 80g", "식용유 4.5g, 소금·후추 약간"],
+    steps: ["닭가슴살을 한입 크기로 손질한다.", "팬에 기름을 두르고 닭가슴살을 먼저 볶는다.", "브로콜리·파프리카 등 채소를 넣고 함께 볶는다.", "현미밥과 함께 그릇에 담아 마무리한다."],
+  },
+  {
+    slug: "chicken-breast-brown-rice-grill-diet", title: "닭가슴살 구이 & 현미밥", category: "diet",
+    cookTime: "15분", servings: "1인분",
+    kcal: 461, carb: 43, protein: 51, fat: 9.4,
+    ingredients: ["닭가슴살 150g(조리 후 가식부 기준)", "현미밥 120g", "브로콜리·파프리카 등 채소 80g", "식용유 2.7g, 소금·후추 약간"],
+    steps: ["닭가슴살에 소금, 후추로 밑간한다.", "팬이나 에어프라이어에 구워 익힌다.", "브로콜리·파프리카 등 채소를 함께 굽거나 데친다.", "현미밥과 함께 접시에 담는다."],
+  },
+  {
+    slug: "chicken-breast-brown-rice-ricebowl-diet", title: "닭가슴살 현미밥 덮밥", category: "diet",
+    cookTime: "15분", servings: "1인분",
+    kcal: 446, carb: 45.1, protein: 51.2, fat: 6.7,
+    ingredients: ["닭가슴살 150g(조리 후 가식부 기준)", "현미밥 120g", "브로콜리·파프리카 등 채소 80g", "간장 소스(간장 3g·설탕 2g, 총 5g)"],
+    steps: ["닭가슴살을 한입 크기로 손질해 익힌다.", "브로콜리·파프리카 등 채소를 함께 볶는다.", "현미밥 위에 볶은 재료를 올린다.", "간장 소스를 곁들여 마무리한다."],
+  },
+  {
+    slug: "chicken-breast-brown-rice-steamed-diet", title: "닭가슴살 현미밥 찜", category: "diet",
+    cookTime: "20분", servings: "1인분",
+    kcal: 445, carb: 43, protein: 51, fat: 7.7,
+    ingredients: ["닭가슴살 150g(조리 후 가식부 기준)", "현미밥 120g", "브로콜리·파프리카 등 채소 80g", "식용유 1g, 소금 약간"],
+    steps: ["닭가슴살과 브로콜리·파프리카 등 채소를 손질한다.", "찜기나 전자레인지에 넣고 익힌다.", "현미밥을 곁들여 준비한다.", "소금, 후추로 간을 맞춰 마무리한다."],
+  },
+  {
+    slug: "chicken-breast-sweet-potato-stirfry-diet", title: "닭가슴살 고구마 볶음", category: "diet",
+    cookTime: "15분", servings: "1인분",
+    kcal: 448, carb: 37.5, protein: 51, fat: 10.4,
+    ingredients: ["닭가슴살 150g(조리 후 가식부 기준)", "고구마(찐 것) 150g", "브로콜리·파프리카 등 채소 80g", "식용유 4.5g, 소금·후추 약간"],
+    steps: ["닭가슴살을 한입 크기로 손질한다.", "팬에 기름을 두르고 닭가슴살을 먼저 볶는다.", "브로콜리·파프리카 등 채소를 넣고 함께 볶는다.", "고구마(찐 것)와 함께 그릇에 담아 마무리한다."],
+  },
+  {
+    slug: "chicken-breast-sweet-potato-grill-diet", title: "닭가슴살 구이 & 고구마", category: "diet",
+    cookTime: "15분", servings: "1인분",
+    kcal: 431, carb: 37.5, protein: 51, fat: 8.6,
+    ingredients: ["닭가슴살 150g(조리 후 가식부 기준)", "고구마(찐 것) 150g", "브로콜리·파프리카 등 채소 80g", "식용유 2.7g, 소금·후추 약간"],
+    steps: ["닭가슴살에 소금, 후추로 밑간한다.", "팬이나 에어프라이어에 구워 익힌다.", "브로콜리·파프리카 등 채소를 함께 굽거나 데친다.", "고구마(찐 것)와 함께 접시에 담는다."],
+  },
+  {
+    slug: "chicken-breast-sweet-potato-salad-diet", title: "닭가슴살 고구마 샐러드", category: "diet",
+    cookTime: "10분", servings: "1인분",
+    kcal: 453, carb: 37.8, protein: 51, fat: 10.9,
+    ingredients: ["닭가슴살 150g(조리 후 가식부 기준)", "고구마(찐 것) 150g", "브로콜리·파프리카 등 채소 80g", "올리브오일 드레싱(식용유 5g·레몬즙 5g, 총 10g)"],
+    steps: ["닭가슴살을 익히거나 데쳐 식힌다.", "고구마(찐 것)를 한입 크기로 준비한다.", "브로콜리·파프리카 등 채소와 함께 그릇에 담는다.", "올리브오일과 레몬즙 등 드레싱을 뿌려 버무린다."],
+  },
+  {
+    slug: "chicken-breast-sweet-potato-steamed-diet", title: "닭가슴살 고구마 찜", category: "diet",
+    cookTime: "20분", servings: "1인분",
+    kcal: 416, carb: 37.5, protein: 51, fat: 6.9,
+    ingredients: ["닭가슴살 150g(조리 후 가식부 기준)", "고구마(찐 것) 150g", "브로콜리·파프리카 등 채소 80g", "식용유 1g, 소금 약간"],
+    steps: ["닭가슴살과 브로콜리·파프리카 등 채소를 손질한다.", "찜기나 전자레인지에 넣고 익힌다.", "고구마(찐 것)를 곁들여 준비한다.", "소금, 후추로 간을 맞춰 마무리한다."],
+  },
+  {
+    slug: "chicken-breast-boiled-potato-stirfry-diet", title: "닭가슴살 감자 볶음", category: "diet",
+    cookTime: "15분", servings: "1인분",
+    kcal: 424, carb: 31.5, protein: 51, fat: 10.4,
+    ingredients: ["닭가슴살 150g(조리 후 가식부 기준)", "감자(찐 것) 150g", "브로콜리·파프리카 등 채소 80g", "식용유 4.5g, 소금·후추 약간"],
+    steps: ["닭가슴살을 한입 크기로 손질한다.", "팬에 기름을 두르고 닭가슴살을 먼저 볶는다.", "브로콜리·파프리카 등 채소를 넣고 함께 볶는다.", "감자(찐 것)와 함께 그릇에 담아 마무리한다."],
+  },
+  {
+    slug: "chicken-breast-boiled-potato-grill-diet", title: "닭가슴살 구이 & 감자", category: "diet",
+    cookTime: "15분", servings: "1인분",
+    kcal: 407, carb: 31.5, protein: 51, fat: 8.6,
+    ingredients: ["닭가슴살 150g(조리 후 가식부 기준)", "감자(찐 것) 150g", "브로콜리·파프리카 등 채소 80g", "식용유 2.7g, 소금·후추 약간"],
+    steps: ["닭가슴살에 소금, 후추로 밑간한다.", "팬이나 에어프라이어에 구워 익힌다.", "브로콜리·파프리카 등 채소를 함께 굽거나 데친다.", "감자(찐 것)와 함께 접시에 담는다."],
+  },
+  {
+    slug: "chicken-breast-boiled-potato-salad-diet", title: "닭가슴살 감자 샐러드", category: "diet",
+    cookTime: "10분", servings: "1인분",
+    kcal: 429, carb: 31.8, protein: 51, fat: 10.9,
+    ingredients: ["닭가슴살 150g(조리 후 가식부 기준)", "감자(찐 것) 150g", "브로콜리·파프리카 등 채소 80g", "올리브오일 드레싱(식용유 5g·레몬즙 5g, 총 10g)"],
+    steps: ["닭가슴살을 익히거나 데쳐 식힌다.", "감자(찐 것)를 한입 크기로 준비한다.", "브로콜리·파프리카 등 채소와 함께 그릇에 담는다.", "올리브오일과 레몬즙 등 드레싱을 뿌려 버무린다."],
+  },
+  {
+    slug: "chicken-breast-boiled-potato-steamed-diet", title: "닭가슴살 감자 찜", category: "diet",
+    cookTime: "20분", servings: "1인분",
+    kcal: 392, carb: 31.5, protein: 51, fat: 6.9,
+    ingredients: ["닭가슴살 150g(조리 후 가식부 기준)", "감자(찐 것) 150g", "브로콜리·파프리카 등 채소 80g", "식용유 1g, 소금 약간"],
+    steps: ["닭가슴살과 브로콜리·파프리카 등 채소를 손질한다.", "찜기나 전자레인지에 넣고 익힌다.", "감자(찐 것)를 곁들여 준비한다.", "소금, 후추로 간을 맞춰 마무리한다."],
+  },
+  {
+    slug: "chicken-breast-white-rice-stirfry-diet", title: "닭가슴살 흰쌀밥 볶음", category: "diet",
+    cookTime: "15분", servings: "1인분",
+    kcal: 479, carb: 44.9, protein: 51.2, fat: 10.5,
+    ingredients: ["닭가슴살 150g(조리 후 가식부 기준)", "흰쌀밥 120g", "브로콜리·파프리카 등 채소 80g", "식용유 4.5g, 소금·후추 약간"],
+    steps: ["닭가슴살을 한입 크기로 손질한다.", "팬에 기름을 두르고 닭가슴살을 먼저 볶는다.", "브로콜리·파프리카 등 채소를 넣고 함께 볶는다.", "흰쌀밥과 함께 그릇에 담아 마무리한다."],
+  },
+  {
+    slug: "chicken-breast-white-rice-grill-diet", title: "닭가슴살 구이 & 흰쌀밥", category: "diet",
+    cookTime: "15분", servings: "1인분",
+    kcal: 463, carb: 44.9, protein: 51.2, fat: 8.7,
+    ingredients: ["닭가슴살 150g(조리 후 가식부 기준)", "흰쌀밥 120g", "브로콜리·파프리카 등 채소 80g", "식용유 2.7g, 소금·후추 약간"],
+    steps: ["닭가슴살에 소금, 후추로 밑간한다.", "팬이나 에어프라이어에 구워 익힌다.", "브로콜리·파프리카 등 채소를 함께 굽거나 데친다.", "흰쌀밥과 함께 접시에 담는다."],
+  },
+  {
+    slug: "chicken-breast-white-rice-ricebowl-diet", title: "닭가슴살 흰쌀밥 덮밥", category: "diet",
+    cookTime: "15분", servings: "1인분",
+    kcal: 448, carb: 47, protein: 51.4, fat: 6,
+    ingredients: ["닭가슴살 150g(조리 후 가식부 기준)", "흰쌀밥 120g", "브로콜리·파프리카 등 채소 80g", "간장 소스(간장 3g·설탕 2g, 총 5g)"],
+    steps: ["닭가슴살을 한입 크기로 손질해 익힌다.", "브로콜리·파프리카 등 채소를 함께 볶는다.", "흰쌀밥 위에 볶은 재료를 올린다.", "간장 소스를 곁들여 마무리한다."],
+  },
+  {
+    slug: "chicken-breast-white-rice-steamed-diet", title: "닭가슴살 흰쌀밥 찜", category: "diet",
+    cookTime: "20분", servings: "1인분",
+    kcal: 447, carb: 44.9, protein: 51.2, fat: 7,
+    ingredients: ["닭가슴살 150g(조리 후 가식부 기준)", "흰쌀밥 120g", "브로콜리·파프리카 등 채소 80g", "식용유 1g, 소금 약간"],
+    steps: ["닭가슴살과 브로콜리·파프리카 등 채소를 손질한다.", "찜기나 전자레인지에 넣고 익힌다.", "흰쌀밥을 곁들여 준비한다.", "소금, 후추로 간을 맞춰 마무리한다."],
+  },
+  {
+    slug: "chicken-breast-chickpeas-stirfry-diet", title: "닭가슴살 병아리콩 볶음", category: "diet",
+    cookTime: "15분", servings: "1인분",
+    kcal: 513, carb: 38.4, protein: 58.8, fat: 13.8,
+    ingredients: ["닭가슴살 150g(조리 후 가식부 기준)", "병아리콩(삶은 것) 120g", "브로콜리·파프리카 등 채소 80g", "식용유 4.5g, 소금·후추 약간"],
+    steps: ["닭가슴살을 한입 크기로 손질한다.", "팬에 기름을 두르고 닭가슴살을 먼저 볶는다.", "브로콜리·파프리카 등 채소를 넣고 함께 볶는다.", "병아리콩(삶은 것)와 함께 그릇에 담아 마무리한다."],
+  },
+  {
+    slug: "chicken-breast-chickpeas-grill-diet", title: "닭가슴살 구이 & 병아리콩", category: "diet",
+    cookTime: "15분", servings: "1인분",
+    kcal: 497, carb: 38.4, protein: 58.8, fat: 12,
+    ingredients: ["닭가슴살 150g(조리 후 가식부 기준)", "병아리콩(삶은 것) 120g", "브로콜리·파프리카 등 채소 80g", "식용유 2.7g, 소금·후추 약간"],
+    steps: ["닭가슴살에 소금, 후추로 밑간한다.", "팬이나 에어프라이어에 구워 익힌다.", "브로콜리·파프리카 등 채소를 함께 굽거나 데친다.", "병아리콩(삶은 것)와 함께 접시에 담는다."],
+  },
+  {
+    slug: "chicken-breast-chickpeas-salad-diet", title: "닭가슴살 병아리콩 샐러드", category: "diet",
+    cookTime: "10분", servings: "1인분",
+    kcal: 519, carb: 38.7, protein: 58.8, fat: 14.3,
+    ingredients: ["닭가슴살 150g(조리 후 가식부 기준)", "병아리콩(삶은 것) 120g", "브로콜리·파프리카 등 채소 80g", "올리브오일 드레싱(식용유 5g·레몬즙 5g, 총 10g)"],
+    steps: ["닭가슴살을 익히거나 데쳐 식힌다.", "병아리콩(삶은 것)를 한입 크기로 준비한다.", "브로콜리·파프리카 등 채소와 함께 그릇에 담는다.", "올리브오일과 레몬즙 등 드레싱을 뿌려 버무린다."],
+  },
+  {
+    slug: "chicken-breast-chickpeas-steamed-diet", title: "닭가슴살 병아리콩 찜", category: "diet",
+    cookTime: "20분", servings: "1인분",
+    kcal: 481, carb: 38.4, protein: 58.8, fat: 10.3,
+    ingredients: ["닭가슴살 150g(조리 후 가식부 기준)", "병아리콩(삶은 것) 120g", "브로콜리·파프리카 등 채소 80g", "식용유 1g, 소금 약간"],
+    steps: ["닭가슴살과 브로콜리·파프리카 등 채소를 손질한다.", "찜기나 전자레인지에 넣고 익힌다.", "병아리콩(삶은 것)를 곁들여 준비한다.", "소금, 후추로 간을 맞춰 마무리한다."],
+  },
+  {
+    slug: "chicken-thigh-brown-rice-stirfry-diet", title: "닭다리살 현미밥 볶음", category: "diet",
+    cookTime: "15분", servings: "1인분",
+    kcal: 535, carb: 43, protein: 40.5, fat: 22.3,
+    ingredients: ["닭다리살 150g(조리 후 가식부 기준)", "현미밥 120g", "브로콜리·파프리카 등 채소 80g", "식용유 4.5g, 소금·후추 약간"],
+    steps: ["닭다리살을 한입 크기로 손질한다.", "팬에 기름을 두르고 닭다리살을 먼저 볶는다.", "브로콜리·파프리카 등 채소를 넣고 함께 볶는다.", "현미밥과 함께 그릇에 담아 마무리한다."],
+  },
+  {
+    slug: "chicken-thigh-brown-rice-grill-diet", title: "닭다리살 구이 & 현미밥", category: "diet",
+    cookTime: "15분", servings: "1인분",
+    kcal: 519, carb: 43, protein: 40.5, fat: 20.5,
+    ingredients: ["닭다리살 150g(조리 후 가식부 기준)", "현미밥 120g", "브로콜리·파프리카 등 채소 80g", "식용유 2.7g, 소금·후추 약간"],
+    steps: ["닭다리살에 소금, 후추로 밑간한다.", "팬이나 에어프라이어에 구워 익힌다.", "브로콜리·파프리카 등 채소를 함께 굽거나 데친다.", "현미밥과 함께 접시에 담는다."],
+  },
+  {
+    slug: "chicken-thigh-brown-rice-ricebowl-diet", title: "닭다리살 현미밥 덮밥", category: "diet",
+    cookTime: "15분", servings: "1인분",
+    kcal: 503, carb: 45.1, protein: 40.7, fat: 17.8,
+    ingredients: ["닭다리살 150g(조리 후 가식부 기준)", "현미밥 120g", "브로콜리·파프리카 등 채소 80g", "간장 소스(간장 3g·설탕 2g, 총 5g)"],
+    steps: ["닭다리살을 한입 크기로 손질해 익힌다.", "브로콜리·파프리카 등 채소를 함께 볶는다.", "현미밥 위에 볶은 재료를 올린다.", "간장 소스를 곁들여 마무리한다."],
+  },
+  {
+    slug: "chicken-thigh-sweet-potato-stirfry-diet", title: "닭다리살 고구마 볶음", category: "diet",
+    cookTime: "15분", servings: "1인분",
+    kcal: 506, carb: 37.5, protein: 40.5, fat: 21.5,
+    ingredients: ["닭다리살 150g(조리 후 가식부 기준)", "고구마(찐 것) 150g", "브로콜리·파프리카 등 채소 80g", "식용유 4.5g, 소금·후추 약간"],
+    steps: ["닭다리살을 한입 크기로 손질한다.", "팬에 기름을 두르고 닭다리살을 먼저 볶는다.", "브로콜리·파프리카 등 채소를 넣고 함께 볶는다.", "고구마(찐 것)와 함께 그릇에 담아 마무리한다."],
+  },
+  {
+    slug: "chicken-thigh-sweet-potato-grill-diet", title: "닭다리살 구이 & 고구마", category: "diet",
+    cookTime: "15분", servings: "1인분",
+    kcal: 489, carb: 37.5, protein: 40.5, fat: 19.7,
+    ingredients: ["닭다리살 150g(조리 후 가식부 기준)", "고구마(찐 것) 150g", "브로콜리·파프리카 등 채소 80g", "식용유 2.7g, 소금·후추 약간"],
+    steps: ["닭다리살에 소금, 후추로 밑간한다.", "팬이나 에어프라이어에 구워 익힌다.", "브로콜리·파프리카 등 채소를 함께 굽거나 데친다.", "고구마(찐 것)와 함께 접시에 담는다."],
+  },
+  {
+    slug: "chicken-thigh-boiled-potato-stirfry-diet", title: "닭다리살 감자 볶음", category: "diet",
+    cookTime: "15분", servings: "1인분",
+    kcal: 482, carb: 31.5, protein: 40.5, fat: 21.5,
+    ingredients: ["닭다리살 150g(조리 후 가식부 기준)", "감자(찐 것) 150g", "브로콜리·파프리카 등 채소 80g", "식용유 4.5g, 소금·후추 약간"],
+    steps: ["닭다리살을 한입 크기로 손질한다.", "팬에 기름을 두르고 닭다리살을 먼저 볶는다.", "브로콜리·파프리카 등 채소를 넣고 함께 볶는다.", "감자(찐 것)와 함께 그릇에 담아 마무리한다."],
+  },
+  {
+    slug: "chicken-thigh-boiled-potato-grill-diet", title: "닭다리살 구이 & 감자", category: "diet",
+    cookTime: "15분", servings: "1인분",
+    kcal: 465, carb: 31.5, protein: 40.5, fat: 19.7,
+    ingredients: ["닭다리살 150g(조리 후 가식부 기준)", "감자(찐 것) 150g", "브로콜리·파프리카 등 채소 80g", "식용유 2.7g, 소금·후추 약간"],
+    steps: ["닭다리살에 소금, 후추로 밑간한다.", "팬이나 에어프라이어에 구워 익힌다.", "브로콜리·파프리카 등 채소를 함께 굽거나 데친다.", "감자(찐 것)와 함께 접시에 담는다."],
+  },
+  {
+    slug: "chicken-thigh-white-rice-stirfry-diet", title: "닭다리살 흰쌀밥 볶음", category: "diet",
+    cookTime: "15분", servings: "1인분",
+    kcal: 537, carb: 44.9, protein: 40.7, fat: 21.6,
+    ingredients: ["닭다리살 150g(조리 후 가식부 기준)", "흰쌀밥 120g", "브로콜리·파프리카 등 채소 80g", "식용유 4.5g, 소금·후추 약간"],
+    steps: ["닭다리살을 한입 크기로 손질한다.", "팬에 기름을 두르고 닭다리살을 먼저 볶는다.", "브로콜리·파프리카 등 채소를 넣고 함께 볶는다.", "흰쌀밥과 함께 그릇에 담아 마무리한다."],
+  },
+  {
+    slug: "chicken-thigh-white-rice-grill-diet", title: "닭다리살 구이 & 흰쌀밥", category: "diet",
+    cookTime: "15분", servings: "1인분",
+    kcal: 521, carb: 44.9, protein: 40.7, fat: 19.8,
+    ingredients: ["닭다리살 150g(조리 후 가식부 기준)", "흰쌀밥 120g", "브로콜리·파프리카 등 채소 80g", "식용유 2.7g, 소금·후추 약간"],
+    steps: ["닭다리살에 소금, 후추로 밑간한다.", "팬이나 에어프라이어에 구워 익힌다.", "브로콜리·파프리카 등 채소를 함께 굽거나 데친다.", "흰쌀밥과 함께 접시에 담는다."],
+  },
+  {
+    slug: "chicken-thigh-white-rice-ricebowl-diet", title: "닭다리살 흰쌀밥 덮밥", category: "diet",
+    cookTime: "15분", servings: "1인분",
+    kcal: 506, carb: 47, protein: 40.9, fat: 17.1,
+    ingredients: ["닭다리살 150g(조리 후 가식부 기준)", "흰쌀밥 120g", "브로콜리·파프리카 등 채소 80g", "간장 소스(간장 3g·설탕 2g, 총 5g)"],
+    steps: ["닭다리살을 한입 크기로 손질해 익힌다.", "브로콜리·파프리카 등 채소를 함께 볶는다.", "흰쌀밥 위에 볶은 재료를 올린다.", "간장 소스를 곁들여 마무리한다."],
+  },
+  {
+    slug: "chicken-thigh-chickpeas-stirfry-diet", title: "닭다리살 병아리콩 볶음", category: "diet",
+    cookTime: "15분", servings: "1인분",
+    kcal: 571, carb: 38.4, protein: 48.3, fat: 24.9,
+    ingredients: ["닭다리살 150g(조리 후 가식부 기준)", "병아리콩(삶은 것) 120g", "브로콜리·파프리카 등 채소 80g", "식용유 4.5g, 소금·후추 약간"],
+    steps: ["닭다리살을 한입 크기로 손질한다.", "팬에 기름을 두르고 닭다리살을 먼저 볶는다.", "브로콜리·파프리카 등 채소를 넣고 함께 볶는다.", "병아리콩(삶은 것)와 함께 그릇에 담아 마무리한다."],
+  },
+  {
+    slug: "chicken-thigh-chickpeas-grill-diet", title: "닭다리살 구이 & 병아리콩", category: "diet",
+    cookTime: "15분", servings: "1인분",
+    kcal: 555, carb: 38.4, protein: 48.3, fat: 23.1,
+    ingredients: ["닭다리살 150g(조리 후 가식부 기준)", "병아리콩(삶은 것) 120g", "브로콜리·파프리카 등 채소 80g", "식용유 2.7g, 소금·후추 약간"],
+    steps: ["닭다리살에 소금, 후추로 밑간한다.", "팬이나 에어프라이어에 구워 익힌다.", "브로콜리·파프리카 등 채소를 함께 굽거나 데친다.", "병아리콩(삶은 것)와 함께 접시에 담는다."],
+  },
+  {
+    slug: "beef-tenderloin-brown-rice-stirfry-diet", title: "소고기 안심 현미밥 볶음", category: "diet",
+    cookTime: "15분", servings: "1인분",
+    kcal: 526, carb: 43, protein: 45, fat: 19.3,
+    ingredients: ["소고기 안심 150g", "현미밥 120g", "브로콜리·파프리카 등 채소 80g", "식용유 4.5g, 소금·후추 약간"],
+    steps: ["소고기 안심을 한입 크기로 손질한다.", "팬에 기름을 두르고 소고기 안심을 먼저 볶는다.", "브로콜리·파프리카 등 채소를 넣고 함께 볶는다.", "현미밥과 함께 그릇에 담아 마무리한다."],
+  },
+  {
+    slug: "beef-tenderloin-brown-rice-grill-diet", title: "소고기 안심 구이 & 현미밥", category: "diet",
+    cookTime: "15분", servings: "1인분",
+    kcal: 510, carb: 43, protein: 45, fat: 17.5,
+    ingredients: ["소고기 안심 150g", "현미밥 120g", "브로콜리·파프리카 등 채소 80g", "식용유 2.7g, 소금·후추 약간"],
+    steps: ["소고기 안심에 소금, 후추로 밑간한다.", "팬이나 에어프라이어에 구워 익힌다.", "브로콜리·파프리카 등 채소를 함께 굽거나 데친다.", "현미밥과 함께 접시에 담는다."],
+  },
+  {
+    slug: "beef-tenderloin-brown-rice-ricebowl-diet", title: "소고기 안심 현미밥 덮밥", category: "diet",
+    cookTime: "15분", servings: "1인분",
+    kcal: 494, carb: 45.1, protein: 45.2, fat: 14.8,
+    ingredients: ["소고기 안심 150g", "현미밥 120g", "브로콜리·파프리카 등 채소 80g", "간장 소스(간장 3g·설탕 2g, 총 5g)"],
+    steps: ["소고기 안심을 한입 크기로 손질해 익힌다.", "브로콜리·파프리카 등 채소를 함께 볶는다.", "현미밥 위에 볶은 재료를 올린다.", "간장 소스를 곁들여 마무리한다."],
+  },
+  {
+    slug: "beef-tenderloin-sweet-potato-stirfry-diet", title: "소고기 안심 고구마 볶음", category: "diet",
+    cookTime: "15분", servings: "1인분",
+    kcal: 497, carb: 37.5, protein: 45, fat: 18.5,
+    ingredients: ["소고기 안심 150g", "고구마(찐 것) 150g", "브로콜리·파프리카 등 채소 80g", "식용유 4.5g, 소금·후추 약간"],
+    steps: ["소고기 안심을 한입 크기로 손질한다.", "팬에 기름을 두르고 소고기 안심을 먼저 볶는다.", "브로콜리·파프리카 등 채소를 넣고 함께 볶는다.", "고구마(찐 것)와 함께 그릇에 담아 마무리한다."],
+  },
+  {
+    slug: "beef-tenderloin-sweet-potato-grill-diet", title: "소고기 안심 구이 & 고구마", category: "diet",
+    cookTime: "15분", servings: "1인분",
+    kcal: 480, carb: 37.5, protein: 45, fat: 16.7,
+    ingredients: ["소고기 안심 150g", "고구마(찐 것) 150g", "브로콜리·파프리카 등 채소 80g", "식용유 2.7g, 소금·후추 약간"],
+    steps: ["소고기 안심에 소금, 후추로 밑간한다.", "팬이나 에어프라이어에 구워 익힌다.", "브로콜리·파프리카 등 채소를 함께 굽거나 데친다.", "고구마(찐 것)와 함께 접시에 담는다."],
+  },
+  {
+    slug: "beef-tenderloin-boiled-potato-stirfry-diet", title: "소고기 안심 감자 볶음", category: "diet",
+    cookTime: "15분", servings: "1인분",
+    kcal: 473, carb: 31.5, protein: 45, fat: 18.5,
+    ingredients: ["소고기 안심 150g", "감자(찐 것) 150g", "브로콜리·파프리카 등 채소 80g", "식용유 4.5g, 소금·후추 약간"],
+    steps: ["소고기 안심을 한입 크기로 손질한다.", "팬에 기름을 두르고 소고기 안심을 먼저 볶는다.", "브로콜리·파프리카 등 채소를 넣고 함께 볶는다.", "감자(찐 것)와 함께 그릇에 담아 마무리한다."],
+  },
+  {
+    slug: "beef-tenderloin-boiled-potato-grill-diet", title: "소고기 안심 구이 & 감자", category: "diet",
+    cookTime: "15분", servings: "1인분",
+    kcal: 456, carb: 31.5, protein: 45, fat: 16.7,
+    ingredients: ["소고기 안심 150g", "감자(찐 것) 150g", "브로콜리·파프리카 등 채소 80g", "식용유 2.7g, 소금·후추 약간"],
+    steps: ["소고기 안심에 소금, 후추로 밑간한다.", "팬이나 에어프라이어에 구워 익힌다.", "브로콜리·파프리카 등 채소를 함께 굽거나 데친다.", "감자(찐 것)와 함께 접시에 담는다."],
+  },
+  {
+    slug: "beef-tenderloin-white-rice-stirfry-diet", title: "소고기 안심 흰쌀밥 볶음", category: "diet",
+    cookTime: "15분", servings: "1인분",
+    kcal: 528, carb: 44.9, protein: 45.2, fat: 18.6,
+    ingredients: ["소고기 안심 150g", "흰쌀밥 120g", "브로콜리·파프리카 등 채소 80g", "식용유 4.5g, 소금·후추 약간"],
+    steps: ["소고기 안심을 한입 크기로 손질한다.", "팬에 기름을 두르고 소고기 안심을 먼저 볶는다.", "브로콜리·파프리카 등 채소를 넣고 함께 볶는다.", "흰쌀밥과 함께 그릇에 담아 마무리한다."],
+  },
+  {
+    slug: "beef-tenderloin-white-rice-grill-diet", title: "소고기 안심 구이 & 흰쌀밥", category: "diet",
+    cookTime: "15분", servings: "1인분",
+    kcal: 512, carb: 44.9, protein: 45.2, fat: 16.8,
+    ingredients: ["소고기 안심 150g", "흰쌀밥 120g", "브로콜리·파프리카 등 채소 80g", "식용유 2.7g, 소금·후추 약간"],
+    steps: ["소고기 안심에 소금, 후추로 밑간한다.", "팬이나 에어프라이어에 구워 익힌다.", "브로콜리·파프리카 등 채소를 함께 굽거나 데친다.", "흰쌀밥과 함께 접시에 담는다."],
+  },
+  {
+    slug: "beef-tenderloin-white-rice-ricebowl-diet", title: "소고기 안심 흰쌀밥 덮밥", category: "diet",
+    cookTime: "15분", servings: "1인분",
+    kcal: 497, carb: 47, protein: 45.4, fat: 14.1,
+    ingredients: ["소고기 안심 150g", "흰쌀밥 120g", "브로콜리·파프리카 등 채소 80g", "간장 소스(간장 3g·설탕 2g, 총 5g)"],
+    steps: ["소고기 안심을 한입 크기로 손질해 익힌다.", "브로콜리·파프리카 등 채소를 함께 볶는다.", "흰쌀밥 위에 볶은 재료를 올린다.", "간장 소스를 곁들여 마무리한다."],
+  },
+  {
+    slug: "beef-tenderloin-chickpeas-stirfry-diet", title: "소고기 안심 병아리콩 볶음", category: "diet",
+    cookTime: "15분", servings: "1인분",
+    kcal: 562, carb: 38.4, protein: 52.8, fat: 21.9,
+    ingredients: ["소고기 안심 150g", "병아리콩(삶은 것) 120g", "브로콜리·파프리카 등 채소 80g", "식용유 4.5g, 소금·후추 약간"],
+    steps: ["소고기 안심을 한입 크기로 손질한다.", "팬에 기름을 두르고 소고기 안심을 먼저 볶는다.", "브로콜리·파프리카 등 채소를 넣고 함께 볶는다.", "병아리콩(삶은 것)와 함께 그릇에 담아 마무리한다."],
+  },
+  {
+    slug: "beef-tenderloin-chickpeas-grill-diet", title: "소고기 안심 구이 & 병아리콩", category: "diet",
+    cookTime: "15분", servings: "1인분",
+    kcal: 546, carb: 38.4, protein: 52.8, fat: 20.1,
+    ingredients: ["소고기 안심 150g", "병아리콩(삶은 것) 120g", "브로콜리·파프리카 등 채소 80g", "식용유 2.7g, 소금·후추 약간"],
+    steps: ["소고기 안심에 소금, 후추로 밑간한다.", "팬이나 에어프라이어에 구워 익힌다.", "브로콜리·파프리카 등 채소를 함께 굽거나 데친다.", "병아리콩(삶은 것)와 함께 접시에 담는다."],
+  },
+  {
+    slug: "grilled-salmon-brown-rice-stirfry-diet", title: "연어 현미밥 볶음", category: "diet",
+    cookTime: "15분", servings: "1인분",
+    kcal: 538, carb: 43, protein: 34.5, fat: 25.3,
+    ingredients: ["연어 150g(조리 후 가식부 기준)", "현미밥 120g", "브로콜리·파프리카 등 채소 80g", "식용유 4.5g, 소금·후추 약간"],
+    steps: ["연어를 한입 크기로 손질한다.", "팬에 기름을 두르고 연어를 먼저 볶는다.", "브로콜리·파프리카 등 채소를 넣고 함께 볶는다.", "현미밥과 함께 그릇에 담아 마무리한다."],
+  },
+  {
+    slug: "grilled-salmon-brown-rice-grill-diet", title: "연어 구이 & 현미밥", category: "diet",
+    cookTime: "15분", servings: "1인분",
+    kcal: 522, carb: 43, protein: 34.5, fat: 23.5,
+    ingredients: ["연어 150g(조리 후 가식부 기준)", "현미밥 120g", "브로콜리·파프리카 등 채소 80g", "식용유 2.7g, 소금·후추 약간"],
+    steps: ["연어에 소금, 후추로 밑간한다.", "팬이나 에어프라이어에 구워 익힌다.", "브로콜리·파프리카 등 채소를 함께 굽거나 데친다.", "현미밥과 함께 접시에 담는다."],
+  },
+  {
+    slug: "grilled-salmon-brown-rice-ricebowl-diet", title: "연어 현미밥 덮밥", category: "diet",
+    cookTime: "15분", servings: "1인분",
+    kcal: 506, carb: 45.1, protein: 34.7, fat: 20.8,
+    ingredients: ["연어 150g(조리 후 가식부 기준)", "현미밥 120g", "브로콜리·파프리카 등 채소 80g", "간장 소스(간장 3g·설탕 2g, 총 5g)"],
+    steps: ["연어를 한입 크기로 손질해 익힌다.", "브로콜리·파프리카 등 채소를 함께 볶는다.", "현미밥 위에 볶은 재료를 올린다.", "간장 소스를 곁들여 마무리한다."],
+  },
+  {
+    slug: "grilled-salmon-sweet-potato-stirfry-diet", title: "연어 고구마 볶음", category: "diet",
+    cookTime: "15분", servings: "1인분",
+    kcal: 509, carb: 37.5, protein: 34.5, fat: 24.5,
+    ingredients: ["연어 150g(조리 후 가식부 기준)", "고구마(찐 것) 150g", "브로콜리·파프리카 등 채소 80g", "식용유 4.5g, 소금·후추 약간"],
+    steps: ["연어를 한입 크기로 손질한다.", "팬에 기름을 두르고 연어를 먼저 볶는다.", "브로콜리·파프리카 등 채소를 넣고 함께 볶는다.", "고구마(찐 것)와 함께 그릇에 담아 마무리한다."],
+  },
+  {
+    slug: "grilled-salmon-sweet-potato-grill-diet", title: "연어 구이 & 고구마", category: "diet",
+    cookTime: "15분", servings: "1인분",
+    kcal: 492, carb: 37.5, protein: 34.5, fat: 22.7,
+    ingredients: ["연어 150g(조리 후 가식부 기준)", "고구마(찐 것) 150g", "브로콜리·파프리카 등 채소 80g", "식용유 2.7g, 소금·후추 약간"],
+    steps: ["연어에 소금, 후추로 밑간한다.", "팬이나 에어프라이어에 구워 익힌다.", "브로콜리·파프리카 등 채소를 함께 굽거나 데친다.", "고구마(찐 것)와 함께 접시에 담는다."],
+  },
+  {
+    slug: "grilled-salmon-sweet-potato-salad-diet", title: "연어 고구마 샐러드", category: "diet",
+    cookTime: "10분", servings: "1인분",
+    kcal: 514, carb: 37.8, protein: 34.5, fat: 25,
+    ingredients: ["연어 150g(조리 후 가식부 기준)", "고구마(찐 것) 150g", "브로콜리·파프리카 등 채소 80g", "올리브오일 드레싱(식용유 5g·레몬즙 5g, 총 10g)"],
+    steps: ["연어를 익히거나 데쳐 식힌다.", "고구마(찐 것)를 한입 크기로 준비한다.", "브로콜리·파프리카 등 채소와 함께 그릇에 담는다.", "올리브오일과 레몬즙 등 드레싱을 뿌려 버무린다."],
+  },
+  {
+    slug: "grilled-salmon-boiled-potato-stirfry-diet", title: "연어 감자 볶음", category: "diet",
+    cookTime: "15분", servings: "1인분",
+    kcal: 485, carb: 31.5, protein: 34.5, fat: 24.5,
+    ingredients: ["연어 150g(조리 후 가식부 기준)", "감자(찐 것) 150g", "브로콜리·파프리카 등 채소 80g", "식용유 4.5g, 소금·후추 약간"],
+    steps: ["연어를 한입 크기로 손질한다.", "팬에 기름을 두르고 연어를 먼저 볶는다.", "브로콜리·파프리카 등 채소를 넣고 함께 볶는다.", "감자(찐 것)와 함께 그릇에 담아 마무리한다."],
+  },
+  {
+    slug: "grilled-salmon-boiled-potato-grill-diet", title: "연어 구이 & 감자", category: "diet",
+    cookTime: "15분", servings: "1인분",
+    kcal: 468, carb: 31.5, protein: 34.5, fat: 22.7,
+    ingredients: ["연어 150g(조리 후 가식부 기준)", "감자(찐 것) 150g", "브로콜리·파프리카 등 채소 80g", "식용유 2.7g, 소금·후추 약간"],
+    steps: ["연어에 소금, 후추로 밑간한다.", "팬이나 에어프라이어에 구워 익힌다.", "브로콜리·파프리카 등 채소를 함께 굽거나 데친다.", "감자(찐 것)와 함께 접시에 담는다."],
+  },
+  {
+    slug: "grilled-salmon-boiled-potato-salad-diet", title: "연어 감자 샐러드", category: "diet",
+    cookTime: "10분", servings: "1인분",
+    kcal: 490, carb: 31.8, protein: 34.5, fat: 25,
+    ingredients: ["연어 150g(조리 후 가식부 기준)", "감자(찐 것) 150g", "브로콜리·파프리카 등 채소 80g", "올리브오일 드레싱(식용유 5g·레몬즙 5g, 총 10g)"],
+    steps: ["연어를 익히거나 데쳐 식힌다.", "감자(찐 것)를 한입 크기로 준비한다.", "브로콜리·파프리카 등 채소와 함께 그릇에 담는다.", "올리브오일과 레몬즙 등 드레싱을 뿌려 버무린다."],
+  },
+  {
+    slug: "grilled-salmon-white-rice-stirfry-diet", title: "연어 흰쌀밥 볶음", category: "diet",
+    cookTime: "15분", servings: "1인분",
+    kcal: 540, carb: 44.9, protein: 34.7, fat: 24.6,
+    ingredients: ["연어 150g(조리 후 가식부 기준)", "흰쌀밥 120g", "브로콜리·파프리카 등 채소 80g", "식용유 4.5g, 소금·후추 약간"],
+    steps: ["연어를 한입 크기로 손질한다.", "팬에 기름을 두르고 연어를 먼저 볶는다.", "브로콜리·파프리카 등 채소를 넣고 함께 볶는다.", "흰쌀밥과 함께 그릇에 담아 마무리한다."],
+  },
+  {
+    slug: "grilled-salmon-white-rice-grill-diet", title: "연어 구이 & 흰쌀밥", category: "diet",
+    cookTime: "15분", servings: "1인분",
+    kcal: 524, carb: 44.9, protein: 34.7, fat: 22.8,
+    ingredients: ["연어 150g(조리 후 가식부 기준)", "흰쌀밥 120g", "브로콜리·파프리카 등 채소 80g", "식용유 2.7g, 소금·후추 약간"],
+    steps: ["연어에 소금, 후추로 밑간한다.", "팬이나 에어프라이어에 구워 익힌다.", "브로콜리·파프리카 등 채소를 함께 굽거나 데친다.", "흰쌀밥과 함께 접시에 담는다."],
+  },
+  {
+    slug: "grilled-salmon-white-rice-ricebowl-diet", title: "연어 흰쌀밥 덮밥", category: "diet",
+    cookTime: "15분", servings: "1인분",
+    kcal: 509, carb: 47, protein: 34.9, fat: 20.1,
+    ingredients: ["연어 150g(조리 후 가식부 기준)", "흰쌀밥 120g", "브로콜리·파프리카 등 채소 80g", "간장 소스(간장 3g·설탕 2g, 총 5g)"],
+    steps: ["연어를 한입 크기로 손질해 익힌다.", "브로콜리·파프리카 등 채소를 함께 볶는다.", "흰쌀밥 위에 볶은 재료를 올린다.", "간장 소스를 곁들여 마무리한다."],
+  },
+  {
+    slug: "grilled-salmon-chickpeas-stirfry-diet", title: "연어 병아리콩 볶음", category: "diet",
+    cookTime: "15분", servings: "1인분",
+    kcal: 574, carb: 38.4, protein: 42.3, fat: 27.9,
+    ingredients: ["연어 150g(조리 후 가식부 기준)", "병아리콩(삶은 것) 120g", "브로콜리·파프리카 등 채소 80g", "식용유 4.5g, 소금·후추 약간"],
+    steps: ["연어를 한입 크기로 손질한다.", "팬에 기름을 두르고 연어를 먼저 볶는다.", "브로콜리·파프리카 등 채소를 넣고 함께 볶는다.", "병아리콩(삶은 것)와 함께 그릇에 담아 마무리한다."],
+  },
+  {
+    slug: "grilled-salmon-chickpeas-grill-diet", title: "연어 구이 & 병아리콩", category: "diet",
+    cookTime: "15분", servings: "1인분",
+    kcal: 558, carb: 38.4, protein: 42.3, fat: 26.1,
+    ingredients: ["연어 150g(조리 후 가식부 기준)", "병아리콩(삶은 것) 120g", "브로콜리·파프리카 등 채소 80g", "식용유 2.7g, 소금·후추 약간"],
+    steps: ["연어에 소금, 후추로 밑간한다.", "팬이나 에어프라이어에 구워 익힌다.", "브로콜리·파프리카 등 채소를 함께 굽거나 데친다.", "병아리콩(삶은 것)와 함께 접시에 담는다."],
+  },
+  {
+    slug: "grilled-salmon-chickpeas-salad-diet", title: "연어 병아리콩 샐러드", category: "diet",
+    cookTime: "10분", servings: "1인분",
+    kcal: 580, carb: 38.7, protein: 42.3, fat: 28.4,
+    ingredients: ["연어 150g(조리 후 가식부 기준)", "병아리콩(삶은 것) 120g", "브로콜리·파프리카 등 채소 80g", "올리브오일 드레싱(식용유 5g·레몬즙 5g, 총 10g)"],
+    steps: ["연어를 익히거나 데쳐 식힌다.", "병아리콩(삶은 것)를 한입 크기로 준비한다.", "브로콜리·파프리카 등 채소와 함께 그릇에 담는다.", "올리브오일과 레몬즙 등 드레싱을 뿌려 버무린다."],
+  },
+  {
+    slug: "tuna-can-brown-rice-stirfry-diet", title: "참치(물) 현미밥 볶음", category: "diet",
+    cookTime: "15분", servings: "1인분",
+    kcal: 406, carb: 43, protein: 42.8, fat: 7,
+    ingredients: ["참치(물) 150g", "현미밥 120g", "브로콜리·파프리카 등 채소 80g", "식용유 4.5g, 소금·후추 약간"],
+    steps: ["참치(물)의 물기를 꼼꼼히 뺀다.", "팬에 기름을 살짝 두르고 브로콜리·파프리카 등 채소를 먼저 볶는다.", "참치를 넣고 가볍게 으깨듯 섞어가며 볶는다.", "현미밥과 함께 그릇에 담아 마무리한다."],
+  },
+  {
+    slug: "tuna-can-brown-rice-grill-diet", title: "참치(물) 구이 & 현미밥", category: "diet",
+    cookTime: "15분", servings: "1인분",
+    kcal: 390, carb: 43, protein: 42.8, fat: 5.2,
+    ingredients: ["참치(물) 150g", "현미밥 120g", "브로콜리·파프리카 등 채소 80g", "식용유 2.7g, 소금·후추 약간"],
+    steps: ["참치(물)의 물기를 꼼꼼히 뺀 뒤 덩어리째 살짝 뭉쳐둔다.", "달군 팬에 기름을 약간 두르고 참치 표면이 노릇해지도록 2~3분간 구워준다.", "같은 팬에 브로콜리·파프리카 등 채소를 곁들여 굽는다.", "현미밥을 넉넉히 곁들여 마무리한다."],
+  },
+  {
+    slug: "tuna-can-brown-rice-ricebowl-diet", title: "참치(물) 현미밥 덮밥", category: "diet",
+    cookTime: "15분", servings: "1인분",
+    kcal: 375, carb: 45.1, protein: 43, fat: 2.5,
+    ingredients: ["참치(물) 150g", "현미밥 120g", "브로콜리·파프리카 등 채소 80g", "간장 소스(간장 3g·설탕 2g, 총 5g)"],
+    steps: ["참치(물)의 물기를 꼼꼼히 뺀다.", "팬에 브로콜리·파프리카 등 채소를 볶는다.", "참치를 넣고 가볍게 볶은 뒤 현미밥 위에 올린다.", "간장 소스를 곁들여 마무리한다."],
+  },
+  {
+    slug: "tuna-can-sweet-potato-stirfry-diet", title: "참치(물) 고구마 볶음", category: "diet",
+    cookTime: "15분", servings: "1인분",
+    kcal: 377, carb: 37.5, protein: 42.8, fat: 6.2,
+    ingredients: ["참치(물) 150g", "고구마(찐 것) 150g", "브로콜리·파프리카 등 채소 80g", "식용유 4.5g, 소금·후추 약간"],
+    steps: ["참치(물)의 물기를 꼼꼼히 뺀다.", "팬에 기름을 살짝 두르고 브로콜리·파프리카 등 채소를 먼저 볶는다.", "참치를 넣고 가볍게 으깨듯 섞어가며 볶는다.", "고구마와 함께 그릇에 담아 마무리한다."],
+  },
+  {
+    slug: "tuna-can-sweet-potato-grill-diet", title: "참치(물) 구이 & 고구마", category: "diet",
+    cookTime: "15분", servings: "1인분",
+    kcal: 361, carb: 37.5, protein: 42.8, fat: 4.4,
+    ingredients: ["참치(물) 150g", "고구마(찐 것) 150g", "브로콜리·파프리카 등 채소 80g", "식용유 2.7g, 소금·후추 약간"],
+    steps: ["참치(물)의 물기를 꼼꼼히 뺀 뒤 덩어리째 살짝 뭉쳐둔다.", "달군 팬에 기름을 약간 두르고 참치 표면이 노릇해지도록 2~3분간 구워준다.", "같은 팬에 브로콜리·파프리카 등 채소를 곁들여 굽는다.", "고구마를 넉넉히 곁들여 마무리한다."],
+  },
+  {
+    slug: "tuna-can-sweet-potato-salad-diet", title: "참치(물) 고구마 샐러드", category: "diet",
+    cookTime: "10분", servings: "1인분",
+    kcal: 383, carb: 37.8, protein: 42.8, fat: 6.7,
+    ingredients: ["참치(물) 150g", "고구마(찐 것) 150g", "브로콜리·파프리카 등 채소 80g", "올리브오일 드레싱(식용유 5g·레몬즙 5g, 총 10g)"],
+    steps: ["참치(물)의 물기를 꼼꼼히 뺀다.", "고구마를 한입 크기로 준비한다.", "브로콜리·파프리카 등 채소와 함께 그릇에 담는다.", "올리브오일과 레몬즙 등 드레싱을 뿌려 버무린다."],
+  },
+  {
+    slug: "tuna-can-boiled-potato-stirfry-diet", title: "참치(물) 감자 볶음", category: "diet",
+    cookTime: "15분", servings: "1인분",
+    kcal: 353, carb: 31.5, protein: 42.8, fat: 6.2,
+    ingredients: ["참치(물) 150g", "감자(찐 것) 150g", "브로콜리·파프리카 등 채소 80g", "식용유 4.5g, 소금·후추 약간"],
+    steps: ["참치(물)의 물기를 꼼꼼히 뺀다.", "팬에 기름을 살짝 두르고 브로콜리·파프리카 등 채소를 먼저 볶는다.", "참치를 넣고 가볍게 으깨듯 섞어가며 볶는다.", "감자와 함께 그릇에 담아 마무리한다."],
+  },
+  {
+    slug: "tuna-can-boiled-potato-grill-diet", title: "참치(물) 구이 & 감자", category: "diet",
+    cookTime: "15분", servings: "1인분",
+    kcal: 337, carb: 31.5, protein: 42.8, fat: 4.4,
+    ingredients: ["참치(물) 150g", "감자(찐 것) 150g", "브로콜리·파프리카 등 채소 80g", "식용유 2.7g, 소금·후추 약간"],
+    steps: ["참치(물)의 물기를 꼼꼼히 뺀 뒤 덩어리째 살짝 뭉쳐둔다.", "달군 팬에 기름을 약간 두르고 참치 표면이 노릇해지도록 2~3분간 구워준다.", "같은 팬에 브로콜리·파프리카 등 채소를 곁들여 굽는다.", "감자를 넉넉히 곁들여 마무리한다."],
+  },
+  {
+    slug: "tuna-can-boiled-potato-salad-diet", title: "참치(물) 감자 샐러드", category: "diet",
+    cookTime: "10분", servings: "1인분",
+    kcal: 359, carb: 31.8, protein: 42.8, fat: 6.7,
+    ingredients: ["참치(물) 150g", "감자(찐 것) 150g", "브로콜리·파프리카 등 채소 80g", "올리브오일 드레싱(식용유 5g·레몬즙 5g, 총 10g)"],
+    steps: ["참치(물)의 물기를 꼼꼼히 뺀다.", "감자를 한입 크기로 준비한다.", "브로콜리·파프리카 등 채소와 함께 그릇에 담는다.", "올리브오일과 레몬즙 등 드레싱을 뿌려 버무린다."],
+  },
+  {
+    slug: "tuna-can-white-rice-stirfry-diet", title: "참치(물) 흰쌀밥 볶음", category: "diet",
+    cookTime: "15분", servings: "1인분",
+    kcal: 408, carb: 44.9, protein: 43, fat: 6.3,
+    ingredients: ["참치(물) 150g", "흰쌀밥 120g", "브로콜리·파프리카 등 채소 80g", "식용유 4.5g, 소금·후추 약간"],
+    steps: ["참치(물)의 물기를 꼼꼼히 뺀다.", "팬에 기름을 살짝 두르고 브로콜리·파프리카 등 채소를 먼저 볶는다.", "참치를 넣고 가볍게 으깨듯 섞어가며 볶는다.", "흰쌀밥과 함께 그릇에 담아 마무리한다."],
+  },
+  {
+    slug: "tuna-can-white-rice-grill-diet", title: "참치(물) 구이 & 흰쌀밥", category: "diet",
+    cookTime: "15분", servings: "1인분",
+    kcal: 392, carb: 44.9, protein: 43, fat: 4.5,
+    ingredients: ["참치(물) 150g", "흰쌀밥 120g", "브로콜리·파프리카 등 채소 80g", "식용유 2.7g, 소금·후추 약간"],
+    steps: ["참치(물)의 물기를 꼼꼼히 뺀 뒤 덩어리째 살짝 뭉쳐둔다.", "달군 팬에 기름을 약간 두르고 참치 표면이 노릇해지도록 2~3분간 구워준다.", "같은 팬에 브로콜리·파프리카 등 채소를 곁들여 굽는다.", "흰쌀밥을 넉넉히 곁들여 마무리한다."],
+  },
+  {
+    slug: "tuna-can-white-rice-ricebowl-diet", title: "참치(물) 흰쌀밥 덮밥", category: "diet",
+    cookTime: "15분", servings: "1인분",
+    kcal: 377, carb: 47, protein: 43.2, fat: 1.8,
+    ingredients: ["참치(물) 150g", "흰쌀밥 120g", "브로콜리·파프리카 등 채소 80g", "간장 소스(간장 3g·설탕 2g, 총 5g)"],
+    steps: ["참치(물)의 물기를 꼼꼼히 뺀다.", "팬에 브로콜리·파프리카 등 채소를 볶는다.", "참치를 넣고 가볍게 볶은 뒤 흰쌀밥 위에 올린다.", "간장 소스를 곁들여 마무리한다."],
+  },
+  {
+    slug: "tuna-can-chickpeas-stirfry-diet", title: "참치(물) 병아리콩 볶음", category: "diet",
+    cookTime: "15분", servings: "1인분",
+    kcal: 442, carb: 38.4, protein: 50.6, fat: 9.6,
+    ingredients: ["참치(물) 150g", "병아리콩(삶은 것) 120g", "브로콜리·파프리카 등 채소 80g", "식용유 4.5g, 소금·후추 약간"],
+    steps: ["참치(물)의 물기를 꼼꼼히 뺀다.", "팬에 기름을 살짝 두르고 브로콜리·파프리카 등 채소를 먼저 볶는다.", "참치를 넣고 가볍게 으깨듯 섞어가며 볶는다.", "병아리콩과 함께 그릇에 담아 마무리한다."],
+  },
+  {
+    slug: "tuna-can-chickpeas-grill-diet", title: "참치(물) 구이 & 병아리콩", category: "diet",
+    cookTime: "15분", servings: "1인분",
+    kcal: 426, carb: 38.4, protein: 50.6, fat: 7.8,
+    ingredients: ["참치(물) 150g", "병아리콩(삶은 것) 120g", "브로콜리·파프리카 등 채소 80g", "식용유 2.7g, 소금·후추 약간"],
+    steps: ["참치(물)의 물기를 꼼꼼히 뺀 뒤 덩어리째 살짝 뭉쳐둔다.", "달군 팬에 기름을 약간 두르고 참치 표면이 노릇해지도록 2~3분간 구워준다.", "같은 팬에 브로콜리·파프리카 등 채소를 곁들여 굽는다.", "병아리콩을 넉넉히 곁들여 마무리한다."],
+  },
+  {
+    slug: "tuna-can-chickpeas-salad-diet", title: "참치(물) 병아리콩 샐러드", category: "diet",
+    cookTime: "10분", servings: "1인분",
+    kcal: 448, carb: 38.7, protein: 50.6, fat: 10.1,
+    ingredients: ["참치(물) 150g", "병아리콩(삶은 것) 120g", "브로콜리·파프리카 등 채소 80g", "올리브오일 드레싱(식용유 5g·레몬즙 5g, 총 10g)"],
+    steps: ["참치(물)의 물기를 꼼꼼히 뺀다.", "병아리콩을 한입 크기로 준비한다.", "브로콜리·파프리카 등 채소와 함께 그릇에 담는다.", "올리브오일과 레몬즙 등 드레싱을 뿌려 버무린다."],
+  },
+  {
+    slug: "tofu-brown-rice-stirfry-diet", title: "두부 현미밥 볶음", category: "diet",
+    cookTime: "15분", servings: "1인분",
+    kcal: 409, carb: 46.8, protein: 20.7, fat: 15.4,
+    ingredients: ["두부 200g", "현미밥 120g", "브로콜리·파프리카 등 채소 80g", "식용유 4.5g, 소금·후추 약간"],
+    steps: ["두부를 한입 크기로 손질한다.", "팬에 기름을 두르고 두부를 먼저 볶는다.", "브로콜리·파프리카 등 채소를 넣고 함께 볶는다.", "현미밥과 함께 그릇에 담아 마무리한다."],
+  },
+  {
+    slug: "tofu-brown-rice-grill-diet", title: "두부 구이 & 현미밥", category: "diet",
+    cookTime: "15분", servings: "1인분",
+    kcal: 392, carb: 46.8, protein: 20.7, fat: 13.6,
+    ingredients: ["두부 200g", "현미밥 120g", "브로콜리·파프리카 등 채소 80g", "식용유 2.7g, 소금·후추 약간"],
+    steps: ["두부에 소금, 후추로 밑간한다.", "팬이나 에어프라이어에 구워 익힌다.", "브로콜리·파프리카 등 채소를 함께 굽거나 데친다.", "현미밥과 함께 접시에 담는다."],
+  },
+  {
+    slug: "tofu-brown-rice-ricebowl-diet", title: "두부 현미밥 덮밥", category: "diet",
+    cookTime: "15분", servings: "1인분",
+    kcal: 377, carb: 48.9, protein: 20.9, fat: 10.9,
+    ingredients: ["두부 200g", "현미밥 120g", "브로콜리·파프리카 등 채소 80g", "간장 소스(간장 3g·설탕 2g, 총 5g)"],
+    steps: ["두부를 한입 크기로 손질해 익힌다.", "브로콜리·파프리카 등 채소를 함께 볶는다.", "현미밥 위에 볶은 재료를 올린다.", "간장 소스를 곁들여 마무리한다."],
+  },
+  {
+    slug: "tofu-brown-rice-steamed-diet", title: "두부 현미밥 찜", category: "diet",
+    cookTime: "20분", servings: "1인분",
+    kcal: 377, carb: 46.8, protein: 20.7, fat: 11.9,
+    ingredients: ["두부 200g", "현미밥 120g", "브로콜리·파프리카 등 채소 80g", "식용유 1g, 소금 약간"],
+    steps: ["두부와 브로콜리·파프리카 등 채소를 손질한다.", "찜기나 전자레인지에 넣고 익힌다.", "현미밥을 곁들여 준비한다.", "소금, 후추로 간을 맞춰 마무리한다."],
+  },
+  {
+    slug: "tofu-sweet-potato-stirfry-diet", title: "두부 고구마 볶음", category: "diet",
+    cookTime: "15분", servings: "1인분",
+    kcal: 379, carb: 41.3, protein: 20.7, fat: 14.6,
+    ingredients: ["두부 200g", "고구마(찐 것) 150g", "브로콜리·파프리카 등 채소 80g", "식용유 4.5g, 소금·후추 약간"],
+    steps: ["두부를 한입 크기로 손질한다.", "팬에 기름을 두르고 두부를 먼저 볶는다.", "브로콜리·파프리카 등 채소를 넣고 함께 볶는다.", "고구마(찐 것)와 함께 그릇에 담아 마무리한다."],
+  },
+  {
+    slug: "tofu-sweet-potato-grill-diet", title: "두부 구이 & 고구마", category: "diet",
+    cookTime: "15분", servings: "1인분",
+    kcal: 363, carb: 41.3, protein: 20.7, fat: 12.8,
+    ingredients: ["두부 200g", "고구마(찐 것) 150g", "브로콜리·파프리카 등 채소 80g", "식용유 2.7g, 소금·후추 약간"],
+    steps: ["두부에 소금, 후추로 밑간한다.", "팬이나 에어프라이어에 구워 익힌다.", "브로콜리·파프리카 등 채소를 함께 굽거나 데친다.", "고구마(찐 것)와 함께 접시에 담는다."],
+  },
+  {
+    slug: "tofu-sweet-potato-salad-diet", title: "두부 고구마 샐러드", category: "diet",
+    cookTime: "10분", servings: "1인분",
+    kcal: 385, carb: 41.6, protein: 20.7, fat: 15.1,
+    ingredients: ["두부 200g", "고구마(찐 것) 150g", "브로콜리·파프리카 등 채소 80g", "올리브오일 드레싱(식용유 5g·레몬즙 5g, 총 10g)"],
+    steps: ["두부를 익히거나 데쳐 식힌다.", "고구마(찐 것)를 한입 크기로 준비한다.", "브로콜리·파프리카 등 채소와 함께 그릇에 담는다.", "올리브오일과 레몬즙 등 드레싱을 뿌려 버무린다."],
+  },
+  {
+    slug: "tofu-sweet-potato-steamed-diet", title: "두부 고구마 찜", category: "diet",
+    cookTime: "20분", servings: "1인분",
+    kcal: 348, carb: 41.3, protein: 20.7, fat: 11.1,
+    ingredients: ["두부 200g", "고구마(찐 것) 150g", "브로콜리·파프리카 등 채소 80g", "식용유 1g, 소금 약간"],
+    steps: ["두부와 브로콜리·파프리카 등 채소를 손질한다.", "찜기나 전자레인지에 넣고 익힌다.", "고구마(찐 것)를 곁들여 준비한다.", "소금, 후추로 간을 맞춰 마무리한다."],
+  },
+  {
+    slug: "tofu-boiled-potato-stirfry-diet", title: "두부 감자 볶음", category: "diet",
+    cookTime: "15분", servings: "1인분",
+    kcal: 355, carb: 35.3, protein: 20.7, fat: 14.6,
+    ingredients: ["두부 200g", "감자(찐 것) 150g", "브로콜리·파프리카 등 채소 80g", "식용유 4.5g, 소금·후추 약간"],
+    steps: ["두부를 한입 크기로 손질한다.", "팬에 기름을 두르고 두부를 먼저 볶는다.", "브로콜리·파프리카 등 채소를 넣고 함께 볶는다.", "감자(찐 것)와 함께 그릇에 담아 마무리한다."],
+  },
+  {
+    slug: "tofu-boiled-potato-grill-diet", title: "두부 구이 & 감자", category: "diet",
+    cookTime: "15분", servings: "1인분",
+    kcal: 339, carb: 35.3, protein: 20.7, fat: 12.8,
+    ingredients: ["두부 200g", "감자(찐 것) 150g", "브로콜리·파프리카 등 채소 80g", "식용유 2.7g, 소금·후추 약간"],
+    steps: ["두부에 소금, 후추로 밑간한다.", "팬이나 에어프라이어에 구워 익힌다.", "브로콜리·파프리카 등 채소를 함께 굽거나 데친다.", "감자(찐 것)와 함께 접시에 담는다."],
+  },
+  {
+    slug: "tofu-boiled-potato-salad-diet", title: "두부 감자 샐러드", category: "diet",
+    cookTime: "10분", servings: "1인분",
+    kcal: 361, carb: 35.6, protein: 20.7, fat: 15.1,
+    ingredients: ["두부 200g", "감자(찐 것) 150g", "브로콜리·파프리카 등 채소 80g", "올리브오일 드레싱(식용유 5g·레몬즙 5g, 총 10g)"],
+    steps: ["두부를 익히거나 데쳐 식힌다.", "감자(찐 것)를 한입 크기로 준비한다.", "브로콜리·파프리카 등 채소와 함께 그릇에 담는다.", "올리브오일과 레몬즙 등 드레싱을 뿌려 버무린다."],
+  },
+  {
+    slug: "tofu-boiled-potato-steamed-diet", title: "두부 감자 찜", category: "diet",
+    cookTime: "20분", servings: "1인분",
+    kcal: 324, carb: 35.3, protein: 20.7, fat: 11.1,
+    ingredients: ["두부 200g", "감자(찐 것) 150g", "브로콜리·파프리카 등 채소 80g", "식용유 1g, 소금 약간"],
+    steps: ["두부와 브로콜리·파프리카 등 채소를 손질한다.", "찜기나 전자레인지에 넣고 익힌다.", "감자(찐 것)를 곁들여 준비한다.", "소금, 후추로 간을 맞춰 마무리한다."],
+  },
+  {
+    slug: "tofu-white-rice-stirfry-diet", title: "두부 흰쌀밥 볶음", category: "diet",
+    cookTime: "15분", servings: "1인분",
+    kcal: 411, carb: 48.7, protein: 20.9, fat: 14.7,
+    ingredients: ["두부 200g", "흰쌀밥 120g", "브로콜리·파프리카 등 채소 80g", "식용유 4.5g, 소금·후추 약간"],
+    steps: ["두부를 한입 크기로 손질한다.", "팬에 기름을 두르고 두부를 먼저 볶는다.", "브로콜리·파프리카 등 채소를 넣고 함께 볶는다.", "흰쌀밥과 함께 그릇에 담아 마무리한다."],
+  },
+  {
+    slug: "tofu-white-rice-grill-diet", title: "두부 구이 & 흰쌀밥", category: "diet",
+    cookTime: "15분", servings: "1인분",
+    kcal: 395, carb: 48.7, protein: 20.9, fat: 12.9,
+    ingredients: ["두부 200g", "흰쌀밥 120g", "브로콜리·파프리카 등 채소 80g", "식용유 2.7g, 소금·후추 약간"],
+    steps: ["두부에 소금, 후추로 밑간한다.", "팬이나 에어프라이어에 구워 익힌다.", "브로콜리·파프리카 등 채소를 함께 굽거나 데친다.", "흰쌀밥과 함께 접시에 담는다."],
+  },
+  {
+    slug: "tofu-white-rice-ricebowl-diet", title: "두부 흰쌀밥 덮밥", category: "diet",
+    cookTime: "15분", servings: "1인분",
+    kcal: 379, carb: 50.8, protein: 21.1, fat: 10.2,
+    ingredients: ["두부 200g", "흰쌀밥 120g", "브로콜리·파프리카 등 채소 80g", "간장 소스(간장 3g·설탕 2g, 총 5g)"],
+    steps: ["두부를 한입 크기로 손질해 익힌다.", "브로콜리·파프리카 등 채소를 함께 볶는다.", "흰쌀밥 위에 볶은 재료를 올린다.", "간장 소스를 곁들여 마무리한다."],
+  },
+  {
+    slug: "tofu-white-rice-steamed-diet", title: "두부 흰쌀밥 찜", category: "diet",
+    cookTime: "20분", servings: "1인분",
+    kcal: 379, carb: 48.7, protein: 20.9, fat: 11.2,
+    ingredients: ["두부 200g", "흰쌀밥 120g", "브로콜리·파프리카 등 채소 80g", "식용유 1g, 소금 약간"],
+    steps: ["두부와 브로콜리·파프리카 등 채소를 손질한다.", "찜기나 전자레인지에 넣고 익힌다.", "흰쌀밥을 곁들여 준비한다.", "소금, 후추로 간을 맞춰 마무리한다."],
+  },
+  {
+    slug: "tofu-chickpeas-stirfry-diet", title: "두부 병아리콩 볶음", category: "diet",
+    cookTime: "15분", servings: "1인분",
+    kcal: 445, carb: 42.2, protein: 28.5, fat: 18,
+    ingredients: ["두부 200g", "병아리콩(삶은 것) 120g", "브로콜리·파프리카 등 채소 80g", "식용유 4.5g, 소금·후추 약간"],
+    steps: ["두부를 한입 크기로 손질한다.", "팬에 기름을 두르고 두부를 먼저 볶는다.", "브로콜리·파프리카 등 채소를 넣고 함께 볶는다.", "병아리콩(삶은 것)와 함께 그릇에 담아 마무리한다."],
+  },
+  {
+    slug: "tofu-chickpeas-grill-diet", title: "두부 구이 & 병아리콩", category: "diet",
+    cookTime: "15분", servings: "1인분",
+    kcal: 429, carb: 42.2, protein: 28.5, fat: 16.2,
+    ingredients: ["두부 200g", "병아리콩(삶은 것) 120g", "브로콜리·파프리카 등 채소 80g", "식용유 2.7g, 소금·후추 약간"],
+    steps: ["두부에 소금, 후추로 밑간한다.", "팬이나 에어프라이어에 구워 익힌다.", "브로콜리·파프리카 등 채소를 함께 굽거나 데친다.", "병아리콩(삶은 것)와 함께 접시에 담는다."],
+  },
+  {
+    slug: "tofu-chickpeas-salad-diet", title: "두부 병아리콩 샐러드", category: "diet",
+    cookTime: "10분", servings: "1인분",
+    kcal: 451, carb: 42.5, protein: 28.5, fat: 18.5,
+    ingredients: ["두부 200g", "병아리콩(삶은 것) 120g", "브로콜리·파프리카 등 채소 80g", "올리브오일 드레싱(식용유 5g·레몬즙 5g, 총 10g)"],
+    steps: ["두부를 익히거나 데쳐 식힌다.", "병아리콩(삶은 것)를 한입 크기로 준비한다.", "브로콜리·파프리카 등 채소와 함께 그릇에 담는다.", "올리브오일과 레몬즙 등 드레싱을 뿌려 버무린다."],
+  },
+  {
+    slug: "tofu-chickpeas-steamed-diet", title: "두부 병아리콩 찜", category: "diet",
+    cookTime: "20분", servings: "1인분",
+    kcal: 413, carb: 42.2, protein: 28.5, fat: 14.5,
+    ingredients: ["두부 200g", "병아리콩(삶은 것) 120g", "브로콜리·파프리카 등 채소 80g", "식용유 1g, 소금 약간"],
+    steps: ["두부와 브로콜리·파프리카 등 채소를 손질한다.", "찜기나 전자레인지에 넣고 익힌다.", "병아리콩(삶은 것)를 곁들여 준비한다.", "소금, 후추로 간을 맞춰 마무리한다."],
+  },
+  {
+    slug: "steamed-shrimp-brown-rice-stirfry-diet", title: "새우 현미밥 볶음", category: "diet",
+    cookTime: "15분", servings: "1인분",
+    kcal: 392, carb: 43.3, protein: 40.5, fat: 6.3,
+    ingredients: ["새우 150g", "현미밥 120g", "브로콜리·파프리카 등 채소 80g", "식용유 4.5g, 소금·후추 약간"],
+    steps: ["새우를 한입 크기로 손질한다.", "팬에 기름을 두르고 새우를 먼저 볶는다.", "브로콜리·파프리카 등 채소를 넣고 함께 볶는다.", "현미밥과 함께 그릇에 담아 마무리한다."],
+  },
+  {
+    slug: "steamed-shrimp-brown-rice-grill-diet", title: "새우 구이 & 현미밥", category: "diet",
+    cookTime: "15분", servings: "1인분",
+    kcal: 376, carb: 43.3, protein: 40.5, fat: 4.5,
+    ingredients: ["새우 150g", "현미밥 120g", "브로콜리·파프리카 등 채소 80g", "식용유 2.7g, 소금·후추 약간"],
+    steps: ["새우에 소금, 후추로 밑간한다.", "팬이나 에어프라이어에 구워 익힌다.", "브로콜리·파프리카 등 채소를 함께 굽거나 데친다.", "현미밥과 함께 접시에 담는다."],
+  },
+  {
+    slug: "steamed-shrimp-brown-rice-ricebowl-diet", title: "새우 현미밥 덮밥", category: "diet",
+    cookTime: "15분", servings: "1인분",
+    kcal: 361, carb: 45.4, protein: 40.7, fat: 1.8,
+    ingredients: ["새우 150g", "현미밥 120g", "브로콜리·파프리카 등 채소 80g", "간장 소스(간장 3g·설탕 2g, 총 5g)"],
+    steps: ["새우를 한입 크기로 손질해 익힌다.", "브로콜리·파프리카 등 채소를 함께 볶는다.", "현미밥 위에 볶은 재료를 올린다.", "간장 소스를 곁들여 마무리한다."],
+  },
+  {
+    slug: "steamed-shrimp-brown-rice-steamed-diet", title: "새우 현미밥 찜", category: "diet",
+    cookTime: "20분", servings: "1인분",
+    kcal: 360, carb: 43.3, protein: 40.5, fat: 2.8,
+    ingredients: ["새우 150g", "현미밥 120g", "브로콜리·파프리카 등 채소 80g", "식용유 1g, 소금 약간"],
+    steps: ["새우와 브로콜리·파프리카 등 채소를 손질한다.", "찜기나 전자레인지에 넣고 익힌다.", "현미밥을 곁들여 준비한다.", "소금, 후추로 간을 맞춰 마무리한다."],
+  },
+  {
+    slug: "steamed-shrimp-sweet-potato-stirfry-diet", title: "새우 고구마 볶음", category: "diet",
+    cookTime: "15분", servings: "1인분",
+    kcal: 363, carb: 37.8, protein: 40.5, fat: 5.5,
+    ingredients: ["새우 150g", "고구마(찐 것) 150g", "브로콜리·파프리카 등 채소 80g", "식용유 4.5g, 소금·후추 약간"],
+    steps: ["새우를 한입 크기로 손질한다.", "팬에 기름을 두르고 새우를 먼저 볶는다.", "브로콜리·파프리카 등 채소를 넣고 함께 볶는다.", "고구마(찐 것)와 함께 그릇에 담아 마무리한다."],
+  },
+  {
+    slug: "steamed-shrimp-sweet-potato-grill-diet", title: "새우 구이 & 고구마", category: "diet",
+    cookTime: "15분", servings: "1인분",
+    kcal: 347, carb: 37.8, protein: 40.5, fat: 3.7,
+    ingredients: ["새우 150g", "고구마(찐 것) 150g", "브로콜리·파프리카 등 채소 80g", "식용유 2.7g, 소금·후추 약간"],
+    steps: ["새우에 소금, 후추로 밑간한다.", "팬이나 에어프라이어에 구워 익힌다.", "브로콜리·파프리카 등 채소를 함께 굽거나 데친다.", "고구마(찐 것)와 함께 접시에 담는다."],
+  },
+  {
+    slug: "steamed-shrimp-sweet-potato-salad-diet", title: "새우 고구마 샐러드", category: "diet",
+    cookTime: "10분", servings: "1인분",
+    kcal: 368, carb: 38.1, protein: 40.5, fat: 6,
+    ingredients: ["새우 150g", "고구마(찐 것) 150g", "브로콜리·파프리카 등 채소 80g", "올리브오일 드레싱(식용유 5g·레몬즙 5g, 총 10g)"],
+    steps: ["새우를 익히거나 데쳐 식힌다.", "고구마(찐 것)를 한입 크기로 준비한다.", "브로콜리·파프리카 등 채소와 함께 그릇에 담는다.", "올리브오일과 레몬즙 등 드레싱을 뿌려 버무린다."],
+  },
+  {
+    slug: "steamed-shrimp-sweet-potato-steamed-diet", title: "새우 고구마 찜", category: "diet",
+    cookTime: "20분", servings: "1인분",
+    kcal: 331, carb: 37.8, protein: 40.5, fat: 2,
+    ingredients: ["새우 150g", "고구마(찐 것) 150g", "브로콜리·파프리카 등 채소 80g", "식용유 1g, 소금 약간"],
+    steps: ["새우와 브로콜리·파프리카 등 채소를 손질한다.", "찜기나 전자레인지에 넣고 익힌다.", "고구마(찐 것)를 곁들여 준비한다.", "소금, 후추로 간을 맞춰 마무리한다."],
+  },
+  {
+    slug: "steamed-shrimp-boiled-potato-stirfry-diet", title: "새우 감자 볶음", category: "diet",
+    cookTime: "15분", servings: "1인분",
+    kcal: 339, carb: 31.8, protein: 40.5, fat: 5.5,
+    ingredients: ["새우 150g", "감자(찐 것) 150g", "브로콜리·파프리카 등 채소 80g", "식용유 4.5g, 소금·후추 약간"],
+    steps: ["새우를 한입 크기로 손질한다.", "팬에 기름을 두르고 새우를 먼저 볶는다.", "브로콜리·파프리카 등 채소를 넣고 함께 볶는다.", "감자(찐 것)와 함께 그릇에 담아 마무리한다."],
+  },
+  {
+    slug: "steamed-shrimp-boiled-potato-grill-diet", title: "새우 구이 & 감자", category: "diet",
+    cookTime: "15분", servings: "1인분",
+    kcal: 323, carb: 31.8, protein: 40.5, fat: 3.7,
+    ingredients: ["새우 150g", "감자(찐 것) 150g", "브로콜리·파프리카 등 채소 80g", "식용유 2.7g, 소금·후추 약간"],
+    steps: ["새우에 소금, 후추로 밑간한다.", "팬이나 에어프라이어에 구워 익힌다.", "브로콜리·파프리카 등 채소를 함께 굽거나 데친다.", "감자(찐 것)와 함께 접시에 담는다."],
+  },
+  {
+    slug: "steamed-shrimp-boiled-potato-salad-diet", title: "새우 감자 샐러드", category: "diet",
+    cookTime: "10분", servings: "1인분",
+    kcal: 344, carb: 32.1, protein: 40.5, fat: 6,
+    ingredients: ["새우 150g", "감자(찐 것) 150g", "브로콜리·파프리카 등 채소 80g", "올리브오일 드레싱(식용유 5g·레몬즙 5g, 총 10g)"],
+    steps: ["새우를 익히거나 데쳐 식힌다.", "감자(찐 것)를 한입 크기로 준비한다.", "브로콜리·파프리카 등 채소와 함께 그릇에 담는다.", "올리브오일과 레몬즙 등 드레싱을 뿌려 버무린다."],
+  },
+  {
+    slug: "steamed-shrimp-boiled-potato-steamed-diet", title: "새우 감자 찜", category: "diet",
+    cookTime: "20분", servings: "1인분",
+    kcal: 307, carb: 31.8, protein: 40.5, fat: 2,
+    ingredients: ["새우 150g", "감자(찐 것) 150g", "브로콜리·파프리카 등 채소 80g", "식용유 1g, 소금 약간"],
+    steps: ["새우와 브로콜리·파프리카 등 채소를 손질한다.", "찜기나 전자레인지에 넣고 익힌다.", "감자(찐 것)를 곁들여 준비한다.", "소금, 후추로 간을 맞춰 마무리한다."],
+  },
+  {
+    slug: "steamed-shrimp-white-rice-stirfry-diet", title: "새우 흰쌀밥 볶음", category: "diet",
+    cookTime: "15분", servings: "1인분",
+    kcal: 394, carb: 45.2, protein: 40.7, fat: 5.6,
+    ingredients: ["새우 150g", "흰쌀밥 120g", "브로콜리·파프리카 등 채소 80g", "식용유 4.5g, 소금·후추 약간"],
+    steps: ["새우를 한입 크기로 손질한다.", "팬에 기름을 두르고 새우를 먼저 볶는다.", "브로콜리·파프리카 등 채소를 넣고 함께 볶는다.", "흰쌀밥과 함께 그릇에 담아 마무리한다."],
+  },
+  {
+    slug: "steamed-shrimp-white-rice-grill-diet", title: "새우 구이 & 흰쌀밥", category: "diet",
+    cookTime: "15분", servings: "1인분",
+    kcal: 378, carb: 45.2, protein: 40.7, fat: 3.8,
+    ingredients: ["새우 150g", "흰쌀밥 120g", "브로콜리·파프리카 등 채소 80g", "식용유 2.7g, 소금·후추 약간"],
+    steps: ["새우에 소금, 후추로 밑간한다.", "팬이나 에어프라이어에 구워 익힌다.", "브로콜리·파프리카 등 채소를 함께 굽거나 데친다.", "흰쌀밥과 함께 접시에 담는다."],
+  },
+  {
+    slug: "steamed-shrimp-white-rice-ricebowl-diet", title: "새우 흰쌀밥 덮밥", category: "diet",
+    cookTime: "15분", servings: "1인분",
+    kcal: 363, carb: 47.3, protein: 40.9, fat: 1.1,
+    ingredients: ["새우 150g", "흰쌀밥 120g", "브로콜리·파프리카 등 채소 80g", "간장 소스(간장 3g·설탕 2g, 총 5g)"],
+    steps: ["새우를 한입 크기로 손질해 익힌다.", "브로콜리·파프리카 등 채소를 함께 볶는다.", "흰쌀밥 위에 볶은 재료를 올린다.", "간장 소스를 곁들여 마무리한다."],
+  },
+  {
+    slug: "steamed-shrimp-white-rice-steamed-diet", title: "새우 흰쌀밥 찜", category: "diet",
+    cookTime: "20분", servings: "1인분",
+    kcal: 363, carb: 45.2, protein: 40.7, fat: 2.1,
+    ingredients: ["새우 150g", "흰쌀밥 120g", "브로콜리·파프리카 등 채소 80g", "식용유 1g, 소금 약간"],
+    steps: ["새우와 브로콜리·파프리카 등 채소를 손질한다.", "찜기나 전자레인지에 넣고 익힌다.", "흰쌀밥을 곁들여 준비한다.", "소금, 후추로 간을 맞춰 마무리한다."],
+  },
+  {
+    slug: "steamed-shrimp-chickpeas-stirfry-diet", title: "새우 병아리콩 볶음", category: "diet",
+    cookTime: "15분", servings: "1인분",
+    kcal: 428, carb: 38.7, protein: 48.3, fat: 8.9,
+    ingredients: ["새우 150g", "병아리콩(삶은 것) 120g", "브로콜리·파프리카 등 채소 80g", "식용유 4.5g, 소금·후추 약간"],
+    steps: ["새우를 한입 크기로 손질한다.", "팬에 기름을 두르고 새우를 먼저 볶는다.", "브로콜리·파프리카 등 채소를 넣고 함께 볶는다.", "병아리콩(삶은 것)와 함께 그릇에 담아 마무리한다."],
+  },
+  {
+    slug: "steamed-shrimp-chickpeas-grill-diet", title: "새우 구이 & 병아리콩", category: "diet",
+    cookTime: "15분", servings: "1인분",
+    kcal: 412, carb: 38.7, protein: 48.3, fat: 7.1,
+    ingredients: ["새우 150g", "병아리콩(삶은 것) 120g", "브로콜리·파프리카 등 채소 80g", "식용유 2.7g, 소금·후추 약간"],
+    steps: ["새우에 소금, 후추로 밑간한다.", "팬이나 에어프라이어에 구워 익힌다.", "브로콜리·파프리카 등 채소를 함께 굽거나 데친다.", "병아리콩(삶은 것)와 함께 접시에 담는다."],
+  },
+  {
+    slug: "steamed-shrimp-chickpeas-salad-diet", title: "새우 병아리콩 샐러드", category: "diet",
+    cookTime: "10분", servings: "1인분",
+    kcal: 434, carb: 39, protein: 48.3, fat: 9.4,
+    ingredients: ["새우 150g", "병아리콩(삶은 것) 120g", "브로콜리·파프리카 등 채소 80g", "올리브오일 드레싱(식용유 5g·레몬즙 5g, 총 10g)"],
+    steps: ["새우를 익히거나 데쳐 식힌다.", "병아리콩(삶은 것)를 한입 크기로 준비한다.", "브로콜리·파프리카 등 채소와 함께 그릇에 담는다.", "올리브오일과 레몬즙 등 드레싱을 뿌려 버무린다."],
+  },
+  {
+    slug: "steamed-shrimp-chickpeas-steamed-diet", title: "새우 병아리콩 찜", category: "diet",
+    cookTime: "20분", servings: "1인분",
+    kcal: 397, carb: 38.7, protein: 48.3, fat: 5.4,
+    ingredients: ["새우 150g", "병아리콩(삶은 것) 120g", "브로콜리·파프리카 등 채소 80g", "식용유 1g, 소금 약간"],
+    steps: ["새우와 브로콜리·파프리카 등 채소를 손질한다.", "찜기나 전자레인지에 넣고 익힌다.", "병아리콩(삶은 것)를 곁들여 준비한다.", "소금, 후추로 간을 맞춰 마무리한다."],
+  },
+  {
+    slug: "boiled-egg-brown-rice-stirfry-diet", title: "계란 3개 현미밥 볶음", category: "diet",
+    cookTime: "15분", servings: "1인분",
+    kcal: 468, carb: 44.8, protein: 23.4, fat: 21.7,
+    ingredients: ["계란 3개 150g", "현미밥 120g", "브로콜리·파프리카 등 채소 80g", "식용유 4.5g, 소금·후추 약간"],
+    steps: ["계란 3개를 볼에 깨어 넣고 소금 약간을 넣어 잘 풀어준다.", "팬에 기름을 두르고 브로콜리·파프리카 등 채소를 먼저 볶는다.", "풀어둔 계란물을 부어 스크램블 하듯 함께 볶는다.", "현미밥과 함께 그릇에 담아 마무리한다."],
+  },
+  {
+    slug: "boiled-egg-brown-rice-grill-diet", title: "계란 3개 구이 & 현미밥", category: "diet",
+    cookTime: "15분", servings: "1인분",
+    kcal: 452, carb: 44.8, protein: 23.4, fat: 19.9,
+    ingredients: ["계란 3개 150g", "현미밥 120g", "브로콜리·파프리카 등 채소 80g", "식용유 2.7g, 소금·후추 약간"],
+    steps: ["계란 3개를 하나씩 깨어 팬에 올려 프라이한다(노른자 익힘 정도는 취향껏 조절한다).", "같은 팬에 브로콜리·파프리카 등 채소를 곁들여 굽거나 볶는다.", "현미밥을 넉넉히 곁들인다.", "소금, 후추로 간을 맞춰 마무리한다."],
+  },
+  {
+    slug: "boiled-egg-brown-rice-ricebowl-diet", title: "계란 3개 현미밥 덮밥", category: "diet",
+    cookTime: "15분", servings: "1인분",
+    kcal: 437, carb: 46.9, protein: 23.6, fat: 17.2,
+    ingredients: ["계란 3개 150g", "현미밥 120g", "브로콜리·파프리카 등 채소 80g", "간장 소스(간장 3g·설탕 2g, 총 5g)"],
+    steps: ["계란 3개를 볼에 깨어 넣고 소금 약간과 함께 풀어준다.", "팬에 브로콜리·파프리카 등 채소를 먼저 볶는다.", "풀어둔 계란물을 부어 반숙 스크램블로 익힌 뒤 현미밥 위에 올린다.", "간장 소스를 곁들여 마무리한다."],
+  },
+  {
+    slug: "boiled-egg-brown-rice-steamed-diet", title: "계란 3개 현미밥 찜", category: "diet",
+    cookTime: "20분", servings: "1인분",
+    kcal: 437, carb: 44.8, protein: 23.4, fat: 18.2,
+    ingredients: ["계란 3개 150g", "현미밥 120g", "브로콜리·파프리카 등 채소 80g", "식용유 1g, 소금 약간"],
+    steps: ["계란 3개를 볼에 깨어 넣고 물(계란 부피의 1~1.5배)과 소금 약간을 넣어 잘 풀어준다.", "체에 한 번 걸러주면 더 부드러운 식감이 된다(선택 과정).", "내열 용기에 담아 찜기에서 12~15분, 또는 전자레인지에서 랩을 씌워 2~3분씩 끊어가며 익힌다.", "현미밥과 브로콜리·파프리카 등 채소를 곁들여 마무리한다."],
+  },
+  {
+    slug: "boiled-egg-sweet-potato-stirfry-diet", title: "계란 3개 고구마 볶음", category: "diet",
+    cookTime: "15분", servings: "1인분",
+    kcal: 439, carb: 39.3, protein: 23.4, fat: 20.9,
+    ingredients: ["계란 3개 150g", "고구마(찐 것) 150g", "브로콜리·파프리카 등 채소 80g", "식용유 4.5g, 소금·후추 약간"],
+    steps: ["계란 3개를 볼에 깨어 넣고 소금 약간을 넣어 잘 풀어준다.", "팬에 기름을 두르고 브로콜리·파프리카 등 채소를 먼저 볶는다.", "풀어둔 계란물을 부어 스크램블 하듯 함께 볶는다.", "고구마와 함께 그릇에 담아 마무리한다."],
+  },
+  {
+    slug: "boiled-egg-sweet-potato-grill-diet", title: "계란 3개 구이 & 고구마", category: "diet",
+    cookTime: "15분", servings: "1인분",
+    kcal: 423, carb: 39.3, protein: 23.4, fat: 19.1,
+    ingredients: ["계란 3개 150g", "고구마(찐 것) 150g", "브로콜리·파프리카 등 채소 80g", "식용유 2.7g, 소금·후추 약간"],
+    steps: ["계란 3개를 하나씩 깨어 팬에 올려 프라이한다(노른자 익힘 정도는 취향껏 조절한다).", "같은 팬에 브로콜리·파프리카 등 채소를 곁들여 굽거나 볶는다.", "고구마를 넉넉히 곁들인다.", "소금, 후추로 간을 맞춰 마무리한다."],
+  },
+  {
+    slug: "chicken-thigh-white-rice-friedrice-bulk", title: "닭다리살 흰쌀밥 볶음밥", category: "bulk",
+    cookTime: "18분", servings: "1인분",
+    kcal: 827, carb: 105.2, protein: 46.2, fat: 24.6,
+    ingredients: ["닭다리살 150g(조리 후 가식부 기준)", "흰쌀밥 300g", "양파·당근 등 채소 100g", "식용유 7g·간장 3g(총 10g), 소금 약간"],
+    steps: ["닭다리살을 한입 크기로 썰어 볶는다.", "양파·당근 등 채소를 넣고 함께 볶는다.", "흰쌀밥을 넣고 골고루 볶는다.", "계란이나 간장으로 마무리 간을 한다."],
+  },
+  {
+    slug: "chicken-thigh-white-rice-ricebowl-bulk", title: "닭다리살 흰쌀밥 덮밥 (벌크업)", category: "bulk",
+    cookTime: "20분", servings: "1인분",
+    kcal: 790, carb: 107.2, protein: 46.2, fat: 19.6,
+    ingredients: ["닭다리살 150g(조리 후 가식부 기준)", "흰쌀밥 300g", "양파·당근 등 채소 100g", "간장 소스(간장 3g·설탕 2g·참기름 2g, 총 7g)"],
+    steps: ["닭다리살을 양념과 함께 볶는다.", "양파·당근 등 채소를 넣고 함께 익힌다.", "흰쌀밥 위에 듬뿍 올린다.", "소스를 곁들여 마무리한다."],
+  },
+  {
+    slug: "chicken-thigh-white-rice-stirfry-bulk", title: "닭다리살 흰쌀밥 볶음 (벌크업)", category: "bulk",
+    cookTime: "18분", servings: "1인분",
+    kcal: 817, carb: 105.1, protein: 46, fat: 23.6,
+    ingredients: ["닭다리살 150g(조리 후 가식부 기준)", "흰쌀밥 300g", "양파·당근 등 채소 100g", "식용유 6g, 소금·후추 약간"],
+    steps: ["닭다리살을 손질해 볶는다.", "양파·당근 등 채소를 넣고 함께 볶는다.", "흰쌀밥을 넉넉히 곁들인다.", "소금, 후추 또는 간장으로 간을 맞춘다."],
+  },
+  {
+    slug: "chicken-thigh-white-rice-grill-bulk", title: "닭다리살 구이 & 흰쌀밥 정식 (벌크업)", category: "bulk",
+    cookTime: "20분", servings: "1인분",
+    kcal: 799, carb: 105.1, protein: 46, fat: 21.6,
+    ingredients: ["닭다리살 150g(조리 후 가식부 기준)", "흰쌀밥 300g", "양파·당근 등 채소 100g", "식용유 4g, 소금·후추 약간"],
+    steps: ["닭다리살을 두툼하게 손질해 굽는다.", "양파·당근 등 채소를 함께 굽거나 볶는다.", "흰쌀밥을 넉넉히 곁들인다.", "소스나 소금으로 간을 맞춰 마무리한다."],
+  },
+  {
+    slug: "chicken-thigh-brown-rice-friedrice-bulk", title: "닭다리살 현미밥 볶음밥", category: "bulk",
+    cookTime: "18분", servings: "1인분",
+    kcal: 839, carb: 101, protein: 46.8, fat: 27.5,
+    ingredients: ["닭다리살 150g(조리 후 가식부 기준)", "현미밥 300g", "양파·당근 등 채소 100g", "식용유 7g·간장 3g(총 10g), 소금 약간"],
+    steps: ["닭다리살을 한입 크기로 썰어 볶는다.", "양파·당근 등 채소를 넣고 함께 볶는다.", "현미밥을 넣고 골고루 볶는다.", "계란이나 간장으로 마무리 간을 한다."],
+  },
+  {
+    slug: "chicken-thigh-brown-rice-ricebowl-bulk", title: "닭다리살 현미밥 덮밥 (벌크업)", category: "bulk",
+    cookTime: "20분", servings: "1인분",
+    kcal: 802, carb: 103, protein: 46.8, fat: 22.5,
+    ingredients: ["닭다리살 150g(조리 후 가식부 기준)", "현미밥 300g", "양파·당근 등 채소 100g", "간장 소스(간장 3g·설탕 2g·참기름 2g, 총 7g)"],
+    steps: ["닭다리살을 양념과 함께 볶는다.", "양파·당근 등 채소를 넣고 함께 익힌다.", "현미밥 위에 듬뿍 올린다.", "소스를 곁들여 마무리한다."],
+  },
+  {
+    slug: "chicken-thigh-brown-rice-stirfry-bulk", title: "닭다리살 현미밥 볶음 (벌크업)", category: "bulk",
+    cookTime: "18분", servings: "1인분",
+    kcal: 829, carb: 100.9, protein: 46.6, fat: 26.5,
+    ingredients: ["닭다리살 150g(조리 후 가식부 기준)", "현미밥 300g", "양파·당근 등 채소 100g", "식용유 6g, 소금·후추 약간"],
+    steps: ["닭다리살을 손질해 볶는다.", "양파·당근 등 채소를 넣고 함께 볶는다.", "현미밥을 넉넉히 곁들인다.", "소금, 후추 또는 간장으로 간을 맞춘다."],
+  },
+  {
+    slug: "chicken-thigh-brown-rice-grill-bulk", title: "닭다리살 구이 & 현미밥 정식 (벌크업)", category: "bulk",
+    cookTime: "20분", servings: "1인분",
+    kcal: 811, carb: 100.9, protein: 46.6, fat: 24.5,
+    ingredients: ["닭다리살 150g(조리 후 가식부 기준)", "현미밥 300g", "양파·당근 등 채소 100g", "식용유 4g, 소금·후추 약간"],
+    steps: ["닭다리살을 두툼하게 손질해 굽는다.", "양파·당근 등 채소를 함께 굽거나 볶는다.", "현미밥을 넉넉히 곁들인다.", "소스나 소금으로 간을 맞춰 마무리한다."],
+  },
+  {
+    slug: "chicken-thigh-sweet-potato-stirfry-bulk", title: "닭다리살 고구마 볶음 (벌크업)", category: "bulk",
+    cookTime: "18분", servings: "1인분",
+    kcal: 623, carb: 60.5, protein: 43, fat: 23.2,
+    ingredients: ["닭다리살 150g(조리 후 가식부 기준)", "고구마(찐 것) 250g", "양파·당근 등 채소 100g", "식용유 6g, 소금·후추 약간"],
+    steps: ["닭다리살을 손질해 볶는다.", "양파·당근 등 채소를 넣고 함께 볶는다.", "고구마(찐 것)를 넉넉히 곁들인다.", "소금, 후추 또는 간장으로 간을 맞춘다."],
+  },
+  {
+    slug: "chicken-thigh-sweet-potato-grill-bulk", title: "닭다리살 구이 & 고구마 정식 (벌크업)", category: "bulk",
+    cookTime: "20분", servings: "1인분",
+    kcal: 605, carb: 60.5, protein: 43, fat: 21.2,
+    ingredients: ["닭다리살 150g(조리 후 가식부 기준)", "고구마(찐 것) 250g", "양파·당근 등 채소 100g", "식용유 4g, 소금·후추 약간"],
+    steps: ["닭다리살을 두툼하게 손질해 굽는다.", "양파·당근 등 채소를 함께 굽거나 볶는다.", "고구마(찐 것)를 넉넉히 곁들인다.", "소스나 소금으로 간을 맞춰 마무리한다."],
+  },
+  {
+    slug: "chicken-thigh-spaghetti-stirfry-bulk", title: "닭다리살 스파게티 볶음 (벌크업)", category: "bulk",
+    cookTime: "18분", servings: "1인분",
+    kcal: 713, carb: 70.5, protein: 50.5, fat: 25.4,
+    ingredients: ["닭다리살 150g(조리 후 가식부 기준)", "스파게티(삶은 면) 250g", "양파·당근 등 채소 100g", "식용유 6g, 소금·후추 약간"],
+    steps: ["닭다리살을 손질해 볶는다.", "양파·당근 등 채소를 넣고 함께 볶는다.", "스파게티(삶은 면)를 넉넉히 곁들인다.", "소금, 후추 또는 간장으로 간을 맞춘다."],
+  },
+  {
+    slug: "chicken-thigh-spaghetti-grill-bulk", title: "닭다리살 구이 & 스파게티 정식 (벌크업)", category: "bulk",
+    cookTime: "20분", servings: "1인분",
+    kcal: 695, carb: 70.5, protein: 50.5, fat: 23.4,
+    ingredients: ["닭다리살 150g(조리 후 가식부 기준)", "스파게티(삶은 면) 250g", "양파·당근 등 채소 100g", "식용유 4g, 소금·후추 약간"],
+    steps: ["닭다리살을 두툼하게 손질해 굽는다.", "양파·당근 등 채소를 함께 굽거나 볶는다.", "스파게티(삶은 면)를 넉넉히 곁들인다.", "소스나 소금으로 간을 맞춰 마무리한다."],
+  },
+  {
+    slug: "chicken-thigh-boiled-potato-stirfry-bulk", title: "닭다리살 감자 볶음 (벌크업)", category: "bulk",
+    cookTime: "18분", servings: "1인분",
+    kcal: 583, carb: 50.5, protein: 43, fat: 23.2,
+    ingredients: ["닭다리살 150g(조리 후 가식부 기준)", "감자(찐 것) 250g", "양파·당근 등 채소 100g", "식용유 6g, 소금·후추 약간"],
+    steps: ["닭다리살을 손질해 볶는다.", "양파·당근 등 채소를 넣고 함께 볶는다.", "감자(찐 것)를 넉넉히 곁들인다.", "소금, 후추 또는 간장으로 간을 맞춘다."],
+  },
+  {
+    slug: "chicken-thigh-boiled-potato-grill-bulk", title: "닭다리살 구이 & 감자 정식 (벌크업)", category: "bulk",
+    cookTime: "20분", servings: "1인분",
+    kcal: 565, carb: 50.5, protein: 43, fat: 21.2,
+    ingredients: ["닭다리살 150g(조리 후 가식부 기준)", "감자(찐 것) 250g", "양파·당근 등 채소 100g", "식용유 4g, 소금·후추 약간"],
+    steps: ["닭다리살을 두툼하게 손질해 굽는다.", "양파·당근 등 채소를 함께 굽거나 볶는다.", "감자(찐 것)를 넉넉히 곁들인다.", "소스나 소금으로 간을 맞춰 마무리한다."],
+  },
+  {
+    slug: "beef-sirloin-white-rice-friedrice-bulk", title: "소고기 등심 흰쌀밥 볶음밥", category: "bulk",
+    cookTime: "18분", servings: "1인분",
+    kcal: 934, carb: 105.2, protein: 49.2, fat: 35.1,
+    ingredients: ["소고기 등심 150g", "흰쌀밥 300g", "양파·당근 등 채소 100g", "식용유 7g·간장 3g(총 10g), 소금 약간"],
+    steps: ["소고기 등심을 한입 크기로 썰어 볶는다.", "양파·당근 등 채소를 넣고 함께 볶는다.", "흰쌀밥을 넣고 골고루 볶는다.", "계란이나 간장으로 마무리 간을 한다."],
+  },
+  {
+    slug: "beef-sirloin-white-rice-ricebowl-bulk", title: "소고기 등심 흰쌀밥 덮밥 (벌크업)", category: "bulk",
+    cookTime: "20분", servings: "1인분",
+    kcal: 897, carb: 107.2, protein: 49.2, fat: 30.1,
+    ingredients: ["소고기 등심 150g", "흰쌀밥 300g", "양파·당근 등 채소 100g", "간장 소스(간장 3g·설탕 2g·참기름 2g, 총 7g)"],
+    steps: ["소고기 등심을 양념과 함께 볶는다.", "양파·당근 등 채소를 넣고 함께 익힌다.", "흰쌀밥 위에 듬뿍 올린다.", "소스를 곁들여 마무리한다."],
+  },
+  {
+    slug: "beef-sirloin-white-rice-stirfry-bulk", title: "소고기 등심 흰쌀밥 볶음 (벌크업)", category: "bulk",
+    cookTime: "18분", servings: "1인분",
+    kcal: 923, carb: 105.1, protein: 49, fat: 34.1,
+    ingredients: ["소고기 등심 150g", "흰쌀밥 300g", "양파·당근 등 채소 100g", "식용유 6g, 소금·후추 약간"],
+    steps: ["소고기 등심을 손질해 볶는다.", "양파·당근 등 채소를 넣고 함께 볶는다.", "흰쌀밥을 넉넉히 곁들인다.", "소금, 후추 또는 간장으로 간을 맞춘다."],
+  },
+  {
+    slug: "beef-sirloin-white-rice-grill-bulk", title: "소고기 등심 구이 & 흰쌀밥 정식 (벌크업)", category: "bulk",
+    cookTime: "20분", servings: "1인분",
+    kcal: 905, carb: 105.1, protein: 49, fat: 32.1,
+    ingredients: ["소고기 등심 150g", "흰쌀밥 300g", "양파·당근 등 채소 100g", "식용유 4g, 소금·후추 약간"],
+    steps: ["소고기 등심을 두툼하게 손질해 굽는다.", "양파·당근 등 채소를 함께 굽거나 볶는다.", "흰쌀밥을 넉넉히 곁들인다.", "소스나 소금으로 간을 맞춰 마무리한다."],
+  },
+  {
+    slug: "beef-sirloin-brown-rice-friedrice-bulk", title: "소고기 등심 현미밥 볶음밥", category: "bulk",
+    cookTime: "18분", servings: "1인분",
+    kcal: 945, carb: 101, protein: 49.8, fat: 38,
+    ingredients: ["소고기 등심 150g", "현미밥 300g", "양파·당근 등 채소 100g", "식용유 7g·간장 3g(총 10g), 소금 약간"],
+    steps: ["소고기 등심을 한입 크기로 썰어 볶는다.", "양파·당근 등 채소를 넣고 함께 볶는다.", "현미밥을 넣고 골고루 볶는다.", "계란이나 간장으로 마무리 간을 한다."],
+  },
+  {
+    slug: "beef-sirloin-brown-rice-ricebowl-bulk", title: "소고기 등심 현미밥 덮밥 (벌크업)", category: "bulk",
+    cookTime: "20분", servings: "1인분",
+    kcal: 908, carb: 103, protein: 49.8, fat: 33,
+    ingredients: ["소고기 등심 150g", "현미밥 300g", "양파·당근 등 채소 100g", "간장 소스(간장 3g·설탕 2g·참기름 2g, 총 7g)"],
+    steps: ["소고기 등심을 양념과 함께 볶는다.", "양파·당근 등 채소를 넣고 함께 익힌다.", "현미밥 위에 듬뿍 올린다.", "소스를 곁들여 마무리한다."],
+  },
+  {
+    slug: "beef-sirloin-brown-rice-stirfry-bulk", title: "소고기 등심 현미밥 볶음 (벌크업)", category: "bulk",
+    cookTime: "18분", servings: "1인분",
+    kcal: 935, carb: 100.9, protein: 49.6, fat: 37,
+    ingredients: ["소고기 등심 150g", "현미밥 300g", "양파·당근 등 채소 100g", "식용유 6g, 소금·후추 약간"],
+    steps: ["소고기 등심을 손질해 볶는다.", "양파·당근 등 채소를 넣고 함께 볶는다.", "현미밥을 넉넉히 곁들인다.", "소금, 후추 또는 간장으로 간을 맞춘다."],
+  },
+  {
+    slug: "beef-sirloin-brown-rice-grill-bulk", title: "소고기 등심 구이 & 현미밥 정식 (벌크업)", category: "bulk",
+    cookTime: "20분", servings: "1인분",
+    kcal: 917, carb: 100.9, protein: 49.6, fat: 35,
+    ingredients: ["소고기 등심 150g", "현미밥 300g", "양파·당근 등 채소 100g", "식용유 4g, 소금·후추 약간"],
+    steps: ["소고기 등심을 두툼하게 손질해 굽는다.", "양파·당근 등 채소를 함께 굽거나 볶는다.", "현미밥을 넉넉히 곁들인다.", "소스나 소금으로 간을 맞춰 마무리한다."],
+  },
+  {
+    slug: "beef-sirloin-sweet-potato-stirfry-bulk", title: "소고기 등심 고구마 볶음 (벌크업)", category: "bulk",
+    cookTime: "18분", servings: "1인분",
+    kcal: 729, carb: 60.5, protein: 46, fat: 33.7,
+    ingredients: ["소고기 등심 150g", "고구마(찐 것) 250g", "양파·당근 등 채소 100g", "식용유 6g, 소금·후추 약간"],
+    steps: ["소고기 등심을 손질해 볶는다.", "양파·당근 등 채소를 넣고 함께 볶는다.", "고구마(찐 것)를 넉넉히 곁들인다.", "소금, 후추 또는 간장으로 간을 맞춘다."],
+  },
+  {
+    slug: "beef-sirloin-sweet-potato-grill-bulk", title: "소고기 등심 구이 & 고구마 정식 (벌크업)", category: "bulk",
+    cookTime: "20분", servings: "1인분",
+    kcal: 711, carb: 60.5, protein: 46, fat: 31.7,
+    ingredients: ["소고기 등심 150g", "고구마(찐 것) 250g", "양파·당근 등 채소 100g", "식용유 4g, 소금·후추 약간"],
+    steps: ["소고기 등심을 두툼하게 손질해 굽는다.", "양파·당근 등 채소를 함께 굽거나 볶는다.", "고구마(찐 것)를 넉넉히 곁들인다.", "소스나 소금으로 간을 맞춰 마무리한다."],
+  },
+  {
+    slug: "beef-sirloin-spaghetti-stirfry-bulk", title: "소고기 등심 스파게티 볶음 (벌크업)", category: "bulk",
+    cookTime: "18분", servings: "1인분",
+    kcal: 819, carb: 70.5, protein: 53.5, fat: 35.9,
+    ingredients: ["소고기 등심 150g", "스파게티(삶은 면) 250g", "양파·당근 등 채소 100g", "식용유 6g, 소금·후추 약간"],
+    steps: ["소고기 등심을 손질해 볶는다.", "양파·당근 등 채소를 넣고 함께 볶는다.", "스파게티(삶은 면)를 넉넉히 곁들인다.", "소금, 후추 또는 간장으로 간을 맞춘다."],
+  },
+  {
+    slug: "beef-sirloin-spaghetti-grill-bulk", title: "소고기 등심 구이 & 스파게티 정식 (벌크업)", category: "bulk",
+    cookTime: "20분", servings: "1인분",
+    kcal: 801, carb: 70.5, protein: 53.5, fat: 33.9,
+    ingredients: ["소고기 등심 150g", "스파게티(삶은 면) 250g", "양파·당근 등 채소 100g", "식용유 4g, 소금·후추 약간"],
+    steps: ["소고기 등심을 두툼하게 손질해 굽는다.", "양파·당근 등 채소를 함께 굽거나 볶는다.", "스파게티(삶은 면)를 넉넉히 곁들인다.", "소스나 소금으로 간을 맞춰 마무리한다."],
+  },
+  {
+    slug: "beef-sirloin-boiled-potato-stirfry-bulk", title: "소고기 등심 감자 볶음 (벌크업)", category: "bulk",
+    cookTime: "18분", servings: "1인분",
+    kcal: 689, carb: 50.5, protein: 46, fat: 33.7,
+    ingredients: ["소고기 등심 150g", "감자(찐 것) 250g", "양파·당근 등 채소 100g", "식용유 6g, 소금·후추 약간"],
+    steps: ["소고기 등심을 손질해 볶는다.", "양파·당근 등 채소를 넣고 함께 볶는다.", "감자(찐 것)를 넉넉히 곁들인다.", "소금, 후추 또는 간장으로 간을 맞춘다."],
+  },
+  {
+    slug: "beef-sirloin-boiled-potato-grill-bulk", title: "소고기 등심 구이 & 감자 정식 (벌크업)", category: "bulk",
+    cookTime: "20분", servings: "1인분",
+    kcal: 671, carb: 50.5, protein: 46, fat: 31.7,
+    ingredients: ["소고기 등심 150g", "감자(찐 것) 250g", "양파·당근 등 채소 100g", "식용유 4g, 소금·후추 약간"],
+    steps: ["소고기 등심을 두툼하게 손질해 굽는다.", "양파·당근 등 채소를 함께 굽거나 볶는다.", "감자(찐 것)를 넉넉히 곁들인다.", "소스나 소금으로 간을 맞춰 마무리한다."],
+  },
+  {
+    slug: "pork-neck-white-rice-friedrice-bulk", title: "돼지고기 목살 흰쌀밥 볶음밥", category: "bulk",
+    cookTime: "18분", servings: "1인분",
+    kcal: 976, carb: 105.2, protein: 46.2, fat: 41.1,
+    ingredients: ["돼지고기 목살 150g", "흰쌀밥 300g", "양파·당근 등 채소 100g", "식용유 7g·간장 3g(총 10g), 소금 약간"],
+    steps: ["돼지고기 목살을 한입 크기로 썰어 볶는다.", "양파·당근 등 채소를 넣고 함께 볶는다.", "흰쌀밥을 넣고 골고루 볶는다.", "계란이나 간장으로 마무리 간을 한다."],
+  },
+  {
+    slug: "pork-neck-white-rice-ricebowl-bulk", title: "돼지고기 목살 흰쌀밥 덮밥 (벌크업)", category: "bulk",
+    cookTime: "20분", servings: "1인분",
+    kcal: 939, carb: 107.2, protein: 46.2, fat: 36.1,
+    ingredients: ["돼지고기 목살 150g", "흰쌀밥 300g", "양파·당근 등 채소 100g", "간장 소스(간장 3g·설탕 2g·참기름 2g, 총 7g)"],
+    steps: ["돼지고기 목살을 양념과 함께 볶는다.", "양파·당근 등 채소를 넣고 함께 익힌다.", "흰쌀밥 위에 듬뿍 올린다.", "소스를 곁들여 마무리한다."],
+  },
+  {
+    slug: "pork-neck-white-rice-stirfry-bulk", title: "돼지고기 목살 흰쌀밥 볶음 (벌크업)", category: "bulk",
+    cookTime: "18분", servings: "1인분",
+    kcal: 965, carb: 105.1, protein: 46, fat: 40.1,
+    ingredients: ["돼지고기 목살 150g", "흰쌀밥 300g", "양파·당근 등 채소 100g", "식용유 6g, 소금·후추 약간"],
+    steps: ["돼지고기 목살을 손질해 볶는다.", "양파·당근 등 채소를 넣고 함께 볶는다.", "흰쌀밥을 넉넉히 곁들인다.", "소금, 후추 또는 간장으로 간을 맞춘다."],
+  },
+  {
+    slug: "pork-neck-white-rice-grill-bulk", title: "돼지고기 목살 구이 & 흰쌀밥 정식 (벌크업)", category: "bulk",
+    cookTime: "20분", servings: "1인분",
+    kcal: 947, carb: 105.1, protein: 46, fat: 38.1,
+    ingredients: ["돼지고기 목살 150g", "흰쌀밥 300g", "양파·당근 등 채소 100g", "식용유 4g, 소금·후추 약간"],
+    steps: ["돼지고기 목살을 두툼하게 손질해 굽는다.", "양파·당근 등 채소를 함께 굽거나 볶는다.", "흰쌀밥을 넉넉히 곁들인다.", "소스나 소금으로 간을 맞춰 마무리한다."],
+  },
+  {
+    slug: "pork-neck-brown-rice-friedrice-bulk", title: "돼지고기 목살 현미밥 볶음밥", category: "bulk",
+    cookTime: "18분", servings: "1인분",
+    kcal: 987, carb: 101, protein: 46.8, fat: 44,
+    ingredients: ["돼지고기 목살 150g", "현미밥 300g", "양파·당근 등 채소 100g", "식용유 7g·간장 3g(총 10g), 소금 약간"],
+    steps: ["돼지고기 목살을 한입 크기로 썰어 볶는다.", "양파·당근 등 채소를 넣고 함께 볶는다.", "현미밥을 넣고 골고루 볶는다.", "계란이나 간장으로 마무리 간을 한다."],
+  },
+  {
+    slug: "pork-neck-brown-rice-ricebowl-bulk", title: "돼지고기 목살 현미밥 덮밥 (벌크업)", category: "bulk",
+    cookTime: "20분", servings: "1인분",
+    kcal: 950, carb: 103, protein: 46.8, fat: 39,
+    ingredients: ["돼지고기 목살 150g", "현미밥 300g", "양파·당근 등 채소 100g", "간장 소스(간장 3g·설탕 2g·참기름 2g, 총 7g)"],
+    steps: ["돼지고기 목살을 양념과 함께 볶는다.", "양파·당근 등 채소를 넣고 함께 익힌다.", "현미밥 위에 듬뿍 올린다.", "소스를 곁들여 마무리한다."],
+  },
+  {
+    slug: "pork-neck-brown-rice-stirfry-bulk", title: "돼지고기 목살 현미밥 볶음 (벌크업)", category: "bulk",
+    cookTime: "18분", servings: "1인분",
+    kcal: 977, carb: 100.9, protein: 46.6, fat: 43,
+    ingredients: ["돼지고기 목살 150g", "현미밥 300g", "양파·당근 등 채소 100g", "식용유 6g, 소금·후추 약간"],
+    steps: ["돼지고기 목살을 손질해 볶는다.", "양파·당근 등 채소를 넣고 함께 볶는다.", "현미밥을 넉넉히 곁들인다.", "소금, 후추 또는 간장으로 간을 맞춘다."],
+  },
+  {
+    slug: "pork-neck-brown-rice-grill-bulk", title: "돼지고기 목살 구이 & 현미밥 정식 (벌크업)", category: "bulk",
+    cookTime: "20분", servings: "1인분",
+    kcal: 959, carb: 100.9, protein: 46.6, fat: 41,
+    ingredients: ["돼지고기 목살 150g", "현미밥 300g", "양파·당근 등 채소 100g", "식용유 4g, 소금·후추 약간"],
+    steps: ["돼지고기 목살을 두툼하게 손질해 굽는다.", "양파·당근 등 채소를 함께 굽거나 볶는다.", "현미밥을 넉넉히 곁들인다.", "소스나 소금으로 간을 맞춰 마무리한다."],
+  },
+  {
+    slug: "pork-neck-sweet-potato-stirfry-bulk", title: "돼지고기 목살 고구마 볶음 (벌크업)", category: "bulk",
+    cookTime: "18분", servings: "1인분",
+    kcal: 771, carb: 60.5, protein: 43, fat: 39.7,
+    ingredients: ["돼지고기 목살 150g", "고구마(찐 것) 250g", "양파·당근 등 채소 100g", "식용유 6g, 소금·후추 약간"],
+    steps: ["돼지고기 목살을 손질해 볶는다.", "양파·당근 등 채소를 넣고 함께 볶는다.", "고구마(찐 것)를 넉넉히 곁들인다.", "소금, 후추 또는 간장으로 간을 맞춘다."],
+  },
+  {
+    slug: "pork-neck-sweet-potato-grill-bulk", title: "돼지고기 목살 구이 & 고구마 정식 (벌크업)", category: "bulk",
+    cookTime: "20분", servings: "1인분",
+    kcal: 753, carb: 60.5, protein: 43, fat: 37.7,
+    ingredients: ["돼지고기 목살 150g", "고구마(찐 것) 250g", "양파·당근 등 채소 100g", "식용유 4g, 소금·후추 약간"],
+    steps: ["돼지고기 목살을 두툼하게 손질해 굽는다.", "양파·당근 등 채소를 함께 굽거나 볶는다.", "고구마(찐 것)를 넉넉히 곁들인다.", "소스나 소금으로 간을 맞춰 마무리한다."],
+  },
+  {
+    slug: "pork-neck-spaghetti-stirfry-bulk", title: "돼지고기 목살 스파게티 볶음 (벌크업)", category: "bulk",
+    cookTime: "18분", servings: "1인분",
+    kcal: 861, carb: 70.5, protein: 50.5, fat: 41.9,
+    ingredients: ["돼지고기 목살 150g", "스파게티(삶은 면) 250g", "양파·당근 등 채소 100g", "식용유 6g, 소금·후추 약간"],
+    steps: ["돼지고기 목살을 손질해 볶는다.", "양파·당근 등 채소를 넣고 함께 볶는다.", "스파게티(삶은 면)를 넉넉히 곁들인다.", "소금, 후추 또는 간장으로 간을 맞춘다."],
+  },
+  {
+    slug: "pork-neck-spaghetti-grill-bulk", title: "돼지고기 목살 구이 & 스파게티 정식 (벌크업)", category: "bulk",
+    cookTime: "20분", servings: "1인분",
+    kcal: 843, carb: 70.5, protein: 50.5, fat: 39.9,
+    ingredients: ["돼지고기 목살 150g", "스파게티(삶은 면) 250g", "양파·당근 등 채소 100g", "식용유 4g, 소금·후추 약간"],
+    steps: ["돼지고기 목살을 두툼하게 손질해 굽는다.", "양파·당근 등 채소를 함께 굽거나 볶는다.", "스파게티(삶은 면)를 넉넉히 곁들인다.", "소스나 소금으로 간을 맞춰 마무리한다."],
+  },
+  {
+    slug: "pork-neck-boiled-potato-stirfry-bulk", title: "돼지고기 목살 감자 볶음 (벌크업)", category: "bulk",
+    cookTime: "18분", servings: "1인분",
+    kcal: 731, carb: 50.5, protein: 43, fat: 39.7,
+    ingredients: ["돼지고기 목살 150g", "감자(찐 것) 250g", "양파·당근 등 채소 100g", "식용유 6g, 소금·후추 약간"],
+    steps: ["돼지고기 목살을 손질해 볶는다.", "양파·당근 등 채소를 넣고 함께 볶는다.", "감자(찐 것)를 넉넉히 곁들인다.", "소금, 후추 또는 간장으로 간을 맞춘다."],
+  },
+  {
+    slug: "pork-neck-boiled-potato-grill-bulk", title: "돼지고기 목살 구이 & 감자 정식 (벌크업)", category: "bulk",
+    cookTime: "20분", servings: "1인분",
+    kcal: 713, carb: 50.5, protein: 43, fat: 37.7,
+    ingredients: ["돼지고기 목살 150g", "감자(찐 것) 250g", "양파·당근 등 채소 100g", "식용유 4g, 소금·후추 약간"],
+    steps: ["돼지고기 목살을 두툼하게 손질해 굽는다.", "양파·당근 등 채소를 함께 굽거나 볶는다.", "감자(찐 것)를 넉넉히 곁들인다.", "소스나 소금으로 간을 맞춰 마무리한다."],
+  },
+  {
+    slug: "grilled-salmon-white-rice-friedrice-bulk", title: "연어 흰쌀밥 볶음밥", category: "bulk",
+    cookTime: "18분", servings: "1인분",
+    kcal: 830, carb: 105.2, protein: 40.2, fat: 27.6,
+    ingredients: ["연어 150g(조리 후 가식부 기준)", "흰쌀밥 300g", "양파·당근 등 채소 100g", "식용유 7g·간장 3g(총 10g), 소금 약간"],
+    steps: ["연어를 한입 크기로 썰어 볶는다.", "양파·당근 등 채소를 넣고 함께 볶는다.", "흰쌀밥을 넣고 골고루 볶는다.", "계란이나 간장으로 마무리 간을 한다."],
+  },
+  {
+    slug: "grilled-salmon-white-rice-ricebowl-bulk", title: "연어 흰쌀밥 덮밥 (벌크업)", category: "bulk",
+    cookTime: "20분", servings: "1인분",
+    kcal: 793, carb: 107.2, protein: 40.2, fat: 22.6,
+    ingredients: ["연어 150g(조리 후 가식부 기준)", "흰쌀밥 300g", "양파·당근 등 채소 100g", "간장 소스(간장 3g·설탕 2g·참기름 2g, 총 7g)"],
+    steps: ["연어를 양념과 함께 볶는다.", "양파·당근 등 채소를 넣고 함께 익힌다.", "흰쌀밥 위에 듬뿍 올린다.", "소스를 곁들여 마무리한다."],
+  },
+  {
+    slug: "grilled-salmon-white-rice-stirfry-bulk", title: "연어 흰쌀밥 볶음 (벌크업)", category: "bulk",
+    cookTime: "18분", servings: "1인분",
+    kcal: 820, carb: 105.1, protein: 40, fat: 26.6,
+    ingredients: ["연어 150g(조리 후 가식부 기준)", "흰쌀밥 300g", "양파·당근 등 채소 100g", "식용유 6g, 소금·후추 약간"],
+    steps: ["연어를 손질해 볶는다.", "양파·당근 등 채소를 넣고 함께 볶는다.", "흰쌀밥을 넉넉히 곁들인다.", "소금, 후추 또는 간장으로 간을 맞춘다."],
+  },
+  {
+    slug: "grilled-salmon-white-rice-grill-bulk", title: "연어 구이 & 흰쌀밥 정식 (벌크업)", category: "bulk",
+    cookTime: "20분", servings: "1인분",
+    kcal: 802, carb: 105.1, protein: 40, fat: 24.6,
+    ingredients: ["연어 150g(조리 후 가식부 기준)", "흰쌀밥 300g", "양파·당근 등 채소 100g", "식용유 4g, 소금·후추 약간"],
+    steps: ["연어를 두툼하게 손질해 굽는다.", "양파·당근 등 채소를 함께 굽거나 볶는다.", "흰쌀밥을 넉넉히 곁들인다.", "소스나 소금으로 간을 맞춰 마무리한다."],
+  },
+  {
+    slug: "grilled-salmon-brown-rice-friedrice-bulk", title: "연어 현미밥 볶음밥", category: "bulk",
+    cookTime: "18분", servings: "1인분",
+    kcal: 842, carb: 101, protein: 40.8, fat: 30.5,
+    ingredients: ["연어 150g(조리 후 가식부 기준)", "현미밥 300g", "양파·당근 등 채소 100g", "식용유 7g·간장 3g(총 10g), 소금 약간"],
+    steps: ["연어를 한입 크기로 썰어 볶는다.", "양파·당근 등 채소를 넣고 함께 볶는다.", "현미밥을 넣고 골고루 볶는다.", "계란이나 간장으로 마무리 간을 한다."],
+  },
+  {
+    slug: "grilled-salmon-brown-rice-ricebowl-bulk", title: "연어 현미밥 덮밥 (벌크업)", category: "bulk",
+    cookTime: "20분", servings: "1인분",
+    kcal: 805, carb: 103, protein: 40.8, fat: 25.5,
+    ingredients: ["연어 150g(조리 후 가식부 기준)", "현미밥 300g", "양파·당근 등 채소 100g", "간장 소스(간장 3g·설탕 2g·참기름 2g, 총 7g)"],
+    steps: ["연어를 양념과 함께 볶는다.", "양파·당근 등 채소를 넣고 함께 익힌다.", "현미밥 위에 듬뿍 올린다.", "소스를 곁들여 마무리한다."],
+  },
+  {
+    slug: "grilled-salmon-brown-rice-stirfry-bulk", title: "연어 현미밥 볶음 (벌크업)", category: "bulk",
+    cookTime: "18분", servings: "1인분",
+    kcal: 832, carb: 100.9, protein: 40.6, fat: 29.5,
+    ingredients: ["연어 150g(조리 후 가식부 기준)", "현미밥 300g", "양파·당근 등 채소 100g", "식용유 6g, 소금·후추 약간"],
+    steps: ["연어를 손질해 볶는다.", "양파·당근 등 채소를 넣고 함께 볶는다.", "현미밥을 넉넉히 곁들인다.", "소금, 후추 또는 간장으로 간을 맞춘다."],
+  },
+  {
+    slug: "grilled-salmon-brown-rice-grill-bulk", title: "연어 구이 & 현미밥 정식 (벌크업)", category: "bulk",
+    cookTime: "20분", servings: "1인분",
+    kcal: 814, carb: 100.9, protein: 40.6, fat: 27.5,
+    ingredients: ["연어 150g(조리 후 가식부 기준)", "현미밥 300g", "양파·당근 등 채소 100g", "식용유 4g, 소금·후추 약간"],
+    steps: ["연어를 두툼하게 손질해 굽는다.", "양파·당근 등 채소를 함께 굽거나 볶는다.", "현미밥을 넉넉히 곁들인다.", "소스나 소금으로 간을 맞춰 마무리한다."],
+  },
+  {
+    slug: "grilled-salmon-sweet-potato-stirfry-bulk", title: "연어 고구마 볶음 (벌크업)", category: "bulk",
+    cookTime: "18분", servings: "1인분",
+    kcal: 626, carb: 60.5, protein: 37, fat: 26.2,
+    ingredients: ["연어 150g(조리 후 가식부 기준)", "고구마(찐 것) 250g", "양파·당근 등 채소 100g", "식용유 6g, 소금·후추 약간"],
+    steps: ["연어를 손질해 볶는다.", "양파·당근 등 채소를 넣고 함께 볶는다.", "고구마(찐 것)를 넉넉히 곁들인다.", "소금, 후추 또는 간장으로 간을 맞춘다."],
+  },
+  {
+    slug: "grilled-salmon-sweet-potato-grill-bulk", title: "연어 구이 & 고구마 정식 (벌크업)", category: "bulk",
+    cookTime: "20분", servings: "1인분",
+    kcal: 608, carb: 60.5, protein: 37, fat: 24.2,
+    ingredients: ["연어 150g(조리 후 가식부 기준)", "고구마(찐 것) 250g", "양파·당근 등 채소 100g", "식용유 4g, 소금·후추 약간"],
+    steps: ["연어를 두툼하게 손질해 굽는다.", "양파·당근 등 채소를 함께 굽거나 볶는다.", "고구마(찐 것)를 넉넉히 곁들인다.", "소스나 소금으로 간을 맞춰 마무리한다."],
+  },
+  {
+    slug: "grilled-salmon-spaghetti-stirfry-bulk", title: "연어 스파게티 볶음 (벌크업)", category: "bulk",
+    cookTime: "18분", servings: "1인분",
+    kcal: 716, carb: 70.5, protein: 44.5, fat: 28.4,
+    ingredients: ["연어 150g(조리 후 가식부 기준)", "스파게티(삶은 면) 250g", "양파·당근 등 채소 100g", "식용유 6g, 소금·후추 약간"],
+    steps: ["연어를 손질해 볶는다.", "양파·당근 등 채소를 넣고 함께 볶는다.", "스파게티(삶은 면)를 넉넉히 곁들인다.", "소금, 후추 또는 간장으로 간을 맞춘다."],
+  },
+  {
+    slug: "grilled-salmon-spaghetti-grill-bulk", title: "연어 구이 & 스파게티 정식 (벌크업)", category: "bulk",
+    cookTime: "20분", servings: "1인분",
+    kcal: 698, carb: 70.5, protein: 44.5, fat: 26.4,
+    ingredients: ["연어 150g(조리 후 가식부 기준)", "스파게티(삶은 면) 250g", "양파·당근 등 채소 100g", "식용유 4g, 소금·후추 약간"],
+    steps: ["연어를 두툼하게 손질해 굽는다.", "양파·당근 등 채소를 함께 굽거나 볶는다.", "스파게티(삶은 면)를 넉넉히 곁들인다.", "소스나 소금으로 간을 맞춰 마무리한다."],
+  },
+  {
+    slug: "grilled-salmon-boiled-potato-stirfry-bulk", title: "연어 감자 볶음 (벌크업)", category: "bulk",
+    cookTime: "18분", servings: "1인분",
+    kcal: 586, carb: 50.5, protein: 37, fat: 26.2,
+    ingredients: ["연어 150g(조리 후 가식부 기준)", "감자(찐 것) 250g", "양파·당근 등 채소 100g", "식용유 6g, 소금·후추 약간"],
+    steps: ["연어를 손질해 볶는다.", "양파·당근 등 채소를 넣고 함께 볶는다.", "감자(찐 것)를 넉넉히 곁들인다.", "소금, 후추 또는 간장으로 간을 맞춘다."],
+  },
+  {
+    slug: "grilled-salmon-boiled-potato-grill-bulk", title: "연어 구이 & 감자 정식 (벌크업)", category: "bulk",
+    cookTime: "20분", servings: "1인분",
+    kcal: 568, carb: 50.5, protein: 37, fat: 24.2,
+    ingredients: ["연어 150g(조리 후 가식부 기준)", "감자(찐 것) 250g", "양파·당근 등 채소 100g", "식용유 4g, 소금·후추 약간"],
+    steps: ["연어를 두툼하게 손질해 굽는다.", "양파·당근 등 채소를 함께 굽거나 볶는다.", "감자(찐 것)를 넉넉히 곁들인다.", "소스나 소금으로 간을 맞춰 마무리한다."],
+  },
+  {
+    slug: "tuna-can-white-rice-friedrice-bulk", title: "참치 흰쌀밥 볶음밥", category: "bulk",
+    cookTime: "18분", servings: "1인분",
+    kcal: 787, carb: 105.2, protein: 46.2, fat: 20.1,
+    ingredients: ["참치 150g", "흰쌀밥 300g", "양파·당근 등 채소 100g", "식용유 7g·간장 3g(총 10g), 소금 약간"],
+    steps: ["참치의 물기를 꼼꼼히 뺀다.", "팬에 기름을 두르고 양파·당근 등 채소를 볶는다.", "밥과 참치를 넣고 골고루 볶는다.", "간장이나 소금으로 간을 맞춰 마무리한다."],
+  },
+  {
+    slug: "tuna-can-white-rice-ricebowl-bulk", title: "참치 흰쌀밥 덮밥 (벌크업)", category: "bulk",
+    cookTime: "20분", servings: "1인분",
+    kcal: 750, carb: 107.2, protein: 46.2, fat: 15.1,
+    ingredients: ["참치 150g", "흰쌀밥 300g", "양파·당근 등 채소 100g", "간장 소스(간장 3g·설탕 2g·참기름 2g, 총 7g)"],
+    steps: ["참치(물)의 물기를 꼼꼼히 뺀다.", "팬에 양파·당근 등 채소를 볶는다.", "참치를 넣고 가볍게 볶은 뒤 흰쌀밥 위에 올린다.", "간장 소스를 곁들여 마무리한다."],
+  },
+  {
+    slug: "tuna-can-white-rice-stirfry-bulk", title: "참치 흰쌀밥 볶음 (벌크업)", category: "bulk",
+    cookTime: "18분", servings: "1인분",
+    kcal: 776, carb: 105.1, protein: 46, fat: 19.1,
+    ingredients: ["참치 150g", "흰쌀밥 300g", "양파·당근 등 채소 100g", "식용유 6g, 소금·후추 약간"],
+    steps: ["참치(물)의 물기를 꼼꼼히 뺀다.", "팬에 기름을 살짝 두르고 양파·당근 등 채소를 먼저 볶는다.", "참치를 넣고 가볍게 으깨듯 섞어가며 볶는다.", "흰쌀밥과 함께 그릇에 담아 마무리한다."],
+  },
+  {
+    slug: "tuna-can-white-rice-grill-bulk", title: "참치 구이 & 흰쌀밥 정식 (벌크업)", category: "bulk",
+    cookTime: "20분", servings: "1인분",
+    kcal: 758, carb: 105.1, protein: 46, fat: 17.1,
+    ingredients: ["참치 150g", "흰쌀밥 300g", "양파·당근 등 채소 100g", "식용유 4g, 소금·후추 약간"],
+    steps: ["참치(물)의 물기를 꼼꼼히 뺀 뒤 덩어리째 살짝 뭉쳐둔다.", "달군 팬에 기름을 약간 두르고 참치 표면이 노릇해지도록 2~3분간 구워준다.", "같은 팬에 양파·당근 등 채소를 곁들여 굽는다.", "흰쌀밥을 넉넉히 곁들여 마무리한다."],
+  },
+  {
+    slug: "tuna-can-brown-rice-friedrice-bulk", title: "참치 현미밥 볶음밥", category: "bulk",
+    cookTime: "18분", servings: "1인분",
+    kcal: 798, carb: 101, protein: 46.8, fat: 23,
+    ingredients: ["참치 150g", "현미밥 300g", "양파·당근 등 채소 100g", "식용유 7g·간장 3g(총 10g), 소금 약간"],
+    steps: ["참치의 물기를 꼼꼼히 뺀다.", "팬에 기름을 두르고 양파·당근 등 채소를 볶는다.", "밥과 참치를 넣고 골고루 볶는다.", "간장이나 소금으로 간을 맞춰 마무리한다."],
+  },
+  {
+    slug: "tuna-can-brown-rice-ricebowl-bulk", title: "참치 현미밥 덮밥 (벌크업)", category: "bulk",
+    cookTime: "20분", servings: "1인분",
+    kcal: 761, carb: 103, protein: 46.8, fat: 18,
+    ingredients: ["참치 150g", "현미밥 300g", "양파·당근 등 채소 100g", "간장 소스(간장 3g·설탕 2g·참기름 2g, 총 7g)"],
+    steps: ["참치(물)의 물기를 꼼꼼히 뺀다.", "팬에 양파·당근 등 채소를 볶는다.", "참치를 넣고 가볍게 볶은 뒤 현미밥 위에 올린다.", "간장 소스를 곁들여 마무리한다."],
+  },
+  {
+    slug: "tuna-can-brown-rice-stirfry-bulk", title: "참치 현미밥 볶음 (벌크업)", category: "bulk",
+    cookTime: "18분", servings: "1인분",
+    kcal: 788, carb: 100.9, protein: 46.6, fat: 22,
+    ingredients: ["참치 150g", "현미밥 300g", "양파·당근 등 채소 100g", "식용유 6g, 소금·후추 약간"],
+    steps: ["참치(물)의 물기를 꼼꼼히 뺀다.", "팬에 기름을 살짝 두르고 양파·당근 등 채소를 먼저 볶는다.", "참치를 넣고 가볍게 으깨듯 섞어가며 볶는다.", "현미밥과 함께 그릇에 담아 마무리한다."],
+  },
+  {
+    slug: "tuna-can-brown-rice-grill-bulk", title: "참치 구이 & 현미밥 정식 (벌크업)", category: "bulk",
+    cookTime: "20분", servings: "1인분",
+    kcal: 770, carb: 100.9, protein: 46.6, fat: 20,
+    ingredients: ["참치 150g", "현미밥 300g", "양파·당근 등 채소 100g", "식용유 4g, 소금·후추 약간"],
+    steps: ["참치(물)의 물기를 꼼꼼히 뺀 뒤 덩어리째 살짝 뭉쳐둔다.", "달군 팬에 기름을 약간 두르고 참치 표면이 노릇해지도록 2~3분간 구워준다.", "같은 팬에 양파·당근 등 채소를 곁들여 굽는다.", "현미밥을 넉넉히 곁들여 마무리한다."],
+  },
+  {
+    slug: "tuna-can-sweet-potato-stirfry-bulk", title: "참치 고구마 볶음 (벌크업)", category: "bulk",
+    cookTime: "18분", servings: "1인분",
+    kcal: 582, carb: 60.5, protein: 43, fat: 18.7,
+    ingredients: ["참치 150g", "고구마(찐 것) 250g", "양파·당근 등 채소 100g", "식용유 6g, 소금·후추 약간"],
+    steps: ["참치(물)의 물기를 꼼꼼히 뺀다.", "팬에 기름을 살짝 두르고 양파·당근 등 채소를 먼저 볶는다.", "참치를 넣고 가볍게 으깨듯 섞어가며 볶는다.", "고구마와 함께 그릇에 담아 마무리한다."],
+  },
+  {
+    slug: "tuna-can-sweet-potato-grill-bulk", title: "참치 구이 & 고구마 정식 (벌크업)", category: "bulk",
+    cookTime: "20분", servings: "1인분",
+    kcal: 564, carb: 60.5, protein: 43, fat: 16.7,
+    ingredients: ["참치 150g", "고구마(찐 것) 250g", "양파·당근 등 채소 100g", "식용유 4g, 소금·후추 약간"],
+    steps: ["참치(물)의 물기를 꼼꼼히 뺀 뒤 덩어리째 살짝 뭉쳐둔다.", "달군 팬에 기름을 약간 두르고 참치 표면이 노릇해지도록 2~3분간 구워준다.", "같은 팬에 양파·당근 등 채소를 곁들여 굽는다.", "고구마를 넉넉히 곁들여 마무리한다."],
+  },
+  {
+    slug: "tuna-can-spaghetti-stirfry-bulk", title: "참치 스파게티 볶음 (벌크업)", category: "bulk",
+    cookTime: "18분", servings: "1인분",
+    kcal: 672, carb: 70.5, protein: 50.5, fat: 20.9,
+    ingredients: ["참치 150g", "스파게티(삶은 면) 250g", "양파·당근 등 채소 100g", "식용유 6g, 소금·후추 약간"],
+    steps: ["참치(물)의 물기를 꼼꼼히 뺀다.", "팬에 기름을 살짝 두르고 양파·당근 등 채소를 먼저 볶는다.", "참치를 넣고 가볍게 으깨듯 섞어가며 볶는다.", "스파게티와 함께 그릇에 담아 마무리한다."],
+  },
+  {
+    slug: "tuna-can-spaghetti-grill-bulk", title: "참치 구이 & 스파게티 정식 (벌크업)", category: "bulk",
+    cookTime: "20분", servings: "1인분",
+    kcal: 654, carb: 70.5, protein: 50.5, fat: 18.9,
+    ingredients: ["참치 150g", "스파게티(삶은 면) 250g", "양파·당근 등 채소 100g", "식용유 4g, 소금·후추 약간"],
+    steps: ["참치(물)의 물기를 꼼꼼히 뺀 뒤 덩어리째 살짝 뭉쳐둔다.", "달군 팬에 기름을 약간 두르고 참치 표면이 노릇해지도록 2~3분간 구워준다.", "같은 팬에 양파·당근 등 채소를 곁들여 굽는다.", "스파게티를 넉넉히 곁들여 마무리한다."],
+  },
+  {
+    slug: "tuna-can-boiled-potato-stirfry-bulk", title: "참치 감자 볶음 (벌크업)", category: "bulk",
+    cookTime: "18분", servings: "1인분",
+    kcal: 542, carb: 50.5, protein: 43, fat: 18.7,
+    ingredients: ["참치 150g", "감자(찐 것) 250g", "양파·당근 등 채소 100g", "식용유 6g, 소금·후추 약간"],
+    steps: ["참치(물)의 물기를 꼼꼼히 뺀다.", "팬에 기름을 살짝 두르고 양파·당근 등 채소를 먼저 볶는다.", "참치를 넣고 가볍게 으깨듯 섞어가며 볶는다.", "감자와 함께 그릇에 담아 마무리한다."],
+  },
+  {
+    slug: "tuna-can-boiled-potato-grill-bulk", title: "참치 구이 & 감자 정식 (벌크업)", category: "bulk",
+    cookTime: "20분", servings: "1인분",
+    kcal: 524, carb: 50.5, protein: 43, fat: 16.7,
+    ingredients: ["참치 150g", "감자(찐 것) 250g", "양파·당근 등 채소 100g", "식용유 4g, 소금·후추 약간"],
+    steps: ["참치(물)의 물기를 꼼꼼히 뺀 뒤 덩어리째 살짝 뭉쳐둔다.", "달군 팬에 기름을 약간 두르고 참치 표면이 노릇해지도록 2~3분간 구워준다.", "같은 팬에 양파·당근 등 채소를 곁들여 굽는다.", "감자를 넉넉히 곁들여 마무리한다."],
+  },
+  {
+    slug: "boiled-egg-white-rice-friedrice-bulk", title: "계란 4개 흰쌀밥 볶음밥", category: "bulk",
+    cookTime: "18분", servings: "1인분",
+    kcal: 836, carb: 107.6, protein: 35.4, fat: 29.3,
+    ingredients: ["계란 4개 200g", "흰쌀밥 300g", "양파·당근 등 채소 100g", "식용유 7g·간장 3g(총 10g), 소금 약간"],
+    steps: ["계란 4개를 볼에 깨어 넣고 소금 약간과 함께 풀어준다.", "팬에 기름을 두르고 양파·당근 등 채소를 볶는다.", "밥을 넣고 풀어둔 계란물을 부어가며 골고루 볶는다.", "간장이나 소금으로 간을 맞춰 마무리한다."],
+  },
+  {
+    slug: "boiled-egg-white-rice-ricebowl-bulk", title: "계란 4개 흰쌀밥 덮밥 (벌크업)", category: "bulk",
+    cookTime: "20분", servings: "1인분",
+    kcal: 799, carb: 109.6, protein: 35.4, fat: 24.3,
+    ingredients: ["계란 4개 200g", "흰쌀밥 300g", "양파·당근 등 채소 100g", "간장 소스(간장 3g·설탕 2g·참기름 2g, 총 7g)"],
+    steps: ["계란 4개를 볼에 깨어 넣고 소금 약간과 함께 풀어준다.", "팬에 양파·당근 등 채소를 먼저 볶는다.", "풀어둔 계란물을 부어 반숙 스크램블로 익힌 뒤 흰쌀밥 위에 올린다.", "간장 소스를 곁들여 마무리한다."],
+  },
+  {
+    slug: "boiled-egg-white-rice-stirfry-bulk", title: "계란 4개 흰쌀밥 볶음 (벌크업)", category: "bulk",
+    cookTime: "18분", servings: "1인분",
+    kcal: 826, carb: 107.5, protein: 35.2, fat: 28.3,
+    ingredients: ["계란 4개 200g", "흰쌀밥 300g", "양파·당근 등 채소 100g", "식용유 6g, 소금·후추 약간"],
+    steps: ["계란 4개를 볼에 깨어 넣고 소금 약간을 넣어 잘 풀어준다.", "팬에 기름을 두르고 양파·당근 등 채소를 먼저 볶는다.", "풀어둔 계란물을 부어 스크램블 하듯 함께 볶는다.", "흰쌀밥과 함께 그릇에 담아 마무리한다."],
+  },
+  {
+    slug: "boiled-egg-white-rice-grill-bulk", title: "계란 4개 구이 & 흰쌀밥 정식 (벌크업)", category: "bulk",
+    cookTime: "20분", servings: "1인분",
+    kcal: 808, carb: 107.5, protein: 35.2, fat: 26.3,
+    ingredients: ["계란 4개 200g", "흰쌀밥 300g", "양파·당근 등 채소 100g", "식용유 4g, 소금·후추 약간"],
+    steps: ["계란 4개를 하나씩 깨어 팬에 올려 프라이한다(노른자 익힘 정도는 취향껏 조절한다).", "같은 팬에 양파·당근 등 채소를 곁들여 굽거나 볶는다.", "흰쌀밥을 넉넉히 곁들인다.", "소금, 후추로 간을 맞춰 마무리한다."],
+  },
+  {
+    slug: "boiled-egg-brown-rice-friedrice-bulk", title: "계란 4개 현미밥 볶음밥", category: "bulk",
+    cookTime: "18분", servings: "1인분",
+    kcal: 847, carb: 103.4, protein: 36, fat: 32.2,
+    ingredients: ["계란 4개 200g", "현미밥 300g", "양파·당근 등 채소 100g", "식용유 7g·간장 3g(총 10g), 소금 약간"],
+    steps: ["계란 4개를 볼에 깨어 넣고 소금 약간과 함께 풀어준다.", "팬에 기름을 두르고 양파·당근 등 채소를 볶는다.", "밥을 넣고 풀어둔 계란물을 부어가며 골고루 볶는다.", "간장이나 소금으로 간을 맞춰 마무리한다."],
+  },
+  {
+    slug: "boiled-egg-brown-rice-ricebowl-bulk", title: "계란 4개 현미밥 덮밥 (벌크업)", category: "bulk",
+    cookTime: "20분", servings: "1인분",
+    kcal: 810, carb: 105.4, protein: 36, fat: 27.2,
+    ingredients: ["계란 4개 200g", "현미밥 300g", "양파·당근 등 채소 100g", "간장 소스(간장 3g·설탕 2g·참기름 2g, 총 7g)"],
+    steps: ["계란 4개를 볼에 깨어 넣고 소금 약간과 함께 풀어준다.", "팬에 양파·당근 등 채소를 먼저 볶는다.", "풀어둔 계란물을 부어 반숙 스크램블로 익힌 뒤 현미밥 위에 올린다.", "간장 소스를 곁들여 마무리한다."],
+  },
+  {
+    slug: "boiled-egg-brown-rice-stirfry-bulk", title: "계란 4개 현미밥 볶음 (벌크업)", category: "bulk",
+    cookTime: "18분", servings: "1인분",
+    kcal: 837, carb: 103.3, protein: 35.8, fat: 31.2,
+    ingredients: ["계란 4개 200g", "현미밥 300g", "양파·당근 등 채소 100g", "식용유 6g, 소금·후추 약간"],
+    steps: ["계란 4개를 볼에 깨어 넣고 소금 약간을 넣어 잘 풀어준다.", "팬에 기름을 두르고 양파·당근 등 채소를 먼저 볶는다.", "풀어둔 계란물을 부어 스크램블 하듯 함께 볶는다.", "현미밥과 함께 그릇에 담아 마무리한다."],
+  },
+  {
+    slug: "boiled-egg-brown-rice-grill-bulk", title: "계란 4개 구이 & 현미밥 정식 (벌크업)", category: "bulk",
+    cookTime: "20분", servings: "1인분",
+    kcal: 819, carb: 103.3, protein: 35.8, fat: 29.2,
+    ingredients: ["계란 4개 200g", "현미밥 300g", "양파·당근 등 채소 100g", "식용유 4g, 소금·후추 약간"],
+    steps: ["계란 4개를 하나씩 깨어 팬에 올려 프라이한다(노른자 익힘 정도는 취향껏 조절한다).", "같은 팬에 양파·당근 등 채소를 곁들여 굽거나 볶는다.", "현미밥을 넉넉히 곁들인다.", "소금, 후추로 간을 맞춰 마무리한다."],
+  },
+  {
+    slug: "boiled-egg-sweet-potato-stirfry-bulk", title: "계란 4개 고구마 볶음 (벌크업)", category: "bulk",
+    cookTime: "18분", servings: "1인분",
+    kcal: 632, carb: 62.9, protein: 32.2, fat: 27.9,
+    ingredients: ["계란 4개 200g", "고구마(찐 것) 250g", "양파·당근 등 채소 100g", "식용유 6g, 소금·후추 약간"],
+    steps: ["계란 4개를 볼에 깨어 넣고 소금 약간을 넣어 잘 풀어준다.", "팬에 기름을 두르고 양파·당근 등 채소를 먼저 볶는다.", "풀어둔 계란물을 부어 스크램블 하듯 함께 볶는다.", "고구마와 함께 그릇에 담아 마무리한다."],
+  },
+  {
+    slug: "boiled-egg-sweet-potato-grill-bulk", title: "계란 4개 구이 & 고구마 정식 (벌크업)", category: "bulk",
+    cookTime: "20분", servings: "1인분",
+    kcal: 614, carb: 62.9, protein: 32.2, fat: 25.9,
+    ingredients: ["계란 4개 200g", "고구마(찐 것) 250g", "양파·당근 등 채소 100g", "식용유 4g, 소금·후추 약간"],
+    steps: ["계란 4개를 하나씩 깨어 팬에 올려 프라이한다(노른자 익힘 정도는 취향껏 조절한다).", "같은 팬에 양파·당근 등 채소를 곁들여 굽거나 볶는다.", "고구마를 넉넉히 곁들인다.", "소금, 후추로 간을 맞춰 마무리한다."],
+  },
+  {
+    slug: "boiled-egg-spaghetti-stirfry-bulk", title: "계란 4개 스파게티 볶음 (벌크업)", category: "bulk",
+    cookTime: "18분", servings: "1인분",
+    kcal: 721, carb: 72.9, protein: 39.7, fat: 30.1,
+    ingredients: ["계란 4개 200g", "스파게티(삶은 면) 250g", "양파·당근 등 채소 100g", "식용유 6g, 소금·후추 약간"],
+    steps: ["계란 4개를 볼에 깨어 넣고 소금 약간을 넣어 잘 풀어준다.", "팬에 기름을 두르고 양파·당근 등 채소를 먼저 볶는다.", "풀어둔 계란물을 부어 스크램블 하듯 함께 볶는다.", "스파게티와 함께 그릇에 담아 마무리한다."],
+  },
+  {
+    slug: "boiled-egg-spaghetti-grill-bulk", title: "계란 4개 구이 & 스파게티 정식 (벌크업)", category: "bulk",
+    cookTime: "20분", servings: "1인분",
+    kcal: 703, carb: 72.9, protein: 39.7, fat: 28.1,
+    ingredients: ["계란 4개 200g", "스파게티(삶은 면) 250g", "양파·당근 등 채소 100g", "식용유 4g, 소금·후추 약간"],
+    steps: ["계란 4개를 하나씩 깨어 팬에 올려 프라이한다(노른자 익힘 정도는 취향껏 조절한다).", "같은 팬에 양파·당근 등 채소를 곁들여 굽거나 볶는다.", "스파게티를 넉넉히 곁들인다.", "소금, 후추로 간을 맞춰 마무리한다."],
+  },
+  {
+    slug: "boiled-egg-boiled-potato-stirfry-bulk", title: "계란 4개 감자 볶음 (벌크업)", category: "bulk",
+    cookTime: "18분", servings: "1인분",
+    kcal: 592, carb: 52.9, protein: 32.2, fat: 27.9,
+    ingredients: ["계란 4개 200g", "감자(찐 것) 250g", "양파·당근 등 채소 100g", "식용유 6g, 소금·후추 약간"],
+    steps: ["계란 4개를 볼에 깨어 넣고 소금 약간을 넣어 잘 풀어준다.", "팬에 기름을 두르고 양파·당근 등 채소를 먼저 볶는다.", "풀어둔 계란물을 부어 스크램블 하듯 함께 볶는다.", "감자와 함께 그릇에 담아 마무리한다."],
+  },
+  {
+    slug: "boiled-egg-boiled-potato-grill-bulk", title: "계란 4개 구이 & 감자 정식 (벌크업)", category: "bulk",
+    cookTime: "20분", servings: "1인분",
+    kcal: 574, carb: 52.9, protein: 32.2, fat: 25.9,
+    ingredients: ["계란 4개 200g", "감자(찐 것) 250g", "양파·당근 등 채소 100g", "식용유 4g, 소금·후추 약간"],
+    steps: ["계란 4개를 하나씩 깨어 팬에 올려 프라이한다(노른자 익힘 정도는 취향껏 조절한다).", "같은 팬에 양파·당근 등 채소를 곁들여 굽거나 볶는다.", "감자를 넉넉히 곁들인다.", "소금, 후추로 간을 맞춰 마무리한다."],
+  },
+  {
+    slug: "chicken-breast-white-rice-friedrice-bulk", title: "닭가슴살 흰쌀밥 볶음밥", category: "bulk",
+    cookTime: "18분", servings: "1인분",
+    kcal: 769, carb: 105.2, protein: 56.7, fat: 13.5,
+    ingredients: ["닭가슴살 150g(조리 후 가식부 기준)", "흰쌀밥 300g", "양파·당근 등 채소 100g", "식용유 7g·간장 3g(총 10g), 소금 약간"],
+    steps: ["닭가슴살을 한입 크기로 썰어 볶는다.", "양파·당근 등 채소를 넣고 함께 볶는다.", "흰쌀밥을 넣고 골고루 볶는다.", "계란이나 간장으로 마무리 간을 한다."],
   },
 ];
 
-document.getElementById('recipeList').innerHTML = RECIPES.map(r => `
-  <div class="bg-white border border-gray-200 rounded-2xl p-6 md:p-7">
-    <div class="flex flex-wrap items-center justify-between gap-2 mb-4">
-      <h3 class="font-bold text-lg">${r.title}</h3>
-      <span class="text-xs bg-cream text-gray-600 px-3 py-1 rounded-full font-semibold">총 ${r.kcal}kcal · 탄 ${r.carb}g · 단 ${r.protein}g · 지 ${r.fat}g</span>
-    </div>
-    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-      <div>
-        <h4 class="text-xs font-bold text-gray-400 mb-2">재료</h4>
-        <ul class="text-sm space-y-1 list-disc list-inside text-gray-700">
-          ${r.ingredients.map(i => `<li>${i}</li>`).join('')}
-        </ul>
-      </div>
-      <div>
-        <h4 class="text-xs font-bold text-gray-400 mb-2">조리 순서</h4>
-        <ol class="text-sm space-y-1.5 list-decimal list-inside text-gray-700">
-          ${r.steps.map(s => `<li>${s}</li>`).join('')}
-        </ol>
+const RECIPE_PAGE_SIZE = 20;
+let recipeCurrentCategory = 'diet';
+let recipeCurrentPage = 1;
+
+function renderRecipeList(list) {
+  document.getElementById('recipeList').innerHTML = list.map(r => `
+  <a href="recipes/${r.slug}.html" class="block bg-white border border-gray-200 rounded-2xl p-4 hover:border-brand transition">
+    <div class="flex items-start gap-3 mb-3">
+      <div class="w-12 h-12 rounded-xl bg-cream flex items-center justify-center shrink-0">${iconHtml(r.title, 'w-9 h-9')}</div>
+      <div class="min-w-0 pt-0.5">
+        <h3 class="font-bold text-sm leading-snug line-clamp-2">${r.title}</h3>
+        <div class="text-xs text-brand font-bold mt-0.5">${r.kcal}kcal</div>
       </div>
     </div>
-  </div>
+    <div class="flex flex-wrap gap-1.5 text-[11px] text-gray-500">
+      <span class="bg-gray-100 px-2 py-0.5 rounded-full">&#9200; ${r.cookTime}</span>
+      <span class="bg-gray-100 px-2 py-0.5 rounded-full">&#127869; ${r.servings}</span>
+    </div>
+  </a>
 `).join('');
+}
+
+function renderRecipePagination(totalItems) {
+  const nav = document.getElementById('recipePagination');
+  const totalPages = Math.ceil(totalItems / RECIPE_PAGE_SIZE);
+  if (totalPages <= 1) {
+    nav.classList.add('hidden');
+    nav.innerHTML = '';
+    return;
+  }
+  nav.innerHTML = Array.from({ length: totalPages }, (_, i) => i + 1).map(p => `
+    <button type="button" data-page="${p}" class="recipe-page-btn w-9 h-9 rounded-full text-sm font-semibold transition ${p === recipeCurrentPage ? 'bg-gray-900 text-white' : 'bg-white text-gray-600 border border-gray-200 hover:border-brand'}">${p}</button>
+  `).join('');
+  nav.classList.remove('hidden');
+}
+
+function renderRecipePage() {
+  const filtered = RECIPES.filter(r => r.category === recipeCurrentCategory);
+  const totalPages = Math.max(1, Math.ceil(filtered.length / RECIPE_PAGE_SIZE));
+  if (recipeCurrentPage > totalPages) recipeCurrentPage = totalPages;
+  if (recipeCurrentPage < 1) recipeCurrentPage = 1;
+  const start = (recipeCurrentPage - 1) * RECIPE_PAGE_SIZE;
+  renderRecipeList(filtered.slice(start, start + RECIPE_PAGE_SIZE));
+  renderRecipePagination(filtered.length);
+}
+
+document.querySelectorAll('.recipe-category-btn').forEach(btn => {
+  btn.addEventListener('click', () => {
+    recipeCurrentCategory = btn.dataset.category;
+    recipeCurrentPage = 1;
+    document.querySelectorAll('.recipe-category-btn').forEach(b => {
+      const active = b === btn;
+      b.classList.toggle('bg-gray-900', active);
+      b.classList.toggle('text-white', active);
+      b.classList.toggle('border-gray-900', active);
+      b.classList.toggle('bg-white', !active);
+      b.classList.toggle('text-gray-500', !active);
+      b.classList.toggle('border-gray-200', !active);
+    });
+    renderRecipePage();
+  });
+});
+
+document.getElementById('recipePagination').addEventListener('click', (e) => {
+  const btn = e.target.closest('.recipe-page-btn');
+  if (!btn) return;
+  recipeCurrentPage = Number(btn.dataset.page);
+  renderRecipePage();
+  document.getElementById('recipeList').scrollIntoView({ behavior: 'smooth', block: 'start' });
+});
+
+renderRecipePage();
 
 /* ============================================================
    5. 운동 칼로리 계산기 (MET 기반)
    kcal = MET * 3.5 * 체중(kg) / 200 * 시간(분)
    ============================================================ */
 const EXERCISES = [
-  { name: '걷기 (보통 걸음)', met: 3.5 },
-  { name: '빠르게 걷기', met: 4.3 },
-  { name: '조깅', met: 7.0 },
-  { name: '달리기 (8km/h)', met: 8.3 },
-  { name: '자전거 (보통 속도)', met: 6.8 },
-  { name: '자전거 (빠른 속도)', met: 10.0 },
-  { name: '수영 (자유형, 보통)', met: 8.3 },
-  { name: '웨이트 트레이닝 (일반)', met: 5.0 },
-  { name: '웨이트 트레이닝 (고강도)', met: 6.0 },
-  { name: '요가', met: 2.5 },
-  { name: '필라테스', met: 3.0 },
-  { name: '줄넘기', met: 10.0 },
-  { name: '등산', met: 6.0 },
-  { name: '계단 오르기', met: 8.8 },
-  { name: 'HIIT (고강도 인터벌)', met: 8.0 },
+  { name: '걷기 (보통 걸음)', met: 3.5, intensity: 'light', icon: '🚶' },
+  { name: '빠르게 걷기', met: 4.3, intensity: 'moderate', icon: '🚶‍♂️' },
+  { name: '조깅', met: 7.0, intensity: 'moderate', icon: '🏃' },
+  { name: '달리기 (8km/h)', met: 8.3, intensity: 'vigorous', icon: '🏃‍♂️' },
+  { name: '자전거 (보통 속도)', met: 6.8, intensity: 'moderate', icon: '🚴' },
+  { name: '자전거 (빠른 속도)', met: 10.0, intensity: 'vigorous', icon: '🚴‍♂️' },
+  { name: '수영 (자유형, 보통)', met: 8.3, intensity: 'vigorous', icon: '🏊' },
+  { name: '웨이트 트레이닝 (일반)', met: 5.0, intensity: 'moderate', icon: '🏋️' },
+  { name: '웨이트 트레이닝 (고강도)', met: 6.0, intensity: 'moderate', icon: '🏋️‍♂️' },
+  { name: '요가', met: 2.5, intensity: 'light', icon: '🧘' },
+  { name: '필라테스', met: 3.0, intensity: 'light', icon: '🤸' },
+  { name: '줄넘기', met: 10.0, intensity: 'vigorous', icon: '🪢' },
+  { name: '등산', met: 6.0, intensity: 'moderate', icon: '⛰️' },
+  { name: '계단 오르기', met: 8.8, intensity: 'vigorous', icon: '🪜' },
+  { name: 'HIIT (고강도 인터벌)', met: 8.0, intensity: 'vigorous', icon: '🔥' },
+  { name: '천천히 걷기 (3km/h)', met: 2.0, intensity: 'light', icon: '🚶‍♀️' },
+  { name: '달리기 (10km/h)', met: 9.8, intensity: 'vigorous', icon: '🏃‍♀️' },
+  { name: '달리기 (12km/h)', met: 11.5, intensity: 'vigorous', icon: '💨' },
+  { name: '자전거 (매우 빠른 속도)', met: 12.0, intensity: 'vigorous', icon: '🚵' },
+  { name: '수영 (평영)', met: 10.3, intensity: 'vigorous', icon: '🏊‍♀️' },
+  { name: '수영 (배영)', met: 4.8, intensity: 'moderate', icon: '🏊‍♂️' },
+  { name: '아쿠아로빅', met: 5.5, intensity: 'moderate', icon: '🤽' },
+  { name: '경사 러닝머신', met: 9.0, intensity: 'vigorous', icon: '🏃‍♂️' },
+  { name: '일립티컬 머신', met: 5.0, intensity: 'moderate', icon: '🚴‍♀️' },
+  { name: '로잉머신', met: 7.0, intensity: 'moderate', icon: '🚣' },
+  { name: '배드민턴', met: 5.5, intensity: 'moderate', icon: '🏸' },
+  { name: '테니스 (복식)', met: 6.0, intensity: 'moderate', icon: '🎾' },
+  { name: '테니스 (단식)', met: 8.0, intensity: 'vigorous', icon: '🎾' },
+  { name: '탁구', met: 4.0, intensity: 'moderate', icon: '🏓' },
+  { name: '축구', met: 7.0, intensity: 'vigorous', icon: '⚽' },
+  { name: '농구', met: 6.5, intensity: 'moderate', icon: '🏀' },
+  { name: '배구', met: 4.0, intensity: 'moderate', icon: '🏐' },
+  { name: '골프 (도보 이동)', met: 4.8, intensity: 'moderate', icon: '⛳' },
+  { name: '볼링', met: 3.0, intensity: 'light', icon: '🎳' },
+  { name: '클라이밍 (암벽등반)', met: 8.0, intensity: 'vigorous', icon: '🧗' },
+  { name: '복싱 (샌드백)', met: 7.8, intensity: 'vigorous', icon: '🥊' },
+  { name: '스피닝 (실내 사이클)', met: 8.5, intensity: 'vigorous', icon: '🚲' },
+  { name: '크로스핏', met: 8.0, intensity: 'vigorous', icon: '🏋️‍♀️' },
+  { name: '스트레칭', met: 2.3, intensity: 'light', icon: '🤸‍♀️' },
+  { name: '청소하기', met: 3.3, intensity: 'light', icon: '🧹' },
 ];
 
 const exSelect = document.getElementById('exType');
@@ -917,12 +3129,65 @@ document.getElementById('exCalcBtn').addEventListener('click', () => {
   document.getElementById('exResult').classList.remove('hidden');
 });
 
-document.getElementById('exTable').innerHTML = EXERCISES.map(ex => `
-  <div class="flex items-center justify-between py-2.5">
-    <span class="text-gray-700">${ex.name}</span>
-    <span class="font-bold">${calcKcal(ex.met, 65, 60).toLocaleString()} kcal</span>
-  </div>
-`).join('');
+/* ---- 운동 종류별 소모 칼로리 살펴보기 (검색·강도 필터·클릭식 상세 표시) ---- */
+const EX_REF_WEIGHT = 70;
+const EX_INTENSITY_LABELS = { light: '가벼움', moderate: '보통', vigorous: '격렬함' };
+
+function selectExercise(ex) {
+  document.getElementById('exFeaturedIcon').textContent = ex.icon;
+  document.getElementById('exFeaturedName').textContent = ex.name;
+  const durations = [5, 10, 15, 30];
+  document.getElementById('exFeaturedTable').innerHTML = durations.map(min => `
+    <div class="bg-white rounded-lg border border-gray-100 p-2.5 text-center">
+      <div class="text-gray-400 text-xs">${min}분</div>
+      <div class="font-bold">${calcKcal(ex.met, EX_REF_WEIGHT, min).toLocaleString()} kcal</div>
+    </div>
+  `).join('');
+}
+
+function renderExerciseGroups(list) {
+  const groups = { light: [], moderate: [], vigorous: [] };
+  list.forEach(ex => groups[ex.intensity].push(ex));
+  const wrap = document.getElementById('exGroupedTable');
+  wrap.innerHTML = Object.keys(groups).map(key => `
+    <div>
+      <div class="font-bold text-gray-700 mb-2">${EX_INTENSITY_LABELS[key]}</div>
+      <div class="divide-y divide-gray-100 border border-gray-100 rounded-lg overflow-hidden">
+        ${groups[key].length ? groups[key].map(ex => `
+          <button type="button" data-name="${ex.name}" class="ex-row-btn w-full flex items-center justify-between px-3 py-2 text-left hover:bg-cream transition">
+            <span class="flex items-center gap-2 min-w-0"><span>${ex.icon}</span><span class="text-gray-700 truncate">${ex.name}</span></span>
+            <span class="font-semibold text-xs text-gray-500 shrink-0 ml-2">${calcKcal(ex.met, EX_REF_WEIGHT, 60).toLocaleString()} kcal/h</span>
+          </button>
+        `).join('') : '<div class="px-3 py-4 text-center text-gray-400 text-xs">해당 없음</div>'}
+      </div>
+    </div>
+  `).join('');
+}
+
+function updateExerciseExplorer() {
+  const q = document.getElementById('exSearch').value.trim().toLowerCase();
+  const intensity = document.querySelector('input[name="exIntensity"]:checked').value;
+  const filtered = EXERCISES.filter(ex => {
+    const matchesQuery = ex.name.toLowerCase().includes(q);
+    const matchesIntensity = intensity === 'all' || ex.intensity === intensity;
+    return matchesQuery && matchesIntensity;
+  });
+  renderExerciseGroups(filtered);
+}
+
+document.getElementById('exSearch').addEventListener('input', updateExerciseExplorer);
+document.querySelectorAll('input[name="exIntensity"]').forEach(el => {
+  el.addEventListener('change', updateExerciseExplorer);
+});
+document.getElementById('exGroupedTable').addEventListener('click', (e) => {
+  const btn = e.target.closest('.ex-row-btn');
+  if (!btn) return;
+  const ex = EXERCISES.find(x => x.name === btn.dataset.name);
+  if (ex) selectExercise(ex);
+});
+
+selectExercise(EXERCISES[0]);
+updateExerciseExplorer();
 
 /* ============================================================
    6. FAQ 아코디언

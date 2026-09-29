@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>목표 심박수 구간 계산기 - Karvonen 공식 | My Kcal</title>
+<meta name="description" content="나이와 안정시 심박수를 입력하면 Karvonen 공식으로 운동 강도별 목표 심박수 구간을 계산해드립니다.">
+<link rel="canonical" href="https://my-kcal.com/tools/heart-rate-zone.html">
+<link rel="icon" href="../favicon-32.png" sizes="32x32" type="image/png">
+<link rel="icon" href="../favicon-192.png" sizes="192x192" type="image/png">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebApplication",
+  "name": "목표 심박수 구간 계산기 - My Kcal",
+  "applicationCategory": "HealthApplication",
+  "operatingSystem": "Web",
+  "url": "https://my-kcal.com/tools/heart-rate-zone.html",
+  "offers": { "@type": "Offer", "price": "0", "priceCurrency": "KRW" }
+}
+</script>
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8338690631070562"
+     crossorigin="anonymous"></script>
+<script src="https://cdn.tailwindcss.com"></script>
+<script>
+  tailwind.config = { theme: { extend: { colors: { brand: { DEFAULT: '#FF6B00', dark: '#FF5722', light: '#FFF1E6' }, cream: '#F7F6F3' } } } };
+</script>
+<style>
+  body { font-family: -apple-system, BlinkMacSystemFont, "Apple SD Gothic Neo", "Pretendard", "Malgun Gothic", sans-serif; }
+  h1 { word-break: keep-all; overflow-wrap: break-word; }
+  .logo-img { mix-blend-mode: multiply; }
+</style>
+</head>
+<body class="bg-cream text-gray-900 antialiased">
+
+<header class="border-b border-gray-200">
+  <div class="max-w-2xl mx-auto px-4 py-4">
+    <a href="../index.html" class="inline-flex items-center gap-2">
+      <img src="../logo.png" alt="My Kcal 로고" class="logo-img h-8 w-auto">
+      <span class="font-extrabold text-lg tracking-tight">My Kcal</span>
+    </a>
+  </div>
+</header>
+
+<main class="max-w-2xl mx-auto px-4 py-10">
+  <a href="../index.html" class="text-sm text-brand font-semibold">&larr; 홈으로</a>
+  <p class="text-xs text-gray-400 mt-4">건강 계산기</p>
+  <h1 class="text-2xl font-extrabold mt-1 mb-3">목표 심박수 구간 계산기</h1>
+  <p class="text-sm text-gray-500 mb-6">Karvonen 공식(심박수 예비량 방식)으로 유산소 운동 시 참고할 수 있는 강도별 목표 심박수 구간을 계산합니다.</p>
+
+  <div class="bg-white border border-gray-200 rounded-2xl p-6 md:p-8 shadow-sm">
+    <form id="hrForm" class="space-y-5" novalidate>
+      <div class="grid grid-cols-2 gap-3">
+        <label class="block">
+          <span class="text-xs font-semibold text-gray-500">나이 (세)</span>
+          <input id="hrAge" type="number" value="25" min="10" max="100" class="mt-1 w-full border border-gray-200 rounded-lg px-3 py-2 text-sm focus:outline-brand">
+        </label>
+        <label class="block">
+          <span class="text-xs font-semibold text-gray-500">안정시 심박수 (bpm)</span>
+          <input id="hrRest" type="number" value="70" min="30" max="120" class="mt-1 w-full border border-gray-200 rounded-lg px-3 py-2 text-sm focus:outline-brand">
+        </label>
+      </div>
+      <p id="hrError" class="hidden text-sm text-red-600 font-medium bg-red-50 border border-red-200 rounded-lg px-3 py-2"></p>
+      <button type="submit" class="w-full bg-gray-900 hover:bg-gray-700 text-white font-bold py-3.5 rounded-xl transition">계산하기</button>
+    </form>
+    <div id="hrResult" class="hidden mt-6">
+      <div class="overflow-x-auto">
+        <table class="w-full text-sm border-collapse">
+          <thead><tr class="border-b border-gray-200 text-gray-500 text-xs"><th class="text-left py-2 pr-3">강도</th><th class="text-left py-2">목표 심박수(bpm)</th></tr></thead>
+          <tbody id="hrTableBody"></tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+
+  <div class="mt-8 text-sm text-gray-600 leading-relaxed space-y-4">
+    <div>
+      <h2 class="font-bold text-gray-800 mb-2">계산 공식(Karvonen 공식)</h2>
+      <pre class="bg-gray-900 text-gray-100 rounded-xl p-4 text-xs overflow-x-auto">최대 심박수(추정) = 220 − 나이
+목표 심박수 = (최대 심박수 − 안정시 심박수) × 강도(%) + 안정시 심박수</pre>
+      <p class="mt-2">예를 들어 25세, 안정시 심박수 70bpm이라면 추정 최대 심박수는 220−25=195bpm이고, 강도 60%에서 목표 심박수는 (195−70)×0.6+70=145bpm으로 계산됩니다.</p>
+    </div>
+    <div>
+      <h2 class="font-bold text-gray-800 mb-2">이 추정치의 한계</h2>
+      <p>"220 − 나이" 공식은 최대 심박수를 추정하는 널리 쓰이는 근사식이지만, 개인차가 상당히 클 수 있다고 알려져 있습니다. 실제 최대 심박수를 정확히 알고 싶다면 전문적인 운동부하검사가 필요하며, 이 계산기의 결과는 일반적인 참고용 구간으로 활용해주세요. 심장 관련 질환이 있는 경우 운동 강도를 정하기 전 의료진과 상담하시길 권장합니다.</p>
+    </div>
+
+  </div>
+
+  <div class="mt-8 pt-6 border-t border-gray-200">
+    <h2 class="text-xs font-bold text-gray-400 mb-2">관련 도구 및 글</h2>
+    <ul class="text-sm space-y-1.5">
+      <li><a href="one-rep-max.html" class="text-brand font-semibold">1RM(최대 근력) 계산기 &rarr;</a></li>
+      <li><a href="steps-calories.html" class="text-brand font-semibold">걸음수 칼로리 계산기 &rarr;</a></li>
+      <li><a href="../articles/exercise-met.html" class="text-brand font-semibold">운동 소모 칼로리, MET 지수로 계산하는 원리 &rarr;</a></li>
+    </ul>
+  </div>
+
+  <div class="mt-6 bg-white border border-gray-200 rounded-2xl p-6 text-center">
+    <p class="text-sm text-gray-600 mb-3">오늘 운동으로 소모한 칼로리도 계산해보세요.</p>
+    <a href="../index.html" class="inline-block bg-gray-900 text-white text-sm font-bold px-5 py-2.5 rounded-full hover:bg-gray-700 transition">운동 칼로리 계산기로 이동</a>
+  </div>
+</main>
+
+<footer class="border-t border-gray-200 mt-10">
+  <div class="max-w-2xl mx-auto px-4 py-8 text-sm text-gray-500">
+    <div class="flex flex-wrap gap-x-6 gap-y-2 mb-4 font-medium">
+      <a href="../index.html#about" class="hover:text-brand">사이트 소개</a>
+      <a href="../privacy.html" class="hover:text-brand">개인정보처리방침</a>
+      <a href="../terms.html" class="hover:text-brand">이용약관</a>
+      <a href="../disclaimer.html" class="hover:text-brand">면책조항</a>
+      <a href="../contact.html" class="hover:text-brand">문의하기</a>
+    </div>
+    <p class="text-xs text-gray-400">&copy; 2026 My Kcal. All rights reserved.</p>
+  </div>
+</footer>
+
+<script>
+(function renderLogo() {
+  const imgEl = document.querySelector('.logo-img');
+  if (!imgEl) return;
+  const src = imgEl.getAttribute('src');
+  const img = new Image();
+  img.onload = () => {
+    const off = document.createElement('canvas');
+    off.width = img.width; off.height = img.height;
+    const octx = off.getContext('2d');
+    octx.drawImage(img, 0, 0);
+    const data = octx.getImageData(0, 0, off.width, off.height);
+    const d = data.data;
+    let minX = off.width, minY = off.height, maxX = 0, maxY = 0;
+    const floor = 200, ceil = 250;
+    for (let y = 0; y < off.height; y++) {
+      for (let x = 0; x < off.width; x++) {
+        const i = (y * off.width + x) * 4;
+        const whiteness = Math.min(d[i], d[i+1], d[i+2]);
+        if (whiteness <= floor) {
+          if (x < minX) minX = x; if (x > maxX) maxX = x;
+          if (y < minY) minY = y; if (y > maxY) maxY = y;
+        }
+        if (whiteness > floor) {
+          const fade = Math.min(1, (whiteness - floor) / (ceil - floor));
+          d[i+3] = Math.round(d[i+3] * (1 - fade));
+        }
+      }
+    }
+    octx.putImageData(data, 0, 0);
+    const pad = 12;
+    const cropX = Math.max(0, minX - pad);
+    const cropY = Math.max(0, minY - pad);
+    const cropW = Math.min(off.width, maxX + pad) - cropX;
+    const cropH = Math.min(off.height, maxY + pad) - cropY;
+    const canvas = document.createElement('canvas');
+    canvas.width = cropW; canvas.height = cropH;
+    canvas.className = imgEl.className.replace('logo-img', '') + ' logo-img h-8 w-auto';
+    canvas.getContext('2d').drawImage(off, cropX, cropY, cropW, cropH, 0, 0, cropW, cropH);
+    imgEl.replaceWith(canvas);
+  };
+  img.src = src;
+})();
+
+(function hrZoneCalculator() {
+  const LIMITS = { age: { min: 10, max: 100 }, rest: { min: 30, max: 120 } };
+  const ZONES = [
+    { label: '가벼운 활동 (50~60%)', from: 0.5, to: 0.6 },
+    { label: '지방 연소 (60~70%)', from: 0.6, to: 0.7 },
+    { label: '유산소 (70~80%)', from: 0.7, to: 0.8 },
+    { label: '고강도 (80~90%)', from: 0.8, to: 0.9 },
+  ];
+
+  function showError(msg) {
+    const el = document.getElementById('hrError');
+    el.textContent = msg;
+    el.classList.remove('hidden');
+  }
+
+  document.getElementById('hrForm').addEventListener('submit', (e) => {
+    e.preventDefault();
+    document.getElementById('hrError').classList.add('hidden');
+    document.getElementById('hrResult').classList.add('hidden');
+
+    const ageRaw = document.getElementById('hrAge').value.trim();
+    const restRaw = document.getElementById('hrRest').value.trim();
+    if (ageRaw === '' || restRaw === '') { showError('나이와 안정시 심박수를 모두 입력해주세요.'); return; }
+
+    const age = Number(ageRaw), rest = Number(restRaw);
+    if (!Number.isFinite(age) || !Number.isFinite(rest)) { showError('숫자만 입력해주세요.'); return; }
+    if (age < LIMITS.age.min || age > LIMITS.age.max) { showError(`나이는 ${LIMITS.age.min}~${LIMITS.age.max}세 사이로 입력해주세요.`); return; }
+    if (rest < LIMITS.rest.min || rest > LIMITS.rest.max) { showError(`안정시 심박수는 ${LIMITS.rest.min}~${LIMITS.rest.max}bpm 사이로 입력해주세요.`); return; }
+
+    const maxHr = 220 - age;
+    const reserve = maxHr - rest;
+
+    document.getElementById('hrTableBody').innerHTML = ZONES.map(z => {
+      const lo = Math.round(reserve * z.from + rest);
+      const hi = Math.round(reserve * z.to + rest);
+      return `<tr class="border-b border-gray-100"><td class="py-2 pr-3">${z.label}</td><td class="py-2 font-semibold">${lo} ~ ${hi}</td></tr>`;
+    }).join('');
+    document.getElementById('hrResult').classList.remove('hidden');
+  });
+})();
+</script>
+</body>
+</html>

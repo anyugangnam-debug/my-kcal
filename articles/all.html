@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>전체 칼럼 - 다이어트·칼로리·영양·운동 정보 | My Kcal</title>
+<meta name="description" content="칼로리, 영양소, 운동, 식품안전, 생활습관까지 카테고리별로 정리한 My Kcal의 전체 전문 정보 칼럼입니다.">
+<link rel="canonical" href="https://my-kcal.com/articles/all.html">
+<link rel="icon" href="../favicon-32.png" sizes="32x32" type="image/png">
+<link rel="icon" href="../favicon-192.png" sizes="192x192" type="image/png">
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8338690631070562"
+     crossorigin="anonymous"></script>
+<script src="https://cdn.tailwindcss.com"></script>
+<script>
+  tailwind.config = { theme: { extend: { colors: { brand: { DEFAULT: '#FF6B00', dark: '#FF5722', light: '#FFF1E6' }, cream: '#F7F6F3' } } } };
+</script>
+<style>
+  body { font-family: -apple-system, BlinkMacSystemFont, "Apple SD Gothic Neo", "Pretendard", "Malgun Gothic", sans-serif; }
+  h1 { word-break: keep-all; overflow-wrap: break-word; }
+  .logo-img { mix-blend-mode: multiply; }
+</style>
+</head>
+<body class="bg-cream text-gray-900 antialiased">
+
+<header class="border-b border-gray-200">
+  <div class="max-w-2xl mx-auto px-4 py-4">
+    <a href="../index.html" class="inline-flex items-center gap-2">
+      <img src="../logo.png" alt="My Kcal 로고" class="logo-img h-8 w-auto">
+      <span class="font-extrabold text-lg tracking-tight">My Kcal</span>
+    </a>
+  </div>
+</header>
+
+<main class="max-w-2xl mx-auto px-4 py-10">
+  <a href="../index.html" class="text-sm text-brand font-semibold">&larr; 홈으로</a>
+  <h1 class="text-2xl font-extrabold mt-1 mb-2">전체 칼럼</h1>
+  <p class="text-sm text-gray-500 mb-1">칼로리, 영양소, 운동, 식품안전, 생활습관까지 — 근거를 밝힐 수 있는 정보만 정리했습니다.</p>
+  <p class="text-xs text-gray-400 mb-6">모든 글은 의료 전문가 감수가 없는 일반 참고 정보이며, 각 글 하단에 실제 참고자료 출처를 표기합니다.</p>
+
+  <div id="columnFilters" class="flex flex-wrap gap-2 mb-6"></div>
+
+  <div id="columnList" class="grid grid-cols-1 sm:grid-cols-2 gap-4"></div>
+  <p id="columnEmpty" class="hidden text-center text-gray-400 text-sm py-10">해당 카테고리의 글이 아직 없습니다.</p>
+</main>
+
+<footer class="border-t border-gray-200 mt-10">
+  <div class="max-w-2xl mx-auto px-4 py-8 text-sm text-gray-500">
+    <div class="flex flex-wrap gap-x-6 gap-y-2 mb-4 font-medium">
+      <a href="../index.html#about" class="hover:text-brand">사이트 소개</a>
+      <a href="../privacy.html" class="hover:text-brand">개인정보처리방침</a>
+      <a href="../terms.html" class="hover:text-brand">이용약관</a>
+      <a href="../disclaimer.html" class="hover:text-brand">면책조항</a>
+      <a href="../contact.html" class="hover:text-brand">문의하기</a>
+    </div>
+    <p class="text-xs text-gray-400">&copy; 2026 My Kcal. All rights reserved.</p>
+  </div>
+</footer>
+
+<script>
+(function renderLogo() {
+  const imgEl = document.querySelector('.logo-img');
+  if (!imgEl) return;
+  const src = imgEl.getAttribute('src');
+  const img = new Image();
+  img.onload = () => {
+    const off = document.createElement('canvas');
+    off.width = img.width; off.height = img.height;
+    const octx = off.getContext('2d');
+    octx.drawImage(img, 0, 0);
+    const data = octx.getImageData(0, 0, off.width, off.height);
+    const d = data.data;
+    let minX = off.width, minY = off.height, maxX = 0, maxY = 0;
+    const floor = 200, ceil = 250;
+    for (let y = 0; y < off.height; y++) {
+      for (let x = 0; x < off.width; x++) {
+        const i = (y * off.width + x) * 4;
+        const whiteness = Math.min(d[i], d[i+1], d[i+2]);
+        if (whiteness <= floor) {
+          if (x < minX) minX = x; if (x > maxX) maxX = x;
+          if (y < minY) minY = y; if (y > maxY) maxY = y;
+        }
+        if (whiteness > floor) {
+          const fade = Math.min(1, (whiteness - floor) / (ceil - floor));
+          d[i+3] = Math.round(d[i+3] * (1 - fade));
+        }
+      }
+    }
+    octx.putImageData(data, 0, 0);
+    const pad = 12;
+    const cropX = Math.max(0, minX - pad);
+    const cropY = Math.max(0, minY - pad);
+    const cropW = Math.min(off.width, maxX + pad) - cropX;
+    const cropH = Math.min(off.height, maxY + pad) - cropY;
+    const canvas = document.createElement('canvas');
+    canvas.width = cropW; canvas.height = cropH;
+    canvas.className = imgEl.className.replace('logo-img', '') + ' logo-img h-8 w-auto';
+    canvas.getContext('2d').drawImage(off, cropX, cropY, cropW, cropH, 0, 0, cropW, cropH);
+    imgEl.replaceWith(canvas);
+  };
+  img.src = src;
+})();
+
+const CATEGORY_LABELS = {
+  calorie: '칼로리·체중관리',
+  nutrition: '영양소·식단',
+  exercise: '운동',
+  foodsafety: '식품·음식',
+  lifestyle: '생활습관',
+};
+
+const COLUMNS = [
+  { title: 'BMR과 TDEE의 생리학적 차이, 올바른 칼로리 적자 설정법', desc: '기초대사량과 TDEE의 차이, BMR 아래로 먹으면 안 되는 이유를 알아봅니다.', href: 'bmr-tdee.html', category: 'calorie' },
+  { title: '체지방 1kg 감량에 필요한 7,700kcal, 요요 없이 빼는 속도', desc: '7,700kcal 환산의 원리와 지속 가능한 감량 속도를 알아봅니다.', href: 'calorie-deficit.html', category: 'calorie' },
+  { title: '단순 칼로리 제한 vs 매크로(탄단지) 비율, 신진대사에 미치는 영향', desc: '같은 칼로리라도 탄단지 비율에 따라 몸의 반응이 달라지는 이유입니다.', href: 'macro-ratio.html', category: 'nutrition' },
+  { title: '매일 아침 체중이 오르내리는 이유: 글리코겐과 수분의 원리', desc: '하루 단위 체중 변동의 원인과 올바른 체중 측정 습관을 알아봅니다.', href: 'glycogen-water.html', category: 'calorie' },
+  { title: '벌크업 칼로리 계산법 - 몸무게별 권장 섭취량과 매크로 비율', desc: '벌크업 칼로리 계산 공식부터 클린벌크·더티벌크 차이까지 정리했습니다.', href: 'bulk-calorie.html', category: 'calorie' },
+  { title: '식품 영양성분표, 1회 제공량과 100g 기준 헷갈리지 않게 읽는 법', desc: '영양표시 기준을 헷갈려서 칼로리를 과소평가하지 않는 방법입니다.', href: 'nutrition-label.html', category: 'nutrition' },
+  { title: '목표 칼로리와 실제 섭취량을 비교하는 기록법', desc: '계획과 실제 섭취량 차이를 확인하는 구체적인 기록 방법입니다.', href: 'tracking-log.html', category: 'calorie' },
+  { title: '운동 소모 칼로리, MET 지수로 계산하는 원리와 오차 요인', desc: 'MET 지수의 정의와 계산 공식, 표준값의 한계를 알아봅니다.', href: 'exercise-met.html', category: 'exercise' },
+{ title: "카페인 하루 권장 섭취 한도와 초과 시 주의할 점", desc: "FDA·식약처 기준 카페인 하루 권장량과 임산부·청소년 별도 기준을 정리했습니다.", href: "caffeine-limit.html", category: "foodsafety" },
+  { title: "나트륨 섭취, WHO 권장량과 실천 방법", desc: "WHO가 권고하는 하루 나트륨 섭취 한도(2g 미만)와 실천 방법을 정리했습니다.", href: "sodium-intake.html", category: "nutrition" },
+  { title: "트랜스지방이 건강에 해로운 이유와 WHO 권고 기준", desc: "WHO가 권고하는 트랜스지방 섭취 상한(총에너지 1% 미만)을 정리했습니다.", href: "transfat.html", category: "nutrition" },
+  { title: "가공육과 암 위험, IARC \"Group 1\" 분류가 실제로 뜻하는 것", desc: "IARC의 가공육 Group 1 분류가 \"얼마나 위험한지\"가 아니라 \"증거가 얼마나 확실한지\"를 뜻한다는 점을 설명합니다.", href: "processed-meat.html", category: "foodsafety" },
+  { title: "하루 물 섭취량, 정말 \"8잔\"이 정답일까", desc: "미국 국립학술원 기준 하루 총수분 섭취량(음식 포함, 남성 약 3.7L·여성 약 2.7L)을 정리했습니다.", href: "water-intake-guideline.html", category: "lifestyle" },
+  { title: "비타민D 하루 권장 섭취량과 결핍 기준", desc: "NIH 기준 비타민D 하루 권장량(600~800IU)과 결핍 판단 기준을 정리했습니다.", href: "vitamin-d-basics.html", category: "nutrition" },
+  { title: "식이섬유 하루 권장 섭취량, 얼마나 먹어야 할까", desc: "2020 한국인 영양소 섭취기준 기준 식이섬유 충분섭취량(남 30g·여 20g)을 정리했습니다.", href: "fiber-intake.html", category: "nutrition" },
+  { title: "근력운동이 기초대사량을 높인다는 말, 근거가 있을까", desc: "저항운동이 안정시대사량을 높인다는 체계적 문헌고찰(2020)의 결론을 정리했습니다.", href: "strength-training-rmr.html", category: "exercise" },
+  { title: "체지방 감소, 유산소 운동과 저항운동 중 뭐가 더 나을까", desc: "유산소·저항·복합 운동의 체지방 감소 효과를 비교한 2025년 메타분석 결과를 정리했습니다.", href: "cardio-vs-resistance.html", category: "exercise" },
+  { title: "수면 부족이 식욕을 자극하는 이유: 렙틴과 그렐린", desc: "수면 부족이 식욕 호르몬(렙틴↓·그렐린↑)에 미치는 영향을 다룬 2004년 연구를 정리했습니다.", href: "sleep-appetite.html", category: "lifestyle" },
+  { title: "프로바이오틱스란 무엇인가, WHO/FAO 공식 정의로 알아보기", desc: "WHO/FAO 공동 정의로 \"프로바이오틱스\"가 정확히 무엇을 뜻하는지 정리했습니다.", href: "probiotics-definition.html", category: "nutrition" },
+  { title: "식품 알레르기 표시 의무 성분 21종, 식약처 기준", desc: "식약처가 정한 알레르기 유발 표시 의무 성분 21종 목록을 정리했습니다.", href: "food-allergen-labeling.html", category: "foodsafety" },
+  { title: "폐경기에 체중이 늘기 쉬운 이유", desc: "폐경 전후 체중이 늘기 쉬운 생리학적 배경(에스트로겐 감소·근육량 감소)을 정리했습니다.", href: "menopause-weight-gain.html", category: "lifestyle" },
+  { title: "요요현상은 왜 일어날까: 대사보다 식욕이 더 크게 작용한다", desc: "요요현상의 원인이 대사 저하보다 식욕 증가에 있다는 연구(2018)를 정리했습니다.", href: "yoyo-effect.html", category: "calorie" },
+  { title: "운동 후 단백질, 30분 안에 꼭 먹어야 할까: \"아나볼릭 윈도우\"의 진실", desc: "단백질 섭취 타이밍보다 하루 총 단백질량이 더 중요하다는 메타분석을 정리했습니다.", href: "protein-timing.html", category: "exercise" },
+  { title: "운동 전 스트레칭, 부상을 정말 막아줄까", desc: "스트레칭만으로 부상을 확실히 예방한다는 근거는 약하다는 연구를 정리했습니다.", href: "stretching-injury-prevention.html", category: "exercise" },
+  { title: "만성 스트레스가 뱃살을 늘린다는 말, 근거가 있을까", desc: "코르티솔과 복부비만의 연관성을 다룬 리뷰 연구(2018)를 정리했습니다.", href: "stress-cortisol-belly-fat.html", category: "lifestyle" },
+  { title: "WHO의 비만 공식 정의와 전 세계 통계", desc: "WHO 기준 과체중(BMI 25↑)·비만(BMI 30↑) 정의와 전 세계 통계를 정리했습니다.", href: "who-obesity-definition.html", category: "calorie" },
+  { title: "초가공식품이란 무엇인가: NOVA 분류로 알아보기", desc: "NOVA 분류체계로 본 \"초가공식품\"의 정의와 관련 코호트 연구를 정리했습니다.", href: "ultra-processed-food.html", category: "foodsafety" },
+  { title: "같은 칼로리라도 늦게 먹으면 다를까: 야식과 체중의 관계", desc: "같은 칼로리라도 늦게 먹으면 공복감이 늘고 에너지 소비가 준다는 연구(2022)를 정리했습니다.", href: "late-night-eating.html", category: "lifestyle" },
+  { title: "오메가3 지방산, 하루 얼마나 먹어야 할까", desc: "NIH 기준 오메가3 지방산(ALA) 충분섭취량(남 1.6g·여 1.1g)을 정리했습니다.", href: "omega3-fatty-acids.html", category: "nutrition" },
+  { title: "철분 하루 권장 섭취량과 빈혈 진단 기준", desc: "NIH 기준 철분 권장섭취량(여성 18mg·남성 8mg)과 빈혈 진단 기준을 정리했습니다.", href: "iron-intake.html", category: "nutrition" },
+  { title: "칼슘 하루 권장 섭취량과 골다공증 예방", desc: "NIH 기준 연령별 칼슘 권장섭취량(성인 1,000~1,200mg)을 정리했습니다.", href: "calcium-intake.html", category: "nutrition" },
+  { title: "첨가당, WHO는 하루 얼마까지 권고할까", desc: "WHO 권고 첨가당 섭취 상한(총에너지 10% 미만, 이상적 5% 미만)을 정리했습니다.", href: "added-sugar-who.html", category: "nutrition" },
+  { title: "포화지방, WHO 권고 상한선은 얼마일까", desc: "WHO 권고 포화지방 섭취 상한(총에너지 10% 이하)을 정리했습니다.", href: "saturated-fat-who.html", category: "nutrition" },
+  { title: "단백질, 일반적으로 하루 얼마나 필요할까(WHO/FAO 기준)", desc: "WHO/FAO 기준 좌식 생활 성인의 단백질 안전섭취수준(체중 kg당 0.83g)을 정리했습니다.", href: "protein-rda-who.html", category: "nutrition" },
+  { title: "칼륨 섭취와 혈압의 관계, WHO는 어떻게 권고할까", desc: "WHO 권고 칼륨 섭취량(하루 3,510mg 이상)과 혈압 관리 효과를 정리했습니다.", href: "potassium-blood-pressure.html", category: "nutrition" },
+  { title: "WHO 성인 신체활동 권장량, 주당 몇 분이 기준일까", desc: "WHO 권장 성인 신체활동량(주 150~300분 중강도 또는 75~150분 고강도)을 정리했습니다.", href: "who-physical-activity.html", category: "exercise" },
+  { title: "오래 앉아있는 습관, WHO는 왜 줄이라고 할까", desc: "WHO의 좌식 시간 제한 권고와 관련 건강 위험을 정리했습니다.", href: "sedentary-behavior-risk.html", category: "lifestyle" },
+  { title: "사코페니아(근감소증)란 무엇인가, 진단 기준으로 알아보기", desc: "AWGS 2019 기준 근감소증 진단 기준(악력·보행속도)을 정리했습니다.", href: "sarcopenia-definition.html", category: "exercise" },
+  { title: "마그네슘 하루 권장 섭취량", desc: "NIH 기준 성인 마그네슘 권장섭취량(남 400~420mg·여 310~320mg)을 정리했습니다.", href: "magnesium-intake.html", category: "nutrition" },
+  { title: "\"유통기한\"에서 \"소비기한\"으로, 무엇이 달라졌나", desc: "2023년 시행된 소비기한 표시제와 기존 유통기한의 차이를 정리했습니다.", href: "expiry-to-use-by-date.html", category: "foodsafety" },
+  { title: "식중독 예방 3대 요령, 식약처 기준", desc: "식약처가 안내하는 식중독 예방 3대 요령을 정리했습니다.", href: "food-poisoning-prevention.html", category: "foodsafety" },
+  { title: "냉장고·냉동고, 몇 도로 맞춰야 할까", desc: "식품 보관 권장 온도 기준(냉장 0~10℃·냉동 -18℃ 이하)을 정리했습니다.", href: "fridge-freezer-temperature.html", category: "foodsafety" },
+  { title: "위험 음주 기준, 나는 해당할까", desc: "질병관리청 기준 고위험 음주·월간 폭음 정의를 정리했습니다.", href: "alcohol-risk-guideline.html", category: "lifestyle" },
+  { title: "비타민B12 하루 권장량과 결핍 진단 기준", desc: "NIH 기준 비타민B12 권장섭취량(성인 2.4mcg)과 결핍 지표를 정리했습니다.", href: "vitamin-b12-intake.html", category: "nutrition" },
+  { title: "엽산, 임신부에게 왜 더 중요할까", desc: "NIH 기준 임신부 엽산 권장섭취량(600mcg DFE)과 신경관결손 예방 효과를 정리했습니다.", href: "folate-pregnancy.html", category: "nutrition" },
+  { title: "아연 하루 권장 섭취량", desc: "NIH 기준 아연 권장섭취량(남 11mg·여 8mg)과 상한섭취량(40mg)을 정리했습니다.", href: "zinc-intake.html", category: "nutrition" },
+  { title: "체중 \"세트포인트\" 이론이란 무엇인가", desc: "체중 세트포인트 이론과, 세트포인트가 고정되지 않는다는 최신 연구 관점을 정리했습니다.", href: "set-point-theory.html", category: "calorie" },
+  { title: "NEAT: 운동이 아닌 일상 움직임이 체중에 미치는 영향", desc: "NEAT(비운동 활동 열생성) 개념을 정립한 1999년 연구를 정리했습니다.", href: "neat-concept.html", category: "calorie" },
+  { title: "간헐적 단식, 일반 식단 조절보다 특별히 더 효과적일까", desc: "간헐적 단식과 일반 칼로리 제한의 체중 감량 효과가 비슷하다는 메타분석을 정리했습니다.", href: "intermittent-fasting-evidence.html", category: "calorie" },
+  { title: "아침·점심에 많이 먹는 게 체중 관리에 유리하다는 관찰연구", desc: "저녁 위주 식사 패턴과 비만 위험 증가를 다룬 관찰연구(Bo 2014 등)를 정리했습니다.", href: "meal-timing-distribution.html", category: "lifestyle" },
+];
+
+function renderFilters() {
+  const wrap = document.getElementById('columnFilters');
+  const cats = ['all', ...Object.keys(CATEGORY_LABELS)];
+  wrap.innerHTML = cats.map(c => `
+    <button type="button" data-cat="${c}" class="col-filter-btn px-3.5 py-1.5 rounded-full text-xs font-semibold border transition ${c === 'all' ? 'bg-gray-900 text-white border-gray-900' : 'bg-white text-gray-600 border-gray-200 hover:border-brand'}">${c === 'all' ? `전체 (${COLUMNS.length})` : `${CATEGORY_LABELS[c]} (${COLUMNS.filter(x => x.category === c).length})`}</button>
+  `).join('');
+}
+
+function renderList(cat) {
+  const list = cat === 'all' ? COLUMNS : COLUMNS.filter(c => c.category === cat);
+  document.getElementById('columnList').innerHTML = list.map(c => `
+    <a href="${c.href}" class="block bg-white border border-gray-200 rounded-2xl p-5 hover:border-brand transition">
+      <span class="text-[11px] font-semibold text-brand bg-brand-light px-2 py-0.5 rounded-full">${CATEGORY_LABELS[c.category]}</span>
+      <h3 class="font-bold mt-2 mb-1.5 leading-snug">${c.title}</h3>
+      <p class="text-sm text-gray-500 leading-relaxed">${c.desc}</p>
+    </a>
+  `).join('');
+  document.getElementById('columnList').classList.toggle('hidden', list.length === 0);
+  document.getElementById('columnEmpty').classList.toggle('hidden', list.length !== 0);
+}
+
+renderFilters();
+renderList('all');
+
+document.getElementById('columnFilters').addEventListener('click', (e) => {
+  const btn = e.target.closest('.col-filter-btn');
+  if (!btn) return;
+  document.querySelectorAll('.col-filter-btn').forEach(b => {
+    const active = b === btn;
+    b.classList.toggle('bg-gray-900', active);
+    b.classList.toggle('text-white', active);
+    b.classList.toggle('border-gray-900', active);
+    b.classList.toggle('bg-white', !active);
+    b.classList.toggle('text-gray-600', !active);
+    b.classList.toggle('border-gray-200', !active);
+  });
+  renderList(btn.dataset.cat);
+});
+</script>
+</body>
+</html>
